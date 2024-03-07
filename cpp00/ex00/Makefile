@@ -6,7 +6,7 @@
 #    By: smclacke <smclacke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/03/07 11:56:06 by smclacke      #+#    #+#                  #
-#    Updated: 2024/03/07 12:33:29 by smclacke      ########   odam.nl          #
+#    Updated: 2024/03/07 12:40:38 by smclacke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME			= megaphone
 CC				= c++
 CPPFLAGS		= -Wall -Wextra -Werror -std=c++98
 
-SRCS			= megaphone.cpp
+SRCS			= megaphone.cpp		\
 
 OBJS			= $(SRCS:%.cpp=%.o)
 
@@ -24,7 +24,7 @@ all			: $(NAME)
 $(NAME)		: $(OBJS)
 	@ echo "${BLACK} $(NAME) compiling...${RESET}"
 	@ $(CC) $^ $(CPPFLAGS) -o $(NAME)
-	@ echo "${BLACK} $(NAME) Made!${RESET}"
+	@ echo "${BLACK} $(NAME) made!${RESET}"
 	
 $(OBJS)%.o:$(SRCS)%.cpp
 	@ $(CC) $(CPPFLAGS) -c $< -o $@
@@ -34,7 +34,7 @@ clean		:
 
 fclean		: clean
 	@ rm -f $(NAME)
-	@ echo "${YELLOW} $(NAME) fCleaned!${RESET}"
+	@ echo "${YELLOW} $(NAME) fcleaned!${RESET}"
 
 re			: fclean all
 

@@ -6,7 +6,62 @@
 #    By: SarahLouise <SarahLouise@student.codam.      +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/12/27 14:36:54 by SarahLouise   #+#    #+#                  #
-#    Updated: 2023/12/27 14:36:54 by SarahLouise   ########   odam.nl          #
+#    Updated: 2024/03/07 12:47:15 by smclacke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
+NAME			= account
+
+INCLUDE			= -Iinclude
+
+CC				= c++
+CPPFLAGS		= -Wall -Wextra -Werror -std=c++98
+
+HEADERS			= Account.hpp
+HEADER_DIR		= include
+HEADER			= $(addprefix $(HEADER_DIR)/, $(HEADERS))
+
+SRCS			= Account.cpp		\
+				test.cpp			\
+
+SRC_DIR			= src
+SRC				= $(addprefix $(SRC_DIR)/, $(SRCS))
+
+OBJ_DIR			= obj
+OBJ				= $(addprefix $(OBJ_DIR)/, $(SRCS:%.cpp=%.o))
+
+
+all			: $(NAME)
+
+$(NAME)		: $(OBJ)
+	@ echo "${BLACK} $(NAME) compiling...${RESET}"
+	@ $(CC) $^ $(CPPFLAGS) $(INCLUDE) -o $(NAME)
+	@ echo "${BLACK} $(NAME) made!${RESET}"
+	
+$(OBJ_DIR)/%.o:$(SRC_DIR)/%.cpp $(HEADER)
+	@ mkdir -p $(OBJ_DIR)
+	@ $(CC) $(CPPFLAGS) $(iNCLUDE) -c $< -o $@
+
+clean		: 
+	@ rm -rf $(OBJ_DIR)
+
+fclean		: clean
+	@ rm -f $(NAME)
+	@ echo "${YELLOW} $(NAME) fcleaned!${RESET}"
+
+re			: fclean all
+
+.PHONY: all clean flcan re
+
+
+
+## Colours ##
+RESET		:= \033[0m
+RED			:= \033[1;91m
+GREEN		:= \033[1;92m
+YELLOW		:= \033[1;93m
+BLUE		:= \033[1;94m
+PURPLE		:= \033[1;95m
+CYAN		:= \033[1;96m
+WHITE		:= \033[1;97m
+BLACK		:= \033[1;90m

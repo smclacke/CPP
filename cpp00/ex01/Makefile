@@ -6,43 +6,53 @@
 #    By: SarahLouise <SarahLouise@student.codam.      +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/12/27 14:36:57 by SarahLouise   #+#    #+#                  #
-#    Updated: 2024/03/07 12:07:03 by smclacke      ########   odam.nl          #
+#    Updated: 2024/03/07 12:43:30 by smclacke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= philo
+NAME			= phonebook
 
 INCLUDE			= -Iinclude
 
-CC				= cc
-CFLAGS			= -Wall -Wextra -Werror 
-# -g -fsanitize=address
-# -g -fsanitize=thread
+CC				= c++
+CPPFLAGS		= -Wall -Wextra -Werror -std=c++98
 
-HEADERS			= philo.h
+HEADERS			= phonebook.hpp
 HEADER_DIR		= include
 HEADER			= $(addprefix $(HEADER_DIR)/, $(HEADERS))
 
-SRCS		= main.c						\
-				init_input.c				\
-				init_philos.c				\
-				time.c						\
-				mutexes.c					\
-				life_cycle.c				\
-				monitor.c					\
-				routine.c					\
-				lone_philo.c				\
-				destroy_mutexes.c			\
-				error.c						\
-				ft_atoi.c					\
-				utils.c
+SRCS			= phonebook.cpp		\
+
+SRC_DIR			= src
+SRC				= $(addprefix $(SRC_DIR)/, $(SRCS))
+
+OBJ_DIR			= obj
+OBJ				= $(addprefix $(OBJ_DIR)/, $(SRCS:%.cpp=%.o))
 
 
-SRC_DIR		= src
-SRC			= $(addprefix $(SRC_DIR)/, $(SRCS))
+all			: $(NAME)
 
-OBJ_DIR		= obj
-OBJ			= $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
+$(NAME)		: $(OBJ)
+	@ echo "${BLACK} $(NAME) compiling...${RESET}"
+	@ $(CC) $^ $(CPPFLAGS) $(INCLUDE) -o $(NAME)
+	@ echo "${BLACK} $(NAME) made!${RESET}"
+	
+$(OBJ_DIR)/%.o:$(SRC_DIR)/%.cpp $(HEADER)
+	@ mkdir -p $(OBJ_DIR)
+	@ $(CC) $(CPPFLAGS) $(iNCLUDE) -c $< -o $@
+
+clean		: 
+	@ rm -rf $(OBJ_DIR)
+
+fclean		: clean
+	@ rm -f $(NAME)
+	@ echo "${YELLOW} $(NAME) fcleaned!${RESET}"
+
+re			: fclean all
+
+.PHONY: all clean flcan re
+
+
 
 ## Colours ##
 RESET		:= \033[0m
@@ -54,25 +64,3 @@ PURPLE		:= \033[1;95m
 CYAN		:= \033[1;96m
 WHITE		:= \033[1;97m
 BLACK		:= \033[1;90m
-
-all			: $(NAME)
-
-$(NAME)		: $(OBJ)
-	@ echo "${CYAN} >>> philo compiling...${RESET}"
-	@ $(CC) $^ $(CFLAGS) $(INCLUDE) -o $(NAME)
-	@ echo "${GREEN} ---> philo Made!${RESET}"
-	
-$(OBJ_DIR)/%.o:$(SRC_DIR)/%.c $(HEADER)
-	@ mkdir -p $(OBJ_DIR)
-	@ $(CC) $(CFLAGS) $(iNCLUDE) -c $< -o $@
-
-clean		: 
-	@ rm -rf $(OBJ_DIR)
-
-fclean		: clean
-	@ rm -f $(NAME)
-	@ echo "${YELLOW} // philo fCleaned!${RESET}"
-
-re			: fclean all
-
-.PHONY: all clean flcan re
