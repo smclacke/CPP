@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   megaphone copy.cpp                                 :+:    :+:            */
+/*   megaphone.cpp                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/07 12:23:34 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/07 12:24:22 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/19 17:13:12 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,17 @@
 
 int		main(int argc, char **argv)
 {
-	(void) argc;
-	(void) argv;
-
+	if (argc > 1)
+	{
+		for (int i = 1; char *str = argv[i]; i++)
+		{
+			for (int j = 0; str[j] != '\0'; j++)
+				std::cout << (char(toupper(str[j])));
+			std::cout << " ";
+		}
+		std::cout << std::endl;
+	}
+	else
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 	return (1);
 }
