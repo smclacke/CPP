@@ -35,23 +35,6 @@ class PhoneBook
 }
 
 
-	Contact	temp;
-
-	if (this->_index > 7)
-		std::cout << RED "WARNING! " << RESET << "overwriting Contact" << std::endl;
-
-	while (1)	// First Name
-	{
-		std::cout << BLUE "First name: " << RESET;
-		std::getline(std::cin, _firstName);
-		if (_firstName.empty())
-			std::cout << RED "!" << RESET << "can't be empty. Try again" << std::endl;
-		else
-			break ;
-	}
-	temp.set_firstName(_firstName);
-
-
 
 -----------Shit from Mr Kenny ---------------------
 void	veggie::throw_potato_at_child_face(int amount_speed)
@@ -84,7 +67,6 @@ int main()
 	// bob->~veggie();
 	delete bob;
 }
-
 
 class veggie
 {
