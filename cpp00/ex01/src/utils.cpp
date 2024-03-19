@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   contact.hpp                                        :+:    :+:            */
+/*   utils.cpp                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/03/19 18:27:26 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/19 18:48:45 by smclacke      ########   odam.nl         */
+/*   Created: 2024/03/19 21:13:33 by smclacke      #+#    #+#                 */
+/*   Updated: 2024/03/19 23:05:15 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-# define CONTACT_HPP
+#include "../include/PhoneBook.hpp"
 
-# include <iostream>
+// ---- PRINT FUNCTIONS ---- //
 
-// Contact class - IS an array of contacts
-class Contact
+void	PhoneBook::msg()
 {
-	public:
-		Contact();
-		~Contact();
-};
+	std::cout << "\n\t	*** TOTALLY RADICAL PHONEBOOK ***" << std::endl << std::endl;
+	std::cout << "\tCommand options include: ADD | SEARCH | EXIT" << std::endl;
+}
 
-#endif
+void	PhoneBook::errorMsg()
+{
+	std::cout << "\n\t		ERROR!" << std::endl;
+	std::cout << "\tCommand options include: ADD | SEARCH | EXIT" << std::endl;
+}

@@ -6,18 +6,18 @@
  * classes:
  * 
  * Phonebook
- * - array of contacts
- * - store max 8 contacts (if 9, replace oldest with newest)
+ * - array of Contacts
+ * - store max 8 Contacts (if 9, replace oldest with newest)
  * 
  * 
  * Contact
- * - phonebook contact
+ * - phonebook Contact
  * 
  * 
  * 
  * ??
  * In your code, the phonebook must be instantiated as an instance of the PhoneBook 
- * class. Same thing for the contacts. Each one of them must be instantiated as an instance
+ * class. Same thing for the Contacts. Each one of them must be instantiated as an instance
  * of the Contact class
  * 
  * ADD SEARCH EXIT
@@ -28,11 +28,29 @@
 class PhoneBook
 {
 	private:
-		// Contact class - IS an array of contacts
+		// Contact class - IS an array of Contacts
 	public:
 		PhoneBook();
 		~PhoneBook();
 }
+
+
+	Contact	temp;
+
+	if (this->_index > 7)
+		std::cout << RED "WARNING! " << RESET << "overwriting Contact" << std::endl;
+
+	while (1)	// First Name
+	{
+		std::cout << BLUE "First name: " << RESET;
+		std::getline(std::cin, _firstName);
+		if (_firstName.empty())
+			std::cout << RED "!" << RESET << "can't be empty. Try again" << std::endl;
+		else
+			break ;
+	}
+	temp.set_firstName(_firstName);
+
 
 
 -----------Shit from Mr Kenny ---------------------

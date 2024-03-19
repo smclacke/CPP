@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   contact.cpp                                        :+:    :+:            */
+/*   PhoneBook.hpp                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/03/19 18:37:30 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/19 18:49:46 by smclacke      ########   odam.nl         */
+/*   Created: 2024/03/07 12:36:34 by smclacke      #+#    #+#                 */
+/*   Updated: 2024/03/19 23:03:34 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../include/contact.hpp"
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
-Contact::Contact()
-{
-	std::cout << "Contact constructor called" << std::endl;
-	return ;
-}
+# include <iostream>
+# include <string>
+# include "../include/Contact.hpp"
 
-Contact::~Contact()
+class PhoneBook
 {
-	std::cout << "Contact deconstructor called" << std::endl;
-	return ;
-}
+	private:
+		Contact 		_contact[8];
+
+	public:
+		PhoneBook();
+		~PhoneBook();
+
+	void	addFunc();
+	void	searchFunc();
+
+	void	msg();
+	void	errorMsg();
+};
+
+#endif
