@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/07 12:23:34 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/19 17:15:13 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/19 17:42:52 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,10 @@ int		main(int argc, char **argv)
 		{
 			for (int j = 0; str[j] != '\0'; j++)
 				std::cout << (char(toupper(str[j])));
-			std::cout << " ";
 		}
 		std::cout << std::endl;
 	}
 	else
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	return (1);
+	return (0);
 }
