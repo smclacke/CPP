@@ -6,14 +6,14 @@
 #    By: smclacke <smclacke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/03/07 11:56:06 by smclacke      #+#    #+#                  #
-#    Updated: 2024/03/07 12:40:38 by smclacke      ########   odam.nl          #
+#    Updated: 2024/03/19 18:22:25 by smclacke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= megaphone
 
 CC				= c++
-CPPFLAGS		= -Wall -Wextra -Werror -std=c++98
+CPPFLAGS		= -Wall -Wextra -Werror -std=c++11 -g -fsanitize=address
 
 SRCS			= megaphone.cpp		\
 

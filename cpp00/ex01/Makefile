@@ -6,7 +6,7 @@
 #    By: SarahLouise <SarahLouise@student.codam.      +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/12/27 14:36:57 by SarahLouise   #+#    #+#                  #
-#    Updated: 2024/03/07 12:43:30 by smclacke      ########   odam.nl          #
+#    Updated: 2024/03/19 18:44:37 by smclacke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,13 +15,15 @@ NAME			= phonebook
 INCLUDE			= -Iinclude
 
 CC				= c++
-CPPFLAGS		= -Wall -Wextra -Werror -std=c++98
+CPPFLAGS		= -Wall -Wextra -Werror -std=c++11 -g -fsanitize=address
 
-HEADERS			= phonebook.hpp
+HEADERS			= phonebook.hpp contact.hpp
 HEADER_DIR		= include
 HEADER			= $(addprefix $(HEADER_DIR)/, $(HEADERS))
 
-SRCS			= phonebook.cpp		\
+SRCS			= main.cpp			\
+					contact.cpp		\
+					phonebook.cpp	\
 
 SRC_DIR			= src
 SRC				= $(addprefix $(SRC_DIR)/, $(SRCS))
