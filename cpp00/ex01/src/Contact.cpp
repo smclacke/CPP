@@ -6,17 +6,15 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/19 21:40:19 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/19 23:19:04 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/19 23:35:15 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/Contact.hpp"
 
-
 Contact::Contact(){}
 
-Contact::Contact(std::string first, std::string last, std::string nick, \
-			std::string num, std::string secret)
+Contact::Contact(std::string first, std::string last, std::string nick, std::string num, std::string secret)
 {
 	this->setFirstName(first);
 	this->setLastName(last);
@@ -72,7 +70,6 @@ void	Contact::setSecret(std::string secret)
 
 // ---- getters ---- //
 // get index, check input
-
 
 // prints specified contact
 // void	Contact::printContact() const

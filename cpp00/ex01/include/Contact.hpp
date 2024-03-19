@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/19 18:27:26 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/19 23:18:21 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/19 23:35:08 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ class Contact
 
 	public:
 		Contact();
-		Contact(std::string first, std::string last, std::string nick, \
-			std::string num, std::string secret);
+		Contact(std::string first, std::string last, std::string nick, std::string num, std::string secret);
 		~Contact();
 
 	void		setFirstName(std::string first);
