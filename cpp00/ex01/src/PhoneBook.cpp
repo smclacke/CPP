@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/07 12:36:32 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/20 16:13:43 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/20 17:04:56 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ Contact	setContact()
 {
 	std::string		first, last, nick, num, secret;
 
-	std::cout << "First Name: ";
+	std::cout << "first name: ";
 	std::getline(std::cin, first);
-	std::cout << "Last Name: ";
+	std::cout << "last name: ";
 	std::getline(std::cin, last);
-	std::cout << "Nick Name: ";
+	std::cout << "nickname: ";
 	std::getline(std::cin, nick);
-	std::cout << "Phone Number: ";
+	std::cout << "phone number: ";
 	std::getline(std::cin, num);
-	std::cout << "Darkest Secret: ";
+	std::cout << "darkest secret: ";
 	std::getline(std::cin, secret);
 
 	Contact	newPerson(first, last, nick, num, secret);
@@ -49,7 +49,7 @@ void	PhoneBook::addFunc()
 			std::cout << "Overwriting contact 1..." << std::endl;	
 		}
 		this->_contact[index] = setContact();
-		std::cout << "Contact " << "[" << (index + 1) << "]" << " successfully added yippiee" << std::endl;
+		std::cout << "Contact " << "[" << (index + 1) << "]" << " successfully added, yippiee!!" << std::endl;
 		index++;
 	}
 	catch(const std::exception& e)

@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/19 18:27:26 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/20 16:14:29 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/20 16:56:22 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define CONTACT_HPP
 
 # include <iostream>
+# include <string>
+# include <cstring>
+# include <cctype>
 
 class Contact
 {

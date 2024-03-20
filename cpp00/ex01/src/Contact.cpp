@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/19 21:40:19 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/20 16:19:33 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/20 17:05:32 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	Contact::setFirstName(std::string first)
 	if (first.empty())
 	{
 		std::cout << std::endl;
-		throw(std::runtime_error("ERROR: First Name can't be empty!"));
+		throw(std::runtime_error("ERROR: first name can't be empty!"));
 	}	
 	this->_firstName = first;
 }
@@ -42,7 +42,7 @@ void	Contact::setLastName(std::string last)
 	if (last.empty())
 	{
 		std::cout << std::endl;
-		throw(std::runtime_error("ERROR: Last Name can't be empty!"));
+		throw(std::runtime_error("ERROR: last name can't be empty!"));
 	}
 	this->_lastName = last;
 }
@@ -52,7 +52,7 @@ void	Contact::setNickName(std::string nick)
 	if (nick.empty())
 	{
 		std::cout << std::endl;
-		throw(std::runtime_error("ERROR: Nick Name can't be empty!"));
+		throw(std::runtime_error("ERROR: nickname can't be empty!"));
 	}	
 	this->_nickName = nick;
 }
@@ -62,12 +62,12 @@ void	Contact::setNumber(std::string num)
 	if (num.empty())
 	{
 		std::cout << std::endl;
-		throw(std::runtime_error("ERROR: Phone Number can't be empty!"));
+		throw(std::runtime_error("ERROR: phone number can't be empty!"));
 	}
 	if (checkNumber(num) == 0)
 	{
 		std::cout << std::endl;
-		throw(std::runtime_error("ERROR: Phone Number must be between 1 and 10 digits long"));
+		throw(std::runtime_error("ERROR: phone number must be between 1 and 10 digits long"));
 	}
 	this->_phoneNumber = num;
 }
@@ -77,7 +77,7 @@ void	Contact::setSecret(std::string secret)
 	if (secret.empty())
 	{
 		std::cout << std::endl;
-		throw(std::runtime_error("ERROR: Darkest Secret can't be empty!"));
+		throw(std::runtime_error("ERROR: darkest secret can't be empty!"));
 	}
 	this->_darkestSecret = secret;
 }
@@ -123,12 +123,12 @@ void	Contact::getPreview(int index) const
 
 void	Contact::getContact(int index) const
 {
-	std::cout << "Index:			" << (index + 1) << std::endl;
-	std::cout << "First Name:		" << this->_firstName << std::endl;
-	std::cout << "Last Name:		" << this->_lastName << std::endl;
-	std::cout << "Nick Name:		" << this->_nickName << std::endl;
-	std::cout << "Phone Number:		" << this->_phoneNumber << std::endl;
-	std::cout << "Darkest Secret:		" << this->_darkestSecret << std::endl;
+	std::cout << "index:			" << (index + 1) << std::endl;
+	std::cout << "first name:		" << this->_firstName << std::endl;
+	std::cout << "last name:		" << this->_lastName << std::endl;
+	std::cout << "nickname:		" << this->_nickName << std::endl;
+	std::cout << "phone Number:		" << this->_phoneNumber << std::endl;
+	std::cout << "darkest Secret:		" << this->_darkestSecret << std::endl;
 }
 
 
