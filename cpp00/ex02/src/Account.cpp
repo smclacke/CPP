@@ -6,11 +6,11 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/07 12:45:40 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/07 12:46:21 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/20 17:31:18 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "../include/Account.hpp"
 
 int		main()
 {

@@ -32,6 +32,11 @@ In simple terms, this code is saying: "If an exception of type std::exception or
 
 
 
+**// CPP00 ex02**
+
+. Compiling tests.cpp reveals that
+the missing file is Account.cpp.
+
 **// CPP00 ex01**
 
 /**

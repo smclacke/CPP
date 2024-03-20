@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/19 18:27:26 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/20 17:25:20 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/20 17:37:21 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <string>
 # include <cstring>
 # include <cctype>
+# include <iomanip>
 
 class Contact
 {

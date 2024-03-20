@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/19 21:40:19 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/20 17:25:09 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/20 17:43:14 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,26 +97,16 @@ static std::string		truncFunc(std::string str)
 		return (str);
 }
 
-static	void	printNames(std::string str, int len)
-{
-	for (int space = (10 - len); space > 0; space--)
-		std::cout << " ";
-	std::cout << str << "|";
-}
-
 void	Contact::getPreview(int i) const
 {
 	std::string	first = truncFunc(this->_firstName);
 	std::string	last = truncFunc(this->_lastName);
 	std::string	nick = truncFunc(this->_nickName);
 
-	for (int space = 9; space > 0; space--)
-		std::cout << " ";
-	std::cout << (i + 1) << "|";
-
-	printNames(first, first.length());
-	printNames(last, last.length());
-	printNames(nick, nick.length());
+	std::cout << std::setw(10) << (i + 1) << "|";
+	std::cout << std::setw(10) << first << "|";
+	std::cout << std::setw(10) << last << "|";
+	std::cout << std::setw(10) << nick << "|";
 
 	std::cout << std::endl;
 }

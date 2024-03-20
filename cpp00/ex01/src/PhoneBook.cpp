@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/07 12:36:32 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/20 17:24:25 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/20 17:43:28 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	PhoneBook::addFunc()
 // ---- getters ---- //
 void	PhoneBook::searchFunc()
 {
+	std::cout << std::endl;
 	for (int i = 0; i < index; i++)
 		_contact[i].getPreview(i);
 
