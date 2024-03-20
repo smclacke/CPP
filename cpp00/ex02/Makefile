@@ -6,7 +6,7 @@
 #    By: SarahLouise <SarahLouise@student.codam.      +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/12/27 14:36:54 by SarahLouise   #+#    #+#                  #
-#    Updated: 2024/03/19 18:22:19 by smclacke      ########   odam.nl          #
+#    Updated: 2024/03/20 23:44:25 by SarahLouise   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ HEADER_DIR		= include
 HEADER			= $(addprefix $(HEADER_DIR)/, $(HEADERS))
 
 SRCS			= Account.cpp		\
-				test.cpp			\
+				tests.cpp
 
 SRC_DIR			= src
 SRC				= $(addprefix $(SRC_DIR)/, $(SRCS))
