@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/07 12:36:34 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/20 14:56:45 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/20 16:13:33 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class PhoneBook
 // ---- utils ---- //
 	void	msg();
 	void	errorMsg();
-	int		checkIsDigit(std::string str);
+	int		checkIndex(std::string str);
 
 };
 

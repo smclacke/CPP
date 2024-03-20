@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/07 12:36:32 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/20 14:56:54 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/20 16:13:43 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	PhoneBook::searchFunc()
 
 		std::cout << "Input contact index: ";
 		std::getline(std::cin, indexString);
-		if (indexString.empty() || !checkIsDigit(indexString))
+		if (indexString.empty() || !checkIndex(indexString))
 		{
 			std::cout << std::endl;
 			throw(std::runtime_error("ERROR: invalid index: must be a digit between 1 and 8"));
@@ -109,7 +109,7 @@ void	PhoneBook::errorMsg()
 	std::cout << "\nERROR: Command options include: ADD | SEARCH | EXIT" << std::endl;
 }
 
-int		PhoneBook::checkIsDigit(std::string index)
+int		PhoneBook::checkIndex(std::string index)
 {
 	int		len = index.length();
 

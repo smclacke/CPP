@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/19 21:40:19 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/20 15:03:27 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/20 16:19:33 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,13 @@ Contact::Contact(std::string first, std::string last, std::string nick, std::str
 
 
 // ---- setters ---- //
-/**
- * @todo	phone number, digits 5-10, rest??
-*/
 void	Contact::setFirstName(std::string first)
 {
 	if (first.empty())
 	{
 		std::cout << std::endl;
 		throw(std::runtime_error("ERROR: First Name can't be empty!"));
-	}
-		
+	}	
 	this->_firstName = first;
 }
 
@@ -48,7 +44,6 @@ void	Contact::setLastName(std::string last)
 		std::cout << std::endl;
 		throw(std::runtime_error("ERROR: Last Name can't be empty!"));
 	}
-		
 	this->_lastName = last;
 }
 
@@ -58,8 +53,7 @@ void	Contact::setNickName(std::string nick)
 	{
 		std::cout << std::endl;
 		throw(std::runtime_error("ERROR: Nick Name can't be empty!"));
-	}
-		
+	}	
 	this->_nickName = nick;
 }
 
@@ -70,12 +64,11 @@ void	Contact::setNumber(std::string num)
 		std::cout << std::endl;
 		throw(std::runtime_error("ERROR: Phone Number can't be empty!"));
 	}
-	if (!checkDigit(num))
+	if (checkNumber(num) == 0)
 	{
 		std::cout << std::endl;
-		throw(std::runtime_error("ERROR: Phone Number must be between 5 and 10 digits long"));
+		throw(std::runtime_error("ERROR: Phone Number must be between 1 and 10 digits long"));
 	}
-
 	this->_phoneNumber = num;
 }
 
@@ -86,31 +79,46 @@ void	Contact::setSecret(std::string secret)
 		std::cout << std::endl;
 		throw(std::runtime_error("ERROR: Darkest Secret can't be empty!"));
 	}
-	
 	this->_darkestSecret = secret;
 }
 
 
 // ---- getters ---- //
-/**
- * @todo		format this correctly
+static std::string		truncFunc(std::string str)
+{
+	std::string		newStr;
 
-		Display the saved contacts as a list of 4 columns: index, first name, last
-		name and nickname.
-		Each column must be 10 characters wide. A pipe character (’|’) separates
-		them. The text must be right-aligned. If the text is longer than the column,
-		it must be truncated and the last displayable character must be replaced by a
-		dot (’.’).
-*/
-// prints preview before specification
+	if (str.length() > 10)
+	{
+		newStr = str.substr(0,9) + '.';
+		return (newStr);
+	}
+	else
+		return (str);
+}
+
+static	void	printNames(std::string str, int len)
+{
+	for (int space = (10 - len); space > 0; space--)
+		std::cout << " ";
+	std::cout << str << "|";
+}
+
 void	Contact::getPreview(int index) const
 {
-	std::cout << (index + 1) << "  |  ";
-	std::cout << this->_firstName;
-	std::cout << "  |  ";
-	std::cout << this->_lastName;
-	std::cout << "  |  ";
-	std::cout << this->_nickName << std::endl;
+	std::string	first = truncFunc(this->_firstName);
+	std::string	last = truncFunc(this->_lastName);
+	std::string	nick = truncFunc(this->_nickName);
+
+	for (int space = 9; space > 0; space--)
+		std::cout << " ";
+	std::cout << (index + 1) << "|";
+
+	printNames(first, first.length());
+	printNames(last, last.length());
+	printNames(nick, nick.length());
+
+	std::cout << std::endl;
 }
 
 void	Contact::getContact(int index) const
@@ -125,11 +133,11 @@ void	Contact::getContact(int index) const
 
 
 // ---- utils ---- //
-int	Contact::checkDigit(std::string str)
+int		Contact::checkNumber(std::string str)
 {
 	int		len = str.length();
 	
-	if (len > 10 || len < 5)
+	if (len > 10 || len < 1)
 		return (0);
 	
 	for (int i  = 0; i < len; i++)
@@ -139,4 +147,5 @@ int	Contact::checkDigit(std::string str)
 	}
 	return (1);
 }
+
 
