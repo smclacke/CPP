@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/19 21:40:19 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/20 15:02:15 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/20 15:03:27 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	Contact::setSecret(std::string secret)
 /**
  * @todo		format this correctly
 
-		 Display the saved contacts as a list of 4 columns: index, first name, last
+		Display the saved contacts as a list of 4 columns: index, first name, last
 		name and nickname.
 		Each column must be 10 characters wide. A pipe character (’|’) separates
 		them. The text must be right-aligned. If the text is longer than the column,
