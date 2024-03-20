@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/19 18:27:26 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/19 23:35:08 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/20 13:03:08 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,25 +29,20 @@ class Contact
 		Contact(std::string first, std::string last, std::string nick, std::string num, std::string secret);
 		~Contact();
 
+// ---- setters ---- //
 	void		setFirstName(std::string first);
 	void		setLastName(std::string last);
 	void		setNickName(std::string nick);
 	void		setNumber(std::string num);
 	void		setSecret(std::string secret);
+	
+// ---- getters ---- //
 
-	// void		printContact();
+	
+// ---- print ---- //
+	void		printPreview(int index) const;
+	void		printContact(int index) const;
 
-
-	// searching
-	/**
-	 * getFirstName
-	 * getLastName
-	 * getNickName
-	 * getNumber
-	 * getSecret
-	 * 
-	 * print...
-	*/
 
 };
 

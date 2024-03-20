@@ -6,13 +6,11 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/19 21:13:33 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/19 23:05:15 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/20 12:15:54 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/PhoneBook.hpp"
-
-// ---- PRINT FUNCTIONS ---- //
 
 void	PhoneBook::msg()
 {

@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/19 18:42:06 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/19 22:24:47 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/20 12:15:33 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int		main()
 			Book.searchFunc();
 		else if (cmd == "EXIT" || std::cin.eof())
 			exit(EXIT_SUCCESS);
+		else if (cmd == "" || cmd == " ")
+			continue ;
 		else
 			Book.errorMsg();
 	}

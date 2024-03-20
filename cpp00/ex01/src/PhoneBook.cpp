@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/07 12:36:32 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/19 23:30:40 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/20 13:17:30 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,36 +50,54 @@ void	PhoneBook::addFunc()
 			std::cout << "Overwriting contact 1..." << std::endl;	
 		}
 		this->_contact[index] = setContact();
-		std::cout << "Contact " << (index + 1) << " successfully added yippiee" << std::endl;
+		std::cout << "Contact " << "[" << (index + 1) << "]" << " successfully added yippiee" << std::endl;
 		index++;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << e.what() << std::endl;
 	}
 }
 
 
 // ---- SEARCH ---- //
-
+/**
+ * @todo	check index input
+*/
 void	PhoneBook::searchFunc()
 {
-	// int		index = 0;
-	
-	std::cout << "Must search stuff here" << std::endl;
+	int				index = 0;
 
-	// print preview (only index, names)
-	
-	// try
-	// {
-	// 	// get and check index
-		
-	// }
-	// catch(const std::exception &e)
-	// {
-	// 	std::cerr << e.what() << std::endl;
-	// }
-	
-	// _contact[index].printContact();
+	for (int i = 0; i <= 7; i++)
+		_contact[i].printPreview(i);
+
+	try
+	{
+		std::string		indexString;
+
+		std::cout << "Input contact index: ";
+		std::getline(std::cin, indexString);
+		if (indexString.empty())
+		{
+			std::cout << std::endl;
+			throw(std::runtime_error("ERROR: invalid index"));
+		}
+		else
+		{
+			// if indexString != >=1 || <= 8 - error - check not number
+			index = stoi(indexString); // if fails?
+			if (index < 1 || index > 8)
+			{
+				std::cout << std::endl;
+				throw(std::runtime_error("ERROR: invalid index"));
+			}
+			index -= 1;
+			_contact[index].printContact(index);
+		}
+	}
+	catch(const std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 }
 
