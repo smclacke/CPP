@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/19 18:42:06 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/20 12:15:33 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/20 14:52:29 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@ int		main()
 	Book.msg();
 	while (1)
 	{
-		getline(std::cin, cmd);
+		std::getline(std::cin, cmd);
 
-		if (cmd == "ADD")
+		if (cmd.compare("ADD") == 0)
 			Book.addFunc();
-		else if (cmd == "SEARCH")
+		else if (cmd.compare("SEARCH") == 0)
 			Book.searchFunc();
-		else if (cmd == "EXIT" || std::cin.eof())
+		else if (cmd.compare("EXIT") == 0 || std::cin.eof())
 			exit(EXIT_SUCCESS);
-		else if (cmd == "" || cmd == " ")
+		else if (cmd.compare("") == 0 || cmd.compare(" ") == 0)
 			continue ;
 		else
 			Book.errorMsg();

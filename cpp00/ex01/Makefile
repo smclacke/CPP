@@ -6,7 +6,7 @@
 #    By: SarahLouise <SarahLouise@student.codam.      +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/12/27 14:36:57 by SarahLouise   #+#    #+#                  #
-#    Updated: 2024/03/19 22:25:04 by smclacke      ########   odam.nl          #
+#    Updated: 2024/03/20 14:12:56 by smclacke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,6 @@ HEADER			= $(addprefix $(HEADER_DIR)/, $(HEADERS))
 SRCS			= main.cpp			\
 					Contact.cpp		\
 					PhoneBook.cpp	\
-					utils.cpp
 
 SRC_DIR			= src
 SRC				= $(addprefix $(SRC_DIR)/, $(SRCS))

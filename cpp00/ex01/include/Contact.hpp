@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/19 18:27:26 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/20 13:20:29 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/20 14:57:59 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ class Contact
 // ---- getters ---- //
 	void		getPreview(int index) const;
 	void		getContact(int index) const;
+
+// ---- utils ---- //
+	int			checkDigit(std::string str);
 
 };
 

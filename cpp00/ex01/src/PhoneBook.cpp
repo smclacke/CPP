@@ -6,18 +6,17 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/07 12:36:32 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/20 13:21:05 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/20 14:56:54 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/PhoneBook.hpp"
 
+// ---- constructors ---- //
 PhoneBook::PhoneBook(){}
 PhoneBook::~PhoneBook(){}
 
-
-// ---- ADD ---- //
-
+// ---- setters ---- //
 Contact	setContact()
 {
 	std::string		first, last, nick, num, secret;
@@ -60,11 +59,7 @@ void	PhoneBook::addFunc()
 }
 
 
-// ---- SEARCH ---- //
-
-/**
- * @todo	check index input
-*/
+// ---- getters ---- //
 void	PhoneBook::searchFunc()
 {
 	int				index = 0;
@@ -78,19 +73,18 @@ void	PhoneBook::searchFunc()
 
 		std::cout << "Input contact index: ";
 		std::getline(std::cin, indexString);
-		if (indexString.empty())
+		if (indexString.empty() || !checkIsDigit(indexString))
 		{
 			std::cout << std::endl;
-			throw(std::runtime_error("ERROR: invalid index"));
+			throw(std::runtime_error("ERROR: invalid index: must be a digit between 1 and 8"));
 		}
 		else
 		{
-			// if indexString != >=1 || <= 8 - error - check not number
-			index = stoi(indexString); // if fails?
+			index = stoi(indexString);
 			if (index < 1 || index > 8)
 			{
 				std::cout << std::endl;
-				throw(std::runtime_error("ERROR: invalid index"));
+				throw(std::runtime_error("ERROR: invalid index: digit must be between 1 and 8"));
 			}
 			index -= 1;
 			_contact[index].getContact(index);
@@ -102,3 +96,29 @@ void	PhoneBook::searchFunc()
 	}
 }
 
+
+// ---- utils ---- //
+void	PhoneBook::msg()
+{
+	std::cout << "\n\t	*** TOTALLY RADICAL PHONEBOOK ***" << std::endl << std::endl;
+	std::cout << "\t~~~Command options include: ADD | SEARCH | EXIT~~~\n" << std::endl;
+}
+
+void	PhoneBook::errorMsg()
+{
+	std::cout << "\nERROR: Command options include: ADD | SEARCH | EXIT" << std::endl;
+}
+
+int		PhoneBook::checkIsDigit(std::string index)
+{
+	int		len = index.length();
+
+	if (len != 1)
+		return (0);
+	for (int i = 0; i < len; i++)
+	{
+		if (!isdigit(index[i]))
+			return (0);
+	}
+	return (1);
+}

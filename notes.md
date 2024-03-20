@@ -1,5 +1,37 @@
 
 
+
+**GENERAL BASIC C++**
+
+**1**
+// always add the constructor and deconstructor in public
+class PhoneBook
+{
+	private:
+
+
+	public:
+		PhoneBook();
+		~PhoneBook();
+}
+
+**2**
+
+	catch(const std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	
+catch(const std::exception &e): This line starts a catch block. In C++, try and catch blocks are used for handling exceptions. When an exception is thrown in the try block, the program looks for a matching catch block to handle it. Here, const std::exception &e is the type and name of the exception being caught. It's saying that if an exception of type std::exception or any derived class of std::exception is thrown, catch it and store it in a variable named e. The const keyword indicates that e cannot be modified within the catch block, and & indicates that e is a reference to the caught exception, which means it doesn't make a copy of the exception, improving performance.
+
+{}: These curly braces enclose the code that will be executed if the specified exception is caught.
+
+std::cerr << e.what() << std::endl;: Inside the catch block, this line prints an error message to the standard error stream (std::cerr). e.what() is a member function of the std::exception class that returns a C-style string (const char*) describing the exception. So, it prints the error message associated with the caught exception. std::endl is used to insert a newline character into the output stream and flush the stream. It ensures that any buffered output is written immediately to the stream.
+
+In simple terms, this code is saying: "If an exception of type std::exception or its derived classes is thrown, catch it and print out the associated error message to the standard error stream." This is a common pattern used for error handling in C++, allowing the program to gracefully handle unexpected errors and provide feedback to the user or developer.
+
+
+
 **// CPP00 ex01**
 
 /**
@@ -22,18 +54,6 @@
  * 
  * ADD SEARCH EXIT
 */
-
-
-// always add the constructor and deconstructor in public
-class PhoneBook
-{
-	private:
-		// Contact class - IS an array of Contacts
-	public:
-		PhoneBook();
-		~PhoneBook();
-}
-
 
 
 -----------Shit from Mr Kenny ---------------------

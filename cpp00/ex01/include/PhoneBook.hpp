@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/07 12:36:34 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/19 23:03:34 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/20 14:56:45 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <iostream>
 # include <string>
+# include <cstring>
+# include <cctype>
 # include "../include/Contact.hpp"
 
 class PhoneBook
@@ -26,11 +28,17 @@ class PhoneBook
 		PhoneBook();
 		~PhoneBook();
 
+// ---- setters ---- //
 	void	addFunc();
+
+// ---- getters ---- //
 	void	searchFunc();
 
+// ---- utils ---- //
 	void	msg();
 	void	errorMsg();
+	int		checkIsDigit(std::string str);
+
 };
 
 #endif

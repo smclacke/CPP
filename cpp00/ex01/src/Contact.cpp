@@ -6,13 +6,15 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/19 21:40:19 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/20 13:20:55 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/20 15:02:15 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/Contact.hpp"
 
+// ---- constructors ---- //
 Contact::Contact(){}
+Contact::~Contact(){}
 
 Contact::Contact(std::string first, std::string last, std::string nick, std::string num, std::string secret)
 {
@@ -23,12 +25,10 @@ Contact::Contact(std::string first, std::string last, std::string nick, std::str
 	this->setSecret(secret);
 }
 
-Contact::~Contact(){}
-
 
 // ---- setters ---- //
 /**
- * @todo	add validity checks
+ * @todo	phone number, digits 5-10, rest??
 */
 void	Contact::setFirstName(std::string first)
 {
@@ -70,6 +70,11 @@ void	Contact::setNumber(std::string num)
 		std::cout << std::endl;
 		throw(std::runtime_error("ERROR: Phone Number can't be empty!"));
 	}
+	if (!checkDigit(num))
+	{
+		std::cout << std::endl;
+		throw(std::runtime_error("ERROR: Phone Number must be between 5 and 10 digits long"));
+	}
 
 	this->_phoneNumber = num;
 }
@@ -108,22 +113,30 @@ void	Contact::getPreview(int index) const
 	std::cout << this->_nickName << std::endl;
 }
 
-/**
- * @todo 		format correctly
- * 
-	// gets specified contact
-	// one field per line.
-*/
 void	Contact::getContact(int index) const
 {
-	std::cout << (index + 1) << "  |  ";
-	std::cout << this->_firstName;
-	std::cout << "  |  ";
-	std::cout << this->_lastName;
-	std::cout << "  |  ";
-	std::cout << this->_nickName;
-	std::cout << "  |  ";
-	std::cout << this->_phoneNumber;
-	std::cout << "  |  ";
-	std::cout << this->_darkestSecret << std::endl;
+	std::cout << "Index:			" << (index + 1) << std::endl;
+	std::cout << "First Name:		" << this->_firstName << std::endl;
+	std::cout << "Last Name:		" << this->_lastName << std::endl;
+	std::cout << "Nick Name:		" << this->_nickName << std::endl;
+	std::cout << "Phone Number:		" << this->_phoneNumber << std::endl;
+	std::cout << "Darkest Secret:		" << this->_darkestSecret << std::endl;
 }
+
+
+// ---- utils ---- //
+int	Contact::checkDigit(std::string str)
+{
+	int		len = str.length();
+	
+	if (len > 10 || len < 5)
+		return (0);
+	
+	for (int i  = 0; i < len; i++)
+	{
+		if (!isdigit(str[i]))
+			return (0);
+	}
+	return (1);
+}
+
