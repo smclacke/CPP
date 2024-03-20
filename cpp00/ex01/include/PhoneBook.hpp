@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/07 12:36:34 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/20 16:13:33 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/20 17:23:32 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class PhoneBook
 {
 	private:
 		Contact 		_contact[8];
+		int				index;
 
 	public:
 		PhoneBook();

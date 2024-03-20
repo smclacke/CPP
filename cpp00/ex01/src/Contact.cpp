@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/19 21:40:19 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/20 17:05:32 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/20 17:25:09 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ static	void	printNames(std::string str, int len)
 	std::cout << str << "|";
 }
 
-void	Contact::getPreview(int index) const
+void	Contact::getPreview(int i) const
 {
 	std::string	first = truncFunc(this->_firstName);
 	std::string	last = truncFunc(this->_lastName);
@@ -112,7 +112,7 @@ void	Contact::getPreview(int index) const
 
 	for (int space = 9; space > 0; space--)
 		std::cout << " ";
-	std::cout << (index + 1) << "|";
+	std::cout << (i + 1) << "|";
 
 	printNames(first, first.length());
 	printNames(last, last.length());
@@ -121,9 +121,9 @@ void	Contact::getPreview(int index) const
 	std::cout << std::endl;
 }
 
-void	Contact::getContact(int index) const
+void	Contact::getContact(int i) const
 {
-	std::cout << "index:			" << (index + 1) << std::endl;
+	std::cout << "index:			" << (i + 1) << std::endl;
 	std::cout << "first name:		" << this->_firstName << std::endl;
 	std::cout << "last name:		" << this->_lastName << std::endl;
 	std::cout << "nickname:		" << this->_nickName << std::endl;

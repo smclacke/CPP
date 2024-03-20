@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/07 12:36:32 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/20 17:04:56 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/20 17:24:25 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,38 +38,38 @@ Contact	setContact()
 
 void	PhoneBook::addFunc()
 {
-	static	int	index = 0;
+	static int		i = 0;
 
 	try
 	{
-		if (index >= 8)
+		if (i >= 8)
 		{
-			index = 0;
+			i = 0;
 			std::cout << "Watch out! Only room for 8 contacts!!" << std::endl;	
 			std::cout << "Overwriting contact 1..." << std::endl;	
 		}
-		this->_contact[index] = setContact();
-		std::cout << "Contact " << "[" << (index + 1) << "]" << " successfully added, yippiee!!" << std::endl;
-		index++;
+		this->_contact[i] = setContact();
+		std::cout << "Contact " << "[" << (i + 1) << "]" << " successfully added, yippiee!!" << std::endl;
+		i++;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
+	PhoneBook::index = i;
 }
 
 
 // ---- getters ---- //
 void	PhoneBook::searchFunc()
 {
-	int				index = 0;
-
-	for (int i = 0; i <= 7; i++)
+	for (int i = 0; i < index; i++)
 		_contact[i].getPreview(i);
 
 	try
 	{
 		std::string		indexString;
+		int				i = 0;
 
 		std::cout << "Input contact index: ";
 		std::getline(std::cin, indexString);
@@ -80,14 +80,14 @@ void	PhoneBook::searchFunc()
 		}
 		else
 		{
-			index = stoi(indexString);
-			if (index < 1 || index > 8)
+			i = stoi(indexString);
+			if (i < 1 || i > 8)
 			{
 				std::cout << std::endl;
 				throw(std::runtime_error("ERROR: invalid index: digit must be between 1 and 8"));
 			}
-			index -= 1;
-			_contact[index].getContact(index);
+			i -= 1;
+			_contact[i].getContact(i);
 		}
 	}
 	catch(const std::exception &e)
