@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/19 21:40:19 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/20 13:18:55 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/20 13:20:55 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	Contact::setSecret(std::string secret)
 		dot (’.’).
 */
 // prints preview before specification
-void	Contact::printPreview(int index) const
+void	Contact::getPreview(int index) const
 {
 	std::cout << (index + 1) << "  |  ";
 	std::cout << this->_firstName;
@@ -111,10 +111,10 @@ void	Contact::printPreview(int index) const
 /**
  * @todo 		format correctly
  * 
-	// prints specified contact
+	// gets specified contact
 	// one field per line.
 */
-void	Contact::printContact(int index) const
+void	Contact::getContact(int index) const
 {
 	std::cout << (index + 1) << "  |  ";
 	std::cout << this->_firstName;

@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/07 12:36:32 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/20 13:17:30 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/20 13:21:05 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	PhoneBook::addFunc()
 
 
 // ---- SEARCH ---- //
+
 /**
  * @todo	check index input
 */
@@ -69,7 +70,7 @@ void	PhoneBook::searchFunc()
 	int				index = 0;
 
 	for (int i = 0; i <= 7; i++)
-		_contact[i].printPreview(i);
+		_contact[i].getPreview(i);
 
 	try
 	{
@@ -92,7 +93,7 @@ void	PhoneBook::searchFunc()
 				throw(std::runtime_error("ERROR: invalid index"));
 			}
 			index -= 1;
-			_contact[index].printContact(index);
+			_contact[index].getContact(index);
 		}
 	}
 	catch(const std::exception &e)
