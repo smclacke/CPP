@@ -6,7 +6,7 @@
 /*   By: SarahLouise <SarahLouise@student.codam.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/20 23:51:30 by SarahLouise   #+#    #+#                 */
-/*   Updated: 2024/03/21 14:20:10 by eugene        ########   odam.nl         */
+/*   Updated: 2024/03/21 23:14:37 by eugene        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,10 @@ void	Account::makeDeposit(int deposit)
 
 bool	Account::makeWithdrawal(int withdrawal)
 {
-	
+	// if amount in account is at least withdrawal amount
+	// add amount to _amount
+	// add also to withdrawal amount
+
 }
 
 int		Account::checkAmount() const
