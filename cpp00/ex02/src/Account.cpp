@@ -6,7 +6,7 @@
 /*   By: SarahLouise <SarahLouise@student.codam.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/20 23:51:30 by SarahLouise   #+#    #+#                 */
-/*   Updated: 2024/03/21 01:11:46 by SarahLouise   ########   odam.nl         */
+/*   Updated: 2024/03/21 14:20:10 by eugene        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,20 @@ Account::Account(){}
 
 Account::Account(int initial_deposit)
 {
-	// set _acountIndex using nbaccounts
-	// number acount += 1;
-	//  _amount is init_depo
-	// total amount is += ini_depo
-	// _nbdepos = 0
-	// nbwith = 0
+	_accountIndex = _nbAccounts;
+	_nbAccounts += 1;
+
+	_amount = initial_deposit;
+	_totalAmount += initial_deposit;
+
+	_nbDeposits = 0;
+	_nbWithdrawals = 0;
 
 	// created bit for log
 	// _displayTimestamp();
-	// index, amount, created
+	std::cout << "index:" << _accountIndex << ";";
+	std::cout << "amount:" << _amount << ";";
+	std::cout << "created" << std::endl;
 }
 
 // ---- destructor ---- //
@@ -44,7 +48,7 @@ Account::~Account()
 	
 	// closed part of log
 	// _displayTimestamp();
-	std::cout << "index:" <<_accountIndex << ";";
+	std::cout << "index:" << _accountIndex << ";";
 	std::cout << "amount:" << _amount << ";";
 	std::cout << "closed" << std::endl;
 }
