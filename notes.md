@@ -31,6 +31,11 @@ std::cerr << e.what() << std::endl;: Inside the catch block, this line prints an
 In simple terms, this code is saying: "If an exception of type std::exception or its derived classes is thrown, catch it and print out the associated error message to the standard error stream." This is a common pattern used for error handling in C++, allowing the program to gracefully handle unexpected errors and provide feedback to the user or developer.
 
 
+**3**
+
+static function within class = 
+	can use function without class object
+
 
 **// CPP00 ex02**
 
