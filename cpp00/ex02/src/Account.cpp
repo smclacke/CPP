@@ -6,13 +6,14 @@
 /*   By: SarahLouise <SarahLouise@student.codam.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/20 23:51:30 by SarahLouise   #+#    #+#                 */
-/*   Updated: 2024/03/21 23:14:37 by eugene        ########   odam.nl         */
+/*   Updated: 2024/03/22 15:05:18 by SarahLouise   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <iostream>
 # include <string>
 # include <cctype>
+# include <ctime>
 # include <cstring>
 # include "../include/Account.hpp"
 
@@ -35,8 +36,7 @@ Account::Account(int initial_deposit)
 	_nbDeposits = 0;
 	_nbWithdrawals = 0;
 
-	// created bit for log
-	// _displayTimestamp();
+	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";";
 	std::cout << "amount:" << _amount << ";";
 	std::cout << "created" << std::endl;
@@ -45,9 +45,7 @@ Account::Account(int initial_deposit)
 // ---- destructor ---- //
 Account::~Account()
 {
-	
-	// closed part of log
-	// _displayTimestamp();
+	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";";
 	std::cout << "amount:" << _amount << ";";
 	std::cout << "closed" << std::endl;
@@ -78,7 +76,7 @@ int		Account::getNbWithdrawals()
 // ---- public ---- //
 void	Account::displayAccountsInfos()
 {
-	// _displayTimestamp();
+	_displayTimestamp();
 	std::cout << "accounts:" << getNbAccounts() << ";";
 	std::cout << "total:" << getTotalAmount() << ";";
 	std::cout << "deposits:" << getNbDeposits() << ";";
@@ -88,15 +86,46 @@ void	Account::displayAccountsInfos()
 
 void	Account::makeDeposit(int deposit)
 {
-	
+	this->_nbDeposits += 1;
+	_totalNbDeposits += 1;
+	_totalAmount += deposit;
+
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex << ";";
+	std::cout << "p_amount:" << _amount << ";";
+	std::cout << "deposit:" << deposit << ";";
+	std::cout << "amount:" << _amount + deposit << ";";
+	std::cout << "nb_despoits:" << _nbDeposits << std::endl;
+
+	this->_amount += deposit;
 }
 
 bool	Account::makeWithdrawal(int withdrawal)
 {
-	// if amount in account is at least withdrawal amount
-	// add amount to _amount
-	// add also to withdrawal amount
+	if (withdrawal > this->_amount)
+	{
+		_displayTimestamp();
+		std::cout << "index:" << _accountIndex << ";";
+		std::cout << "p_amount:" << _amount << ";";
+		std::cout << "withdrawal: refused" << std::endl;
+		return (false);
+	}
+	else
+	{
+		this->_nbWithdrawals += 1;
+		_totalNbWithdrawals += 1;
+		_totalAmount -= withdrawal;
 
+		_displayTimestamp();
+		std::cout << "index:" << _accountIndex << ";";
+		std::cout << "p_amount:" << _amount<< ";";
+		std::cout << "withdrawal:" << withdrawal << ";";
+		std::cout << "amount:" << _amount - withdrawal << ";";
+		std::cout << "nb_withdrawals:" << _nbWithdrawals << std::endl;
+
+		this->_amount -= withdrawal;
+		return (true);
+	}
 }
 
 int		Account::checkAmount() const
@@ -106,7 +135,7 @@ int		Account::checkAmount() const
 
 void	Account::displayStatus() const
 {
-	// _displayTimestamp()
+	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";";
 	std::cout << "amount:" << _amount << ";";
 	std::cout << "deposits:" << _nbDeposits << ";";
@@ -115,8 +144,13 @@ void	Account::displayStatus() const
 
 
 // ---- priavte ---- //
-// why you private? 
-// [19920104_091532] ... er what
 void	Account::_displayTimestamp()
 {
+	time_t		now = time(0);
+	struct tm	*localTime = localtime(&now);
+
+	char		buffer[80];
+
+	strftime(buffer, sizeof(buffer), "[%Y%m%d_%H%M%S] ", localTime);	
+	std::cout << buffer;
 }
