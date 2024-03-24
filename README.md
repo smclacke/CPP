@@ -1,3 +1,7 @@
+![cpp](https://github.com/smclacke/CPP/assets/115113929/8bbef619-f416-4d85-a112-a786bda61dee)
+
+Image: wikipedia
+
 # CPP Modules 0-9
 
 *Introduction to C plus plus*
