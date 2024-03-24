@@ -6,7 +6,7 @@
 /*   By: SarahLouise <SarahLouise@student.codam.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/20 23:51:30 by SarahLouise   #+#    #+#                 */
-/*   Updated: 2024/03/22 15:05:18 by SarahLouise   ########   odam.nl         */
+/*   Updated: 2024/03/24 18:23:12 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	Account::makeDeposit(int deposit)
 	std::cout << "p_amount:" << _amount << ";";
 	std::cout << "deposit:" << deposit << ";";
 	std::cout << "amount:" << _amount + deposit << ";";
-	std::cout << "nb_despoits:" << _nbDeposits << std::endl;
+	std::cout << "nb_deposits:" << _nbDeposits << std::endl;
 
 	this->_amount += deposit;
 }
@@ -107,7 +107,7 @@ bool	Account::makeWithdrawal(int withdrawal)
 		_displayTimestamp();
 		std::cout << "index:" << _accountIndex << ";";
 		std::cout << "p_amount:" << _amount << ";";
-		std::cout << "withdrawal: refused" << std::endl;
+		std::cout << "withdrawal:refused" << std::endl;
 		return (false);
 	}
 	else

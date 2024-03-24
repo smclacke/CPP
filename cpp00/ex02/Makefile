@@ -6,7 +6,7 @@
 #    By: SarahLouise <SarahLouise@student.codam.      +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/12/27 14:36:54 by SarahLouise   #+#    #+#                  #
-#    Updated: 2024/03/22 14:53:17 by SarahLouise   ########   odam.nl          #
+#    Updated: 2024/03/24 18:23:39 by smclacke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,7 @@ NAME			= account
 INCLUDE			= -Iinclude
 
 CC				= c++
-CPPFLAGS		= -std=c++11 -g -fsanitize=address
-# -Wall -Wextra -Werror
+CPPFLAGS		= -std=c++98 -g -fsanitize=address -Wall -Wextra -Werror
 HEADERS			= Account.hpp
 HEADER_DIR		= include
 HEADER			= $(addprefix $(HEADER_DIR)/, $(HEADERS))
