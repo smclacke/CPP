@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/24 17:05:14 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/24 17:12:59 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/24 19:03:52 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,15 @@
 
 int	main()
 {
-	Zombie	zom;
+	Zombie	*zom;
 
-	zom.announce();
-	
-	return (1);
+	zom = nullptr;
+
+	zom->zombieMaking("OG_ZOM");
+	zom->randomChump("Chump");
+	zom->newZombie("newest");
+
+	std::cout << zom << std::endl;
+
+	return (0);
 }

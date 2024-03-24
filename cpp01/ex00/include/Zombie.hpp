@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/24 17:06:27 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/24 17:10:33 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/03/24 18:57:34 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,15 @@ class Zombie
 		Zombie();
 		~Zombie();
 
-	void	announce();
+	void			setName(std::string name);
+	std::string		getName();
+	void			zombieMaking(std::string name);
+
+	void			announce();
+	Zombie*			newZombie(std::string name);
+	void			randomChump(std::string name);
 	
 };
-
 
 
 #endif
