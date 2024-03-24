@@ -2,7 +2,7 @@
 
 Image: wikipedia
 
-# CPP Modules 0-9
+# CPP Modules 00-09
 
 *Introduction to C plus plus*
 
