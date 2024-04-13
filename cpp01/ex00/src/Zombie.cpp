@@ -6,41 +6,26 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/24 17:05:56 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/03/24 18:55:04 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/04/14 00:48:33 by eugene        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/Zombie.hpp"
 
-
-Zombie::Zombie(){}
-Zombie::~Zombie(){}
-
-
-void	Zombie::setName(std::string name)
+// Constructor
+Zombie::Zombie(std::string name)
 {
-	this->_name = name;
+	_name = name;
+	std::cout << _name << " created!" << std::endl;
 }
 
-std::string	Zombie::getName()
+// Destructor
+Zombie::~Zombie()
 {
-	return (_name);
+	std::cout << _name << " deleted!" << std::endl << std::endl;
 }
 
 void	Zombie::announce()
 {
-	std::string		zomName;
-
-	zomName = Zombie::getName();
-
-	std::cout << zomName << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
-void	Zombie::zombieMaking(std::string name)
-{
-	Zombie	makeMe;
-
-	makeMe.setName(name);
-	makeMe.announce();
-	
+	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

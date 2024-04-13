@@ -1,3 +1,15 @@
+**CPP01-EX00**
+
+	Allocate on the Heap:
+	- Use 'new' and 'delete' like malloc but waaaay nicer
+	- Heap-allocated objects have longer lifetime and exist until deleted by programmer
+
+
+	Allocate on the Stack:
+	- Stack-allocated objects same as C really 
+	- Shorter lifetime, limited to the scope in which they are defined
+	- When the scope ends (function returns), 
+	the stack-allocated objects are automatically destroyed. 
 
 
 
