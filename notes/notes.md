@@ -1,3 +1,9 @@
+**CPP01-EX05/6**
+ function: complain()
+// array of member function pointers + array of level strings
+// check level to string, call matching
+
+
 **CPP01-EX00**
 
 	Allocate on the Heap:
