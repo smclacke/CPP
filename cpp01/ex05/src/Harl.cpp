@@ -6,7 +6,7 @@
 /*   By: eugene <eugene@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/14 22:05:00 by eugene        #+#    #+#                 */
-/*   Updated: 2024/04/14 22:41:15 by eugene        ########   odam.nl         */
+/*   Updated: 2024/04/15 13:24:29 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,24 @@ Harl::~Harl(){}
 
 void	Harl::_debug()
 {
-	std::cout << "some semi-interesting debug message" << std::endl;
+	std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!" << std::endl;
 }
 
 void	Harl::_info()
 {
-	std::cout << "some semi-informative information about something or other" << std::endl;
+	std::cout << "I cannot believe adding extra bacon costs more money. You didn’t put enough bacon in my burger! If you did, I wouldn’t be asking for more!" << std::endl;
 }
 
 void	Harl::_warning()
 {
-	std::cout << "some semi-alarming warning noise that's ultimately very annoying" << std::endl;
+	std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month." << std::endl;
 }
 
 void	Harl::_error()
 {
-	std::cout << "some semi-rejecting and quite insulting error notice" << std::endl;
+	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
-// array of member function pointers + array of level strings
-// check level to string, call matching
 void	Harl::complain(std::string level)
 {
 	void			(Harl::*pointer[4])() = {&Harl::_debug, &Harl::_info, &Harl::_warning, &Harl::_error};

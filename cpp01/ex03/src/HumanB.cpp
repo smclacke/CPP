@@ -6,14 +6,14 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/24 17:06:27 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/14 02:18:11 by eugene        ########   odam.nl         */
+/*   Updated: 2024/04/15 13:18:24 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/HumanB.hpp"
 
 // ---- constructor ---- //
-HumanB::HumanB(std::string name) : _weapon(NULL) // init the ptr
+HumanB::HumanB(std::string name) : _weapon(NULL)
 {
 	_name = name;
 }

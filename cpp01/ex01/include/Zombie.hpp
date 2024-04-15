@@ -6,7 +6,7 @@
 /*   By: eugene <eugene@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/14 00:53:22 by eugene        #+#    #+#                 */
-/*   Updated: 2024/04/14 00:54:17 by eugene        ########   odam.nl         */
+/*   Updated: 2024/04/15 12:59:24 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ class Zombie
 		~Zombie();
 		void	announce(void);
 		void	setName(std::string name);
-
 };
 
 Zombie*		zombieHorde(int n, std::string name);

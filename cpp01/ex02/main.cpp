@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/24 17:06:27 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/14 01:29:27 by eugene        ########   odam.nl         */
+/*   Updated: 2024/04/15 13:12:56 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,6 @@
 # include <cstring>
 # include <cctype>
 # include <iomanip>
-
-// string = "HI THIS IS BRAIN"
-// stringPTR = pointer to string
-// stringREF = reference to string
-
-/**
- * print:
- * 
- * memory address of string variable
- * memory address held by stringPTR
- * memory address helf by stringREF
- * 
- * value of string
- * value pointed to by stringPTR
- * value pointed to by stringREF
- */
 
 int	main()
 {
@@ -46,4 +30,44 @@ int	main()
 	std::cout << "Value of stringPTR	= " << *stringPTR << std::endl;
 	std::cout << "Value of stringREF	= " << stringREF << std::endl <<  std::endl;
 
+
+// ----------------------------------------------------//
+		// extra 
+
+	// int	x = 20;
+	// int	*xPTR = &x;
+	// int	&xREF = x;
+
+	
+	// std::cout << std::endl << "x = 20" << std::endl;
+	// std::cout << "addresses" << std::endl;
+
+	// std::cout << "x = " << &x << std::endl;
+	// std::cout << "xPTR = " << xPTR << std::endl;
+	// std::cout << "xREF = " << &xREF << std::endl;
+
+	// std::cout << std::endl << "values" << std::endl;
+	
+	// std::cout << "x = " << x << std::endl;
+	// std::cout << "xPTR = " << *xPTR << std::endl;
+	// std::cout << "xREF = " << xREF << std::endl;
+
+	
+	// std::cout << "--------------------------" << std::endl;
+	
+	// x = 50;
+
+	// std::cout << std::endl << "x = 50" << std::endl;
+	// std::cout << "addresses" << std::endl;
+	
+	// std::cout << "x = " << &x << std::endl;
+	// std::cout << "xPTR = " << xPTR << std::endl;
+	// std::cout << "xREF = " << &xREF << std::endl;
+
+	// std::cout << std::endl << "values" << std::endl;
+	
+	// std::cout << "x = " << x << std::endl;
+	// std::cout << "xPTR = " << *xPTR << std::endl;
+	// std::cout << "xREF = " << xREF << std::endl;
+	
 }
