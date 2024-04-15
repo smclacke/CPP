@@ -6,7 +6,7 @@
 /*   By: eugene <eugene@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/14 22:05:00 by eugene        #+#    #+#                 */
-/*   Updated: 2024/04/14 23:04:54 by eugene        ########   odam.nl         */
+/*   Updated: 2024/04/15 23:12:02 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	Harl::_warning()
 
 void	Harl::_error()
 {
-	std::cout << "some semi-rejecting and quite insulting error notice" << std::endl;
+	std::cout << "some semi-offensive and quite insulting error notice" << std::endl;
 }
 
 void	Harl::complain(std::string level)

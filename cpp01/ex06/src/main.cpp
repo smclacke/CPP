@@ -6,7 +6,7 @@
 /*   By: eugene <eugene@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/14 22:05:19 by eugene        #+#    #+#                 */
-/*   Updated: 2024/04/14 23:06:57 by eugene        ########   odam.nl         */
+/*   Updated: 2024/04/15 23:12:55 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ int	main(int argc, char **argv)
 			harlFilter(argv[1], harley);
 		else
 		{
-			std::cout << "sorry.. no one home for that kind of issue..." << std::endl;
+			std::cout << "DEBUG INFO WARNING ERROR" << std::endl;
 			return (-1);
 		}
 	}
 	else
 	{
-		std::cout << "DEBUG INFO WARNING ERROR" << std::endl;
+		std::cout << "sorry.. no one home for that kind of issue..." << std::endl;
 		return (-1);
 	}
 	return (0);
