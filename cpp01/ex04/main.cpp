@@ -6,13 +6,36 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/24 17:06:27 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/14 23:59:06 by SarahLouise   ########   odam.nl         */
+/*   Updated: 2024/04/15 22:41:14 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <string>
 # include <iostream>
 # include <fstream>
+
+void	replaceString(std::ifstream &infile, std::string s1, std::string s2, std::ofstream &outfile)
+{
+	std::string	line;
+
+	while (std::getline(infile, line))
+	{
+		size_t	posCurrent = 0;
+		while (true)
+		{
+			size_t	posFound = line.find(s1, posCurrent);
+			if (posFound != std::string::npos)
+			{
+				line.erase(posFound, s1.length());
+				line.insert(posFound, s2);
+				posCurrent = posFound + s2.length();
+			}
+			else
+				break ;
+		}
+		outfile << line << std::endl;	
+	}
+}
 
 int		main(int argc, char **argv)
 {
@@ -41,19 +64,11 @@ int		main(int argc, char **argv)
 		std::cout << "Couldn't create outfile" << std::endl;
 		return (1);
 	}
-
+	
 	std::string	s1 = argv[2];
 	std::string	s2 = argv[3];
-	std::string	line;
 
-	while (std::getline(infile, line))
-	{
-		if (line.compare(s1) == 0)
-			outfile << s2 << std::endl;
-		else
-			outfile << s1 << std::endl;
-		line.clear();
-	}
+	replaceString(infile, s1, s2, outfile);
 
 	infile.close();
 	outfile.close();
