@@ -1,38 +1,25 @@
-**CPP01-EX05/6**
-
- function: complain()
-// array of member function pointers + array of level strings
-// check level to string, call matching
 
 
-**CPP01-EX00**
-
-	Allocate on the Heap:
-	- Use 'new' and 'delete' like malloc but waaaay nicer
-	- Heap-allocated objects have longer lifetime and exist until deleted by programmer
 
 
-	Allocate on the Stack:
-	- Stack-allocated objects same as C really 
-	- Shorter lifetime, limited to the scope in which they are defined
-	- When the scope ends (function returns), 
-	the stack-allocated objects are automatically destroyed. 
-
+************************************************************************
 
 
 **GENERAL BASIC C++**
 
 **1**
+
 // always add the constructor and deconstructor in public
-class PhoneBook
-{
-	private:
 
+Constructor - initializes ovject's data members
+Destructor - deletes/frees/ends/removes etc everything at end
+Copy Constructor - initializes new objects
+Copy Assignment Operator - makes a copy of an object assigning one object to another using '=', return a reference to the object '*this', allows chain assignments 'o1=o2=o3'
 
-	public:
-		PhoneBook();
-		~PhoneBook();
-}
+ Deep Copy:
+ - changes made to copied object or internal data won't affect the og
+ Shallow Copy:
+ - changes made in copied object can affect the og object and the other way around 
 
 **2**
 
@@ -55,6 +42,43 @@ In simple terms, this code is saying: "If an exception of type std::exception or
 static function within class = 
 	can use function without class object
 
+
+************************************************************************
+**CPP02 AND BEYOND**
+
+From now on, all your classes must be designed in the **Orthodox Canonical Form**,
+unless explicitely stated otherwise. Then, they will implement the four required member
+functions below:
+
+	•Default constructor
+	•Copy constructor
+	•Copy assignment operator
+	•Destructor
+
+Split your class code into two files. The header file (.hpp/.h) contains the class
+definition whereas the source file (.cpp) contains the implementation.
+
+************************************************************************
+
+**CPP01-EX05/6**
+
+ function: complain()
+// array of member function pointers + array of level strings
+// check level to string, call matching
+
+
+**CPP01-EX00**
+
+	Allocate on the Heap:
+	- Use 'new' and 'delete' like malloc but waaaay nicer
+	- Heap-allocated objects have longer lifetime and exist until deleted by programmer
+
+
+	Allocate on the Stack:
+	- Stack-allocated objects same as C really 
+	- Shorter lifetime, limited to the scope in which they are defined
+	- When the scope ends (function returns), 
+	the stack-allocated objects are automatically destroyed. 
 
 **// CPP00 ex02**
 
@@ -84,6 +108,7 @@ the missing file is Account.cpp.
  * ADD SEARCH EXIT
 */
 
+************************************************************************
 
 -----------Shit from Mr Kenny ---------------------
 void	veggie::throw_potato_at_child_face(int amount_speed)
