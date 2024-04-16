@@ -6,7 +6,7 @@
 /*   By: eugene <eugene@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/14 22:05:19 by eugene        #+#    #+#                 */
-/*   Updated: 2024/04/15 23:09:55 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/04/16 16:46:30 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@ int	main(int argc, char **argv)
 		if (debug.compare(argv[1]) == 0 || info.compare(argv[1]) == 0
 			|| warning.compare(argv[1]) == 0 || error.compare(argv[1]) == 0)
 			harley.complain(argv[1]);
+		else
+		{
+			std::cout << "DEBUG as default" << std::endl;
+			harley.complain("DEBUG");
+		}
+			
 	}
 	else if (argc == 1)
 	{
