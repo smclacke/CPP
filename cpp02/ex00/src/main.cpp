@@ -6,19 +6,19 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/16 21:30:44 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/16 22:15:20 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/04/16 22:23:13 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/Fixed.hpp"
 
-int main() 
+int		main() 
 {
 	Fixed a;
-	Fixed b( a );
+	Fixed b( a ); // b is copy of a
 	Fixed c;
 
-	c = b;
+	c = b; // c is assigned the value of b which = a
 	
 	std::cout << a.getRawBits() << std::endl;
 	std::cout << b.getRawBits() << std::endl;
