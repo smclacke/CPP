@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/16 21:33:15 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/17 02:00:02 by SarahLouise   ########   odam.nl         */
+/*   Updated: 2024/04/17 19:58:12 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ Fixed::Fixed(const Fixed &value)
 /**
 	check not trying to copy itself
 	copy object and return reference to it
+	'=' now also (in addition to assignment) creates deep copy of value 
 */
 Fixed	&Fixed::operator=(const Fixed &value)
 {

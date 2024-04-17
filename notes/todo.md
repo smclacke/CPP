@@ -3,7 +3,6 @@
 
 CPP02
 
-- docs
 - playing ex00
 - overload ? | operators
 - roundf func
