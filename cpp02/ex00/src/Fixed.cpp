@@ -6,16 +6,15 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/16 21:33:15 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/16 22:15:13 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/04/17 02:00:02 by SarahLouise   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Fixed.hpp"
 
-Fixed::Fixed()
+Fixed::Fixed() : _fpValue(0)
 {
 	std::cout << "Default constructor called" << std::endl;
-	_fpValue = 0;
 }
 
 Fixed::Fixed(const Fixed &value)

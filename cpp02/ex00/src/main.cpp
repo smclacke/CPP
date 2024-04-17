@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/16 21:30:44 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/16 22:23:13 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/04/17 02:04:56 by SarahLouise   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int		main() 
 {
-	Fixed a;
-	Fixed b( a ); // b is copy of a
-	Fixed c;
+	Fixed a;    		// default constructor
+	Fixed b( a ); 		// copy constructor
+	Fixed c;			// copy assignment operator
 
-	c = b; // c is assigned the value of b which = a
+	c = b; 		// copy assignment operator overloadinnnnggggggg
 	
 	std::cout << a.getRawBits() << std::endl;
 	std::cout << b.getRawBits() << std::endl;

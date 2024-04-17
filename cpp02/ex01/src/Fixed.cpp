@@ -6,17 +6,16 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/16 22:21:41 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/16 23:52:58 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/04/17 02:05:25 by SarahLouise   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/Fixed.hpp"
 
 // ---- Constructors ---- //
-Fixed::Fixed()
+Fixed::Fixed() : _fpValue(0)
 {
 	std::cout << "Default constructor called" << std::endl;
-	_fpValue = 0;
 }
 
 Fixed::Fixed(const Fixed &value)
@@ -52,12 +51,13 @@ Fixed	&Fixed::operator=(const Fixed &value)
 }
 
 !!
+// '<<' adding new usage to standard use  to whatever happens in this func
 //And add the following function to the Fixed class files:
 // •An overload of the insertion («) operator that inserts a floating-point representation
 // of the fixed-point number into the output stream object passed as parameter
 std::ostream&		operator<<(std::ostream &out, Fixed const &fixed)
 {
-	
+	// return thingy << function ?? << ostream
 }
 
 
