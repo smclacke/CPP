@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/16 21:31:11 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/18 16:26:50 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/04/18 17:13:24 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ class	Fixed
 		// arithmetic operators + - * /
 		// incerment/decrement operators ++ -- (pre and post)
 
-		static	Fixed&	minRef(int &fp1, int &fp2); // or float?
-		static	Fixed&	minCon(const int &fp1, const int &fp2); // or float?
-		static	Fixed&	maxRef(int &fp1, int &fp2);
-		static	Fixed&	maxCon(const int &fp1, const int &fp2);
+		static	Fixed&	min(Fixed& fp1, Fixed& fp2);
+		static	Fixed&	min(const Fixed& fp1, const Fixed& fp2);
+		static	Fixed&	max(Fixed& fp1, Fixed& fp2);
+		static	Fixed&	max(const Fixed& fp1, const Fixed& fp2);
 
 };
 

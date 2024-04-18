@@ -6,35 +6,30 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/16 22:21:41 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/18 16:15:17 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/04/18 17:18:04 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/Fixed.hpp"
 
 // ---- Constructors ---- //
-Fixed::Fixed() : _fpValue(0)
-{
-	// std::cout << "Default constructor called" << std::endl;
-}
+Fixed::Fixed() : _fpValue(0){}
 
 Fixed::Fixed(const Fixed &value)
 {
-	// std::cout << "Copy constructor called" << std::endl;
 	*this = value;
 }
 
 Fixed::Fixed(const int integerVar)
 {
-	// std::cout << "Int constructor called" << std::endl;
 	this->_fpValue = integerVar << _fractional;
 }
 
 Fixed::Fixed(const float floatVar)
 {
-	// std::cout << "Float constructor called" << std::endl;
 	this->_fpValue = roundf(floatVar * (1 << _fractional));
 }
+
 
 // ---- Operators ---- //
 /**
@@ -44,7 +39,6 @@ Fixed::Fixed(const float floatVar)
 */
 Fixed	&Fixed::operator=(const Fixed &value)
 {
-	// std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &value)
 		_fpValue = value.getRawBits();
 	return *this;
@@ -58,11 +52,31 @@ std::ostream&		operator<<(std::ostream &out, Fixed const &fixed)
 	return (out << fixed.toFloat());
 }
 
+
 // ---- Destructor ---- //
-Fixed::~Fixed()
+Fixed::~Fixed(){}
+
+
+// ---- Min Max functions ---- //
+Fixed&	minRef(Fixed& fp1, Fixed& fp2)
 {
-	// std::cout << "Destructor called" << std::endl;
+	std::cout << "min ref" << std::endl;
 }
+
+Fixed&	minCon(const Fixed& fp1, const Fixed& fp2)
+{
+	std::cout << "min const" << std::endl;
+}
+
+Fixed&	maxRef(Fixed& fp1, Fixed& fp2)
+{
+	std::cout << "max ref" << std::endl;
+}
+Fixed&	maxCon(const Fixed& fp1, const Fixed& fp2)
+{
+	std::cout << "max const" << std::endl;	
+}
+
 
 // ---- Convert Functions---- //
 float	Fixed::toFloat(void) const
@@ -74,6 +88,7 @@ int		Fixed::toInt(void) const
 {
 	return ((int)_fpValue >> _fractional);
 }
+
 
 // ---- Getters / Setters ---- //
 // returns raw value of fixed-point value
