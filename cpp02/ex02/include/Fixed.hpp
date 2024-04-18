@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/16 21:31:11 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/18 17:13:24 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/04/18 20:34:33 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,29 +28,45 @@ class	Fixed
 		Fixed();										// Default constructor
 		Fixed(const int integerVar);					// Int Constructor: converts corresponding FP value
 		Fixed(const float floatVar);					// Float Constructor: convert corresponding FP value
-		Fixed(const Fixed &value);						// Copy constructor
-		Fixed&	operator=(const Fixed &value);			// Copy assignment operator 
+		Fixed(const Fixed	&value);						// Copy constructor
+		Fixed	&operator=(const Fixed &value);			// Copy assignment operator 
 		~Fixed();										// Destructor
 
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
 		float	toFloat(void) const;
 		int		toInt(void) const;
-		
-		// comparison operators > < >= <= == != 
-		// arithmetic operators + - * /
-		// incerment/decrement operators ++ -- (pre and post)
 
-		static	Fixed&	min(Fixed& fp1, Fixed& fp2);
-		static	Fixed&	min(const Fixed& fp1, const Fixed& fp2);
-		static	Fixed&	max(Fixed& fp1, Fixed& fp2);
-		static	Fixed&	max(const Fixed& fp1, const Fixed& fp2);
+		// Comparison Operators: > < >= <= == != 
+		bool	operator>(const Fixed	&fp) const;
+		bool	operator<(const Fixed	&fp) const;
+		bool	operator>=(const Fixed	&fp) const;
+		bool	operator<=(const Fixed	&fp) const;
+		bool	operator==(const Fixed	&fp) const;
+		bool	operator!=(const Fixed	&fp) const;
+
+		// Arithmetic Operators: + - * /
+		Fixed	operator+(const Fixed	&fp) const;
+		Fixed	operator-(const Fixed	&fp) const;
+		Fixed	operator*(const Fixed	&fp) const;
+		Fixed	operator/(const Fixed	&fp) const;
+		
+		// why must give int?
+		// Incerment/Decrement Operators: ++ -- (pre and post)
+		Fixed	&operator++(void);
+		Fixed	operator++(int intVal);
+		Fixed	&operator--(void);
+		Fixed	operator--(int intVal);
+
+		// why const now here and also why front in function?
+		// MIn / Max Methods
+		static			Fixed	&min(Fixed	&fp1, Fixed	&fp2);
+		static	const 	Fixed	&min(const Fixed	&fp1, const Fixed	&fp2);
+		static			Fixed	&max(Fixed	&fp1, Fixed	&fp2);
+		static	const 	Fixed	&max(const Fixed	&fp1, const Fixed	&fp2);
 
 };
 
-// Overload of the insertion (<<) operator 
-// inserts a floating-point representation of the fixed-point number into
-// the output stream object passed as parameter
-std::ostream&		operator<<(std::ostream &out, Fixed const &fixed);
+std::ostream	&operator<<(std::ostream	&out, Fixed const &fixed);
 
 #endif

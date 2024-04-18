@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/16 21:31:11 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/17 19:53:16 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/04/18 20:37:26 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class	Fixed
 	public:
 		Fixed();										// Default constructor
 		Fixed(const Fixed &value);						// Copy constructor
-		Fixed&	operator=(const Fixed &value);			// Copy assignment operator 
+		Fixed	&operator=(const Fixed &value);			// Copy assignment operator 
 		~Fixed();										// Destructor
 
 		int		getRawBits(void) const;
