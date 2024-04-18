@@ -60,6 +60,63 @@ definition whereas the source file (.cpp) contains the implementation.
 
 ************************************************************************
 
+**CPP02- Floats and Fixed point numbers**
+
+
+/**
+ * Floating point numbers:
+ * 
+ * 		- big part + small part, computers keep track of numbers that can be super big or super tiny
+ * 		- e.g. 123.45, 123 bigs steps with 0.45 as a fraction of a step and use this
+ * 			info to calculate a precise location/distance etc.. 
+ * 		- this way the big picture and the tiny details are represented in numbers
+ *
+ * 		- fractional bits represent the part of the number after the decimal point
+ * 			e.g. 123.45, '45' is the fractional part
+ * 
+ *		- watch out with '==' due to inaccuracy
+ *		- 4 byte floating point number can actually hold fewer distinct values than a 4 byte integer
+ * 
+ *		- accuracy vs precision
+ *			accuracy - how close to the true value
+ *			precision - amount of info about quantity, how uniquely you pinned the value down
+ *
+ * 		- 2 is 2 is pretty accurate, using these whole numbers I will always get a number that matches the correct answer bit-for-bit
+ * 			However, integers lack precision. Dividing both 5 and 4 by 2, for instance, will both yield 2. 
+ * 			Integers are unable to keep track of the fractional part, so the information that I had a 
+ * 			slightly bigger number than 4 (namely, 5) is lost in the process
+ * 
+ * 		- https://www.cprogramming.com/tutorial/floating_point/understanding_floating_point_representation.html
+ * 			shit to do with the representation + format of floating point numbers..
+ * 
+ * 		- it is really hard to know when two floats are equal.. '==' tells you if the floats match bit for bit
+ * 			but this makes no sense to compare bits when some bits might be incorrect anyway
+ * 			results need to be rounded to fit in a finite word
+ * 			and if this rounded is done differently than expected, the equality tests might fail
+ * 
+ * 		- numerical overflow - adding one to largest possible unsigned integer will give zero.
+ * 		- can use floats for checking overflow in integer math, calculate in floating point, then compare result to e.g. INT_MAX, 
+ * 			then cast back to integer
+ * 		- but becareful casting... our float might not have enough precision to preserve an entire integer
+ * 			A 32-bit integer can represent any 9-digit decimal number, but a 32-bit float only offers about 7 digits of precision
+ * 
+ * 
+ * Fixed point numbers:
+ * 
+ * 		- a certain number of digits are reserved for the fractional part of the number and the rest the interger part
+ *		- the position of the decimal point doesn't change (floating point numbers it does)
+ * 		- helpful when you want predictable precision but don't want to deal with really large or really tiny numbers
+ * 
+ * 
+ * Operator Overloading:
+ * 
+ * 		- a compile-time polymorphism
+ * 		- gives a special meaning to an existing operator wihtout changing the original meaning
+ * 		- e.g. '+' - can be overloaded in the class String so that we can concatenate two strings using this operator '+'
+ *		while it's still possible to use it as an addition operator
+ * 
+ */
+
 **CPP01-EX05/6**
 
  function: complain()

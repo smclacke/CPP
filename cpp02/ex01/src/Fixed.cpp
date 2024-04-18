@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/16 22:21:41 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/17 02:05:25 by SarahLouise   ########   odam.nl         */
+/*   Updated: 2024/04/18 14:43:38 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,23 @@ Fixed::Fixed(const Fixed &value)
 	*this = value;
 }
 
-!!
 Fixed::Fixed(const int integerVar)
 {
 	std::cout << "Int constructor called" << std::endl;
-	
+	_fpValue = integerVar;
 }
-
-!!
+// float       roundf( float num ); ??
 Fixed::Fixed(const float floatVar)
 {
 	std::cout << "Float constructor called" << std::endl;
+	_fpValue = floatVar;
 }
 
 // ---- Operators ---- //
 /**
 	check not trying to copy itself
 	copy object and return reference to it
+	'=' now also (in addition to assignment) creates deep copy of value 
 */
 Fixed	&Fixed::operator=(const Fixed &value)
 {
@@ -50,7 +50,10 @@ Fixed	&Fixed::operator=(const Fixed &value)
 	return *this;
 }
 
-!!
+// Overload of the insertion (<<) operator 
+// inserts a floating-point representation of the fixed-point number into
+// the output stream object passed as parameter
+
 // '<<' adding new usage to standard use  to whatever happens in this func
 //And add the following function to the Fixed class files:
 // •An overload of the insertion («) operator that inserts a floating-point representation
