@@ -42,6 +42,9 @@ In simple terms, this code is saying: "If an exception of type std::exception or
 static function within class = 
 	can use function without class object
 
+**4**
+
+
 
 ************************************************************************
 **CPP02 AND BEYOND**
@@ -108,6 +111,8 @@ definition whereas the source file (.cpp) contains the implementation.
  * 		- helpful when you want predictable precision but don't want to deal with really large or really tiny numbers
  * 
  * 
+**CPP02- Operator Overloading**
+
  * Operator Overloading:
  * 
  * 		- a compile-time polymorphism
@@ -116,6 +121,13 @@ definition whereas the source file (.cpp) contains the implementation.
  *		while it's still possible to use it as an addition operator
  * 
  */
+
+// '<<' adding new usage to standard use  to whatever happens in this func
+//And add the following function to the Fixed class files:
+// •An overload of the insertion («) operator that inserts a floating-point representation
+// of the fixed-point number into the output stream object passed as parameter
+
+
 
 **CPP01-EX05/6**
 

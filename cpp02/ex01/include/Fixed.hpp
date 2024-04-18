@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/16 21:31:11 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/18 14:41:16 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/04/18 16:10:51 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class	Fixed
 
 	public:
 		Fixed();										// Default constructor
-		Fixed(const int integerVar);						// Int Constructor: converts corresponding FP value
+		Fixed(const int integerVar);					// Int Constructor: converts corresponding FP value
 		Fixed(const float floatVar);					// Float Constructor: convert corresponding FP value
 		Fixed(const Fixed &value);						// Copy constructor
 		Fixed&	operator=(const Fixed &value);			// Copy assignment operator 

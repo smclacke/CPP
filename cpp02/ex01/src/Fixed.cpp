@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/16 22:21:41 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/18 14:43:38 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/04/18 16:11:11 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ Fixed::Fixed(const Fixed &value)
 Fixed::Fixed(const int integerVar)
 {
 	std::cout << "Int constructor called" << std::endl;
-	_fpValue = integerVar;
+	this->_fpValue = integerVar << _fractional;
 }
-// float       roundf( float num ); ??
+
 Fixed::Fixed(const float floatVar)
 {
 	std::cout << "Float constructor called" << std::endl;
-	_fpValue = floatVar;
+	this->_fpValue = roundf(floatVar * (1 << _fractional));
 }
 
 // ---- Operators ---- //
@@ -52,17 +52,11 @@ Fixed	&Fixed::operator=(const Fixed &value)
 
 // Overload of the insertion (<<) operator 
 // inserts a floating-point representation of the fixed-point number into
-// the output stream object passed as parameter
-
-// '<<' adding new usage to standard use  to whatever happens in this func
-//And add the following function to the Fixed class files:
-// •An overload of the insertion («) operator that inserts a floating-point representation
-// of the fixed-point number into the output stream object passed as parameter
+// the output-stream object passed as parameter
 std::ostream&		operator<<(std::ostream &out, Fixed const &fixed)
 {
-	// return thingy << function ?? << ostream
+	return (out << fixed.toFloat());
 }
-
 
 // ---- Destructor ---- //
 Fixed::~Fixed()
@@ -71,24 +65,20 @@ Fixed::~Fixed()
 }
 
 // ---- Convert Functions---- //
-!!
 float	Fixed::toFloat(void) const
 {
-	
+	return ((float)_fpValue / (1 << _fractional));
 }
 
-!!		
 int		Fixed::toInt(void) const
 {
-	
+	return ((int)_fpValue >> _fractional);
 }
-
 
 // ---- Getters / Setters ---- //
 // returns raw value of fixed-point value
 int		Fixed::getRawBits() const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return _fpValue;
 }
 
