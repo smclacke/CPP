@@ -1,10 +1,10 @@
 
 
 
-
 ************************************************************************
 
-
+**GENERAL BASIC C++**
+**GENERAL BASIC C++**
 **GENERAL BASIC C++**
 
 **1**
@@ -46,25 +46,65 @@ static function within class =
 
 
 
-************************************************************************
-**CPP02 AND BEYOND**
-
-From now on, all your classes must be designed in the **Orthodox Canonical Form**,
-unless explicitely stated otherwise. Then, they will implement the four required member
-functions below:
-
-	•Default constructor
-	•Copy constructor
-	•Copy assignment operator
-	•Destructor
-
-Split your class code into two files. The header file (.hpp/.h) contains the class
-definition whereas the source file (.cpp) contains the implementation.
 
 ************************************************************************
+
+**POLYMORPHISM**
+**POLYMORPHISM**
+**POLYMORPHISM**
+
+	- ising the same name for different things
+	e.g. many version of a function called 'draw'
+		each with different behaviour depending on context
+	- draw could draw a circle, it could draw a triangle
+		it depends on the object the function is working with
+
+	- in C++ - polymorphism is achieved through inheritance and virtual functions
+
+ **FUNCTION OVERLOADING**
+ **FUNCTION OVERLOADING**
+ **FUNCTION OVERLOADING**
+
+	add(int 1, int 2);
+	AND 
+	add(int 1, int 2, int 3)
+	first function adds two integers, second adds three
+	function with same name and generally doing the same thing but one
+	takes more parameters. 
+
+	Function overloading - more than one function with same name but different parameters
+
+**Operator Overloading**
+**Operator Overloading**
+**Operator Overloading**
+
+ * Operator Overloading:
+ * 
+ * 		- a compile-time polymorphism
+ * 		- gives a special meaning to an existing operator wihtout changing the original meaning
+ * 		- e.g. '+' - can be overloaded in the class String so that we can concatenate two strings using this operator '+'
+ *		while it's still possible to use it as an addition operator
+ * 
+ */
+
+// '<<' adding new usage to standard use  to whatever happens in this func
+//And add the following function to the Fixed class files:
+// •An overload of the insertion («) operator that inserts a floating-point representation
+// of the fixed-point number into the output stream object passed as parameter
+
+		**how an operator works for your class**
+
+	'+' adds
+	v1 adds(1, 2)
+	v2 adds (3, 4)
+	v1 + v2 adds the vectors = (4, 6)
+	not only adding integers but also vectors..
+	
+
 
 **CPP02- Floats and Fixed point numbers**
-
+**CPP02- Floats and Fixed point numbers**
+**CPP02- Floats and Fixed point numbers**
 
 /**
  * Floating point numbers:
@@ -111,23 +151,29 @@ definition whereas the source file (.cpp) contains the implementation.
  * 		- helpful when you want predictable precision but don't want to deal with really large or really tiny numbers
  * 
  * 
-**CPP02- Operator Overloading**
 
- * Operator Overloading:
- * 
- * 		- a compile-time polymorphism
- * 		- gives a special meaning to an existing operator wihtout changing the original meaning
- * 		- e.g. '+' - can be overloaded in the class String so that we can concatenate two strings using this operator '+'
- *		while it's still possible to use it as an addition operator
- * 
- */
+************************************************************************
+**CPP02 AND BEYOND**
+**CPP02 AND BEYOND**
+**CPP02 AND BEYOND**
 
-// '<<' adding new usage to standard use  to whatever happens in this func
-//And add the following function to the Fixed class files:
-// •An overload of the insertion («) operator that inserts a floating-point representation
-// of the fixed-point number into the output stream object passed as parameter
+From now on, all your classes must be designed in the **Orthodox Canonical Form**,
+unless explicitely stated otherwise. Then, they will implement the four required member
+functions below:
+
+	•Default constructor
+	•Copy constructor
+	•Copy assignment operator
+	•Destructor
+
+Split your class code into two files. The header file (.hpp/.h) contains the class
+definition whereas the source file (.cpp) contains the implementation.
 
 
+**************************************************************************
+**RANDOM FROM EXERCISES**
+**RANDOM FROM EXERCISES**
+**RANDOM FROM EXERCISES**
 
 **CPP01-EX05/6**
 
@@ -180,6 +226,10 @@ the missing file is Account.cpp.
 ************************************************************************
 
 -----------Shit from Mr Kenny ---------------------
+-----------Shit from Mr Kenny ---------------------
+-----------Shit from Mr Kenny ---------------------
+-----------Shit from Mr Kenny ---------------------
+
 void	veggie::throw_potato_at_child_face(int amount_speed)
 {
 	for(int i = 0  ; i < amount_speed ; i++)
