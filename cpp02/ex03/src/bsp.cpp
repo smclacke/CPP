@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/18 20:20:09 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/21 17:37:35 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/04/21 17:39:26 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
  * 	a way to manage nad navigate through spaces efficiently
  * 
  * A = (1/2) |x1(y2 − y3) + x2(y3 − y1) + x3(y1 − y2)|
- * 
  */
 static float	getArea(const Point &a, const Point &b, const Point &c)
 {
