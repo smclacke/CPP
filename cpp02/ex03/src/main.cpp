@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/16 22:21:52 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/21 17:37:43 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/04/21 18:27:11 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 int main( void )
 {
 	Point	tri[3] = {Point(0.0f, 0.0f), Point(0.0f, 1.0f), Point(1.0f, 0.0f)};
-	Point	point(5.1f, 0.4f);
+	Point	point(0.1f, 0.4f);
 	
 	tri[0].getX();
 	tri[0].getY();

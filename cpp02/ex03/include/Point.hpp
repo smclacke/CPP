@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/18 20:21:14 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/21 15:22:53 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/04/21 18:40:12 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ class Point
 		Point	&operator=(const Point &value);		// Copy assignment operator
 		~Point();									// Destructor
 
-		// getters
 		float	getX() const;
 		float	getY() const;
 
