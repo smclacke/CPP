@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/16 22:21:41 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/18 20:42:25 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/04/21 17:23:47 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,24 @@
 // ---------------------- //
 Fixed::Fixed() : _fpValue(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed	&value)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 	*this = value;
 }
 
 Fixed::Fixed(const int integerVar)
 {
-	std::cout << "Int constructor called" << std::endl;
+	// std::cout << "Int constructor called" << std::endl;
 	this->_fpValue = integerVar << _fractional;
 }
 
 Fixed::Fixed(const float floatVar)
 {
-	std::cout << "Float constructor called" << std::endl;
+	// std::cout << "Float constructor called" << std::endl;
 	this->_fpValue = roundf(floatVar * (1 << _fractional));
 }
 
@@ -46,7 +46,7 @@ Fixed::Fixed(const float floatVar)
 // '=' now also (in addition to assignment) creates deep copy of value 
 Fixed	&Fixed::operator=(const Fixed	&value)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	// std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &value)
 		_fpValue = value.getRawBits();
 	return *this;
@@ -65,7 +65,7 @@ std::ostream	&operator<<(std::ostream	&out, Fixed const &fixed)
 // -------------------- //
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 }
 
 

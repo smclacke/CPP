@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/18 20:20:09 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/21 15:24:44 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/04/21 17:37:35 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,26 @@
  * 	these sections can be organised and handled to easily to see 
  * 	what is in each section
  * 	a way to manage nad navigate through spaces efficiently
+ * 
+ * A = (1/2) |x1(y2 − y3) + x2(y3 − y1) + x3(y1 − y2)|
+ * 
  */
-
 static float	getArea(const Point &a, const Point &b, const Point &c)
 {
 	float	area;
+	float	a1;
+	float	a2;
+	float	a3;
 	
-	area = a.getX() * (b.getY() - c.getY());
-	area += b.getX() * (c.getY() - a.getY());
-	area += c.getX() * (a.getY() - b.getY());
+	a1 = a.getX() * (b.getY() - c.getY());
+	a2 = b.getX() * (c.getY() - a.getY());
+	a3 = c.getX() * (a.getY() - b.getY());
 
-	// if (area < 0)
-	// 	area *= -1;
-
-	return area / 2;
+	area = a1 + a2 + a3;
+	area /= 2;
+	if (area < 0)
+		area *= -1;
+	return area;
 }
 
 /**
@@ -51,9 +57,7 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
 	const float	bcTri = getArea(point, b, c);
 	const float	caTri = getArea(point, c, a);
 
-	if (mainTri > 0 && abTri > 0 && bcTri > 0 && caTri > 0)
+	if (mainTri == abTri + bcTri + caTri)
 		return true;
 	return false;
-
-	
 }
