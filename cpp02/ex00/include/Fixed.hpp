@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/16 21:31:11 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/18 20:37:26 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/04/21 19:06:56 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 class	Fixed
 {
 	private:
-		int					_fpValue;					// FIxed_point number value
-		static const int	_fractional = 8;			// fractional bits (bits after the decimal, always 8 values in this case)
+		int					_fpValue;					// fixed point value
+		static const int	_fractional = 8;			// bits after decimal
 
 	public:
 		Fixed();										// Default constructor
