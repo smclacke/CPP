@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/21 20:58:52 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/21 21:18:19 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/04/21 21:19:18 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ ClapTrap::ClapTrap(std::string name)
 	_damage = 0;
 
 	std::cout << "Constructor called" << std::endl;
-	std::cout << "Player: " << _name << "enters the game..." std::endl;
+	std::cout << "Player: " << _name << "enters the game..." << std::endl;
 	std::cout << "Hit Points: " << _hit << std::endl; 
 	std::cout << "Energy Points: " << _energy << std::endl; 
 	std::cout << "Attack damage: " << _damage << std::endl; 
