@@ -13,7 +13,7 @@
 
 Constructor - initializes ovject's data members
 Destructor - deletes/frees/ends/removes etc everything at end
-Copy Constructor - initializes new objects
+Copy Constructor - initializes deep copy of object from default constructor
 Copy Assignment Operator - makes a copy of an object assigning one object to another using '=', return a reference to the object '*this', allows chain assignments 'o1=o2=o3'
 
  Deep Copy:
