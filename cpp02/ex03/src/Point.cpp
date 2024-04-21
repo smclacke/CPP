@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/18 20:21:14 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/21 18:55:43 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/04/21 19:57:31 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ Point::Point(const Point &value) : _x(value._x), _y(value._y) {}
  // X Y copy constructor, inits _x + _y with given parameters
 Point::Point(const float x, const float y) : _x(x), _y(y) {}
 
-// copy operator '=' overload, copy what's given and return reference (convertion need in this case)
+// copy operator '=' overload, copy object and return reference 
+// (no convertion need in this case)
 Point	&Point::operator=(const Point &value)
 {
 	(void)	value;

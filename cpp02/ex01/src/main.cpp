@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/16 22:21:52 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/18 16:01:27 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/04/21 20:20:40 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,20 @@ int		main()
 	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
 	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
 	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	
+//---------------- own tests ----------------//
+
+	// std::cout << std::endl << std::endl;
+
+	// std::cout << "a is " << a.toFloat() << " as float" << std::endl;
+	// std::cout << "b is " << b.toFloat() << " as float" << std::endl;
+	// std::cout << "c is " << c.toFloat() << " as float" << std::endl;
+	// std::cout << "d is " << d.toFloat() << " as float" << std::endl;
+
+	// Fixed	const e(a);
+	
+	// std::cout << "e is " << e << std::endl; 
+	// std::cout << "e is " << e.toInt() << " as integer" << std::endl;
 
 	return 0;
 }

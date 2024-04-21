@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/16 21:30:44 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/18 14:18:08 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/04/21 20:23:39 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,27 @@ int		main()
 	std::cout << b.getRawBits() << std::endl;
 	std::cout << c.getRawBits() << std::endl;
 
+// --------------- own test ------------- //
+
+	// std::cout << std::endl << std::endl;
+	
+	// Fixed	d; // is initially 0
+
+	// std::cout << d.getRawBits() << std::endl;
+
+	// d.setRawBits(41);
+
+	// Fixed	e(d);
+	// Fixed	f = e;
+	
+	// std::cout << d.getRawBits() << std::endl;
+	// std::cout << e.getRawBits() << std::endl;
+	// std::cout << f.getRawBits() << std::endl;
+
 	return 0;
 }
 
-
 /**
-	Fixed	d;
-	std::cout << d.getRawBits() << std::endl;
-	d.setRawBits(41);
-	Fixed	e(d);	
-	Fixed		f = e;
-	
-	std::cout << d.getRawBits() << std::endl;
-	std::cout << e.getRawBits() << std::endl;
-	std::cout << f.getRawBits() << std::endl;
-
-
  * expected output:
  * 
 		Default constructor called
