@@ -5,8 +5,8 @@
 #                                                      +:+                     #
 #    By: smclacke <smclacke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
-#    Created: 2024/03/07 13:13:50 by smclacke      #+#    #+#                  #
-#    Updated: 2024/04/21 20:54:28 by smclacke      ########   odam.nl          #
+#    Created: 2024/04/21 20:53:53 by smclacke      #+#    #+#                  #
+#    Updated: 2024/04/21 20:55:23 by smclacke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ INCLUDE			= -Iinclude
 
 CC				= c++
 CPPFLAGS		= -std=c++11 -Wall -Wextra -Werror -g -fsanitize=address
-HEADERS			= ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
+HEADERS			= ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
 HEADER_DIR		= include
 HEADER			= $(addprefix $(HEADER_DIR)/, $(HEADERS))
 
@@ -24,6 +24,7 @@ SRCS			= main.cpp		\
 				ClapTrap.cpp	\
 				ScavTrap.cpp	\
 				FragTrap.cpp	\
+				DiamondTrap.cpp	\
 
 SRC_DIR			= src
 SRC				= $(addprefix $(SRC_DIR)/, $(SRCS))
