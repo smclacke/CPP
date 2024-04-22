@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/21 20:58:10 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/22 17:09:03 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/04/22 18:27:21 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class ClapTrap
 
 	public:
 		ClapTrap();
-		ClapTrap(std::string name);
+		ClapTrap(std::string &name);
 		ClapTrap(const ClapTrap &value);
 		ClapTrap	&operator=(const ClapTrap &value);
 		~ClapTrap();

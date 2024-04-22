@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/21 20:58:52 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/22 17:45:01 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/04/22 18:27:47 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ ClapTrap::ClapTrap() : _name("Default Chumpy"), _hitPoints(10), _energyPoints(10
 }
 
 // Constructor creating new player(s)
-ClapTrap::ClapTrap(std::string name)
+ClapTrap::ClapTrap(std::string &name)
 {
 	_name = name;
 	_hitPoints = 10;
@@ -62,6 +62,8 @@ ClapTrap::~ClapTrap()
 }
 
 
+// get and set damage amount for each ClapTrap
+
 /**
  * when ClapTRap attacks it cause target to lose <attack damage> hit points
  * when ClapTrap repairs itself it gets <amount> hit points back
@@ -71,9 +73,6 @@ ClapTrap::~ClapTrap()
  * for each function, print message about what happened:
  * 	ClapTrap <name> attacks <target>, causing <damage> points of damage!
  */
-	// void	attack(const std::string &target);
-	// void	takeDamage(unsigned int amount);
-	// void	beRepaired(unsigned int amount);
 
 void	ClapTrap::attack(const std::string &target)
 {
@@ -97,7 +96,6 @@ void	ClapTrap::takeDamage(unsigned int amount)
 		this->_hitPoints -= amount;
 		std::cout << "ClapTrap " << _name << " takes " << amount << " points of damage" << " leaving them with " << _hitPoints << " hit points left" << std::endl;
 	}
-		
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
