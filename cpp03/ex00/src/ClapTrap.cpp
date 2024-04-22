@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/21 20:58:52 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/22 18:27:47 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/04/22 20:36:41 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,7 @@
 // Default Constructor
 ClapTrap::ClapTrap() : _name("Default Chumpy"), _hitPoints(10), _energyPoints(10), _damage(0)
 {
-	std::cout << "Default constructor called" << std::endl;
-	std::cout << _name << " enters the game..." << std::endl;
-	std::cout << "Hit Points: " << _hitPoints << std::endl; 
-	std::cout << "Energy Points: " << _energyPoints << std::endl; 
-	std::cout << "Attack damage: " << _damage << std::endl << std::endl; 
+	std::cout << "Default constructor called" << std::endl << std::endl; 
 }
 
 // Constructor creating new player(s)
@@ -30,7 +26,7 @@ ClapTrap::ClapTrap(std::string &name)
 	_energyPoints = 10;
 	_damage = 0;
 
-	std::cout << "Constructor called" << std::endl << std::endl;
+	std::cout << "Constructor called" << std::endl;
 	std::cout << _name << " enters the game..." << std::endl;
 	std::cout << "Hit Points: " << _hitPoints << std::endl; 
 	std::cout << "Energy Points: " << _energyPoints << std::endl; 
@@ -62,17 +58,24 @@ ClapTrap::~ClapTrap()
 }
 
 
-// get and set damage amount for each ClapTrap
 
-/**
- * when ClapTRap attacks it cause target to lose <attack damage> hit points
- * when ClapTrap repairs itself it gets <amount> hit points back
- * attacking and reparing cost 1 energy point each
- * nothing can happen if it has no hit points or energy points left
- * 
- * for each function, print message about what happened:
- * 	ClapTrap <name> attacks <target>, causing <damage> points of damage!
- */
+// Setter
+void	ClapTrap::setDamage(unsigned int amount)
+{
+	if (amount < 0)
+		this->_damage = 0;
+	else
+		this->_damage = amount;		
+}
+
+// Getter
+void	ClapTrap::getHitCount()
+{
+	std::cout << this->_name << " has " << _hitPoints << " hit points" << std::endl;
+}
+
+
+
 
 void	ClapTrap::attack(const std::string &target)
 {

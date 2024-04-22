@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/21 20:59:09 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/22 17:40:00 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/04/22 20:39:25 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,70 @@
 
 int		main()
 {
-	ClapTrap	defaultPlayer;
-
-	ClapTrap	player1("Player1");
-	ClapTrap	player2("Player2");
+	ClapTrap		defaultPlayer;
+	
+	std::string		player1 = "Player1";
+	std::string		player2 = "Player2";
+	
+	ClapTrap		clapTrap1(player1);
+	ClapTrap		clapTrap2(player2);
 
 	std::cout << std::endl << std::endl;
-
-	player1.attack("Player2");
-	player2.takeDamage(5);
-	player2.beRepaired(3);
 	
+	std::cout << "------------- DINGDINGDING --------------" << std::endl;
+	std::cout << "---------------- Round 1 --------------" << std::endl << std::endl;
+	
+	clapTrap1.setDamage(4);
+	clapTrap1.attack(player2);
+	clapTrap2.takeDamage(4);
+	clapTrap2.beRepaired(3);
+	
+	std::cout << '\n';
+
+	clapTrap1.getHitCount();
+	clapTrap2.getHitCount();
+	
+	std::cout << '\n';
+	
+	clapTrap2.setDamage(2);
+	clapTrap2.attack(player1);
+	clapTrap1.takeDamage(2);
+	clapTrap1.beRepaired(6);
+	
+	std::cout << '\n';
+	
+	clapTrap1.getHitCount();
+	clapTrap2.getHitCount();
+	
+	std::cout << '\n';
+	
+	clapTrap1.setDamage(14);
+	clapTrap1.attack(player2);
+	clapTrap2.takeDamage(14);
+	clapTrap2.beRepaired(10);
+
+	std::cout << std::endl << std::endl;
+	
+
+	
+	// ------------- extra shizzle --------------- //
+
+	std::cout << std::endl << std::endl;
+	std::cout << "------------- DINGDINGDING --------------" << std::endl;
+	std::cout << "--------------- Round 2 --------------" << std::endl << std::endl;
+	
+	std::string		player3 = "Player3";
+	
+	ClapTrap	clapTrap3(player3);
+	
+	std::cout << '\n';
+	
+	clapTrap3.setDamage(10);
+	clapTrap2.attack(player3);
+	clapTrap3.takeDamage(10);
+	
+	clapTrap3.getHitCount();
+
 	std::cout << std::endl << std::endl;
 
 	return (0);
