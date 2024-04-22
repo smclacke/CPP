@@ -53,7 +53,7 @@ static function within class =
 **POLYMORPHISM**
 **POLYMORPHISM**
 
-	- ising the same name for different things
+	- using the same name for different things
 	e.g. many version of a function called 'draw'
 		each with different behaviour depending on context
 	- draw could draw a circle, it could draw a triangle
