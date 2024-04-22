@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/21 20:59:09 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/22 20:39:25 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/04/22 20:49:41 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,17 @@
 
 int		main()
 {
-	ClapTrap		defaultPlayer;
+
+	std::cout << std::endl;
+
+	ClapTrap		ogClapTrap;
+	
+	std::cout << std::endl;
+	std::cout << "--------------------------------------" << std::endl;
+	std::cout << "--------------- START ----------------" << std::endl;
+	std::cout << "--------------------------------------" << std::endl;
+	std::cout << std::endl;
+
 	
 	std::string		player1 = "Player1";
 	std::string		player2 = "Player2";
@@ -76,9 +86,21 @@ int		main()
 	clapTrap2.attack(player3);
 	clapTrap3.takeDamage(10);
 	
+	std::cout << '\n';
+
 	clapTrap3.getHitCount();
+	
+	std::cout << '\n';
+
+	clapTrap3.attack(player2);
 
 	std::cout << std::endl << std::endl;
+
+	std::cout << "--------------------------------------" << std::endl;
+	std::cout << "------------- GAME OVER --------------" << std::endl;
+	std::cout << "--------------------------------------" << std::endl;
+	
+	std::cout << std::endl;
 
 	return (0);
 }
