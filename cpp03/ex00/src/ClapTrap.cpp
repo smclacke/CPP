@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/21 20:58:52 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/22 20:49:48 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/04/23 23:03:06 by eugene        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,13 @@ ClapTrap::~ClapTrap()
 
 
 // Setter
+// check best practice error handling this (unsigned cant be < 0 ...)
 void	ClapTrap::setDamage(unsigned int amount)
 {
-	if (amount < 0)
-		this->_damage = 0;
-	else
+	if (amount > 0)
 		this->_damage = amount;		
+	else
+		this->_damage = 0;
 }
 
 // Getter
