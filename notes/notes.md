@@ -49,6 +49,27 @@ static function within class =
 
 ************************************************************************
 
+**INHERITANCE**
+**INHERITANCE**
+**INHERITANCE**
+
+	- creating a new class from an existing one
+	- derived class/child class/sub class
+	- base class/ parent class/super class
+
+	e.g. class bus 	class car 	class truck
+	all with the same functions
+	could become
+	class vehicle - with those functions but just once
+	class bus - derived from class vehicle + car + truck
+
+	- syntax:
+		class <derived class> : <access specifier (public..)> <base class>
+		{
+			body
+		}
+	- if no access specifier given, defaults to private
+
 **POLYMORPHISM**
 **POLYMORPHISM**
 **POLYMORPHISM**

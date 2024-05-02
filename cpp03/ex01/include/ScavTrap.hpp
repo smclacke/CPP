@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/22 20:54:36 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/22 21:01:13 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/02 14:27:11 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,21 @@
 
 // void guardGate();
 // display a message informing that scavtrap is now in Gate keeper mode
+
+// Derived class
+class	ScavTrap : public ClapTrap
+{
+	// private:
+
+	public:
+		ScavTrap();
+		ScavTrap(std::string &name);
+		ScavTrap(const ScavTrap &value);
+		ScavTrap	&operator=(const ScavTrap &vale);
+		~ScavTrap();
+	
+	void	attack(const std::string &target);
+	void	guardGate();
+};
 
 #endif
