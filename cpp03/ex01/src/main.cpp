@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/22 20:52:41 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/02 14:45:37 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/02 17:47:56 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	main()
 	clapTrap.attack(scavvy);
 	scavTrap.takeDamage(4);
 	scavTrap.beRepaired(3);
+	scavTrap.attack(clappy);
 	
 	std::cout << '\n';
 

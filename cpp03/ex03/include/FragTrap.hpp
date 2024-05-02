@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/02 14:51:17 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/02 14:59:58 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/02 17:53:04 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class FragTrap : public ClapTrap
 	public:
 		FragTrap();
 		FragTrap(std::string &name);
-		FragTrap(const FragTrap &value);
-		FragTrap	&operator=(const FragTrap &value);
+		FragTrap(const FragTrap &copy);
+		FragTrap	&operator=(const FragTrap &copy);
 		~FragTrap();
 		
 	void	highFivesGuys();

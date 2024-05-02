@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/22 20:54:36 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/02 17:29:35 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/02 17:46:30 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ class	ScavTrap : public ClapTrap
 		ScavTrap(const ScavTrap &copy);
 		ScavTrap	&operator=(const ScavTrap &copy);
 		~ScavTrap();
-	
-	void	attack(const std::string &target);
+
 	void	guardGate();
 };
 

@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/02 13:53:24 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/02 17:31:37 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/02 17:45:52 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // Default Constructor
 ScavTrap::ScavTrap()
 {
-	ClapTrap("Default Chumpy");
+	this->_name = "Default Chumpy";
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_damage = 20;
@@ -57,7 +57,6 @@ ScavTrap::~ScavTrap()
 {
 	std::cout << "ScavTrap Destructor called" << std::endl;
 }
-
 
 
 void	ScavTrap::guardGate()
