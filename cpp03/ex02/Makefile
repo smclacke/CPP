@@ -6,11 +6,11 @@
 #    By: smclacke <smclacke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/03/07 13:13:50 by smclacke      #+#    #+#                  #
-#    Updated: 2024/04/21 20:54:28 by smclacke      ########   odam.nl          #
+#    Updated: 2024/05/02 15:01:33 by smclacke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= claptrap
+NAME			= fragtrap
 
 INCLUDE			= -Iinclude
 
