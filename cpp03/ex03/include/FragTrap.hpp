@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/02 14:51:17 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/02 17:53:04 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/02 18:47:43 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
-class FragTrap : public ClapTrap
+class FragTrap : public virtual ClapTrap
 {
 	public:
 		FragTrap();

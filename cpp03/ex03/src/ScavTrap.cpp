@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/02 13:53:24 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/02 17:45:52 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/02 19:05:21 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // Default Constructor
 ScavTrap::ScavTrap()
 {
-	this->_name = "Default Chumpy";
+	this->_name = "Default Scavvy";
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_damage = 20;
@@ -23,8 +23,9 @@ ScavTrap::ScavTrap()
 }
 
 // Constructor for new ClapTraps, hitpoints present health of ClapTrap
-ScavTrap::ScavTrap(std::string &name) : ClapTrap(name)
+ScavTrap::ScavTrap(std::string &name)
 {
+	this->_name = name;
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_damage = 20;
@@ -32,7 +33,7 @@ ScavTrap::ScavTrap(std::string &name) : ClapTrap(name)
 	std::cout << this->_name << " enters the game..." << std::endl;
 	std::cout << "Hit Points: " << this->_hitPoints << std::endl;
 	std::cout << "Energy Points: " << this->_energyPoints << std::endl;
-	std::cout << "Attack damage: " << this->_damage << std::endl;
+	std::cout << "Attack damage: " << this->_damage << std::endl << std::endl;
 }
 
 // Copy Constructor
@@ -46,9 +47,7 @@ ScavTrap::ScavTrap(const ScavTrap &copy)
 ScavTrap	&ScavTrap::operator=(const ScavTrap &copy)
 {
 	if (this != &copy)
-	{
 		ClapTrap::operator=(copy);
-	}
 	return *this;
 }
 

@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/02 14:52:07 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/02 17:55:59 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/02 19:04:57 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ FragTrap::FragTrap()
 	std::cout << "FragTrap Default Constructor called" << std::endl;
 }
 
-FragTrap::FragTrap(std::string &name) : ClapTrap(name)
+FragTrap::FragTrap(std::string &name)
 {
+	this->_name = name;
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;
 	this->_damage = 30;
@@ -45,9 +46,7 @@ FragTrap::FragTrap(const FragTrap &copy)
 FragTrap	&FragTrap::operator=(const FragTrap &copy)
 {
 	if (this != &copy)
-	{
 		ClapTrap::operator=(copy);
-	}
 	return *this;
 }
 
