@@ -48,6 +48,13 @@ static function within class =
 
 
 ************************************************************************
+**EXTRA COMPILER FLAGS**
+-Wshadow
+Warn whenever a local variable or type declaration shadows another variable, parameter, type, class member (in C++), or instance variable (in Objective-C) or whenever a built-in function is shadowed. Note that in C++, the compiler warns if a local variable shadows an explicit typedef, but not if it shadows a struct/class/enum. If this warning is enabled, it includes also all instances of local shadowing. This means that -Wno-shadow=local and -Wno-shadow=compatible-local are ignored when -Wshadow is used. Same as -Wshadow=global.
+
+-Wno-shadow-ivar (Objective-C only)
+Do not warn whenever a local variable shadows an instance variable in an Objective-C method.
+
 
 **INHERITANCE**
 **INHERITANCE**

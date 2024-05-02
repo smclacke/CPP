@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/21 20:58:10 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/22 20:29:47 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/02 17:16:23 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ class ClapTrap
 	public:
 		ClapTrap();
 		ClapTrap(std::string &name);
-		ClapTrap(const ClapTrap &value);
-		ClapTrap	&operator=(const ClapTrap &value);
+		ClapTrap(const ClapTrap &copy);
+		ClapTrap	&operator=(const ClapTrap &copy);
 		~ClapTrap();
 
-	void	attack(const std::string &target);
-	void	takeDamage(unsigned int amount);
-	void	beRepaired(unsigned int amount);
+	void		attack(const std::string &target);
+	void		takeDamage(unsigned int amount);
+	void		beRepaired(unsigned int amount);
 
 	void		setDamage(unsigned int amount);
 	void		getHitCount();

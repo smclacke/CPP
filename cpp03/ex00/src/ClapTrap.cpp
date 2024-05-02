@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/21 20:58:52 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/23 23:03:06 by eugene        ########   odam.nl         */
+/*   Updated: 2024/05/02 17:22:38 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,34 +19,32 @@ ClapTrap::ClapTrap() : _name("Default Chumpy"), _hitPoints(10), _energyPoints(10
 }
 
 // Constructor creating new player(s)
-ClapTrap::ClapTrap(std::string &name)
+ClapTrap::ClapTrap(std::string &name) : _name(name), _hitPoints(10), _energyPoints(10), _damage(0)
 {
-	_name = name;
-	_hitPoints = 10;
-	_energyPoints = 10;
-	_damage = 0;
-
 	std::cout << "Constructor called" << std::endl;
-	std::cout << _name << " enters the game..." << std::endl;
-	std::cout << "Hit Points: " << _hitPoints << std::endl; 
-	std::cout << "Energy Points: " << _energyPoints << std::endl; 
-	std::cout << "Attack damage: " << _damage << std::endl << std::endl; 
+	std::cout << this->_name << " enters the game..." << std::endl;
+	std::cout << "Hit Points: " << this->_hitPoints << std::endl; 
+	std::cout << "Energy Points: " << this->_energyPoints << std::endl; 
+	std::cout << "Attack damage: " << this->_damage << std::endl << std::endl; 
 }
 
 // Copy Constructor
-ClapTrap::ClapTrap(const ClapTrap &value)
+ClapTrap::ClapTrap(const ClapTrap &copy)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = value;
+	*this = copy;
 }
 
 // Deep copy using copy operator
-ClapTrap	&ClapTrap::operator=(const ClapTrap &value)
+ClapTrap	&ClapTrap::operator=(const ClapTrap &copy)
 {
-	_name = value._name;
-	_hitPoints = value._hitPoints;
-	_energyPoints = value._energyPoints;
-	_damage = value._damage;
+	if (this != &copy)
+	{	
+		this->_name = copy._name;
+		this->_hitPoints = copy._hitPoints;
+		this->_energyPoints = copy._energyPoints;
+		this->_damage = copy._damage;
+	}
 
 	return *this;
 }
@@ -60,7 +58,6 @@ ClapTrap::~ClapTrap()
 
 
 // Setter
-// check best practice error handling this (unsigned cant be < 0 ...)
 void	ClapTrap::setDamage(unsigned int amount)
 {
 	if (amount > 0)

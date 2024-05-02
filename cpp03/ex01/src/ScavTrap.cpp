@@ -6,51 +6,49 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/02 13:53:24 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/02 14:24:41 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/02 17:31:37 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ScavTrap.hpp"
 
 // Default Constructor
-ScavTrap::ScavTrap() 
+ScavTrap::ScavTrap()
 {
-	_name = "Default Chumpy";
-	_hitPoints = 100;
-	_energyPoints = 50;
-	_damage = 20;
+	ClapTrap("Default Chumpy");
+	this->_hitPoints = 100;
+	this->_energyPoints = 50;
+	this->_damage = 20;
 	std::cout << "ScavTrap Default Constructor called" << std::endl;
 }
 
 // Constructor for new ClapTraps, hitpoints present health of ClapTrap
-ScavTrap::ScavTrap(std::string &name)
+ScavTrap::ScavTrap(std::string &name) : ClapTrap(name)
 {
-	_name = name;
-	_hitPoints = 100;
-	_energyPoints = 50;
-	_damage = 20;
+	this->_hitPoints = 100;
+	this->_energyPoints = 50;
+	this->_damage = 20;
 	std::cout << "ScavTrap Constructor called" << std::endl;
-	std::cout << _name << " enters the game..." << std::endl;
-	std::cout << "Hit Points: " << _hitPoints << std::endl;
-	std::cout << "Energy Points: " << _energyPoints << std::endl;
-	std::cout << "Attack damage: " << _damage << std::endl;
+	std::cout << this->_name << " enters the game..." << std::endl;
+	std::cout << "Hit Points: " << this->_hitPoints << std::endl;
+	std::cout << "Energy Points: " << this->_energyPoints << std::endl;
+	std::cout << "Attack damage: " << this->_damage << std::endl;
 }
 
 // Copy Constructor
-ScavTrap::ScavTrap(const ScavTrap &value)
+ScavTrap::ScavTrap(const ScavTrap &copy)
 {
 	std::cout << "ScavTrap Copy Constructor called" << std::endl;
-	*this = value;
+	*this = copy;
 }
 
 // Deep copy using copy operator
-ScavTrap	&ScavTrap::operator=(const ScavTrap &value)
+ScavTrap	&ScavTrap::operator=(const ScavTrap &copy)
 {
-	_name = value._name;
-	_hitPoints = value._hitPoints;
-	_energyPoints = value._energyPoints;
-	_damage = value._damage;
-
+	if (this != &copy)
+	{
+		ClapTrap::operator=(copy);
+	}
 	return *this;
 }
 
@@ -64,10 +62,13 @@ ScavTrap::~ScavTrap()
 
 void	ScavTrap::guardGate()
 {
-	if (_hitPoints <= 0)
-		std::cout << _name << " can't be in Gate keeper mode, no hitPoints left!" << std::endl;
-	else if (_energyPoints <= 0)
-		std::cout << _name << " can't be in Gate keeper mode, no energyPoints left!" << std::endl;
+	if (this->_hitPoints <= 0)
+		std::cout << this->_name << " can't be in Gate keeper mode, no hitPoints left!" << std::endl;
+	else if (this->_energyPoints <= 0)
+		std::cout << this->_name << " can't be in Gate keeper mode, no energyPoints left!" << std::endl;
 	else
-		std::cout << _name << " is in Gate keeper mode" << std::endl;
+	{
+		this->_energyPoints -= 1;
+		std::cout << this->_name << " is in Gate keeper mode" << std::endl;
+	}
 }

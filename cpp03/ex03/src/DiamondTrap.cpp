@@ -6,17 +6,17 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/02 15:06:53 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/02 15:10:58 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/02 17:12:15 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/DiamondTrap.hpp"
 
 // Default Constructor
-DiamondTrap::DiamondTrap()
+DiamondTrap::DiamondTrap() : ScavTrap("Default Chumpy"), FragTrap("Default Chumpy"), _name("Default Chumpy")
 {
-	_name = "Default Chumpy";
-	_hitPoints = 100;
+	ClapTrap::_name = this->_name + "_clap_name";
+	this->_hitPoints = FragTrap::_hitPoints;
 	_energyPoints = 100;
 	_damage = 30;
 	std::cout << "DiamondTrap Default Constructor called" << std::endl;
@@ -25,9 +25,10 @@ DiamondTrap::DiamondTrap()
 DiamondTrap::DiamondTrap(std::string &name)
 {
 	_name = name;
-	_hitPoints = 100;
-	_energyPoints = 100;
-	_damage = 30;
+	// ClapTrap::_name = name + "_clap_name";
+	// _hitPoints = FragTrap::_hitPoints;
+	// _energyPoints = 100;
+	// _damage = 30;
 	std::cout << "DiamondTrap Constructor called" << std::endl;
 	std::cout << _name << " enters the game..." << std::endl;
 	std::cout << "Hit Points: " << _hitPoints << std::endl;
@@ -57,4 +58,15 @@ DiamondTrap	&DiamondTrap::operator=(const DiamondTrap &value)
 DiamondTrap::~DiamondTrap()
 {
 	std::cout << "DiamondTrap Destructor called" << std::endl;
+}
+
+
+void	DiamondTrap::attack(const std::string &target)
+{
+	ScavTrap::attack(target);
+}
+
+void	DiamondTrap::whoAmI()
+{
+	std::cout << "DiamondTrap name: " << _name << " ClapTrap name: " << ClapTrap::_name << std::endl;
 }

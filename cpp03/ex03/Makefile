@@ -6,7 +6,7 @@
 #    By: smclacke <smclacke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/04/21 20:53:53 by smclacke      #+#    #+#                  #
-#    Updated: 2024/05/02 15:05:36 by smclacke      ########   odam.nl          #
+#    Updated: 2024/05/02 16:54:37 by smclacke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ INCLUDE			= -Iinclude
 
 CC				= c++
 CPPFLAGS		= -std=c++11 -Wall -Wextra -Werror -g -fsanitize=address
+# -Wno-shadow -Wshadow
 HEADERS			= ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
 HEADER_DIR		= include
 HEADER			= $(addprefix $(HEADER_DIR)/, $(HEADERS))
