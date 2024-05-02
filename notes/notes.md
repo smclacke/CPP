@@ -70,6 +70,9 @@ static function within class =
 		}
 	- if no access specifier given, defaults to private
 
+
+	- multiple inheritance
+
 **POLYMORPHISM**
 **POLYMORPHISM**
 **POLYMORPHISM**

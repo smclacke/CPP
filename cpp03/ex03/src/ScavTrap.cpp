@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   DiamondTrap.cpp                                    :+:    :+:            */
+/*   ScavTrap.cpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/05/02 15:06:53 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/02 15:10:58 by smclacke      ########   odam.nl         */
+/*   Created: 2024/05/02 13:53:24 by smclacke      #+#    #+#                 */
+/*   Updated: 2024/05/02 15:03:03 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/DiamondTrap.hpp"
+#include "../include/ScavTrap.hpp"
 
 // Default Constructor
-DiamondTrap::DiamondTrap()
+ScavTrap::ScavTrap() 
 {
 	_name = "Default Chumpy";
 	_hitPoints = 100;
-	_energyPoints = 100;
-	_damage = 30;
-	std::cout << "DiamondTrap Default Constructor called" << std::endl;
+	_energyPoints = 50;
+	_damage = 20;
+	std::cout << "ScavTrap Default Constructor called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string &name)
+// Constructor for new ClapTraps, hitpoints present health of ClapTrap
+ScavTrap::ScavTrap(std::string &name)
 {
 	_name = name;
 	_hitPoints = 100;
-	_energyPoints = 100;
-	_damage = 30;
-	std::cout << "DiamondTrap Constructor called" << std::endl;
+	_energyPoints = 50;
+	_damage = 20;
+	std::cout << "ScavTrap Constructor called" << std::endl;
 	std::cout << _name << " enters the game..." << std::endl;
 	std::cout << "Hit Points: " << _hitPoints << std::endl;
 	std::cout << "Energy Points: " << _energyPoints << std::endl;
@@ -36,14 +37,14 @@ DiamondTrap::DiamondTrap(std::string &name)
 }
 
 // Copy Constructor
-DiamondTrap::DiamondTrap(const DiamondTrap &value)
+ScavTrap::ScavTrap(const ScavTrap &value)
 {
-	std::cout << "DiamondTrap Copy Constructor called" << std::endl;
+	std::cout << "ScavTrap Copy Constructor called" << std::endl;
 	*this = value;
 }
 
 // Deep copy using copy operator
-DiamondTrap	&DiamondTrap::operator=(const DiamondTrap &value)
+ScavTrap	&ScavTrap::operator=(const ScavTrap &value)
 {
 	_name = value._name;
 	_hitPoints = value._hitPoints;
@@ -53,8 +54,20 @@ DiamondTrap	&DiamondTrap::operator=(const DiamondTrap &value)
 	return *this;
 }
 
-// Destructor
-DiamondTrap::~DiamondTrap()
+// Destuctor
+ScavTrap::~ScavTrap()
 {
-	std::cout << "DiamondTrap Destructor called" << std::endl;
+	std::cout << "ScavTrap Destructor called" << std::endl;
+}
+
+
+
+void	ScavTrap::guardGate()
+{
+	if (_hitPoints <= 0)
+		std::cout << _name << " can't be in Gate keeper mode, no hitPoints left!" << std::endl;
+	else if (_energyPoints <= 0)
+		std::cout << _name << " can't be in Gate keeper mode, no energyPoints left!" << std::endl;
+	else
+		std::cout << _name << " is in Gate keeper mode" << std::endl;
 }
