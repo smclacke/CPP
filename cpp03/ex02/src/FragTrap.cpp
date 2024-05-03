@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/02 14:52:07 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 17:22:40 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/03 20:15:39 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ FragTrap::FragTrap()
 	std::cout << "FragTrap Default Constructor called" << std::endl;
 }
 
+// Constructor with parameter
 FragTrap::FragTrap(std::string &name)
 {
 	this->_name = name;

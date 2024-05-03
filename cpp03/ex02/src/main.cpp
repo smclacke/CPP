@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/22 20:52:41 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 18:25:53 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/03 20:16:09 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int	main()
 	ScavTrap		scav;
 	ScavTrap		scavCopy(scav);
 
-	fraggy.getEnergyCount();
-	fragCopy.getEnergyCount();
-	scav.getEnergyCount();
-	scavCopy.getEnergyCount();
+	fraggy.getEnergyPoints();
+	fragCopy.getEnergyPoints();
+	scav.getEnergyPoints();
+	scavCopy.getEnergyPoints();
 
 	// ScavTrap		ogScavTrap;
 	// ClapTrap		ogClapTrap;
@@ -49,8 +49,8 @@ int	main()
 	// ScavTrap		scavTrap(scavvy);
 	// FragTrap		fragTrap(fraggy);
 
-	// scavTrap.getHitCount();
-	// ogScavTrap.getHitCount();
+	// scavTrap.getHitPoints();
+	// ogScavTrap.getHitPoints();
 
 	// std::cout << std::endl << std::endl;
 	
@@ -66,8 +66,8 @@ int	main()
 
 	// fragTrap.highFivesGuys();
 
-	// clapTrap.getHitCount();
-	// scavTrap.getHitCount();
+	// clapTrap.getHitPoints();
+	// scavTrap.getHitPoints();
 	
 	// scavTrap.guardGate();
 	// scavTrap.takeDamage(100);
@@ -84,8 +84,8 @@ int	main()
 	
 	// std::cout << '\n';
 	
-	// clapTrap.getHitCount();
-	// scavTrap.getHitCount();
+	// clapTrap.getHitPoints();
+	// scavTrap.getHitPoints();
 	
 	// fragTrap.highFivesGuys();
 	// std::cout << '\n';

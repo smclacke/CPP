@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/21 20:58:10 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/02 19:02:59 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/03 19:53:36 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,19 @@ class ClapTrap
 		ClapTrap	&operator=(const ClapTrap &copy);
 		virtual ~ClapTrap();
 
-	virtual void		attack(const std::string &target);
-	virtual void		takeDamage(unsigned int amount);
-	virtual void		beRepaired(unsigned int amount);
+	virtual void				attack(const std::string &target);
+	virtual void				takeDamage(unsigned int amount);
+	virtual void				beRepaired(unsigned int amount);
 
-	virtual	void		setDamage(unsigned int amount);
-	virtual	void		getHitCount();
-	virtual	void		getEnergyCount();
-	virtual	void		getDamageAmount();
+	virtual	void				setName(std::string name);
+	virtual	void				setHitPoints(unsigned int amount);
+	virtual	void				setEnergyPoints(unsigned int amount);
+	virtual	void				setDamage(unsigned int amount);
+
+	virtual	std::string			getName();
+	virtual	unsigned int		getHitPoints();
+	virtual	unsigned int		getEnergyPoints();
+	virtual	unsigned int		getDamageAmount();
 };
 
 

@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/22 20:52:41 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/02 17:47:56 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/03 20:14:19 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ int	main()
 	
 	std::cout << '\n';
 
-	clapTrap.getHitCount();
-	scavTrap.getHitCount();
+	clapTrap.getHitPoints();
+	scavTrap.getHitPoints();
 	
 	scavTrap.guardGate();
 	scavTrap.takeDamage(100);
@@ -65,8 +65,8 @@ int	main()
 	
 	std::cout << '\n';
 	
-	clapTrap.getHitCount();
-	scavTrap.getHitCount();
+	clapTrap.getHitPoints();
+	scavTrap.getHitPoints();
 	
 	std::cout << '\n';
 	

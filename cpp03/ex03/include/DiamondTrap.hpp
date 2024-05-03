@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/02 15:06:34 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 18:43:53 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/03 20:00:15 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,21 @@
 class DiamondTrap : public ScavTrap, public FragTrap
 {
 	private:
-		// std::string		_name; // ????
-		// int				_hitPoints;
-		// int				_energyPoints;
-		// int				_damage;
-		
+		std::string	_name;
+
 	public:
+		using	FragTrap::_hitPoints;
+		using	ScavTrap::_energyPoints;
+		using	FragTrap::_damage;
+		using	ScavTrap::attack;
+	
 		DiamondTrap();
 		DiamondTrap(std::string &name);
 		DiamondTrap(const DiamondTrap &copy);
 		DiamondTrap	&operator=(const DiamondTrap &copy);
 		~DiamondTrap();
 
-		void		attack(const std::string &target);
+		// void		attack(const std::string &target);
 		void		whoAmI();
 };
 

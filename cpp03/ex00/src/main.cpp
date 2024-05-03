@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/21 20:59:09 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/22 20:49:41 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/03 20:14:03 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ int		main()
 	
 	std::cout << '\n';
 
-	clapTrap1.getHitCount();
-	clapTrap2.getHitCount();
+	clapTrap1.getHitPoints();
+	clapTrap2.getHitPoints();
 	
 	std::cout << '\n';
 	
@@ -56,8 +56,8 @@ int		main()
 	
 	std::cout << '\n';
 	
-	clapTrap1.getHitCount();
-	clapTrap2.getHitCount();
+	clapTrap1.getHitPoints();
+	clapTrap2.getHitPoints();
 	
 	std::cout << '\n';
 	
@@ -88,7 +88,7 @@ int		main()
 	
 	std::cout << '\n';
 
-	clapTrap3.getHitCount();
+	clapTrap3.getHitPoints();
 	
 	std::cout << '\n';
 

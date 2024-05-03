@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/02 13:53:24 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 17:22:34 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/03 20:16:16 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ ScavTrap::ScavTrap()
 	std::cout << "ScavTrap Default Constructor called" << std::endl;
 }
 
-// Constructor for new ClapTraps, hitpoints present health of ClapTrap
+// Constructor with parameter
 ScavTrap::ScavTrap(std::string &name)
 {
 	this->_name = name;

@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/22 20:52:41 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 18:26:22 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/03 20:03:53 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,39 @@ int	main()
 	
 	// deff.setDamage(700);
 	
-	FragTrap		fraggy;
-	FragTrap		fragCopy(fraggy);
+	ScavTrap		fraggy;
+	ScavTrap		fragCopy(fraggy);
 	DiamondTrap		diam;
 	DiamondTrap		diamCopy(diam);
 	
-	fraggy.getEnergyCount();
-	fragCopy.getEnergyCount();
-	diam.getEnergyCount();
-	diamCopy.getEnergyCount();
+	std::cout << "fraggy has " << fraggy.getEnergyPoints() << " energy points left" << std::endl;
+	// diam.getEnergyPoints();
+	// fraggy.getHitPoints();
+	// diam.getHitPoints();
+
+	// diam.attack("fraggy");
+	// fraggy.takeDamage(20);
+	// diam.getEnergyPoints();
+
+	// fraggy.attack("diam");
+	// diam.takeDamage(99);
+	// diam.getHitPoints();
+
+	
+	diam.whoAmI();
+
+	diam.attack("fraggy");
+	std::cout << "diam has " << diam.getEnergyPoints() << " energy points left" << std::endl;
+
+	diam.attack("fraggy");
+	
+	fraggy.takeDamage(30);
+	fraggy.guardGate();
+	
+
+	// diam.getDamageAmount();
+	// diamCopy.getDamageAmount();
+	// fragCopy.getDamageAmount();
 	
 	// deff.getDamageAmount();
 	// dumpy.getDamageAmount();

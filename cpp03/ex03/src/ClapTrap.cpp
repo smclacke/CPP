@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/21 20:58:52 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 18:10:52 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/03 20:12:08 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ClapTrap::ClapTrap() : _name("Default Chumpy"), _hitPoints(10), _energyPoints(10
 	std::cout << "ClapTrap Default Constructor called" << std::endl; 
 }
 
-// Constructor creating new player(s)
+// Constructor with parameter
 ClapTrap::ClapTrap(std::string &name) : _name(name), _hitPoints(10), _energyPoints(10), _damage(0)
 {
 	std::cout << std::endl << "ClapTrap Constructor called" << std::endl;
@@ -53,33 +53,6 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &copy)
 ClapTrap::~ClapTrap()
 {
 	std::cout << "ClapTrap Destructor called" << std::endl;
-}
-
-
-
-// Setter
-void	ClapTrap::setDamage(unsigned int amount)
-{
-	if (amount < 0)
-		this->_damage = 0;
-	else
-		this->_damage = amount;		
-}
-
-// Getter
-void	ClapTrap::getHitCount()
-{
-	std::cout << this->_name << " has " << this->_hitPoints << " hit points" << std::endl;
-}
-
-void	ClapTrap::getEnergyCount()
-{
-	std::cout << this->_name << " has " << this->_energyPoints << " energy points" << std::endl;
-}
-
-void	ClapTrap::getDamageAmount()
-{
-	std::cout << this->_name << " has " << this->_damage << " damage amount" << std::endl;
 }
 
 
@@ -121,3 +94,50 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	}
 }
 
+
+
+// Setters
+void	ClapTrap::setName(std::string name)
+{
+	this->_name = name;
+}
+
+void	ClapTrap::setHitPoints(unsigned int amount)
+{
+	this->_hitPoints = amount;
+}
+
+void	ClapTrap::setEnergyPoints(unsigned int amount)
+{
+	this->_energyPoints = amount;
+}
+
+void	ClapTrap::setDamage(unsigned int amount)
+{
+	this->_damage = amount;		
+}
+
+
+// Getters
+std::string	ClapTrap::getName()
+{
+	return this->_name;
+}
+
+unsigned int	ClapTrap::getHitPoints()
+{
+	std::cout << this->_name << " has " << this->_hitPoints << " hit points" << std::endl;
+	return this->_hitPoints;
+}
+
+unsigned int	ClapTrap::getEnergyPoints()
+{
+	std::cout << this->_name << " has " << this->_energyPoints << " energy points" << std::endl;
+	return this->_energyPoints;
+}
+
+unsigned int	ClapTrap::getDamageAmount()
+{
+	std::cout << this->_name << " causes " << this->_damage << " amount of damage" << std::endl;
+	return this->_damage;
+}
