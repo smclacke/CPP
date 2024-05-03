@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/02 13:53:24 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/02 19:05:21 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/03 18:09:39 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ ScavTrap::ScavTrap()
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_damage = 20;
-	std::cout << "ScavTrap Default Constructor called" << std::endl;
+	std::cout<< "ScavTrap Default Constructor called" << std::endl;
 }
 
 // Constructor for new ClapTraps, hitpoints present health of ClapTrap

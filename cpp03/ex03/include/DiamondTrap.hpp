@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/02 15:06:34 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/02 19:19:28 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/03 18:02:17 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,13 @@
 #include "FragTrap.hpp"
 
 
-class DiamondTrap : public FragTrap, public ScavTrap
+class DiamondTrap : public ScavTrap, public FragTrap
 {
 	private:
-		std::string _name;
+		std::string		_name;
+		int				_hitPoints;
+		int				_energyPoints;
+		int				_damage;
 		
 	public:
 		DiamondTrap();

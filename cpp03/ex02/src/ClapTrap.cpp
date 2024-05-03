@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/21 20:58:52 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/02 19:11:31 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/03 18:25:24 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &copy)
 		this->_energyPoints = copy._energyPoints;
 		this->_damage = copy._damage;
 	}
-
 	return *this;
 }
 
@@ -72,6 +71,10 @@ void	ClapTrap::getHitCount()
 	std::cout << this->_name << " has " << this->_hitPoints << " hit points" << std::endl;
 }
 
+void	ClapTrap::getEnergyCount()
+{
+	std::cout << this->_name << " has " << this->_energyPoints << " energy points" << std::endl;	
+}
 
 
 

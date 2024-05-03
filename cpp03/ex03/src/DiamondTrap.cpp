@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/02 15:06:53 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/02 19:20:10 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/03 18:11:46 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,16 @@
 // Default Constructor
 DiamondTrap::DiamondTrap()
 {
-	this->_name = "Default Chumpy";
+	this->_name = "Default Mondy";
+	ClapTrap::_name = this->_name + "_clap_name";
 	this->_hitPoints = FragTrap::_hitPoints;
 	this->_energyPoints = ScavTrap::_energyPoints;
 	this->_damage = FragTrap::_damage;
-	std::cout << "DiamondTrap Default Constructor called" << std::endl;
+	std::cout << std::endl << "DiamondTrap Default Constructor called" << std::endl;
+	std::cout << this->_name << " enters the game..." << std::endl;
+	std::cout << "Hit Points: " << this->_hitPoints << std::endl;
+	std::cout << "Energy Points: " << this->_energyPoints << std::endl;
+	std::cout << "Attack damage: " << this->_damage << std::endl << std::endl;
 }
 
 DiamondTrap::DiamondTrap(std::string &name)
@@ -29,7 +34,7 @@ DiamondTrap::DiamondTrap(std::string &name)
 	this->_hitPoints = FragTrap::_hitPoints;
 	this->_energyPoints = ScavTrap::_energyPoints;
 	this->_damage = FragTrap::_damage;
-	std::cout << "DiamondTrap Constructor called" << std::endl;
+	std::cout << std::endl << "DiamondTrap Constructor called" << std::endl;
 	std::cout << this->_name << " enters the game..." << std::endl;
 	std::cout << "Hit Points: " << this->_hitPoints << std::endl;
 	std::cout << "Energy Points: " << this->_energyPoints << std::endl;
@@ -65,5 +70,5 @@ void	DiamondTrap::attack(const std::string &target)
 
 void	DiamondTrap::whoAmI()
 {
-	std::cout << "DiamondTrap name: " << this->_name << " | ClapTrap name: " << ClapTrap::_name << std::endl;
+	std::cout << std::endl << "DiamondTrap name: " << this->_name << " | ClapTrap name: " << ClapTrap::_name << std::endl << std::endl;
 }

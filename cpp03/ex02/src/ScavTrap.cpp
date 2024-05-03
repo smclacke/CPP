@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/02 13:53:24 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/02 19:05:08 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/03 17:22:34 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // Default Constructor
 ScavTrap::ScavTrap()
 {
-	this->_name = "Default Chumpy";
+	this->_name = "Default Scavvy";
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_damage = 20;

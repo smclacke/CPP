@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/21 20:58:10 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/02 17:16:43 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/03 18:25:37 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ class ClapTrap
 
 	void		setDamage(unsigned int amount);
 	void		getHitCount();
+	void		getEnergyCount();
 };
 
 

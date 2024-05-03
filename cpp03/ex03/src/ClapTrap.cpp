@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/21 20:58:52 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/02 19:11:19 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/03 18:10:52 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ClapTrap::ClapTrap() : _name("Default Chumpy"), _hitPoints(10), _energyPoints(10
 // Constructor creating new player(s)
 ClapTrap::ClapTrap(std::string &name) : _name(name), _hitPoints(10), _energyPoints(10), _damage(0)
 {
-	std::cout << "ClapTrap Constructor called" << std::endl;
+	std::cout << std::endl << "ClapTrap Constructor called" << std::endl;
 	std::cout << this->_name << " enters the game..." << std::endl;
 	std::cout << "Hit Points: " << this->_hitPoints << std::endl; 
 	std::cout << "Energy Points: " << this->_energyPoints << std::endl; 

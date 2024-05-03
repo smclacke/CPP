@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/02 14:52:07 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/02 19:04:57 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/03 17:22:40 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // Default Constructor
 FragTrap::FragTrap()
 {
-	this->_name = "Default Chumpy";
+	this->_name = "Default Frag";
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;
 	this->_damage = 30;

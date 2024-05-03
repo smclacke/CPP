@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/02 14:52:07 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/02 19:04:57 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/03 18:09:46 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // Default Constructor
 FragTrap::FragTrap()
 {
-	this->_name = "Default Chumpy";
+	this->_name = "Default Frag";
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;
 	this->_damage = 30;
@@ -28,7 +28,7 @@ FragTrap::FragTrap(std::string &name)
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;
 	this->_damage = 30;
-	std::cout << "FragTrap Constructor called" << std::endl;
+	std::cout << std::endl << "FragTrap Constructor called" << std::endl;
 	std::cout << this->_name << " enters the game..." << std::endl;
 	std::cout << "Hit Points: " << this->_hitPoints << std::endl;
 	std::cout << "Energy Points: " << this->_energyPoints << std::endl;
