@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:52:28 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 21:55:08 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/03 22:09:56 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ WrongCat::~WrongCat()
 	std::cout << "WrongCat Destructor called" << std::endl;
 }
 
-std::string	WrongCat::getType() const
-{
-	return this->_type;
-}
+// makeSound() same function but since it's being called by a WrongCat 
+// class object, "wrong meow" is printed, if there is no 
+// WrongCat class specification of this function, wrongcat->makeSound
+// will use the makeSound function from Base class (WrongAnimal)
 
 void	WrongCat::makeSound() const
 {
-	std::cout << "meow" << std::endl;
+	std::cout << "wrong meow" << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:16:01 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 21:44:42 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/03 21:59:48 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,12 @@
 
 class Dog : public Animal
 {
-	private:
-		std::string		_type;
-		
 	public:
 		Dog();
 		Dog(const Dog &copy);
 		Dog	&operator=(const Dog &copy);
 		~Dog();
 
-	std::string		getType() const;
 	void			makeSound() const;
 };
 

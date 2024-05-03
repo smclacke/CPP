@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:15:46 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 21:44:54 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/03 21:59:55 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,13 @@
 # include <cstring>
 
 class Cat : public Animal
-{
-	private:
-		std::string		_type;
-				
+{		
 	public:
 		Cat();
 		Cat(const Cat &copy);
 		Cat	&operator=(const Cat &copy);
 		~Cat();
 
-	std::string		getType() const;
 	void			makeSound() const;
 };
 

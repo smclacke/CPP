@@ -6,14 +6,14 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:51:57 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 21:52:19 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/03 21:59:23 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/WrongAnimal.hpp"
 
 // default
-WrongAnimal::WrongAnimal() : _type("WRONG")
+WrongAnimal::WrongAnimal() : _type("just so wrong...")
 {
 	std::cout << "WrongAnimal Default Constructor called" << std::endl;
 }
@@ -48,6 +48,6 @@ std::string	WrongAnimal::getType() const
 
 void	WrongAnimal::makeSound() const
 {
-	std::cout << "WRONG SOUND" << std::endl;
+	std::cout << "wrong sounds" << std::endl;
 }
 

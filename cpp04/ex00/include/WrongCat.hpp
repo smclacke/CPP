@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:50:11 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 21:51:24 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/03 22:10:01 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,12 @@
 
 class WrongCat : public WrongAnimal
 {
-	private:
-		std::string		_type;
-		
 	public:
 		WrongCat();
 		WrongCat(const WrongCat &copy);
 		WrongCat	&operator=(const WrongCat &copy);
 		~WrongCat();
 
-	std::string		getType() const;
 	void			makeSound() const;
 };
 

@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:15:28 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 21:46:36 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/03 21:58:57 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,6 @@ Cat	&Cat::operator=(const Cat &copy)
 Cat::~Cat()
 {
 	std::cout << "Cat Destructor called" << std::endl;
-}
-
-std::string	Cat::getType() const
-{
-	return this->_type;
 }
 
 void	Cat::makeSound() const
