@@ -6,14 +6,14 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:12:27 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 21:21:46 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/03 21:46:40 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+# include "../include/Animal.hpp"
 
 // default
-Animal::Animal()
+Animal::Animal() : _type("undisclosed")
 {
 	std::cout << "Animal Default Constructor called" << std::endl;
 }
@@ -28,10 +28,10 @@ Animal::Animal(const Animal &copy)
 // copy overload operator
 Animal	&Animal::operator=(const Animal &copy)
 {
-	// if (this != &copy)
-	// {
-	// 	this->
-	// }
+	if (this != &copy)
+	{
+		this->_type = copy._type;
+	}
 	return *this;
 }
 
@@ -39,5 +39,15 @@ Animal	&Animal::operator=(const Animal &copy)
 Animal::~Animal()
 {
 	std::cout << "Animal Destructor called" << std::endl;
+}
+
+std::string	Animal::getType() const
+{
+	return this->_type;
+}
+
+void	Animal::makeSound() const
+{
+	std::cout << "... insert jungle sounds here..." << std::endl;
 }
 

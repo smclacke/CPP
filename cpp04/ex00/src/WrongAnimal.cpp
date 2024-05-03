@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Dog.cpp                                            :+:    :+:            */
+/*   WrongAnimal.cpp                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/05/03 21:15:17 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 21:46:34 by smclacke      ########   odam.nl         */
+/*   Created: 2024/05/03 21:51:57 by smclacke      #+#    #+#                 */
+/*   Updated: 2024/05/03 21:52:19 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../include/Dog.hpp"
+# include "../include/WrongAnimal.hpp"
 
 // default
-Dog::Dog()
+WrongAnimal::WrongAnimal() : _type("WRONG")
 {
-	this->_type = "Dog";
-	std::cout << "Dog Default Constructor called" << std::endl;
+	std::cout << "WrongAnimal Default Constructor called" << std::endl;
 }
 
 // copy
-Dog::Dog(const Dog &copy)
+WrongAnimal::WrongAnimal(const WrongAnimal &copy)
 {
-	std::cout << "Dog Copy Constructor called" << std::endl;
+	std::cout << "WrongAnimal Copy Constructor called" << std::endl;
 	*this = copy;
 }
 
 // copy overload operator
-Dog	&Dog::operator=(const Dog &copy)
+WrongAnimal	&WrongAnimal::operator=(const WrongAnimal &copy)
 {
 	if (this != &copy)
 	{
@@ -37,17 +36,18 @@ Dog	&Dog::operator=(const Dog &copy)
 }
 
 // destructor
-Dog::~Dog()
+WrongAnimal::~WrongAnimal()
 {
-	std::cout << "Dog Destructor called" << std::endl;
+	std::cout << "WrongAnimal Destructor called" << std::endl;
 }
 
-std::string	Dog::getType() const
+std::string	WrongAnimal::getType() const
 {
 	return this->_type;
 }
 
-void	Dog::makeSound() const
+void	WrongAnimal::makeSound() const
 {
-	std::cout << "woof" << std::endl;
+	std::cout << "WRONG SOUND" << std::endl;
 }
+

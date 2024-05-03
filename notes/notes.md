@@ -49,6 +49,9 @@ static function within class =
 
 ************************************************************************
 **VIRTUAL**
+
+- decides which methods to use during execution not compilation...
+
 (hence the extra compiler flags)
 	- removes the ambiguity
 	- destructors and functions can be virtual
