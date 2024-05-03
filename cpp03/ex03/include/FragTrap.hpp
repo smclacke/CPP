@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/02 14:51:17 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 18:04:49 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/03 18:43:38 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 
 class FragTrap : public virtual ClapTrap
 {
-	protected:
-		std::string		_name;
-		int				_hitPoints;
-		int				_energyPoints;
-		int				_damage;
+	// protected:
+	// 	std::string		_name;
+	// 	int				_hitPoints;
+	// 	int				_energyPoints;
+	// 	int				_damage;
 		
 	public:
 		FragTrap();
