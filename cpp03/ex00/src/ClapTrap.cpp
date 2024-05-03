@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/21 20:58:52 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 20:12:08 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/03 20:19:46 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &copy)
 		this->_energyPoints = copy._energyPoints;
 		this->_damage = copy._damage;
 	}
-
 	return *this;
 }
 

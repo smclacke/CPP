@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/22 20:52:41 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 20:16:09 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/03 20:45:57 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,42 @@ int	main()
 {
 	std::cout << std::endl;
 
-
+	// default constructors
 	FragTrap		fraggy;
-	FragTrap		fragCopy(fraggy);
 	ScavTrap		scav;
+
+	// copy constructors
+	FragTrap		fragCopy(fraggy);
 	ScavTrap		scavCopy(scav);
 
-	fraggy.getEnergyPoints();
-	fragCopy.getEnergyPoints();
-	scav.getEnergyPoints();
+	std::cout << std::endl;
+
+	fragCopy.highFivesGuys();
+	
+	std::cout << std::endl;
+
+	// each individually updating their derived versions of
+	// the private attributes of ClapTrap
+
 	scavCopy.getEnergyPoints();
+	scavCopy.getHitPoints();
+	scavCopy.getDamageAmount();
+	
+	std::cout << std::endl;
+	
+	fragCopy.getEnergyPoints();
+	fragCopy.getHitPoints();
+	fragCopy.getDamageAmount();
+
+	std::cout << std::endl;
+
+	// claptrap class attributes stay the same
+	
+	ClapTrap	clappy;
+
+	clappy.getEnergyPoints();
+	clappy.getHitPoints();
+	clappy.getDamageAmount();
 
 	// ScavTrap		ogScavTrap;
 	// ClapTrap		ogClapTrap;
