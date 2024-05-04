@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   WrongCat.hpp                                       :+:    :+:            */
+/*   Cat.hpp                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/05/03 21:50:11 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 16:34:27 by smclacke      ########   odam.nl         */
+/*   Created: 2024/05/03 21:15:46 by smclacke      #+#    #+#                 */
+/*   Updated: 2024/05/04 16:49:07 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-# define WRONGCAT_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
-# include "WrongAnimal.hpp"
+# include "Animal.hpp"
+# include "Brain.hpp" 
 # include <iostream>
-# include <cmath>
 # include <string>
-# include <cstring>
 
-class WrongCat : public WrongAnimal
-{
+class Cat : public Animal
+{		
+	private:
+		Brain*		_catBrain;
+
 	public:
-		WrongCat();
-		WrongCat(const WrongCat &copy);
-		WrongCat	&operator=(const WrongCat &copy);
-		~WrongCat();
+		Cat();
+		Cat(const Cat &copy);
+		Cat	&operator=(const Cat &copy);
+		~Cat();
 
 	void			makeSound() const;
+	
+	Brain	&getBrain() const;
 };
 
 

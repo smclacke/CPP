@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   WrongCat.hpp                                       :+:    :+:            */
+/*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/05/03 21:50:11 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 16:34:27 by smclacke      ########   odam.nl         */
+/*   Created: 2024/05/03 21:08:47 by smclacke      #+#    #+#                 */
+/*   Updated: 2024/05/04 16:58:52 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-# define WRONGCAT_HPP
+# include "../include/Animal.hpp"
+# include "../include/Brain.hpp"
+# include "../include/Dog.hpp"
+# include "../include/Cat.hpp"
 
-# include "WrongAnimal.hpp"
-# include <iostream>
-# include <cmath>
-# include <string>
-# include <cstring>
-
-class WrongCat : public WrongAnimal
+int main()
 {
-	public:
-		WrongCat();
-		WrongCat(const WrongCat &copy);
-		WrongCat	&operator=(const WrongCat &copy);
-		~WrongCat();
+	const Animal* 			dog = new Dog();
+	const Animal* 			cat = new Cat();
+	const Brain*			brain = new Brain();
 
-	void			makeSound() const;
-};
+	int		numIdeas = 12;
 
+	
 
-#endif
+	delete dog;
+	delete cat;
+
+	return 0;
+}

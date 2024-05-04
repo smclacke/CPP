@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:08:47 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 22:06:54 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 16:32:31 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main()
 	const Animal* meta = new Animal();
 	const Animal* dog = new Dog();
 	const Animal* cat = new Cat();
-	
+
 	std::cout << std::endl;
 
 	std::cout << dog->getType() << " " << std::endl;
