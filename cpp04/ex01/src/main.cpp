@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:08:47 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 19:39:16 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 19:45:58 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	brainStuff()
 	Brain		*brain = new Brain();
 	int			numIdeas = 5;
 
+	std::cout << std::endl << std::endl;
+	
 	brain->setIdea("thinking", 0);
 	brain->setIdea("pondering", 1);
 	brain->setIdea("considering", 2);
@@ -78,8 +80,12 @@ void	dogStuff()
 
 	dogBrain = dog->getBrain();
 
+	std::cout << std::endl << std::endl;
+	
 	dog->makeSound();
 
+	std::cout << std::endl << std::endl;
+	
 	dogBrain->setIdea("dog thing 1", 0);
 	dogBrain->setIdea("dog thing 2", 1);
 	dogBrain->setIdea("dog thing 3", 2);
@@ -134,10 +140,10 @@ void	dogStuff()
 void	catStuff()
 {
 	Cat					*cat = new Cat();
-	Brain				*catBrain;
+	Brain				*catBrain = cat->getBrain();
 	int					catIdeas = 7;
 
-	catBrain = cat->getBrain();
+	// catBrain = cat->getBrain();
 	
 	std::cout << std::endl << std::endl;
 
@@ -236,7 +242,7 @@ void	catStuff()
 
 void	animalStuff()
 {
-
+	
 	
 	std::cout << std::endl << std::endl;
 	std::cout << std::endl << std::endl;
@@ -245,8 +251,8 @@ void	animalStuff()
 
 int	main()
 {
-	// brainStuff();
-	// dogStuff();
+	brainStuff();
+	dogStuff();
 	catStuff();
 	// animalStuff();
 

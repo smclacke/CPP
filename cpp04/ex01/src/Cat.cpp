@@ -6,12 +6,13 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:15:28 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 19:26:39 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 19:44:43 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/Cat.hpp"
 
+// brain is created in constructor and so deleted in destructor
 // default
 Cat::Cat() : _catBrain(new Brain())
 {
