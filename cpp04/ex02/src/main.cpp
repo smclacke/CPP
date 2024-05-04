@@ -6,11 +6,11 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:08:47 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 20:42:30 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 20:48:40 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../include/Animal.hpp"
+# include "../include/AAnimal.hpp"
 # include "../include/Brain.hpp"
 # include "../include/Dog.hpp"
 # include "../include/Cat.hpp"
@@ -188,12 +188,13 @@ void	catStuff()
 	std::cout << std::endl << std::endl;
 }
 
-// using the base class which due to having an abstract function, is now an abstract class 
-// and hence the need for the pure vitual function :D
+
 void	animalStuff()
 {
 	int			num = 10;
-	Animal		*animals[num];
+	AAnimal		*animals[num];
+
+	// Animal		*animal = new Animal(); // abstract can't be instantiable
 	
 	// make animals
 	for (int i = 0; i < num; i++)
