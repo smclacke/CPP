@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:08:47 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 20:42:30 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 23:28:17 by SarahLouise   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,8 +188,7 @@ void	catStuff()
 	std::cout << std::endl << std::endl;
 }
 
-// using the base class which due to having an abstract function, is now an abstract class 
-// and hence the need for the pure vitual function :D
+
 void	animalStuff()
 {
 	int			num = 10;

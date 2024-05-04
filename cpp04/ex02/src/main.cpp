@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:08:47 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 20:48:40 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 23:30:36 by SarahLouise   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,13 +188,12 @@ void	catStuff()
 	std::cout << std::endl << std::endl;
 }
 
-
 void	animalStuff()
 {
 	int			num = 10;
 	AAnimal		*animals[num];
 
-	// Animal		*animal = new Animal(); // abstract can't be instantiable
+	// AAnimal		*animal = new AAnimal(); // abstract can't be instantiated
 	
 	// make animals
 	for (int i = 0; i < num; i++)
