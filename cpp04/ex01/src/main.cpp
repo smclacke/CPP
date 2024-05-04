@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:08:47 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 19:26:26 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 19:39:16 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ void	dogStuff()
 
 	dogBrain = dog->getBrain();
 
+	dog->makeSound();
+
 	dogBrain->setIdea("dog thing 1", 0);
 	dogBrain->setIdea("dog thing 2", 1);
 	dogBrain->setIdea("dog thing 3", 2);
@@ -136,6 +138,12 @@ void	catStuff()
 	int					catIdeas = 7;
 
 	catBrain = cat->getBrain();
+	
+	std::cout << std::endl << std::endl;
+
+	cat->makeSound();
+	
+	std::cout << std::endl << std::endl;
 
 	catBrain->setIdea("milk", 0);
 	catBrain->setIdea("mouse", 1);
@@ -150,8 +158,8 @@ void	catStuff()
 	
 	std::cout << std::endl << std::endl;
 
-	// shallow copy
 
+	// shallow copy
 	Brain				*shallowBrain(catBrain);
 	
 	for (int i = 0; i < catIdeas; i++)
@@ -161,7 +169,6 @@ void	catStuff()
 
 	
 	// deep copy
-
 	Brain		*deepBrain = new Brain(*catBrain);
 
 	for (int i = 0; i < catIdeas; i++)
@@ -170,8 +177,7 @@ void	catStuff()
 	std::cout << std::endl << std::endl;
 	
 	
-	// change idea[2]
-	
+	// change idea[6]
 	catBrain->setIdea("change idea", 6);
 	std::cout << "change catBrain idea[" << 6 << "] : " << catBrain->getIdea(6) << std::endl;
 	std::cout << "change deepBrain idea[" << 6 << "] : " << deepBrain->getIdea(6) << std::endl;
@@ -179,28 +185,50 @@ void	catStuff()
 	
 	std::cout << std::endl << std::endl;
 
-	// create another cat brain just for fun
-
-	Cat			*cat2 = new Cat();
-	Brain		*catBrain2 = cat2->getBrain();
-	int			secondIdeas = 3;
-
-	catBrain2->setIdea("something", 0);
-	catBrain2->setIdea("something else", 1);
-	catBrain2->setIdea("something different", 2);
-
-	for (int i = 0; i < secondIdeas; i++)
-		std::cout << "catBrain2 idea[" << i << "] : " << catBrain2->getIdea(i) << std::endl;
-	
-	delete cat2;
-	delete catBrain2;
-	
-	std::cout << std::endl << std::endl;
-	
-	
 	delete cat;
 	delete catBrain;
 	delete deepBrain; // remove for leak :)
+
+	
+	std::cout << std::endl << std::endl;
+
+//---------------------------------------------------------------------------//
+	// create another cat brain just for fun
+
+	// Cat			*cat2 = new Cat();
+	// Brain		*catBrain2 = cat2->getBrain();
+	// int			secondIdeas = 3;
+
+	// catBrain2->setIdea("something", 0);
+	// catBrain2->setIdea("something else", 1);
+	// catBrain2->setIdea("something different", 2);
+
+	// std::cout << std::endl << std::endl;
+	
+	// for (int i = 0; i < secondIdeas; i++)
+	// 	std::cout << "catBrain2 idea[" << i << "] : " << catBrain2->getIdea(i) << std::endl;
+	
+	// std::cout << std::endl << std::endl;
+	
+	// // deep copy
+	// Brain		*deepBrain2 = new Brain(*catBrain2);
+	
+	// for (int i = 0; i < secondIdeas; i++)
+	// 	std::cout << "deepBrain2 idea[" << i << "] : " << deepBrain2->getIdea(i) << std::endl;
+	
+	// std::cout << std::endl << std::endl;
+
+
+	// // change idea[1]
+	// catBrain2->setIdea("change it up again hehe", 1);
+	// std::cout << "change catBrain2 idea[" << 1 << "] : " << catBrain2->getIdea(1) << std::endl;
+	// std::cout << "change deepBrain2 idea[" << 1 << "] : " << deepBrain2->getIdea(1) << std::endl;
+	
+	// std::cout << std::endl << std::endl;
+
+	// delete cat2;
+	// delete catBrain2;
+	// delete deepBrain2;
 
 	std::cout << std::endl << std::endl;
 	std::cout << std::endl << std::endl;

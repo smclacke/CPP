@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:12:27 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 19:29:30 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 19:31:10 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,6 @@ Animal::~Animal()
 	std::cout << "Animal Destructor called" << std::endl;
 }
 
-// getters
-std::string	Animal::getType() const
-{
-	return this->_type;
-}
 
 // methods
 void	Animal::makeSound() const
@@ -54,3 +49,8 @@ void	Animal::makeSound() const
 	std::cout << "... insert jungle sounds here..." << std::endl;
 }
 
+// getters
+std::string	Animal::getType() const
+{
+	return this->_type;
+}
