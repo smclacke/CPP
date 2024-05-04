@@ -48,6 +48,21 @@ static function within class =
 
 
 ************************************************************************
+**PURE VIRTUAL / ABSTRACT CLASSES WOOOHOOOOOOO**
+
+- a class is abstract if it hsa at least one put virtual function
+- a function WITHOUT a definition
+
+- sometimes, implementation of all functions cannot be provided in a base class because we don't know the implemention...
+	this type of base class is called an abstract class
+
+- a pure virtual function (abstract function) is a virtual function for which we can have an implementation, but we override
+		it in the derived class, otherwise, the derived class will also become an abstract class. 
+
+- the pure virtual function is declared by assigning 0 in the declaration
+
+- an abstract class' descendants must define the pure citual function, otherwise the subclasses become abstract too by this definition
+
 **VIRTUAL**
 
 - decides which methods to use during execution not compilation...
