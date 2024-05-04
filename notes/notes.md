@@ -49,6 +49,8 @@ static function within class =
 
 ************************************************************************
 **PURE VIRTUAL / ABSTRACT CLASSES WOOOHOOOOOOO**
+**PURE VIRTUAL / ABSTRACT CLASSES WOOOHOOOOOOO**
+**PURE VIRTUAL / ABSTRACT CLASSES WOOOHOOOOOOO**
 
 - a class is abstract if it hsa at least one put virtual function
 - a function WITHOUT a definition
@@ -64,6 +66,8 @@ static function within class =
 - an abstract class' descendants must define the pure citual function, otherwise the subclasses become abstract too by this definition
 
 **VIRTUAL**
+**VIRTUAL**
+**VIRTUAL**
 
 - decides which methods to use during execution not compilation...
 
@@ -76,6 +80,8 @@ static function within class =
 	- When you declare a function as "virtual" in the base class, you're saying, "Hey, this function might be redefined in one of the derived classes."
 	When you call a virtual function on a base class pointer that's pointing to a derived class object, the function that actually gets called is determined by the type of the object the pointer is pointing to at runtime. This is called "runtime polymorphism".
 
+**EXTRA COMPILER FLAGS**
+**EXTRA COMPILER FLAGS**
 **EXTRA COMPILER FLAGS**
 -Wshadow
 Warn whenever a local variable or type declaration shadows another variable, parameter, type, class member (in C++), or instance variable (in Objective-C) or whenever a built-in function is shadowed. Note that in C++, the compiler warns if a local variable shadows an explicit typedef, but not if it shadows a struct/class/enum. If this warning is enabled, it includes also all instances of local shadowing. This means that -Wno-shadow=local and -Wno-shadow=compatible-local are ignored when -Wshadow is used. Same as -Wshadow=global.
