@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:15:46 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 18:59:20 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 20:16:35 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ class Cat : public Animal
 		Cat	&operator=(const Cat &copy);
 		~Cat();
 
+	// methods
 	void			makeSound() const;
+
+	// getters
 	Brain			*getBrain() const;
 };
 

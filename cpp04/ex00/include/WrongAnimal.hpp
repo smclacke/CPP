@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:49:39 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 21:49:57 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 20:15:54 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,11 @@ class WrongAnimal
 		WrongAnimal	&operator=(const WrongAnimal &copy);
 		virtual ~WrongAnimal();
 
-	virtual std::string		getType() const;
+	// methods
 	virtual void			makeSound() const;
+
+	// getters
+	virtual std::string		getType() const;
 };
 
 

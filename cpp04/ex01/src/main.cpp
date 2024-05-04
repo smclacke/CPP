@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:08:47 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 19:45:58 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 20:25:43 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	brainStuff()
 	std::cout << std::endl << std::endl;
 	
 	// shallow copy
-
 	Brain		*shallowBrain(brain);
 
 	for (int i = 0; i < numIdeas; i++)
@@ -46,7 +45,6 @@ void	brainStuff()
 	
 	
 	// deep copy
-	
 	Brain		*deepBrain = new Brain(*brain);
 
 	for (int i = 0; i < numIdeas; i++)
@@ -56,7 +54,6 @@ void	brainStuff()
 
 	
 	// change idea[0]
-
 	brain->setIdea("change idea", 0);
 	std::cout << "change Brain idea[" << 0 << "] : " << brain->getIdea(0) << std::endl;
 	std::cout << "change deepBrain idea[" << 0 << "] : " << deepBrain->getIdea(0) << std::endl;
@@ -69,16 +66,13 @@ void	brainStuff()
 	// delete shallowBrain; // was not created with 'new' so doesn't need to be (shouldn't be) deleted
 
 	std::cout << std::endl << std::endl;
-	std::cout << std::endl << std::endl;
 }
 
 void	dogStuff()
 {
-	Dog					*dog = new Dog();
-	Brain				*dogBrain;
+	const Dog			*dog = new Dog();
+	Brain				*dogBrain = dog->getBrain();
 	int					dogIdeas = 7;
-
-	dogBrain = dog->getBrain();
 
 	std::cout << std::endl << std::endl;
 	
@@ -100,7 +94,6 @@ void	dogStuff()
 	std::cout << std::endl << std::endl;
 
 	// shallow copy
-
 	Brain				*shallowBrain(dogBrain);
 	
 	for (int i = 0; i < dogIdeas; i++)
@@ -109,7 +102,6 @@ void	dogStuff()
 	std::cout << std::endl << std::endl;
 	
 	// deep copy
-	
 	Brain				*deepBrain = new Brain(*dogBrain);
 
 	for (int i = 0; i < dogIdeas; i++)
@@ -119,7 +111,6 @@ void	dogStuff()
 	
 	
 	// change idea[2]
-	
 	dogBrain->setIdea("change idea", 2);
 	std::cout << "change dogBrain idea[" << 2 << "] : " << dogBrain->getIdea(2) << std::endl;
 	std::cout << "change deepBrain idea[" << 2 << "] : " << deepBrain->getIdea(2) << std::endl;
@@ -129,22 +120,20 @@ void	dogStuff()
 	
 	
 	delete dog;
-	delete dogBrain;
 	delete deepBrain; // remove for leak :)
+	// dogBrain is deleted in destructor of Dog class
 
-	std::cout << std::endl << std::endl;
 	std::cout << std::endl << std::endl;
 
 }
 
 void	catStuff()
 {
-	Cat					*cat = new Cat();
+	const Cat			*cat = new Cat();
 	Brain				*catBrain = cat->getBrain();
 	int					catIdeas = 7;
 
-	// catBrain = cat->getBrain();
-	
+
 	std::cout << std::endl << std::endl;
 
 	cat->makeSound();
@@ -192,69 +181,65 @@ void	catStuff()
 	std::cout << std::endl << std::endl;
 
 	delete cat;
-	delete catBrain;
 	delete deepBrain; // remove for leak :)
-
-	
-	std::cout << std::endl << std::endl;
-
-//---------------------------------------------------------------------------//
-	// create another cat brain just for fun
-
-	// Cat			*cat2 = new Cat();
-	// Brain		*catBrain2 = cat2->getBrain();
-	// int			secondIdeas = 3;
-
-	// catBrain2->setIdea("something", 0);
-	// catBrain2->setIdea("something else", 1);
-	// catBrain2->setIdea("something different", 2);
-
-	// std::cout << std::endl << std::endl;
-	
-	// for (int i = 0; i < secondIdeas; i++)
-	// 	std::cout << "catBrain2 idea[" << i << "] : " << catBrain2->getIdea(i) << std::endl;
-	
-	// std::cout << std::endl << std::endl;
-	
-	// // deep copy
-	// Brain		*deepBrain2 = new Brain(*catBrain2);
-	
-	// for (int i = 0; i < secondIdeas; i++)
-	// 	std::cout << "deepBrain2 idea[" << i << "] : " << deepBrain2->getIdea(i) << std::endl;
-	
-	// std::cout << std::endl << std::endl;
+	// catBrain is deleted in destructor of Cat class
 
 
-	// // change idea[1]
-	// catBrain2->setIdea("change it up again hehe", 1);
-	// std::cout << "change catBrain2 idea[" << 1 << "] : " << catBrain2->getIdea(1) << std::endl;
-	// std::cout << "change deepBrain2 idea[" << 1 << "] : " << deepBrain2->getIdea(1) << std::endl;
-	
-	// std::cout << std::endl << std::endl;
-
-	// delete cat2;
-	// delete catBrain2;
-	// delete deepBrain2;
-
-	std::cout << std::endl << std::endl;
 	std::cout << std::endl << std::endl;
 }
 
+
 void	animalStuff()
 {
+	int			num = 10;
+	Animal		*animals[num];
+	
+	// make animals
+	for (int i = 0; i < num; i++)
+	{
+		if (i % 2 == 0)
+			animals[i] = new Dog();
+		else
+			animals[i] = new Cat();
+	}
+	
+	std::cout << std::endl;
+	
+	// make animals make sounds
+	for (int i = 0; i < num; i++)
+		animals[i]->makeSound();
+	
+	std::cout << std::endl;
+	
+	// give dog brain
+	Brain	*dogBrain = animals[2]->getBrain();
+	dogBrain->setIdea("dog thought", 0);
+	std::cout << "dog idea: " << dogBrain->getIdea(0) << std::endl;
+
+	std::cout << std::endl;
 	
 	
-	std::cout << std::endl << std::endl;
+	// give cat brain
+	Brain	*catBrain = animals[5]->getBrain();
+	catBrain->setIdea("cats are better than dogs...", 0);
+	std::cout << "cat idea: " << catBrain->getIdea(0) << std::endl;
+
+	std::cout << std::endl;
+
+	// delete all animals, no leaks	
+	for (int i = 0; i < num; i++)
+			delete animals[i];
+	
 	std::cout << std::endl << std::endl;
 }
 
 
 int	main()
 {
-	brainStuff();
-	dogStuff();
-	catStuff();
-	// animalStuff();
+	// brainStuff();
+	// dogStuff();
+	// catStuff();
+	animalStuff();
 
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:12:27 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 19:26:49 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 20:18:37 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,3 +54,4 @@ std::string	Animal::getType() const
 {
 	return this->_type;
 }
+

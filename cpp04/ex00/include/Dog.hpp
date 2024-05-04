@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:16:01 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 21:59:48 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 20:15:42 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Dog : public Animal
 		Dog	&operator=(const Dog &copy);
 		~Dog();
 
+	// methods
 	void			makeSound() const;
 };
 

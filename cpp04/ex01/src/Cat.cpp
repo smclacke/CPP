@@ -6,13 +6,13 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:15:28 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 19:44:43 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 20:01:44 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/Cat.hpp"
 
-// brain is created in constructor and so deleted in destructor
+// brain is created in constructor and deleted in destructor
 // default
 Cat::Cat() : _catBrain(new Brain())
 {
@@ -41,6 +41,7 @@ Cat	&Cat::operator=(const Cat &copy)
 // destructor
 Cat::~Cat()
 {
+	delete this->_catBrain;
 	std::cout << "Cat Destructor called" << std::endl;
 }
 
