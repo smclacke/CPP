@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:15:46 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 16:49:07 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 18:59:20 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 # include <string>
 
 class Cat : public Animal
-{		
+{
 	private:
 		Brain*		_catBrain;
-
+	
 	public:
 		Cat();
 		Cat(const Cat &copy);
@@ -30,8 +30,7 @@ class Cat : public Animal
 		~Cat();
 
 	void			makeSound() const;
-	
-	Brain	&getBrain() const;
+	Brain			*getBrain() const;
 };
 
 

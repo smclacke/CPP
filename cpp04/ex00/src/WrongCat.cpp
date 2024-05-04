@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:52:28 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 16:34:24 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 19:26:56 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,17 @@ WrongCat::WrongCat()
 	std::cout << "WrongCat Default Constructor called" << std::endl;
 }
 
-// copy constructor (shallow copy)
+// copy constructor
 WrongCat::WrongCat(const WrongCat &copy)
 {
 	std::cout << "WrongCat Copy Constructor called" << std::endl;
 	*this = copy;
 }
 
-// copy assignment operator (deep copy)
+// copy assignment operator
 WrongCat	&WrongCat::operator=(const WrongCat &copy)
 {
+	std::cout << "WrongCat Copy assignment operator called" << std::endl;
 	if (this != &copy)
 	{
 		this->_type = copy._type;

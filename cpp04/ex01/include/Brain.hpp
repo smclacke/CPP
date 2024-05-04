@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/04 16:38:45 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 16:54:23 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 18:09:53 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ class	Brain
 		Brain	&operator=(const Brain &copy);
 		~Brain();
 
-	void			setIdea(std::string idea, int i);
-	std::string		getIdeas(unsigned int i);
+	void					setIdea(const std::string idea, int i);
+	const std::string		&getIdea(unsigned int i) const;
 };
 
 #endif

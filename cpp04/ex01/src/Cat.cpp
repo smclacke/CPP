@@ -6,29 +6,30 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:15:28 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 16:49:34 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 19:26:39 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/Cat.hpp"
 
 // default
-Cat::Cat()
+Cat::Cat() : _catBrain(new Brain())
 {
 	this->_type = "Cat";
 	std::cout << "Cat Default Constructor called" << std::endl;
 }
 
-// copy constructor (shallow copy)
+// copy constructor
 Cat::Cat(const Cat &copy)
 {
 	std::cout << "Cat Copy Constructor called" << std::endl;
 	*this = copy;
 }
 
-// copy assignment operator (deep copy)
+// copy assignment operator
 Cat	&Cat::operator=(const Cat &copy)
 {
+	std::cout << "Cat Copy assignment operator called" << std::endl;
 	if (this != &copy)
 	{
 		this->_type = copy._type;
@@ -49,8 +50,8 @@ void	Cat::makeSound() const
 	std::cout << "meow" << std::endl;
 }
 
-Brain	&Cat::getBrain() const
+// getters
+Brain	*Cat::getBrain() const
 {
-	return *this->_catBrain;
+	return this->_catBrain;
 }
-

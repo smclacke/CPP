@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:15:28 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 15:49:59 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 19:27:10 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,17 @@ Cat::Cat()
 	std::cout << "Cat Default Constructor called" << std::endl;
 }
 
-// copy constructor (shallow copy)
+// copy constructor
 Cat::Cat(const Cat &copy)
 {
 	std::cout << "Cat Copy Constructor called" << std::endl;
 	*this = copy;
 }
 
-// copy assignment operator (deep copy)
+// copy assignment operator
 Cat	&Cat::operator=(const Cat &copy)
 {
+	std::cout << "Cat Copy assignment operator called" << std::endl;
 	if (this != &copy)
 	{
 		this->_type = copy._type;

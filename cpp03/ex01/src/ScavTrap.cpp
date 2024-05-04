@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/02 13:53:24 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 15:51:25 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 19:28:34 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ ScavTrap::ScavTrap(std::string &name)
 	std::cout << "Attack damage: " << this->_damage << std::endl << std::endl;
 }
 
-// Copy Constructor (shallow copy)
+// Copy Constructor  
 ScavTrap::ScavTrap(const ScavTrap &copy)
 {
 	std::cout << "ScavTrap Copy Constructor called" << std::endl;
 	*this = copy;
 }
 
-// Copy assignment operator (deep copy)
+// Copy assignment operator  
 ScavTrap	&ScavTrap::operator=(const ScavTrap &copy)
 {
 	if (this != &copy)

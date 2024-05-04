@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/02 15:06:53 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 15:51:49 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 19:28:03 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ DiamondTrap::DiamondTrap(std::string &name)
 	std::cout << "Attack damage: " << this->_damage << std::endl << std::endl;
 }
 
-// Copy Constructor (shallow copy)
+// Copy Constructor
 DiamondTrap::DiamondTrap(const DiamondTrap &copy)
 {
 	std::cout << "DiamondTrap Copy Constructor called" << std::endl;
 	*this = copy;
 }
 
-// Copy assignment operator (deep copy)
+// Copy assignment operator
 DiamondTrap	&DiamondTrap::operator=(const DiamondTrap &copy)
 {
 	if (this != &copy)

@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/04 16:39:08 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 16:54:30 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 19:25:02 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,21 @@ Brain::Brain()
 	std::cout << "Brain Default Constructor called" << std::endl;
 }
 
-// copy constructor (shallow copy)
+// copy constructor
 Brain::Brain(const Brain &copy)
 {
 	std::cout << "Brain Copy Constructor called" << std::endl;
 	*this = copy;
 }
 
-// copy assignment operator (deep copy)
+// copy assignment operator
 Brain	&Brain::operator=(const Brain &copy)
 {
+	std::cout << "Brain Copy assignment operator called" << std::endl;
 	if (this != &copy)
 	{
 		for (int i = 0; i < 100; i++)
-			_ideas[i] = copy._ideas[i];
+			this->setIdea(copy.getIdea(i), i);
 	}
 	return *this;
 }
@@ -43,16 +44,17 @@ Brain::~Brain()
 }
 
 
-// Methods
-void		Brain::setIdea(std::string idea, int i)
+// setters
+void		Brain::setIdea(const std::string idea, int i)
 {
 	if (i >= 0 && i < 100)
-		_ideas[i] = idea;
+		this->_ideas[i] = idea;
 }
 
-std::string		Brain::getIdeas(unsigned int i)
+// getters
+const std::string		&Brain::getIdea(unsigned int i) const
 {
 	if (i >= 0 && i < 100)
 		return this->_ideas[i];
-	return _ideas[0];
+	return this->_ideas[0];
 }

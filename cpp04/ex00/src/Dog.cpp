@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:15:17 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 15:49:45 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 19:27:06 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,17 @@ Dog::Dog()
 	std::cout << "Dog Default Constructor called" << std::endl;
 }
 
-// copy constructor (shallow copy)
+// copy constructor
 Dog::Dog(const Dog &copy)
 {
 	std::cout << "Dog Copy Constructor called" << std::endl;
 	*this = copy;
 }
 
-// copy assignment operator (deep copy)
+// copy assignment operator
 Dog	&Dog::operator=(const Dog &copy)
 {
+	std::cout << "Dog Copy assignment operator called" << std::endl;
 	if (this != &copy)
 	{
 		this->_type = copy._type;
