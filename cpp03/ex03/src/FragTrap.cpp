@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/02 14:52:07 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 15:24:33 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 15:51:53 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ FragTrap::~FragTrap()
 }
 
 
-
+// Methods
 void	FragTrap::highFivesGuys()
 {
 	if (this->_energyPoints <= 0)

@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/02 13:53:24 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 15:13:27 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 15:51:25 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ ScavTrap::~ScavTrap()
 }
 
 
+// Methods
 void	ScavTrap::guardGate()
 {
 	if (this->_hitPoints <= 0)

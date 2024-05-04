@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/02 13:53:24 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 15:18:02 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 15:51:40 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ ScavTrap::~ScavTrap()
 	std::cout << "ScavTrap Destructor called" << std::endl;
 }
 
-
+// Methods
 void	ScavTrap::guardGate()
 {
 	if (this->_hitPoints <= 0)

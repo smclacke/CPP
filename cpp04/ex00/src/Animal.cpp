@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:12:27 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 21:46:40 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 15:49:25 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ Animal::Animal() : _type("undisclosed")
 	std::cout << "Animal Default Constructor called" << std::endl;
 }
 
-// copy
+// copy constructor (shallow copy)
 Animal::Animal(const Animal &copy)
 {
 	std::cout << "Animal Copy Constructor called" << std::endl;
 	*this = copy;
 }
 
-// copy overload operator
+// copy assignment operator (deep copy)
 Animal	&Animal::operator=(const Animal &copy)
 {
 	if (this != &copy)
@@ -41,6 +41,8 @@ Animal::~Animal()
 	std::cout << "Animal Destructor called" << std::endl;
 }
 
+
+// methods
 std::string	Animal::getType() const
 {
 	return this->_type;

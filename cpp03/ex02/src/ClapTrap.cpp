@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/21 20:58:52 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 15:17:11 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 15:51:30 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ ClapTrap::~ClapTrap()
 
 
 
-
+// Methods
 void	ClapTrap::attack(const std::string &target)
 {
 	if (this->_hitPoints < 1)

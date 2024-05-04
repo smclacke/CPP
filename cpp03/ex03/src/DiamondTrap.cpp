@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/02 15:06:53 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 15:43:13 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 15:51:49 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ DiamondTrap::~DiamondTrap()
 	std::cout << "DiamondTrap Destructor called" << std::endl;
 }
 
+
+// Methods
 void	DiamondTrap::whoAmI()
 {
 	std::cout << std::endl << "DiamondTrap name: " << this->_name << " ClapTrap name: " << this->getName() << std::endl << std::endl;

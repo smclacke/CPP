@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:15:28 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 21:58:57 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 15:49:59 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ Cat::Cat()
 	std::cout << "Cat Default Constructor called" << std::endl;
 }
 
-// copy
+// copy constructor (shallow copy)
 Cat::Cat(const Cat &copy)
 {
 	std::cout << "Cat Copy Constructor called" << std::endl;
 	*this = copy;
 }
 
-// copy overload operator
+// copy assignment operator (deep copy)
 Cat	&Cat::operator=(const Cat &copy)
 {
 	if (this != &copy)
@@ -42,6 +42,8 @@ Cat::~Cat()
 	std::cout << "Cat Destructor called" << std::endl;
 }
 
+
+// methods
 void	Cat::makeSound() const
 {
 	std::cout << "meow" << std::endl;
