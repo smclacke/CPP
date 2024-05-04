@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/21 20:58:10 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 20:08:27 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 15:02:18 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 class ClapTrap
 {
-	protected:
+	private:
 		std::string		_name;
 		int				_hitPoints;
 		int				_energyPoints;

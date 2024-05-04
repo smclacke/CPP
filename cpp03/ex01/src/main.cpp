@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/22 20:52:41 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 20:46:03 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 15:15:56 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main()
 
 	std::cout << std::endl << std::endl;
 
-	// claptrap overwritten with scavtrap via '=' overload operator
+	// claptrap overwritten with scavtrap via '=' copy assignment operator
 	clapTrap = scavTrap;
 
 	clapTrap.getHitPoints();
@@ -50,7 +50,8 @@ int	main()
 	clappers.getEnergyPoints();
 	clappers.getDamageAmount();
 
-	// clappers.guardGate(); // but cannot guardGate since it is still ClapTrap
+	// clappers.guardGate(); // but cannot guardGate since it is still ClapTrap object
+	// it's just been given the object attributes of scavtrap
 
 	
 	std::cout << std::endl << std::endl;

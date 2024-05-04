@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/21 20:58:52 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 21:20:22 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 15:12:09 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ ClapTrap::ClapTrap(std::string &name) : _name(name), _hitPoints(10), _energyPoin
 	std::cout << "Attack damage: " << this->_damage << std::endl << std::endl; 
 }
 
-// Copy Constructor
+// Copy Constructor (shallow copy)
 ClapTrap::ClapTrap(const ClapTrap &copy)
 {
 	std::cout << "ClapTrap Copy Constructor called" << std::endl;
 	*this = copy;
 }
 
-// Deep copy using copy operator
+// Copy assignment operator (deep copy)
 ClapTrap	&ClapTrap::operator=(const ClapTrap &copy)
 {
 	if (this != &copy)

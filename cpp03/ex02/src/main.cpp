@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/22 20:52:41 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 20:45:57 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 15:21:49 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	main()
 	std::cout << std::endl;
 
 	fragCopy.highFivesGuys();
+
+	// scavCopy.highFivesGuys(); // not part of derived class or base class (only fragtrap)
 	
 	std::cout << std::endl;
 
@@ -45,6 +47,9 @@ int	main()
 
 	std::cout << std::endl;
 
+	scav.guardGate();
+	// fraggy.guardGate(); // can't guardgate, only scavtrap objects can
+	
 	// claptrap class attributes stay the same
 	
 	ClapTrap	clappy;

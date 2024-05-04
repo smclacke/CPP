@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/22 20:52:41 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 21:03:38 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 15:45:23 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,14 @@ int	main()
 
 	std::cout << std::endl;
 	
+	dude.whoAmI();
+	
+	std::cout << std::endl;
+	
+	diam.guardGate();
+	diam.highFivesGuys();
+	diam.whoAmI();
+	
 	// copy constructors
 	ScavTrap		scavCopy(scavvy);
 	DiamondTrap		diamCopy(diam);
@@ -42,20 +50,14 @@ int	main()
 
 	std::cout << std::endl;
 
-	diam.attack("scavvy");
-	diam.getEnergyPoints();
+	// diam.attack("scavvy");
+	// diam.getEnergyPoints();
 	
-	std::cout << std::endl;
+	// std::cout << std::endl;
 
-	diam.attack("scavvy");
-	scavvy.takeDamage(30);
+	// diam.attack("scavvy");
+	// scavvy.takeDamage(30);
 	
-	std::cout << std::endl;
-	
-	scavvy.guardGate();
-	diam.whoAmI();
-	
-	dude.privateName();
 
 	std::cout << std::endl;
 

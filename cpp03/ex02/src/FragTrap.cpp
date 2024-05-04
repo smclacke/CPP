@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/02 14:52:07 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 21:20:42 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/04 15:17:41 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ FragTrap::FragTrap(std::string &name)
 	std::cout << "Attack damage: " << this->_damage << std::endl << std::endl;
 }
 
-// Copy Constructor
+// Copy Constructor (shallow copy)
 FragTrap::FragTrap(const FragTrap &copy)
 {
 	std::cout << "FragTrap Copy Constructor called" << std::endl;
 	*this = copy;
 }
 
-// Deep copy using copy operator
+// Copy assignment operator (deep copy)
 FragTrap	&FragTrap::operator=(const FragTrap &copy)
 {
 	if (this != &copy)
