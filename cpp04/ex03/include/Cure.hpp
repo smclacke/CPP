@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/05 16:44:57 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/05 16:59:03 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/05 18:38:27 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Cure : public AMateria
 	public:
 		Cure();
 		Cure(Cure const &copy);
-		Cure	&operator=(Cure const &copy);
+		Cure	&operator=(const Cure &copy);
 		~Cure();
 
 	// methods

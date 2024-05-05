@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/05 16:16:00 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/05 16:58:08 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/05 18:40:39 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define ICHARACTER_HPP
 
 # include "AMateria.hpp"
+
+class AMateria;
 
 // pure abstract class / interface (no source file, no function implementations)
 // concrete class

@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/05 17:30:49 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/05 17:34:42 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/05 18:46:51 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ class MateriaSource : public IMateriaSource
 
 	public:
 		MateriaSource();
-		MateriaSource(MateriaSource const &copy);
-		MateriaSource		&operator=(MateriaSource const &copy);
+		MateriaSource(const MateriaSource &copy);
+		MateriaSource		&operator=(const MateriaSource &copy);
 		~MateriaSource();
 
 	// methods
 	void		learnMateria(AMateria *materia);
-	AMateria	*createMateria(std::string cont &type);
+	AMateria	*createMateria(std::string const &type);
 
 };
 

@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/05 16:22:48 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/05 16:58:06 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/05 18:44:53 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ class Ice : public AMateria
 		
 	public:
 		Ice();
-		Ice(Ice const *ref);
-		Ice		&Ice::operator=(Ice const &copy);
+		Ice(const Ice &scopy);
+		Ice		&operator=(const Ice &copy);
 		~Ice();
 
 	// methods
 	Ice					*clone() const;
-	void				use(ICharater &target);
+	void				use(ICharacter &target);
 
 	//getters
 	std::string const	&getType() const;

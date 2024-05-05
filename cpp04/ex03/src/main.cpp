@@ -6,11 +6,17 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/04 20:52:40 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 23:35:57 by SarahLouise   ########   odam.nl         */
+/*   Updated: 2024/05/05 18:36:28 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../include/AMateria"
+# include "../include/AMateria.hpp"
+# include "../include/Character.hpp"
+# include "../include/ICharacter.hpp"
+# include "../include/MateriaSource.hpp"
+# include "../include/IMateriaSource.hpp"
+# include "../include/Cure.hpp"
+# include "../include/Ice.hpp"
 
 int main()
 {

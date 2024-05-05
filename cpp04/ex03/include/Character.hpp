@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/05 16:57:34 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/05 17:03:56 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/05 18:38:21 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Character : public ICharacter
 		Character();
 		Character(std::string name);
 		Character(Character const &copy);
-		Character	&operator=(Character const &copy);
+		Character	&operator=(const Character &copy);
 		~Character();
 
 	// methods

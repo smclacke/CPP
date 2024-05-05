@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/05 17:34:52 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/05 17:38:59 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/05 18:43:18 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,39 @@ MateriaSource::~MateriaSource()
 // methods
 void		MateriaSource::learnMateria(AMateria *materia)
 {
+	int		i = 0;
+
+	while ((this->_inventory)[i] != 0 && 1 < 4)
+		i++;
 	
+	if (i >= 4)
+	{
+		std::cout << "Can't learn more than 4 Materia" << std::endl;
+		return ;
+	}
+	
+	(this->_inventory)[i] = materia;
+	
+	std::cout << "Learned " << materia->getType() << std::endl;
 }
 
-AMateria	*MateriaSource::createMateria(std::string const &copy)
+AMateria	*MateriaSource::createMateria(std::string const &type)
 {
+	int		i = 0;
 	
+	while ((this->_inventory)[i] && ((this->_inventory)[i])->getType() != type && i < 4)
+		i++;
+	
+	if (i >= 4 || !(this->_inventory)[i])
+	{
+		std::cout << type << " materia does not exist" << std::endl;
+		return (0);
+	}
+
+	std::cout << "Created " << type << " Materia" << std::endl;
+
+	return (((this->_inventory)[i])->clone());
+
 }
 
 

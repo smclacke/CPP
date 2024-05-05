@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/04 20:52:43 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/05 16:44:43 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/05 18:37:00 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,15 @@ AMateria::AMateria(const AMateria &copy) : _type(copy._type) // instead of *this
 }
 
 // copy assignment operator // unusabe since abstract?
-AMateria	&AMateria::operator=(const AMateria &copy)
-{
-	std::cout << "AMateria Copy assignment operator called" << std::endl;
-	// if (this != &copy)
-	// {
-	// 	this->_type = copy._type; // can't do this, cause abstract?
-	// }
-	return *this;
-}
+// AMateria	&AMateria::operator=(const AMateria &copy)
+// {
+// 	std::cout << "AMateria Copy assignment operator called" << std::endl;
+// 	// if (this != &copy)
+// 	// {
+// 	// 	this->_type = copy._type; // can't do this, cause abstract?
+// 	// }
+// 	return *this;
+// }
 
 // destructor
 AMateria::~AMateria()

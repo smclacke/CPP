@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/05 17:04:09 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/05 17:26:04 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/05 18:41:04 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	Character::equip(AMateria *materia)
 		std::cout << this->_name << " can't equip nothing" << std::endl;
 		return ;
 	}
-	while ((this->_inventory)[i] > 0 && i < 4)
+	while ((this->_inventory)[i] != 0 && i < 4)
 		i++;
 	if (i >= 4)
 	{
