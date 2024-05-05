@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Animal.hpp                                         :+:    :+:            */
+/*   AAnimal.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:10:10 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 20:35:47 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/05 16:11:49 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef AANIMAL_HPP
+# define AANIMAL_HPP
 
 # include "../include/Brain.hpp"
 # include <iostream>
 # include <string>
 
 // abstract class
-class Animal
+// pure virtual function / abstract function used
+class AAnimal
 {
 	protected:
 		std::string		_type;
 		
 	public:
-		Animal();
-		Animal(const Animal &copy);
-		Animal	&operator=(const Animal &copy);
-		virtual ~Animal();
+		AAnimal();
+		AAnimal(const AAnimal &copy);
+		AAnimal	&operator=(const AAnimal &copy);
+		virtual ~AAnimal();
 
 	// methods
 	virtual void			makeSound() const;
@@ -37,6 +38,5 @@ class Animal
 	virtual	Brain			*getBrain() const = 0;
 };
 
-	// pure virtual function / abstract function 
 
 #endif

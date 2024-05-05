@@ -6,11 +6,11 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:08:47 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 23:28:17 by SarahLouise   ########   odam.nl         */
+/*   Updated: 2024/05/05 16:13:33 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../include/Animal.hpp"
+# include "../include/AAnimal.hpp"
 # include "../include/Brain.hpp"
 # include "../include/Dog.hpp"
 # include "../include/Cat.hpp"
@@ -192,7 +192,7 @@ void	catStuff()
 void	animalStuff()
 {
 	int			num = 10;
-	Animal		*animals[num];
+	AAnimal		*animals[num];
 	
 	// make animals
 	for (int i = 0; i < num; i++)

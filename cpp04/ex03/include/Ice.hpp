@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Cat.hpp                                            :+:    :+:            */
+/*   Ice.hpp                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/05/03 21:15:46 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/05 16:13:17 by smclacke      ########   odam.nl         */
+/*   Created: 2024/05/05 16:22:48 by smclacke      #+#    #+#                 */
+/*   Updated: 2024/05/05 16:32:24 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef ICE_HPP
+# define ICE_HPP
 
-# include "AAnimal.hpp"
-# include "Brain.hpp" 
-# include <iostream>
-# include <string>
+# include "AMateria.hpp"
 
-class Cat : public AAnimal
+class Ice : public AMateria
 {
 	private:
-		Brain*		_catBrain;
-	
+		std::string		_type;
+		
 	public:
-		Cat();
-		Cat(const Cat &copy);
-		Cat	&operator=(const Cat &copy);
-		~Cat();
+		Ice();
+		Ice(Ice const *ref);
+		Ice		&Ice::operator=(Ice const &copy);
+		~Ice();
 
 	// methods
-	void			makeSound() const;
+	Ice					*clone() const;
+	void				use(ICharater &target);
 
-	// getters
-	Brain			*getBrain() const;
+	//getters
+	std::string const	&getType() const;
+	
 };
 
 

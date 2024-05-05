@@ -6,7 +6,7 @@
 #    By: smclacke <smclacke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/03/07 13:13:57 by smclacke      #+#    #+#                  #
-#    Updated: 2024/05/04 16:35:57 by smclacke      ########   odam.nl          #
+#    Updated: 2024/05/05 16:13:48 by smclacke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,12 @@ INCLUDE			= -Iinclude
 
 CC				= c++
 CPPFLAGS		= -std=c++11 -Wall -Wextra -Werror -g -fsanitize=address
-HEADERS			= Animal.hpp Dog.hpp Cat.hpp Brain.hpp
+HEADERS			= AAnimal.hpp Dog.hpp Cat.hpp Brain.hpp
 HEADER_DIR		= include
 HEADER			= $(addprefix $(HEADER_DIR)/, $(HEADERS))
 
 SRCS			= main.cpp		\
-				Animal.cpp		\
+				AAnimal.cpp		\
 				Dog.cpp			\
 				Cat.cpp			\
 				Brain.cpp		\
