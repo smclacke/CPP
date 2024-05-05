@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/05 16:16:00 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/05 16:36:47 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/05 16:58:08 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "AMateria.hpp"
 
 // pure abstract class / interface (no source file, no function implementations)
-
+// concrete class
 class ICharacter
 {
 	protected:
@@ -25,13 +25,13 @@ class ICharacter
 	public:
 		virtual ~ICharacter() {}
 		
-		//methods
-		virtual void 				equip(AMateria *materia) = 0;
-		virtual void 				unequip(int i) = 0;
-		virtual void				use(int i, ICharacter &target) = 0;
-		
-		// getters
-		virtual std::string const 	&getName() const = 0;
+	//methods
+	virtual void 				equip(AMateria *materia) = 0;
+	virtual void 				unequip(int i) = 0;
+	virtual void				use(int i, ICharacter &target) = 0;
+	
+	// getters
+	virtual std::string const 	&getName() const = 0;
 };
 
 

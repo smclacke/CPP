@@ -6,11 +6,12 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/05 16:23:48 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/05 16:36:35 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/05 17:14:16 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/Ice.hpp"
+# include "../include/ICharacter.hpp"
 
 // default
 Ice::Ice() : _type("ice")
@@ -19,19 +20,18 @@ Ice::Ice() : _type("ice")
 }
 
 // copy constructor
-Ice::Ice(const Ice &copy) : _type(copy.getType()) // instead of *this = copy;
+Ice::Ice(const Ice &copy) : _type(copy.getType())
 {
 	std::cout << "Ice Copy Constructor called" << std::endl;
-	
 }
 
-// copy assignment operator // unusabe since abstract?
+// copy assignment operator
 Ice	&Ice::operator=(const Ice &copy)
 {
 	std::cout << "Ice Copy assignment operator called" << std::endl;
 	if (this != &copy)
 	{
-		this->_type = copy._type;
+		this->_type = copy.getType();
 	}
 	return *this;
 }
@@ -54,7 +54,7 @@ void	Ice::use(ICharacter &target)
 {
 	std::string	targetName = target.getName();
 	
-	std::cout << "Ice abstract use on " << targetName << std::endl;
+	std::cout << this->_type << "* shoots an ice bolt at " << targetName << " *" << std::endl;
 }
 
 

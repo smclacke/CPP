@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Cure.hpp                                           :+:    :+:            */
+/*   MateriaSource.hpp                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/05/05 16:44:57 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/05 16:59:03 by smclacke      ########   odam.nl         */
+/*   Created: 2024/05/05 17:30:49 by smclacke      #+#    #+#                 */
+/*   Updated: 2024/05/05 17:34:42 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-# define CURE_HPP
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
 
-# include "AMateria.hpp"
+# include "IMateriaSource.hpp"
 
-class Cure : public AMateria
+class MateriaSource : public IMateriaSource
 {
 	private:
-		std::string		_type;
+		AMateria	*(_inventory[4]);
 
 	public:
-		Cure();
-		Cure(Cure const &copy);
-		Cure	&operator=(Cure const &copy);
-		~Cure();
+		MateriaSource();
+		MateriaSource(MateriaSource const &copy);
+		MateriaSource		&operator=(MateriaSource const &copy);
+		~MateriaSource();
 
 	// methods
-	Cure	*clone() const;	
-	void	use(ICharacter &target);
+	void		learnMateria(AMateria *materia);
+	AMateria	*createMateria(std::string cont &type);
 
-	// getters
-	std::string const	&getType() const;
-	
 };
 
 #endif

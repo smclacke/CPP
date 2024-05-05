@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/04 20:52:43 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/05 16:34:12 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/05 16:44:43 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ AMateria::~AMateria()
 // methods
 void	AMateria::use(ICharacter &target)
 {
-	std::cout << "AMateria abstract use on " << target.getName() << std::endl;
+	std::cout << "Abstract AMateria used on " << target.getName() << std::endl;
 }
 
 
