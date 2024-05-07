@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/22 20:52:41 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 15:15:56 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/07 17:05:41 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	main()
 	std::cout << std::endl;
 
 	// default constructors
-	ScavTrap		ogScavTrap;
-	ClapTrap		ogClapTrap;
+	// ScavTrap		ogScavTrap;
+	// ClapTrap		ogClapTrap;
 	
 	std::cout << std::endl << std::endl;
 
@@ -49,6 +49,11 @@ int	main()
 	clappers.getHitPoints();
 	clappers.getEnergyPoints();
 	clappers.getDamageAmount();
+
+	
+	scavTrap.attack("clappers");
+	clappers.takeDamage(20);
+	scavTrap.getEnergyPoints();
 
 	// clappers.guardGate(); // but cannot guardGate since it is still ClapTrap object
 	// it's just been given the object attributes of scavtrap

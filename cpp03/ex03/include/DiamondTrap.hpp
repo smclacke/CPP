@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/02 15:06:34 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 21:03:25 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/07 17:11:33 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class DiamondTrap : public ScavTrap, public FragTrap
 		~DiamondTrap();
 
 		void		whoAmI();
-		void		privateName();
+
 };
 
 
