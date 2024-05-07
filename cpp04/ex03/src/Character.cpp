@@ -6,32 +6,32 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/05 17:04:09 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/05 18:41:04 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/07 16:18:14 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/Character.hpp"
 
 // default
-Character::Character()
+Character::Character() : _name("Default")
 {
-	std::cout << "Character Default Constructor called" << std::endl;
+	// std::cout << "Character Default Constructor called" << std::endl;
 }
 
 // parameterised constructor
 Character::Character(std::string name) : _name(name)
 {
-	std::cout << "Character parameterised constructor called" << std::endl;
+	// std::cout << "Character parameterised constructor called" << std::endl;
 	std::cout << "Character: " << _name << " created" << std::endl;
 	
-	for(int i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = 0;
 }
 
 // copy constructor
 Character::Character(const Character &copy) : _name(copy.getName() + "_copy")
 {
-	std::cout << "Character Copy Constructor called" << std::endl;
+	// std::cout << "Character Copy Constructor called" << std::endl;
 	
 	for (int i = 0; i < 4; i++)
 	{
@@ -39,13 +39,13 @@ Character::Character(const Character &copy) : _name(copy.getName() + "_copy")
 			(this->_inventory)[i] = (copy._inventory[i]->clone());
 	}
 	
-	std::cout << "Character " << copy._name << " copied creating " << _name << "clone " << std::endl;
+	// std::cout << "Character " << copy._name << " copied creating " << _name << "clone " << std::endl;
 }
 
-// copy assignment operator // can't change name cause const
+// copy assignment operator
 Character	&Character::operator=(const Character &copy)
 {
-	std::cout << "Character Copy assignment operator called" << std::endl;
+	// std::cout << "Character Copy assignment operator called" << std::endl;
 	
 	for (int i = 0; i < 4; i++)
 	{
@@ -68,7 +68,6 @@ Character::~Character()
 			delete this->_inventory[i];
 	}
 }
-
 
 // methods
 void	Character::equip(AMateria *materia)
@@ -96,13 +95,14 @@ void	Character::equip(AMateria *materia)
 void	Character::unequip(int i)
 {
 	if (i < 0 || i >= 4)
-		std::cout << this->_name << " can't unequip nothing or too more than 4 Materia" << std::endl;
+		std::cout << this->_name << " can't unequip non-existent Materia" << std::endl;
 	else if (!(this->_inventory)[i])
 		std::cout << this->_name << " has nothing to unequip" << std::endl;
 	else
 	{
 		AMateria	*materiaType = (this->_inventory)[i];
 		(this->_inventory)[i] = 0;
+		
 		std::cout << this->_name << " unequipped " << materiaType->getType() << std::endl;
 	}
 }
@@ -116,7 +116,6 @@ void	Character::use(int i, ICharacter &target)
 		std::cout << "no Materia found to use" << std::endl;
 		return ;
 	}
-	std::cout << name;
 	((this->_inventory)[i])->use(target);
 }
 

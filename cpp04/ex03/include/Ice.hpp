@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/05 16:22:48 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/07 14:06:54 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/07 16:05:23 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 # include <iostream>
 # include "AMateria.hpp"
-# include "ICharacter.hpp"
-
-class ICharacter;
 
 // concrete class, can/must be instantiated
 class Ice : public AMateria
@@ -27,7 +24,7 @@ class Ice : public AMateria
 		
 	public:
 		Ice();
-		Ice(const Ice &scopy);
+		Ice(const Ice &copy);
 		Ice		&operator=(const Ice &copy);
 		~Ice();
 

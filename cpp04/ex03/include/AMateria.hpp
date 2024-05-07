@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/04 20:52:45 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/07 14:30:53 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/07 16:04:49 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@
 # include <iostream>
 # include "ICharacter.hpp"
 
-// class ICharacter;
+class ICharacter;
 
 // abstract class (not pure)
+// don't create objects (class instance) from abstract class 
+// so don't need copy assignment operator
 class AMateria
 {
 	protected:
@@ -26,9 +28,8 @@ class AMateria
 
 	public:
 		AMateria();
-		AMateria(std::string const &type);
-		AMateria(AMateria const &copy);
-		// AMateria	&AMateria::operator=(AMateria const &copy);
+		AMateria(const std::string &type);
+		AMateria(const AMateria &copy);
 		virtual ~AMateria();
 
 
@@ -37,7 +38,7 @@ class AMateria
 	virtual void			use(ICharacter &target);
 
 	// getters
-	std::string const		&getType() const; //Returns the materia type
+	virtual std::string const		&getType() const; //Returns the materia type
 };
 
 

@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/05 17:34:52 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/07 14:48:11 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/07 16:11:38 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // default
 MateriaSource::MateriaSource()
 {
-	std::cout << "MateriaSource Default Constructor called" << std::endl;
+	// std::cout << "MateriaSource Default Constructor called" << std::endl;
 
 	for (int i = 0; i < 4; i++)
 		(this->_inventory)[i] = 0;
@@ -24,7 +24,7 @@ MateriaSource::MateriaSource()
 // copy constructor
 MateriaSource::MateriaSource(const MateriaSource &copy)
 {
-	std::cout << "MateriaSource Copy Constructor called" << std::endl;
+	// std::cout << "MateriaSource Copy Constructor called" << std::endl;
 	
 	for (int i = 0; i < 4; i++)
 	{
@@ -33,10 +33,10 @@ MateriaSource::MateriaSource(const MateriaSource &copy)
 	}
 }
 
-// copy assignment operator // can't change name cause const
+// copy assignment operator
 MateriaSource	&MateriaSource::operator=(const MateriaSource &copy)
 {
-	std::cout << "MateriaSource Copy assignment operator called" << std::endl;
+	// std::cout << "MateriaSource Copy assignment operator called" << std::endl;
 	
 	for (int i = 0; i < 4; i++)
 	{
@@ -60,18 +60,12 @@ MateriaSource::~MateriaSource()
 	}
 }
 
-IMateriaSource::~IMateriaSource()
-{
-	std::cout << "IMateriaSource Destructor called" << std::endl;
-}
-
-
 // methods
 void		MateriaSource::learnMateria(AMateria *materia)
 {
 	int		i = 0;
 
-	while ((this->_inventory)[i] != 0 && 1 < 4)
+	while ((this->_inventory)[i] != 0 && i < 4)
 		i++;
 	
 	if (i >= 4)
@@ -79,13 +73,14 @@ void		MateriaSource::learnMateria(AMateria *materia)
 		std::cout << "Can't learn more than 4 Materia" << std::endl;
 		return ;
 	}
-	
+
+
 	(this->_inventory)[i] = materia;
-	
-	std::cout << "Learned " << materia->getType() << std::endl;
+
+	// std::cout << "Learned " << materia->getType() << std::endl;
 }
 
-AMateria	*MateriaSource::createMateria(std::string const &type)
+AMateria	*MateriaSource::createMateria(const std::string &type)
 {
 	int		i = 0;
 	
@@ -98,7 +93,7 @@ AMateria	*MateriaSource::createMateria(std::string const &type)
 		return (0);
 	}
 
-	std::cout << "Created " << type << " Materia" << std::endl;
+	// std::cout << "Created " << type << " Materia" << std::endl;
 
 	return (((this->_inventory)[i])->clone());
 

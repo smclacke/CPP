@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/05 17:30:49 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/07 14:41:24 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/07 16:05:54 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define MATERIASOURCE_HPP
 
 # include <iostream>
-# include "AMateria.hpp"
 # include "IMateriaSource.hpp"
 
 // concrete class, can/must be instantiated, inherits the IMateriaSource interface
@@ -32,7 +31,7 @@ class MateriaSource : public IMateriaSource
 
 	// methods
 	void		learnMateria(AMateria *materia);
-	AMateria	*createMateria(std::string const &type);
+	AMateria	*createMateria(const std::string &type);
 
 };
 

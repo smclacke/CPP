@@ -6,18 +6,17 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/05 16:57:34 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/07 14:10:23 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/07 16:04:57 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHARACTER_HPP
 # define CHARACTER_HPP
 
-# include <iostream>
-# include "AMateria.hpp"
+// # include <iostream>
 # include "ICharacter.hpp"
 
-// concrete class, can/must be instantiated
+// concrete class, instantiated
 class Character : public ICharacter
 {
 	private:
@@ -27,7 +26,7 @@ class Character : public ICharacter
 	public:
 		Character();
 		Character(std::string name);
-		Character(Character const &copy);
+		Character(const Character &copy);
 		Character	&operator=(const Character &copy);
 		~Character();
 

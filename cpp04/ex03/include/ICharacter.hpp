@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/05 16:16:00 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/07 14:09:44 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/07 16:20:17 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,13 @@ class AMateria;
 // interface/ pure abstract class, doesn't need to be instantiated
 class ICharacter
 {
-	// protected:
-	// 	const std::string	_name;
-
 	public:
 		virtual ~ICharacter() {}
 		
 	//methods
-	virtual void 				equip(AMateria *materia) = 0;
-	virtual void 				unequip(int i) = 0;
-	virtual void				use(int i, ICharacter &target) = 0;
+	virtual void 			equip(AMateria *materia) = 0;
+	virtual void 			unequip(int i) = 0;
+	virtual void			use(int i, ICharacter &target) = 0;
 	
 	// getters
 	virtual std::string const 	&getName() const = 0;

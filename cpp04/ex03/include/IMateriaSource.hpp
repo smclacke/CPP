@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/05 17:27:32 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/07 14:40:28 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/07 16:05:43 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@
 class IMateriaSource
 {
 	public:
-		virtual ~IMateriaSource();
+		virtual ~IMateriaSource() {}
 		
 		// methods
 		virtual void		learnMateria(AMateria *materia) = 0;
-		virtual AMateria 	*createMateria(std::string const &type) = 0;
+		virtual AMateria 	*createMateria(const std::string &type) = 0;
 	
 };
 
