@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/04 20:52:40 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/07 16:22:37 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/07 16:55:08 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main()
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
 
-	ICharacter* me = new Character("me");
+	ICharacter* jim = new Character("jim");
 	ICharacter* bob = new Character("bob");
 
 	std::cout << std::endl << std::endl << std::endl;
@@ -38,58 +38,30 @@ int main()
 	
 	tmp = src->createMateria("ice");
 	tmp2 = src->createMateria("ice");
-	me->equip(tmp);
+	jim->equip(tmp);
 	bob->equip(tmp2);
 	
 
 	tmp = src->createMateria("cure");
 	tmp2 = src->createMateria("cure");
-	me->equip(tmp);
+	jim->equip(tmp);
 	bob->equip(tmp2);
 
 
 	std::cout << std::endl << std::endl << std::endl;
 	
 	
-	me->use(0, *bob);
-	me->use(1, *bob);
+	jim->use(0, *bob);
+	jim->use(1, *bob);
 
-	bob->use(0, *me);
-	bob->use(1, *me);
+	bob->use(0, *jim);
+	bob->use(1, *jim);
 
 	std::cout << std::endl << std::endl << std::endl;
 
 	delete bob;
-	delete me;
+	delete jim;
 	delete src;
-
-	// IMateriaSource* src = new MateriaSource();
-	
-	// src->learnMateria(new Ice());
-	// src->learnMateria(new Cure());
-	
-	
-	// ICharacter* person = new Character("jim");
-	// AMateria* tmp;
-	
-	// tmp = src->createMateria("ice");
-	// person->equip(tmp);
-
-	// tmp = src->createMateria("cure");
-	// person->equip(tmp);
-
-	
-	// ICharacter* bob = new Character("bob");
-	
-	// person->use(0, *bob);
-	// person->use(1, *bob);
-	
-
-	
-
-	// delete bob;
-	// delete person;
-	// delete src;
 	
 	return 0;
 }
