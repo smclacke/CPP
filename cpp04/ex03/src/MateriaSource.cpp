@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/05 17:34:52 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/07 16:11:38 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/07 20:10:13 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,9 @@ void		MateriaSource::learnMateria(AMateria *materia)
 		return ;
 	}
 
-
 	(this->_inventory)[i] = materia;
 
-	// std::cout << "Learned " << materia->getType() << std::endl;
+	std::cout << "Learned " << materia->getType() << std::endl;
 }
 
 AMateria	*MateriaSource::createMateria(const std::string &type)
@@ -93,7 +92,7 @@ AMateria	*MateriaSource::createMateria(const std::string &type)
 		return (0);
 	}
 
-	// std::cout << "Created " << type << " Materia" << std::endl;
+	std::cout << "Created " << type << " Materia" << std::endl;
 
 	return (((this->_inventory)[i])->clone());
 

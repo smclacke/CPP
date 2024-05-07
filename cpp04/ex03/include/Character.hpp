@@ -6,14 +6,14 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/05 16:57:34 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/07 16:04:57 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/07 20:53:12 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHARACTER_HPP
 # define CHARACTER_HPP
 
-// # include <iostream>
+# include <iostream>
 # include "ICharacter.hpp"
 
 // concrete class, instantiated
@@ -22,6 +22,8 @@ class Character : public ICharacter
 	private:
 		AMateria			*(_inventory[4]);
 		std::string const	_name;
+		static AMateria		*_dropped[50];
+		static int			_floorSpace;
 
 	public:
 		Character();

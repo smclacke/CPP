@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:10:10 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 20:15:30 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/07 19:50:01 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 # define ANIMAL_HPP
 
 # include <iostream>
-# include <cmath>
-# include <string>
-# include <cstring>
 
 class Animal
 {

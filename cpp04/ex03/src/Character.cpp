@@ -6,11 +6,14 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/05 17:04:09 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/07 16:18:14 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/07 21:02:18 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/Character.hpp"
+
+AMateria *Character::_dropped[50] = {0};
+int Character::_floorSpace = 0;
 
 // default
 Character::Character() : _name("Default")
@@ -84,11 +87,12 @@ void	Character::equip(AMateria *materia)
 	if (i >= 4)
 	{
 		std::cout << this->_name << " can't equip more than 4 Materia" << std::endl;
+		delete materia;
 		return ;
 	}
 	(this->_inventory)[i] = materia;
 
-	std::cout << this->_name << " equipt materia" << materia->getType() << " in slot number " << i << std::endl;
+	std::cout << this->_name << " equipped materia: " << materia->getType() << " in slot number " << i << std::endl;
 		
 }
 
@@ -100,10 +104,11 @@ void	Character::unequip(int i)
 		std::cout << this->_name << " has nothing to unequip" << std::endl;
 	else
 	{
-		AMateria	*materiaType = (this->_inventory)[i];
-		(this->_inventory)[i] = 0;
+		_dropped[_floorSpace] = (this->_inventory)[i];
+		_floorSpace++;
 		
-		std::cout << this->_name << " unequipped " << materiaType->getType() << std::endl;
+		std::cout <<  this->_name << " unequipped: " << ((this->_inventory)[i])->getType() << std::endl;
+		(this->_inventory)[i] = 0;
 	}
 }
 

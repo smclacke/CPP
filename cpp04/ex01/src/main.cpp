@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:08:47 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/05 16:13:33 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/07 19:55:01 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -211,7 +211,7 @@ void	animalStuff()
 	
 	std::cout << std::endl;
 	
-	// give dog brain
+	// get dog brain
 	Brain	*dogBrain = animals[2]->getBrain();
 	dogBrain->setIdea("dog thought", 0);
 	std::cout << "dog idea: " << dogBrain->getIdea(0) << std::endl;
@@ -219,7 +219,7 @@ void	animalStuff()
 	std::cout << std::endl;
 	
 	
-	// give cat brain
+	// get cat brain
 	Brain	*catBrain = animals[5]->getBrain();
 	catBrain->setIdea("cats are better than dogs...", 0);
 	std::cout << "cat idea: " << catBrain->getIdea(0) << std::endl;

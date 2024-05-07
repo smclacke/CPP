@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/05 16:23:48 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/07 16:14:15 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/07 20:50:01 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,6 @@ Ice	*Ice::clone() const
 void	Ice::use(ICharacter &target)
 {
 	std::string	targetName = target.getName();
-	
-	//this->_type <<
 	std::cout <<  "* shoots an ice bolt at " << targetName << " *" << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:16:01 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/04 20:15:42 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/07 19:49:55 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 # include "Animal.hpp" 
 # include <iostream>
-# include <cmath>
-# include <string>
-# include <cstring>
 
 class Dog : public Animal
 {
