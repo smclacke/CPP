@@ -61,6 +61,13 @@ static function within class =
 
 - an abstract class' descendants must define the pure citual function, otherwise the subclasses become abstract too by this definition
 
+
+**INTERFACE vs ABSTRACT CLASS**
+
+An abstract class allows you to create functionality that subclasses can implement or override. An interface only allows you to define functionality, not implement it
+
+
+
 **VIRTUAL**
 **VIRTUAL**
 **VIRTUAL**

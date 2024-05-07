@@ -6,11 +6,13 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/05 17:34:52 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/05 18:43:18 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/07 13:04:03 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/MateriaSource.hpp"
+// # include "../include/IMateriaSource.hpp"
+// # include "../include/AMateria.hpp"
 
 // default
 MateriaSource::MateriaSource()
@@ -18,7 +20,7 @@ MateriaSource::MateriaSource()
 	std::cout << "MateriaSource Default Constructor called" << std::endl;
 
 	for (int i = 0; i < 4; i++)
-		this->_inventory[i] = 0;
+		(this->_inventory)[i] = 0;
 }
 
 // copy constructor

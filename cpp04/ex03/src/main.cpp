@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/04 20:52:40 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/05 18:36:28 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/07 12:54:08 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,30 @@
 
 int main()
 {
-	IMateriaSource* src = new MateriaSource();
+	// IMateriaSource* src = new MateriaSource();
 	
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
+	// src->learnMateria(new Ice());
+	// src->learnMateria(new Cure());
 	
 	
-	ICharacter* me = new Character("me");
-	AMateria* tmp;
+	ICharacter* person = new Character("person");
+	// AMateria* tmp;
 	
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
+	// tmp = src->createMateria("ice");
+	// person->equip(tmp);
 
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
+	// tmp = src->createMateria("cure");
+	// person->equip(tmp);
 
 	
 	ICharacter* bob = new Character("bob");
 	
-	me->use(0, *bob);
-	me->use(1, *bob);
+	// person->use(0, *bob);
+	// person->use(1, *bob);
 	
 	delete bob;
-	delete me;
-	delete src;
+	delete person;
+	// delete src;
 	
 	return 0;
 }

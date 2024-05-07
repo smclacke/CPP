@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/05 17:30:49 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/05 18:46:51 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/07 13:17:28 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 # define MATERIASOURCE_HPP
 
 # include "IMateriaSource.hpp"
+# include "AMateria.hpp"
 
+// class AMateria;
+
+// concrete class, can/must be instantiated
 class MateriaSource : public IMateriaSource
 {
 	private:

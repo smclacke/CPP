@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/05 16:16:00 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/05 18:40:39 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/07 13:18:41 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@
 
 class AMateria;
 
-// pure abstract class / interface (no source file, no function implementations)
-// concrete class
+// interface/ pure abstract class, doesn't need to be instantiated
 class ICharacter
 {
 	protected:

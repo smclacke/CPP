@@ -6,7 +6,7 @@
 #    By: smclacke <smclacke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/05/04 20:51:50 by smclacke      #+#    #+#                  #
-#    Updated: 2024/05/05 18:35:25 by smclacke      ########   odam.nl          #
+#    Updated: 2024/05/07 12:58:40 by smclacke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,17 +16,20 @@ INCLUDE			= -Iinclude
 
 CC				= c++
 CPPFLAGS		= -std=c++11 -Wall -Wextra -Werror -g -fsanitize=address
-HEADERS			= AMateria.hpp Character.hpp ICharacter.hpp MateriaSource.hpp IMateriaSource.hpp 	\
-					Cure.hpp Ice.hpp
+# HEADERS			= AMateria.hpp Character.hpp ICharacter.hpp MateriaSource.hpp IMateriaSource.hpp Cure.hpp Ice.hpp
+HEADERS			= AMateria.hpp Character.hpp ICharacter.hpp Cure.hpp Ice.hpp IMateriaSource.hpp MateriaSource.hpp
+
 HEADER_DIR		= include
 HEADER			= $(addprefix $(HEADER_DIR)/, $(HEADERS))
 
 SRCS			= main.cpp					\
 				AMateria.cpp				\
 				Character.cpp				\
-				MateriaSource.cpp			\
 				Cure.cpp					\
 				Ice.cpp						\
+				MateriaSource.cpp			\
+
+# MateriaSource.cpp			\
 
 SRC_DIR			= src
 SRC				= $(addprefix $(SRC_DIR)/, $(SRCS))
