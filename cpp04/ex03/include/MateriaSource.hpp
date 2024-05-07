@@ -6,19 +6,19 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/05 17:30:49 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/07 13:17:28 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/07 14:41:24 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MATERIASOURCE_HPP
 # define MATERIASOURCE_HPP
 
-# include "IMateriaSource.hpp"
+# include <iostream>
 # include "AMateria.hpp"
+# include "IMateriaSource.hpp"
 
-// class AMateria;
-
-// concrete class, can/must be instantiated
+// concrete class, can/must be instantiated, inherits the IMateriaSource interface
+// implements these functions
 class MateriaSource : public IMateriaSource
 {
 	private:

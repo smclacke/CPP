@@ -6,14 +6,14 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/04 20:52:43 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/05 18:37:00 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/07 14:12:01 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/AMateria.hpp"
 
 // default
-AMateria::AMateria() : _type() // keep this or no?
+AMateria::AMateria() : _type("Default") // keep this or no?
 {
 	std::cout << "AMateria Default Constructor called" << std::endl;
 }

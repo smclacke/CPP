@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/04 20:52:45 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/07 13:19:51 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/07 14:30:53 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 # include "ICharacter.hpp"
 
-class ICharacter;
+// class ICharacter;
 
 // abstract class (not pure)
 class AMateria

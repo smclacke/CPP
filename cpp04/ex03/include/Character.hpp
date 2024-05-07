@@ -6,16 +6,16 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/05 16:57:34 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/07 13:17:18 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/07 14:10:23 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHARACTER_HPP
 # define CHARACTER_HPP
 
+# include <iostream>
+# include "AMateria.hpp"
 # include "ICharacter.hpp"
-
-// class AMateria;
 
 // concrete class, can/must be instantiated
 class Character : public ICharacter

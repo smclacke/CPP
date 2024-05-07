@@ -6,13 +6,14 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/05 16:16:00 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/07 13:18:41 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/07 14:09:44 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
 
+# include <iostream>
 # include "AMateria.hpp"
 
 class AMateria;
@@ -20,8 +21,8 @@ class AMateria;
 // interface/ pure abstract class, doesn't need to be instantiated
 class ICharacter
 {
-	protected:
-		const std::string	_name;
+	// protected:
+	// 	const std::string	_name;
 
 	public:
 		virtual ~ICharacter() {}

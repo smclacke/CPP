@@ -6,14 +6,16 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/05 16:22:48 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/07 13:12:05 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/07 14:06:54 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICE_HPP
 # define ICE_HPP
 
+# include <iostream>
 # include "AMateria.hpp"
+# include "ICharacter.hpp"
 
 class ICharacter;
 
