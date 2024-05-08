@@ -6,11 +6,11 @@
 #    By: smclacke <smclacke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/05/03 21:06:19 by smclacke      #+#    #+#                  #
-#    Updated: 2024/05/03 22:05:18 by smclacke      ########   odam.nl          #
+#    Updated: 2024/05/08 15:51:17 by smclacke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= polymorphism
+NAME			= animal
 
 INCLUDE			= -Iinclude
 

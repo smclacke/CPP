@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:49:39 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/07 19:50:07 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/08 15:50:26 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class WrongAnimal
 		virtual ~WrongAnimal();
 
 	// methods
-	virtual void			makeSound() const;
+	void			makeSound() const;
 
 	// getters
 	virtual std::string		getType() const;
