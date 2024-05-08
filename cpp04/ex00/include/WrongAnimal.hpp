@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/05/03 21:49:39 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/08 15:50:26 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/08 19:45:32 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class WrongAnimal
 		virtual ~WrongAnimal();
 
 	// methods
+	// add virtual if we want to overwrite this function with a WrongCat makeSound() function, otherwise this one is always called
 	void			makeSound() const;
 
 	// getters

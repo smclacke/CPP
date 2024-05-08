@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/21 20:58:10 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/05/03 20:08:27 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/05/08 19:39:02 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,21 @@ class ClapTrap
 		ClapTrap(std::string &name);
 		ClapTrap(const ClapTrap &copy);
 		ClapTrap	&operator=(const ClapTrap &copy);
-		~ClapTrap();
+		virtual ~ClapTrap();
 
-	void				attack(const std::string &target);
-	void				takeDamage(unsigned int amount);
-	void				beRepaired(unsigned int amount);
+	virtual void				attack(const std::string &target);
+	virtual void				takeDamage(unsigned int amount);
+	virtual void				beRepaired(unsigned int amount);
+ 
+	virtual void				setName(std::string name);
+	virtual void				setHitPoints(unsigned int amount);
+	virtual void				setEnergyPoints(unsigned int amount);
+	virtual void				setDamage(unsigned int amount);
 
-	void				setName(std::string name);
-	void				setHitPoints(unsigned int amount);
-	void				setEnergyPoints(unsigned int amount);
-	void				setDamage(unsigned int amount);
-
-	std::string			getName();
-	unsigned int		getHitPoints();
-	unsigned int		getEnergyPoints();
-	unsigned int		getDamageAmount();
+	virtual std::string			getName();
+	virtual unsigned int		getHitPoints();
+	virtual unsigned int		getEnergyPoints();
+	virtual unsigned int		getDamageAmount();
 };
 
 
