@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 15:42:10 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 19:30:45 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/29 21:26:32 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 # include <iostream>
 
-class Form;
+class AForm;
 
-class Bureaucrat : public AForm // oui?
+class Bureaucrat
 {
 	private:
 		std::string			_name;
@@ -37,7 +37,8 @@ class Bureaucrat : public AForm // oui?
 	// methods
 	void				incrementGrade();			
 	void				decrementGrade();
-	void				signForm(Form &form);
+	void				signForm(AForm &form);
+	void				executeForm(AForm const &form);
 
 	// exception classes
 	class GradeTooHighException : public std::exception

@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 17:02:00 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 18:29:43 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/29 21:25:41 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Form
 
 	public:
 		Form();
+		Form(const std::string &name, int signGrade, int executeGrade);
 		Form(const Form &copy);
 		Form	&operator=(const Form &copy);
 		virtual ~Form();
@@ -37,13 +38,8 @@ class Form
 	int				getSignGrade() const;
 	int				getExecuteGrade() const;
 
-	// setters
-	void			setFormName(std::string const &name);
-	void			setSignGrade(int signGrade);
-	void			setExecuteGrade(int executeGrade);
-
 	// methods
-	void			beSigned(Bureaucrat &bureaucrat);
+	void		beSigned(Bureaucrat &bureaucrat);
 
 	// exception classes
 	class GradeTooHighException : public std::exception

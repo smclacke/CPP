@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 15:48:03 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 19:07:00 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/29 22:16:07 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,12 +107,12 @@ void	Bureaucrat::signForm(Form &form)
 // exception classes
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return "grade too high";	
+	return "Bureaucrat grade too high";	
 } 
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return "grade too low";
+	return "Bureaucrat grade too low";
 }
 
 

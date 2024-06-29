@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 18:24:11 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 18:45:27 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/29 22:20:07 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,43 +15,39 @@
 
 int	main()
 {
-	Bureaucrat	Tom("Tom", 6);
-	
-	Form		importantForm;
 
-	importantForm.setFormName("Form 123");
-	importantForm.setSignGrade(3);
-	std::cout << importantForm;
-	
 	try
 	{
+		Form		importantForm("Form 123", -3, 4);
+		std::cout << importantForm;
+		std::cout << std::endl;
+		Bureaucrat	Tom("Tom", 2);
+		std::cout << Tom;
 		Tom.signForm(importantForm);
+		std::cout << importantForm;
+		std::cout << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	std::cout << importantForm;
-	std::cout << std::endl;
 
 
-	Form	lessImportant;
-	
-	lessImportant.setFormName("Form 4242");
-	lessImportant.setSignGrade(9);
-	std::cout << lessImportant;
-
-	
 	try
 	{
+		Form		lessImportant("Form 4242", 9, 6);
+		std::cout << lessImportant;
+		std::cout << std::endl;
+		Bureaucrat	Tom("Tom", 6);
+		std::cout << Tom;
 		Tom.signForm(lessImportant);
+		std::cout << lessImportant;
+		std::cout << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	std::cout << lessImportant;
-	std::cout << std::endl;
 
 	return (0);
 }

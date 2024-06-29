@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 17:07:53 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 18:46:48 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/29 22:19:27 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,24 @@
 Form::Form() : _name("Default"), _signedStatus(false), _signGrade(0), _executeGrade(0)
 {
 	// std::cout << "Form Default Constructor called" << std::endl;
+}
+
+// constructor with parameters
+Form::Form(const std::string &name, int signGrade, int executeGrade)
+{
+	// std::cout << "Form Constructor called" << std::endl;
+	
+	if (signGrade < 1 || executeGrade < 1)
+		throw GradeTooHighException();
+	else if (signGrade > 150 || executeGrade > 150)
+		throw GradeTooLowException();
+	else
+	{
+		this->_name = name;
+		this->_signGrade = signGrade;
+		this->_signedStatus = false;
+		this->_executeGrade = executeGrade;
+	}
 }
 
 // copy constructor
@@ -71,25 +89,9 @@ int				Form::getExecuteGrade() const
 }
 
 
-// setters
-void			Form::setFormName(std::string const &name)
-{
-	this->_name = name;
-}
 
-void			Form::setSignGrade(int signGrade)
-{
-	this->_signGrade = signGrade;
-}
+// method
 
-void			Form::setExecuteGrade(int executeGrade)
-{
-	this->_executeGrade = executeGrade;
-}
-
-
-
-// methods
 void	Form::beSigned(Bureaucrat &bureaucrat)
 {
 	int		bureaucratGrade = bureaucrat.getGrade();
@@ -105,12 +107,12 @@ void	Form::beSigned(Bureaucrat &bureaucrat)
 // exception classes
 const char* Form::GradeTooHighException::what() const throw()
 {
-	return "grade too high";	
+	return "Form grade too high";	
 } 
 
 const char* Form::GradeTooLowException::what() const throw()
 {
-	return "grade too low";
+	return "Form grade too low";
 }
 
 
@@ -125,8 +127,8 @@ std::ostream	&operator<<(std::ostream &out, Form const &form)
 	else
 		status = "Signed";
 		
-	return out << form.getName() << ": Signed Status - " << status << " | Sign Grade - " 
-	<< form.getSignGrade() << " | Execute Grade - " << form.getExecuteGrade() << std::endl;
+	return out << form.getName() << ": Signed Status [" << status << "] | Sign Grade [" 
+	<< form.getSignGrade() << "] | Execute Grade [" << form.getExecuteGrade() << "]" << std::endl;
 }
 
 

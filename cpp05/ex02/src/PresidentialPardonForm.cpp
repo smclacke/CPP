@@ -6,13 +6,12 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 19:11:23 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 19:32:16 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/29 21:54:35 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/PresidentialPardonForm.hpp"
+# include "../include/PresidentialPardonForm.hpp"
 # include "../include/AForm.hpp"
-# include "../include/Bureaucrat.hpp"
 
 // PresidentialPardonForm: Required grades: sign 25, exec 5
 // Informs that <target> has been pardoned by Zaphod Beeblebrox.
@@ -24,7 +23,7 @@ PresidentialPardonForm::PresidentialPardonForm() : _target("Default target")
 }
 
 // constructor with parameter
-PresidentialPardonForm::PresidentialPardonForm(std::string const &target) : AForm("Pardon Form", false, 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string const &target) : AForm("Pardon Form", 25, 5)
 {
 	// std::cout << "PresidentialPardonForm Constructor called" << std::endl;
 	this->_target = target;
@@ -58,7 +57,9 @@ PresidentialPardonForm::~PresidentialPardonForm()
 
 
 // methods
-// void	PresidentialPardonForm::execute(Bureaucrat const &executor) const
-// {
-	
-// }
+void	PresidentialPardonForm::execute(Bureaucrat const &executor) const
+{
+	AForm::execute(executor);
+	std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+}
+

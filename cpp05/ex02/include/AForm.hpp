@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 17:02:00 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 19:18:56 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/29 21:30:28 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 # define AFORM_HPP
 
 # include <iostream>
-
-class Bureaucrat;
+# include "Bureaucrat.hpp"
 
 class AForm
 {
@@ -27,20 +26,17 @@ class AForm
 
 	public:
 		AForm();
+		AForm(const std::string &name, int signGrade, int executeGrade);
 		AForm(const AForm &copy);
 		AForm	&operator=(const AForm &copy);
 		virtual ~AForm();
+
 
 	// getters
 	std::string		getName() const;
 	bool			getSignedStatus() const;
 	int				getSignGrade() const;
 	int				getExecuteGrade() const;
-
-	// setters
-	void			setFormName(std::string const &name);
-	void			setSignGrade(int signGrade);
-	void			setExecuteGrade(int executeGrade);
 
 	// methods
 	void			beSigned(Bureaucrat &bureaucrat);
@@ -54,6 +50,12 @@ class AForm
 	};
 
 	class GradeTooLowException : public std::exception
+	{
+		public:
+			virtual const char *what() const throw();
+	};
+	
+	class FormNotSigned : public std::exception
 	{
 		public:
 			virtual const char *what() const throw();

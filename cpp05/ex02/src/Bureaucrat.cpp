@@ -6,12 +6,11 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 15:48:03 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 19:07:47 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/29 22:15:57 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Bureaucrat.hpp"
-# include "../include/Form.hpp"
+# include "../include/AForm.hpp"
 
 // default
 Bureaucrat::Bureaucrat() : _name("DefaultName"), _grade(0)
@@ -90,7 +89,7 @@ void	Bureaucrat::decrementGrade()
 		throw Bureaucrat::GradeTooLowException();
 }
 
-void	Bureaucrat::signForm(Form &form)
+void	Bureaucrat::signForm(AForm &form)
 {
 	try
 	{
@@ -103,16 +102,29 @@ void	Bureaucrat::signForm(Form &form)
 	}
 }
 
+void	Bureaucrat::executeForm(AForm const &form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << this->_name << " excuted " << form.getName() << std::endl; 
+	}
+	catch(const std::exception &e)
+	{
+		std::cout << this->_name << " couldn't execute " << form.getName() << " becuase " << e.what() << std::endl;
+	}
+}
+
 
 // exception classes
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return "grade too high";	
+	return "Bureaucrat grade too high";	
 } 
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return "grade too low";
+	return "Bureaucrat grade too low";
 }
 
 

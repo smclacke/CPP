@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 19:14:07 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 19:30:04 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/29 21:55:14 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include "AForm.hpp"
 # include <iostream>
-
-class AForm; // need?
 
 class PresidentialPardonForm : public AForm
 {
@@ -32,8 +30,7 @@ class PresidentialPardonForm : public AForm
 	
 	// methods
 	void	execute(Bureaucrat const &executor) const;
-
-}
+};
 
 
 #endif
