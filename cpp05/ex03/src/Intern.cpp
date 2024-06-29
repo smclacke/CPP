@@ -6,11 +6,11 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 23:00:45 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 23:19:52 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/29 23:29:25 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Intern.hpp"
+# include "../include/Intern.hpp"
 
 // default
 Intern::Intern()
@@ -27,6 +27,8 @@ Intern::Intern(const Intern &copy)
 Intern	&Intern::operator=(const Intern &copy)
 {
 	// std::cout << "Intern Copy assignment operator called" << std::endl;
+	(void) copy;
+
 	return *this;
 }
 
@@ -35,7 +37,7 @@ Intern::~Intern()
 	// std::cout << "Intern Destructor called" << std::endl;
 }
 
-// need to create a new form object instance
+
 // methods
 AForm	*Intern::Shrubbery(std::string target)
 {
@@ -53,7 +55,7 @@ AForm	*Intern::President(std::string target)
 	
 AForm	*Intern::makeForm(const std::string &name, const std::string &target)
 {
-	std::string	Form[3] = {"Shrub", "robo", "pardon"};
+	std::string	Form[3] = {"Shrub", "Robo", "Pardon"};
 
 	AForm *(Intern::*newForm[3]) (std::string target) = 
 	{

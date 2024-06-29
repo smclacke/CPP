@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 22:54:35 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 23:17:05 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/29 23:26:59 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define INTERN_HPP
 
 # include "AForm.hpp"
+# include "../include/ShrubberyCreationForm.hpp"
+# include "../include/RobotomyRequestForm.hpp"
+# include "../include/PresidentialPardonForm.hpp"
 
 class Intern
 {
@@ -24,9 +27,9 @@ class Intern
 		~Intern();
 
 	// methods
-	AForm	*Intern::Shrubbery(std::string target);
-	AForm	*Intern::Robotomy(std::string target);
-	AForm	*Intern::President(std::string target);
+	AForm	*Shrubbery(std::string target);
+	AForm	*Robotomy(std::string target);
+	AForm	*President(std::string target);
 	AForm	*makeForm(const std::string &name, const std::string &target);
 
 	class InternException : public std::exception
