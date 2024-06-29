@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 15:48:03 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 16:41:23 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/29 18:15:27 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void	Bureaucrat::decrementGrade()
 	else
 		throw Bureaucrat::GradeTooLowException();
 }
+
 
 
 // exception classes

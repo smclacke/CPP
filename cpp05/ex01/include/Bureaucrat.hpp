@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 15:42:10 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 17:28:53 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/29 18:18:13 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
+
+class Form;
 
 class Bureaucrat
 {
@@ -35,7 +37,7 @@ class Bureaucrat
 	// methods
 	void				incrementGrade();			
 	void				decrementGrade();
-		// signForm()
+	void				signForm(Form &form);
 
 	// exception classes
 	class GradeTooHighException : public std::exception

@@ -6,11 +6,12 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 17:07:53 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 17:25:50 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/29 18:46:48 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/Form.hpp"
+# include "../include/Bureaucrat.hpp"
 
 // default
 Form::Form() : _name("Default"), _signedStatus(false), _signGrade(0), _executeGrade(0)
@@ -70,16 +71,46 @@ int				Form::getExecuteGrade() const
 }
 
 
+// setters
+void			Form::setFormName(std::string const &name)
+{
+	this->_name = name;
+}
+
+void			Form::setSignGrade(int signGrade)
+{
+	this->_signGrade = signGrade;
+}
+
+void			Form::setExecuteGrade(int executeGrade)
+{
+	this->_executeGrade = executeGrade;
+}
+
+
+
+// methods
+void	Form::beSigned(Bureaucrat &bureaucrat)
+{
+	int		bureaucratGrade = bureaucrat.getGrade();
+
+	if (bureaucratGrade <= this->_signGrade)
+		this->_signedStatus = true;
+	else
+		throw Form::GradeTooLowException();
+}
+
+
 
 // exception classes
 const char* Form::GradeTooHighException::what() const throw()
 {
-	return "Form grade too high";	
+	return "grade too high";	
 } 
 
 const char* Form::GradeTooLowException::what() const throw()
 {
-	return "Form grade too low";
+	return "grade too low";
 }
 
 
@@ -87,7 +118,14 @@ const char* Form::GradeTooLowException::what() const throw()
 // overload of the insertion '<<' operator
 std::ostream	&operator<<(std::ostream &out, Form const &form)
 {
-	return out << form.getName() << ": Signed Status - " << form.getSignedStatus() << " | Sign Grade - " 
+	std::string		status;
+
+	if (form.getSignedStatus() == false)
+		status = "Not signed";
+	else
+		status = "Signed";
+		
+	return out << form.getName() << ": Signed Status - " << status << " | Sign Grade - " 
 	<< form.getSignGrade() << " | Execute Grade - " << form.getExecuteGrade() << std::endl;
 }
 

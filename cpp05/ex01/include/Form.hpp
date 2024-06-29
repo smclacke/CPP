@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 17:02:00 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 17:28:48 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/29 18:29:43 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define FORM_HPP
 
 # include <iostream>
+
+class Bureaucrat;
 
 class Form
 {
@@ -35,9 +37,13 @@ class Form
 	int				getSignGrade() const;
 	int				getExecuteGrade() const;
 
-	// methods
-	// beSigned()
+	// setters
+	void			setFormName(std::string const &name);
+	void			setSignGrade(int signGrade);
+	void			setExecuteGrade(int executeGrade);
 
+	// methods
+	void			beSigned(Bureaucrat &bureaucrat);
 
 	// exception classes
 	class GradeTooHighException : public std::exception
