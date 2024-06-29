@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ShrubberyCreationForm.hpp                          :+:    :+:            */
+/*   RobotomyRequestForm.hpp                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/06/29 18:58:04 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 22:48:00 by smclacke      ########   odam.nl         */
+/*   Created: 2024/06/29 19:13:21 by smclacke      #+#    #+#                 */
+/*   Updated: 2024/06/29 22:24:38 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-# define SHRUBBERYCREATIONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
 # include "AForm.hpp"
 # include <iostream>
 
-class ShrubberyCreationForm : public AForm
+class RobotomyRequestForm : public AForm
 {
 	private:
 		std::string	_target;
 
 	public:
-		ShrubberyCreationForm();
-		ShrubberyCreationForm(std::string const &target);
-		ShrubberyCreationForm(const ShrubberyCreationForm &copy);
-		ShrubberyCreationForm	&operator=(const ShrubberyCreationForm &copy);
-		~ShrubberyCreationForm();
+		RobotomyRequestForm();
+		RobotomyRequestForm(std::string const &target);
+		RobotomyRequestForm(const RobotomyRequestForm &copy);
+		RobotomyRequestForm	&operator=(const RobotomyRequestForm &copy);
+		~RobotomyRequestForm();
 	
 	// methods
 	void	execute(Bureaucrat const &executor) const;
 };
 
-# define ASCII_ELEPHANT "\
-	      __\n\
-	  .--()°'.'\n\
-	 '|, . ,'\n\
-	  !_-(_|\\"
 
 #endif
 

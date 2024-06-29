@@ -6,13 +6,15 @@
 #    By: smclacke <smclacke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/06/29 18:48:03 by smclacke      #+#    #+#                  #
-#    Updated: 2024/06/29 18:51:14 by smclacke      ########   odam.nl          #
+#    Updated: 2024/06/29 22:49:29 by smclacke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= AForm
 
 INCLUDE			= -Iinclude
+
+ASCII			= slug_shrubbery
 
 CC				= c++
 CPPFLAGS		= -std=c++11 -Wall -Wextra -Werror -g -fsanitize=address
@@ -53,6 +55,7 @@ clean		:
 
 fclean		: clean
 	@ rm -f $(NAME)
+	@ rm -f $(ASCII)
 	@ echo "${YELLOW} $(NAME) fcleaned!${RESET}"
 
 re			: fclean all

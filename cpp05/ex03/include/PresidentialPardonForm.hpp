@@ -1,42 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ShrubberyCreationForm.hpp                          :+:    :+:            */
+/*   PresidentialPardonForm.hpp                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/06/29 18:58:04 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 22:48:00 by smclacke      ########   odam.nl         */
+/*   Created: 2024/06/29 19:14:07 by smclacke      #+#    #+#                 */
+/*   Updated: 2024/06/29 21:55:14 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-# define SHRUBBERYCREATIONFORM_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 
 # include "AForm.hpp"
 # include <iostream>
 
-class ShrubberyCreationForm : public AForm
+class PresidentialPardonForm : public AForm
 {
 	private:
 		std::string	_target;
 
 	public:
-		ShrubberyCreationForm();
-		ShrubberyCreationForm(std::string const &target);
-		ShrubberyCreationForm(const ShrubberyCreationForm &copy);
-		ShrubberyCreationForm	&operator=(const ShrubberyCreationForm &copy);
-		~ShrubberyCreationForm();
+		PresidentialPardonForm();
+		PresidentialPardonForm(std::string const &target);
+		PresidentialPardonForm(const PresidentialPardonForm &copy);
+		PresidentialPardonForm	&operator=(const PresidentialPardonForm &copy);
+		~PresidentialPardonForm();
 	
 	// methods
 	void	execute(Bureaucrat const &executor) const;
 };
 
-# define ASCII_ELEPHANT "\
-	      __\n\
-	  .--()°'.'\n\
-	 '|, . ,'\n\
-	  !_-(_|\\"
 
 #endif
-
