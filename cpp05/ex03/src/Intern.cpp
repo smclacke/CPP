@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 23:00:45 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/30 00:04:08 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/30 00:24:37 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,11 @@ Intern::Intern(const Intern &copy)
 Intern	&Intern::operator=(const Intern &copy)
 {
 	// std::cout << "Intern Copy assignment operator called" << std::endl;
-	(void) copy;
-
+	
+	if (this != &copy)
+	{
+		(void) copy;
+	}
 	return *this;
 }
 
