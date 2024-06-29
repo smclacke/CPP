@@ -48,7 +48,7 @@ static function within class =
 **PURE VIRTUAL / ABSTRACT CLASSES WOOOHOOOOOOO**
 **PURE VIRTUAL / ABSTRACT CLASSES WOOOHOOOOOOO**
 
-- a class is abstract if it hsa at least one put virtual function
+- a class is abstract if it has at least one pure virtual function
 - a function WITHOUT a definition
 
 - sometimes, implementation of all functions cannot be provided in a base class because we don't know the implemention...

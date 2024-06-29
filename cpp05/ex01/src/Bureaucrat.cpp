@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 15:48:03 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 18:46:36 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/29 19:07:00 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ Bureaucrat::Bureaucrat(std::string const &name, int grade)
 		throw Bureaucrat::GradeTooLowException();
 	else
 	{
-		_grade = grade;
-		_name = name;
+		this->_grade = grade;
+		this->_name = name;
 		// std::cout << "Bureaucrat Constructor called" << std::endl;
 	}
 }
