@@ -6,15 +6,12 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 19:11:23 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 21:54:35 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/29 23:57:58 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/PresidentialPardonForm.hpp"
 # include "../include/AForm.hpp"
-
-// PresidentialPardonForm: Required grades: sign 25, exec 5
-// Informs that <target> has been pardoned by Zaphod Beeblebrox.
 
 // default
 PresidentialPardonForm::PresidentialPardonForm() : _target("Default target")

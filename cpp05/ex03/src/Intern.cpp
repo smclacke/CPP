@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 23:00:45 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 23:29:25 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/30 00:04:08 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ AForm	*Intern::makeForm(const std::string &name, const std::string &target)
 		if (Form[i] == name)
 		{
 			std::cout << "Intern creates " << name << std::endl;
-			return ((this->*newForm[i])(target));
+			return (this->*newForm[i])(target);
 		}
 	}
 	throw Intern::InternException();

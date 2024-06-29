@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 20:54:30 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 22:50:02 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/30 00:01:29 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main()
 
 	try
 	{
-		Bureaucrat Tom("tom", 1);
+		Bureaucrat Tom("Tom", 1);
 		std::cout << Tom;
 		Tom.signForm(pardonmoi);
 	}
@@ -38,7 +38,7 @@ int	main()
 	
 	try
 	{
-		Bureaucrat Mary("mary", 3);
+		Bureaucrat Mary("Mary", 3);
 		std::cout << Mary;
 		Mary.executeForm(pardonmoi);
 	}
@@ -57,7 +57,7 @@ int	main()
 
 	try
 	{
-		Bureaucrat Lucy("lucy", 151);
+		Bureaucrat Lucy("lucy", 1);
 		std::cout << Lucy;
 		Lucy.signForm(roboCop);
 	}
@@ -78,7 +78,7 @@ int	main()
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
+
 	// --------------------------------------------
 
 
