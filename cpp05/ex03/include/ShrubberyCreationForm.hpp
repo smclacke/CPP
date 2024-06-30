@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 18:58:04 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/30 18:49:42 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/30 21:18:07 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,12 @@ class ShrubberyCreationForm : public AForm
 	void	execute(Bureaucrat const &executor) const;
 };
 
-# define ASCII_ELEPHANT "\
+# define ASCII_ELEPHANT "\n\n\
 	      __\n\
 	  .--()°'.'\n\
 	 '|, . ,'\n\
-	  !_-(_|\\"
+	  !_-(_|\n\n\n\n     "
+
 
 #endif
 
