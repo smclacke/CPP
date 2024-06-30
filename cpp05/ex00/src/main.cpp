@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 16:31:50 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 16:58:29 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/30 16:24:56 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,8 @@ int	main()
 	
 
 
-	// if we throwing exceptions from constructor, or via methods, need to 
-	// have the code inside try-catch blocks otherwise core gets dumped
+	// // if we throwing exceptions from constructor, or via methods, need to 
+	// // have the code inside try-catch blocks otherwise core gets dumped
 
 	// std::cout << "Tom gotta be in a try-catch block cause of constructor" << std::endl;
 	// Bureaucrat	tomOutside("TomOutside", 222); // breaks it
@@ -111,16 +111,16 @@ int	main()
 	// }
 
 
-	// default is ok outside try-catch since no throw, but if methods used, need to catch
+	// // default is ok outside try-catch since no throw, but if methods used, need to catch
 
 	// Bureaucrat	defaultyTom;
 
-	// std::cout << defaultyTom;
+	// std::cout << defaultyTom; // default fine since no throws
 	
 	// defaultyTom.incrementGrade(); // bad
 
 	
-	// this is ok since the default doesn't throw, only increment, if that throws, it can be caught
+	// // this is ok since the default doesn't throw, only increment, if that throws, it can't be caught
 	// try
 	// {
 	// 	defaultyTom.incrementGrade();

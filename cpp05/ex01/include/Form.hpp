@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 17:02:00 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 21:25:41 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/30 16:27:50 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FORM_HPP
 
 # include <iostream>
+# include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
@@ -30,7 +31,7 @@ class Form
 		Form(const std::string &name, int signGrade, int executeGrade);
 		Form(const Form &copy);
 		Form	&operator=(const Form &copy);
-		virtual ~Form();
+		~Form();
 
 	// getters
 	std::string		getName() const;

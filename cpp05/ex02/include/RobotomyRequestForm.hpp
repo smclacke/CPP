@@ -6,15 +6,15 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 19:13:21 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 22:24:38 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/30 16:18:04 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ROBOTOMYREQUESTFORM_HPP
 # define ROBOTOMYREQUESTFORM_HPP
 
-# include "AForm.hpp"
 # include <iostream>
+# include "AForm.hpp"
 
 class RobotomyRequestForm : public AForm
 {

@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 15:48:03 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 22:15:57 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/30 16:34:18 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ Bureaucrat::Bureaucrat() : _name("DefaultName"), _grade(0)
 // constructor with parameters
 Bureaucrat::Bureaucrat(std::string const &name, int grade)
 {
+	// std::cout << "Bureaucrat Constructor called" << std::endl;
+	
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	else if (grade > 150)
@@ -29,7 +31,6 @@ Bureaucrat::Bureaucrat(std::string const &name, int grade)
 	{
 		this->_grade = grade;
 		this->_name = name;
-		// std::cout << "Bureaucrat Constructor called" << std::endl;
 	}
 }
 

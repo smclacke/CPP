@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 20:54:30 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/30 00:01:29 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/30 16:37:30 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,64 +52,64 @@ int	main()
 	
 	// ROBOCOP FORM
 
-	RobotomyRequestForm	roboCop("smarty pants");
-	std::cout << roboCop;
+	// RobotomyRequestForm	roboCop("smarty pants");
+	// std::cout << roboCop;
 
-	try
-	{
-		Bureaucrat Lucy("lucy", 1);
-		std::cout << Lucy;
-		Lucy.signForm(roboCop);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	// try
+	// {
+	// 	Bureaucrat Lucy("lucy", 1);
+	// 	std::cout << Lucy;
+	// 	Lucy.signForm(roboCop);
+	// }
+	// catch(const std::exception& e)
+	// {
+	// 	std::cerr << e.what() << '\n';
+	// }
 	
-	std::cout << roboCop;
+	// std::cout << roboCop;
 
-	try
-	{
-		Bureaucrat Jerry("jerry", 12);
-		std::cout << Jerry;
-		Jerry.executeForm(roboCop);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	// try
+	// {
+	// 	Bureaucrat Jerry("jerry", 12);
+	// 	std::cout << Jerry;
+	// 	Jerry.executeForm(roboCop);
+	// }
+	// catch(const std::exception& e)
+	// {
+	// 	std::cerr << e.what() << '\n';
+	// }
 
 	// --------------------------------------------
 
 
 	// GET SHRUBBED
 
-	ShrubberyCreationForm	Sherib("slug");
-	std::cout << Sherib;
+	// ShrubberyCreationForm	Sherib("slug");
+	// std::cout << Sherib;
 
-	try
-	{
-		Bureaucrat	Charlie("charlie", 44);
-		std::cout << Charlie;
-		Charlie.signForm(Sherib);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	// try
+	// {
+	// 	Bureaucrat	Charlie("charlie", 44);
+	// 	std::cout << Charlie;
+	// 	Charlie.signForm(Sherib);
+	// }
+	// catch(const std::exception& e)
+	// {
+	// 	std::cerr << e.what() << '\n';
+	// }
 	
-	std::cout << Sherib;
+	// std::cout << Sherib;
 
-	try
-	{
-		Bureaucrat	Polly("polly", 4);
-		std::cout << Polly;
-		Polly.executeForm(Sherib);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	// try
+	// {
+	// 	Bureaucrat	Polly("polly", 4);
+	// 	std::cout << Polly;
+	// 	Polly.executeForm(Sherib);
+	// }
+	// catch(const std::exception& e)
+	// {
+	// 	std::cerr << e.what() << '\n';
+	// }
 	
 
 	return (0);

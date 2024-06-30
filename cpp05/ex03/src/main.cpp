@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 23:17:48 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/30 00:03:20 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/30 16:48:46 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 int	main()
 {
-	
+
+// ------------------------------------------------------------------
+
+	Intern	john; // no throw in constructor so can be outside block
+
 	try
 	{
-		Intern	john;
-		AForm	*form;
+		AForm	*form; // throw in constructor so must be in block
 
 		form = john.makeForm("Shrub", "Shrubber");
 		delete form;
@@ -28,7 +31,10 @@ int	main()
 		std::cerr << e.what() << '\n';
 	}
 
+	std::cout << std::endl;
 	
+// ------------------------------------------------------------------
+
 	try
 	{
 		Intern	jane;
@@ -42,7 +48,10 @@ int	main()
 		std::cerr << e.what() << '\n';
 	}
 	
-	
+	std::cout << std::endl;
+
+// ------------------------------------------------------------------
+
 	try
 	{
 		Intern	jane;
@@ -56,13 +65,24 @@ int	main()
 		std::cerr << e.what() << '\n';
 	}
 
+	std::cout << std::endl;
 	
+// ------------------------------------------------------------------
+
 	try
 	{
-		Intern	jane;
-		AForm	*form;
+		Intern		jane;
+		AForm		*form;
+
+		Bureaucrat	Bas("Bas", 1);
+		std::cout << Bas;
 
 		form = jane.makeForm("Robo", "robotica");
+		std::cout << *form;
+	
+		Bas.signForm(*form);
+		Bas.executeForm(*form);
+		std::cout << *form;
 		delete form;
 	}
 	catch(const std::exception& e)

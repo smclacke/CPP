@@ -6,12 +6,11 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 17:07:53 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 22:19:27 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/30 16:35:02 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/Form.hpp"
-# include "../include/Bureaucrat.hpp"
 
 // default
 Form::Form() : _name("Default"), _signedStatus(false), _signGrade(0), _executeGrade(0)

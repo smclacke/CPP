@@ -6,12 +6,12 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 19:10:55 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 23:58:17 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/30 16:42:03 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/RobotomyRequestForm.hpp"
-# include "../include/AForm.hpp"
+# include <cstdlib>
 
 // default
 RobotomyRequestForm::RobotomyRequestForm() : _target("Default target")

@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 15:42:10 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 21:26:32 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/30 16:31:58 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
+# include "AForm.hpp"
 
 class AForm;
 
@@ -28,7 +29,7 @@ class Bureaucrat
 		Bureaucrat(std::string const &name, int grade);
 		Bureaucrat(const Bureaucrat &copy);
 		Bureaucrat	&operator=(const Bureaucrat &copy);
-		virtual ~Bureaucrat();
+		~Bureaucrat();
 
 	// getters
 	std::string			getName() const;

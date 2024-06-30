@@ -6,17 +6,18 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 22:54:35 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 23:26:59 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/30 16:39:41 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef INTERN_HPP
 # define INTERN_HPP
 
+# include <iostream>
 # include "AForm.hpp"
-# include "../include/ShrubberyCreationForm.hpp"
-# include "../include/RobotomyRequestForm.hpp"
-# include "../include/PresidentialPardonForm.hpp"
+# include "ShrubberyCreationForm.hpp"
+# include "RobotomyRequestForm.hpp"
+# include "PresidentialPardonForm.hpp"
 
 class Intern
 {
