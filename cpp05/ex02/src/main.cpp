@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 20:54:30 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/30 16:37:30 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/30 18:40:02 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,10 @@ int	main()
 		std::cerr << e.what() << '\n';
 	}
 	
+	std::cout << std::endl;
 	std::cout << pardonmoi;
 	
+	std::cout << std::endl;
 	try
 	{
 		Bureaucrat Mary("Mary", 3);
@@ -47,6 +49,7 @@ int	main()
 		std::cerr << e.what() << '\n';
 	}
 
+	std::cout << std::endl;
 	// --------------------------------------------
 	
 	
@@ -66,11 +69,15 @@ int	main()
 	// 	std::cerr << e.what() << '\n';
 	// }
 	
+	// std::cout << std::endl;
+
 	// std::cout << roboCop;
+
+	// std::cout << std::endl;
 
 	// try
 	// {
-	// 	Bureaucrat Jerry("jerry", 12);
+	// 	Bureaucrat Jerry("jerry", 82);
 	// 	std::cout << Jerry;
 	// 	Jerry.executeForm(roboCop);
 	// }
@@ -79,14 +86,17 @@ int	main()
 	// 	std::cerr << e.what() << '\n';
 	// }
 
+	// std::cout << std::endl;
 	// --------------------------------------------
 
 
 	// GET SHRUBBED
 
-	// ShrubberyCreationForm	Sherib("slug");
+	// ShrubberyCreationForm	Sherib("sluggish");
 	// std::cout << Sherib;
 
+	// std::cout << std::endl;
+	
 	// try
 	// {
 	// 	Bureaucrat	Charlie("charlie", 44);
@@ -97,9 +107,13 @@ int	main()
 	// {
 	// 	std::cerr << e.what() << '\n';
 	// }
+
+	// std::cout << std::endl;
 	
 	// std::cout << Sherib;
 
+	// std::cout << std::endl;
+	
 	// try
 	// {
 	// 	Bureaucrat	Polly("polly", 4);

@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 23:00:45 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/30 16:15:44 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/30 18:41:45 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ AForm	*Intern::President(std::string target)
 	
 AForm	*Intern::makeForm(const std::string &name, const std::string &target)
 {
-	std::string	Form[3] = {"Shrub", "Robo", "Pardon"};
+	std::string	Form[3] = {"ShrubberyCreation", "RobotomyRequest", "PresidentialPardon"};
 
 	AForm *(Intern::*newForm[3]) (std::string target) = 
 	{

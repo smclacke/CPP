@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 18:24:11 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/30 16:31:07 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/30 18:35:00 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int	main()
 
 	try
 	{
-		Form		importantForm("Form 123", -3, 4);
+		// Form		importantForm("Form 123", -3, 4);
+		Form		importantForm("Form 123", 3, 4);
 		std::cout << importantForm;
 		std::cout << std::endl;
 		Bureaucrat	Tom("Tom", 2);

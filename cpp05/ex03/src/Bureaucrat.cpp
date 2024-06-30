@@ -6,20 +6,21 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 15:48:03 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/30 16:40:36 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/30 20:08:47 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/AForm.hpp"
 
 // default
-Bureaucrat::Bureaucrat() : _name("DefaultName"), _grade(0)
+Bureaucrat::Bureaucrat() : _name("Bureaucratic Name"), _grade(0)
 {
 	// std::cout << "Bureaucrat Default Constructor called" << std::endl;
 }
 
+// _name(std::move(name))
 // constructor with parameters
-Bureaucrat::Bureaucrat(std::string const &name, int grade)
+Bureaucrat::Bureaucrat(std::string name, int grade) :  _name(name)
 {
 	// std::cout << "Bureaucrat Constructor called" << std::endl;
 
@@ -28,10 +29,7 @@ Bureaucrat::Bureaucrat(std::string const &name, int grade)
 	else if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
 	else
-	{
 		this->_grade = grade;
-		this->_name = name;
-	}
 }
 
 // copy constructor
@@ -47,10 +45,7 @@ Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &copy)
 	// std::cout << "Bureaucrat Copy assignment operator called" << std::endl;
 	
 	if (this != &copy)
-	{
-		this->_name = copy._name;
 		this->_grade = copy._grade;
-	}
 	return *this;
 }
 

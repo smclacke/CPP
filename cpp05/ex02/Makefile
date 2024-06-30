@@ -6,7 +6,7 @@
 #    By: smclacke <smclacke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/06/29 18:48:03 by smclacke      #+#    #+#                  #
-#    Updated: 2024/06/29 22:49:29 by smclacke      ########   odam.nl          #
+#    Updated: 2024/06/30 18:39:21 by smclacke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME			= AForm
 
 INCLUDE			= -Iinclude
 
-ASCII			= slug_shrubbery
+ASCII			= *_shrubbery
 
 CC				= c++
 CPPFLAGS		= -std=c++11 -Wall -Wextra -Werror -g -fsanitize=address

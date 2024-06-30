@@ -6,20 +6,20 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 17:07:53 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 22:51:31 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/30 20:12:43 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/AForm.hpp"
 
 // default
-AForm::AForm() : _name("Default"), _signedStatus(false), _signGrade(0), _executeGrade(0)
+AForm::AForm() : _name("Formatic Name"), _signedStatus(false), _signGrade(0), _executeGrade(0)
 {
 	// std::cout << "AForm Default Constructor called" << std::endl;
 }
 
 // constructor with parameters
-AForm::AForm(const std::string &name, int signGrade, int executeGrade)
+AForm::AForm(std::string name, int signGrade, int executeGrade) : _name(name)
 {
 	// std::cout << "AForm Constructor called" << std::endl;
 	
@@ -29,9 +29,8 @@ AForm::AForm(const std::string &name, int signGrade, int executeGrade)
 		throw GradeTooLowException();
 	else
 	{
-		this->_name = name;
-		this->_signGrade = signGrade;
 		this->_signedStatus = false;
+		this->_signGrade = signGrade;
 		this->_executeGrade = executeGrade;
 	}
 }
@@ -50,7 +49,6 @@ AForm	&AForm::operator=(const AForm &copy)
 	
 	if (this != &copy)
 	{
-		this->_name = copy._name;
 		this->_signedStatus = copy._signedStatus;
 		this->_signGrade = copy._signGrade;
 		this->_executeGrade = copy._executeGrade;

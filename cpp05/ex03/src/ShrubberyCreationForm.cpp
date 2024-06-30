@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 19:02:35 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/30 16:41:50 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/30 20:04:21 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ ShrubberyCreationForm::ShrubberyCreationForm() : _target("Default target")
 }
 
 // constructor with parameter
-ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target) : AForm("Shrub Form", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target) : AForm("ShrubForm", 145, 137)
 {
 	// std::cout << "ShrubberyCreationForm Constructor called" << std::endl;
 	this->_target = target;

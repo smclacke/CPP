@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 19:14:07 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/30 16:18:01 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/30 18:50:20 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class PresidentialPardonForm : public AForm
 {
 	private:
-		std::string	_target;
+		std::string		_target;
 
 	public:
 		PresidentialPardonForm();

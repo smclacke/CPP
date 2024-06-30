@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 16:31:50 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/30 16:24:56 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/30 18:33:51 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 int	main()
 {
+	Bureaucrat	defaulty; // no throw
+
+	// defaulty.incrementGrade(); // crashes since throw 
 
 	std::cout << "good Tom" <<  std::endl;
 	try

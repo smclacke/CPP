@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 19:10:55 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/30 16:42:03 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/30 20:04:31 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ RobotomyRequestForm::RobotomyRequestForm() : _target("Default target")
 }
 
 // constructor with parameter
-RobotomyRequestForm::RobotomyRequestForm(std::string const &target) : AForm("Robotomy Form", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(std::string const &target) : AForm("Robo Form", 72, 45)
 {
 	// std::cout << "RobotomyRequestForm Constructor called" << std::endl;
 	this->_target = target;

@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 17:02:00 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/29 21:30:28 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/06/30 20:13:15 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@
 class AForm
 {
 	private:
-		std::string		_name;
-		bool			_signedStatus;
-		int				_signGrade;
-		int				_executeGrade;
+		std::string const		_name;
+		bool					_signedStatus;
+		int						_signGrade;
+		int						_executeGrade;
 
 	public:
 		AForm();
-		AForm(const std::string &name, int signGrade, int executeGrade);
+		AForm(std::string name, int signGrade, int executeGrade);
 		AForm(const AForm &copy);
 		AForm	&operator=(const AForm &copy);
 		virtual ~AForm();
