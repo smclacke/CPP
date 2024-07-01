@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 17:02:00 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/30 20:13:15 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/01 13:33:33 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,19 +46,19 @@ class AForm
 	class GradeTooHighException : public std::exception
 	{
 		public:
-			virtual const char *what() const throw();                 
+			const char *what() const throw();                 
 	};
 
 	class GradeTooLowException : public std::exception
 	{
 		public:
-			virtual const char *what() const throw();
+			const char *what() const throw();
 	};
 	
 	class FormNotSigned : public std::exception
 	{
 		public:
-			virtual const char *what() const throw();
+			const char *what() const throw();
 	};
 
 };

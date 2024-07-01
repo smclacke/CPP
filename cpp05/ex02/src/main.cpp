@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 20:54:30 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/30 21:10:37 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/01 13:36:33 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 int	main()
 {
-	
+
 	// PARDON YOU	
 
 	std::cout << "------------PARDON FORM-------------" << std::endl << std::endl;

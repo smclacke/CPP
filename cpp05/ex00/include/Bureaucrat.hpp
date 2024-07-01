@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 15:42:10 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/30 20:16:46 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/01 13:31:41 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ class Bureaucrat
 	class GradeTooHighException : public std::exception
 	{
 		public:
-			virtual const char *what() const throw();                 
+			const char *what() const throw();
 	};
 
 	class GradeTooLowException : public std::exception
 	{
 		public:
-			virtual const char *what() const throw();
+			const char *what() const throw();
 	};
 
 };
