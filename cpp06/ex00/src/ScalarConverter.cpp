@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/30 00:15:51 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/30 00:32:48 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/01 16:46:38 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,10 @@ ScalarConverter::~ScalarConverter() {}
 // •float
 // •double
 
-static void	convert(const std::string &input)
-{
+// static void	convert(const std::string &input)
+// {
+// 	(void) input;
+	
+// 	// check for non-printable
 
-	// check for non-printable
-
-}
+// }

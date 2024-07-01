@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 17:07:53 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/30 20:14:33 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/01 17:25:05 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ Form::Form() : _name("Formatic Name"), _signedStatus(false), _signGrade(0), _exe
 }
 
 // constructor with parameters
-Form::Form(std::string name, int signGrade, int executeGrade) : _name(name)
+Form::Form(std::string name, int signGrade, int executeGrade) 
+	: _name(name), _signedStatus(false), _signGrade(signGrade), _executeGrade(executeGrade)
 {
 	// std::cout << "Form Constructor called" << std::endl;
 	
@@ -27,16 +28,10 @@ Form::Form(std::string name, int signGrade, int executeGrade) : _name(name)
 		throw GradeTooHighException();
 	else if (signGrade > 150 || executeGrade > 150)
 		throw GradeTooLowException();
-	else
-	{
-		this->_signedStatus = false;
-		this->_signGrade = signGrade;
-		this->_executeGrade = executeGrade;
-	}
 }
 
 // copy constructor
-Form::Form(const Form &copy)
+Form::Form(const Form &copy) : _name(copy.getName()), _signedStatus(copy.getSignedStatus()), _signGrade(copy.getSignGrade()), _executeGrade(copy.getExecuteGrade())
 {
 	// std::cout << "Form Copy Constructor called" << std::endl;
 	*this = copy;
@@ -46,13 +41,11 @@ Form::Form(const Form &copy)
 Form	&Form::operator=(const Form &copy)
 {
 	// std::cout << "Form Copy assignment operator called" << std::endl;
-	
 	if (this != &copy)
 	{
-		this->_signedStatus = copy._signedStatus;
-		this->_signGrade = copy._signGrade;
-		this->_executeGrade = copy._executeGrade;
+
 	}
+
 	return *this;
 }
 

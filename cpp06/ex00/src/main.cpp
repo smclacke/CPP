@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/30 00:16:03 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/30 00:34:26 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/01 16:47:26 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,11 @@
 
 int	main()
 {
+
+	std::string	str1 = "string";
+	
+	int	integer = stoi(str1);
+
+	std::cout << integer << std::endl;
 	return (0);
 }

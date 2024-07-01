@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/30 00:14:28 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/30 00:20:17 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/01 16:46:39 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define SCALARCONVERTER_HPP
 
 # include <iostream>
+# include <cmath>
+# include <string>
 
 class ScalarConverter
 {
@@ -27,7 +29,7 @@ class ScalarConverter
 	public:
 	
 	// methods
-	static void	convert(const std::string &input); 
+	// static void	convert(const std::string &input); 
 	
 };
 

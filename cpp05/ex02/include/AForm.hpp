@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 17:02:00 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/01 13:33:33 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/01 17:25:52 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class AForm
 	private:
 		std::string const		_name;
 		bool					_signedStatus;
-		int						_signGrade;
-		int						_executeGrade;
+		int	const				_signGrade;
+		int	const				_executeGrade;
 
 	public:
 		AForm();
