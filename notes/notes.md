@@ -59,7 +59,7 @@ static function within class =
 
 - the pure virtual function is declared by assigning 0 in the declaration
 
-- an abstract class' descendants must define the pure citual function, otherwise the subclasses become abstract too by this definition
+- an abstract class' descendants must define the pure virtual function, otherwise the subclasses become abstract too by this definition
 
 
 **INTERFACE vs ABSTRACT CLASS**
