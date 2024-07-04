@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/30 00:16:03 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/01 16:47:26 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/04 22:16:41 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,17 @@
 // double: 42.0
 
 
-int	main()
+int	main(int argc, char **argv)
 {
+	if (argc != 2)
+	{
+		std::cout << "Error: program takes one argument as input" << std::endl;
+		return (1);
+	}
 
-	std::string	str1 = "string";
+	std::cout << "test: "<< argv[1] << std::endl;
+
+	ScalarConverter::convert(argv[1]);
 	
-	int	integer = stoi(str1);
-
-	std::cout << integer << std::endl;
 	return (0);
 }

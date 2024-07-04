@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/30 00:14:28 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/01 16:46:39 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/04 22:19:57 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <iostream>
 # include <cmath>
 # include <string>
+# include <cstring>
+# include <cctype>
 
 class ScalarConverter
 {
@@ -26,10 +28,10 @@ class ScalarConverter
 		ScalarConverter	&operator=(const ScalarConverter &copy);
 		~ScalarConverter();
 
+
 	public:
-	
 	// methods
-	// static void	convert(const std::string &input); 
+	static void	convert(const std::string &input); 
 	
 };
 
