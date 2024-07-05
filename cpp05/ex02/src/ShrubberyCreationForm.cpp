@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 19:02:35 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/30 20:11:07 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/05 19:48:44 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,23 @@
 # include <fstream>
 
 // default
-ShrubberyCreationForm::ShrubberyCreationForm() : _target("Default target")
-{
-	// std::cout << "ShrubberyCreationForm Default Constructor called" << std::endl;
-}
+ShrubberyCreationForm::ShrubberyCreationForm() : _target("Default target") {}
 
 // constructor with parameter
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target) : AForm("ShrubForm", 145, 137)
 {
-	// std::cout << "ShrubberyCreationForm Constructor called" << std::endl;
 	this->_target = target;
 }
 
 // copy constructor
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy)
 {
-	// std::cout << "ShrubberyCreationForm Copy Constructor called" << std::endl;
 	*this = copy;
 }
 
 // copy assignment operator
 ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationForm &copy)
 {
-	// std::cout << "ShrubberyCreationForm Copy assignment operator called" << std::endl;
-	
 	if (this != &copy)
 	{
 		this->_target = copy._target;	
@@ -46,10 +39,7 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationF
 }
 
 // destructor
-ShrubberyCreationForm::~ShrubberyCreationForm()
-{
-	// std::cout << "ShrubberyCreationForm Destructor called" << std::endl;
-}
+ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 
 // methods

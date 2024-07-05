@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/30 00:15:51 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/05 15:46:21 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/05 19:31:37 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ ScalarConverter	&ScalarConverter::operator=(const ScalarConverter &copy)
 }
 
 ScalarConverter::~ScalarConverter() {}
-
 
 static bool	validInput(const std::string &input)
 {
@@ -59,7 +58,7 @@ static bool	validInput(const std::string &input)
 			}
 			if (input.back() == 'f')
 			{
-				for (int	k = (input.find('.') + 1); k < (length - 1); k++)
+				for (int k = (input.find('.') + 1); k < (length - 1); k++)
 				{
 					if (!isdigit(input[k]))
 						return false;
@@ -67,7 +66,7 @@ static bool	validInput(const std::string &input)
 			}
 			else if (input.back() != 'f')
 			{
-				for (int	k = (input.find('.') + 1); k < length; k++)
+				for (int k = (input.find('.') + 1); k < length; k++)
 				{
 					if (!isdigit(input[k]))
 						return false;

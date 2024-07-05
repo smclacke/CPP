@@ -6,37 +6,30 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 19:11:23 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/30 20:04:38 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/05 19:47:50 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/PresidentialPardonForm.hpp"
 
 // default
-PresidentialPardonForm::PresidentialPardonForm() : _target("Default target")
-{
-	// std::cout << "PresidentialPardonForm Default Constructor called" << std::endl;
-}
+PresidentialPardonForm::PresidentialPardonForm() : _target("Default target") {}
 
 // constructor with parameter
 PresidentialPardonForm::PresidentialPardonForm(std::string const &target) : AForm("Pardon Form", 25, 5)
 {
-	// std::cout << "PresidentialPardonForm Constructor called" << std::endl;
 	this->_target = target;
 }
 
 // copy constructor
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy)
 {
-	// std::cout << "PresidentialPardonForm Copy Constructor called" << std::endl;
 	*this = copy;
 }
 
 // copy assignment operator
 PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPardonForm &copy)
 {
-	// std::cout << "PresidentialPardonForm Copy assignment operator called" << std::endl;
-	
 	if (this != &copy)
 	{
 		this->_target = copy._target;	
@@ -45,10 +38,7 @@ PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPard
 }
 
 // destructor
-PresidentialPardonForm::~PresidentialPardonForm()
-{
-	// std::cout << "PresidentialPardonForm Destructor called" << std::endl;
-}
+PresidentialPardonForm::~PresidentialPardonForm() {}
 
 
 

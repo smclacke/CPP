@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 23:17:48 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/06/30 21:22:39 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/05 19:45:37 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,20 @@ int	main()
 
 // ------------------------------------------------------------------
 
-// all business as usual
-	Intern	john; // no throw in constructor so can be outside block
+	Intern	john;
+	Bureaucrat		Jim("Jim", 2);
 
 	try
 	{
-		Bureaucrat		Jim("Jim", 2);
-		AForm			*form; // throw in constructor so must be in block
+		AForm			*form;
 
 		form = john.makeForm("ShrubberyCreation", "Shrubber");
 
 		Jim.signForm(*form);
 		Jim.executeForm(*form);
-		
+
+		Bureaucrat		Bob("Bob", 400);
+
 		delete form;
 	}
 	catch(const std::exception& e)

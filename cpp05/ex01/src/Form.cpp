@@ -6,54 +6,51 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 17:07:53 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/01 17:25:05 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/05 19:54:25 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/Form.hpp"
 
 // default
-Form::Form() : _name("Formatic Name"), _signedStatus(false), _signGrade(0), _executeGrade(0)
-{
-	// std::cout << "Form Default Constructor called" << std::endl;
-}
+Form::Form() : _name("Formatic Name"), _signedStatus(false), _signGrade(0), _executeGrade(0) {}
 
 // constructor with parameters
 Form::Form(std::string name, int signGrade, int executeGrade) 
 	: _name(name), _signedStatus(false), _signGrade(signGrade), _executeGrade(executeGrade)
 {
-	// std::cout << "Form Constructor called" << std::endl;
+	try
+	{
+		if (signGrade < 1 || executeGrade < 1)
+			throw GradeTooHighException();
+		else if (signGrade > 150 || executeGrade > 150)
+			throw GradeTooLowException();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 	
-	if (signGrade < 1 || executeGrade < 1)
-		throw GradeTooHighException();
-	else if (signGrade > 150 || executeGrade > 150)
-		throw GradeTooLowException();
 }
 
 // copy constructor
 Form::Form(const Form &copy) : _name(copy.getName()), _signedStatus(copy.getSignedStatus()), _signGrade(copy.getSignGrade()), _executeGrade(copy.getExecuteGrade())
 {
-	// std::cout << "Form Copy Constructor called" << std::endl;
 	*this = copy;
 }
 
 // copy assignment operator
 Form	&Form::operator=(const Form &copy)
 {
-	// std::cout << "Form Copy assignment operator called" << std::endl;
 	if (this != &copy)
 	{
-
+		(void) copy;
 	}
-
 	return *this;
 }
 
 // destructor
-Form::~Form()
-{
-	// std::cout << "Form Destructor called" << std::endl;
-}
+Form::~Form() {}
 
 
 
@@ -86,10 +83,18 @@ void	Form::beSigned(Bureaucrat &bureaucrat)
 {
 	int		bureaucratGrade = bureaucrat.getGrade();
 
-	if (bureaucratGrade <= this->_signGrade)
-		this->_signedStatus = true;
-	else
-		throw Form::GradeTooLowException();
+	try
+	{
+		if (bureaucratGrade <= this->_signGrade)
+			this->_signedStatus = true;
+		else
+			throw Form::GradeTooLowException();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	
 }
 
 
