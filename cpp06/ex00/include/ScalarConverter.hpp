@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/30 00:14:28 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/05 15:16:18 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/06 17:42:25 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@
 # include <iomanip>
 # include <limits>
 # include <cctype>
-
-// # include <cmath>
-// # include <string>
-// # include <cstring>
+# include <stdexcept>
+# include <cmath>
+# include <string>
 
 class ScalarConverter
 {

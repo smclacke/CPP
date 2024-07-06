@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/30 00:15:51 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/05 19:31:37 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/06 18:03:30 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ ScalarConverter	&ScalarConverter::operator=(const ScalarConverter &copy)
 }
 
 ScalarConverter::~ScalarConverter() {}
+
 
 static bool	validInput(const std::string &input)
 {
@@ -96,7 +97,7 @@ static void	convertChar(const std::string &input)
 	std::cout << "char: ";
 	if (length > 0)
 	{
-		int		num = 0;
+		int	num = 0;
 		if (length == 1)
 		{
 			if (isdigit(input[0]))
@@ -111,11 +112,15 @@ static void	convertChar(const std::string &input)
 			{
 				c = input[0];
 				std::cout << "'" << c << "'" << std::endl;
-			}
-				
+			}		
 		}
 		else
 		{
+			if (input.find("nan") != std::string::npos || input.find("inf") != std::string::npos)
+			{
+				std::cout << "impossible" << std::endl;
+				return ;
+			}
 			if (validInput(input))
 			{
 				try
@@ -127,19 +132,21 @@ static void	convertChar(const std::string &input)
 						{
 							c = static_cast<char>(num);
 							std::cout << "'" << c << "'" << std::endl;
+							return ;
 						}
 						else
 							std::cout << "Non displayable" << std::endl;
 					}
 					else
 						std::cout << "impossible" << std::endl;
-					
 				}
 				catch(std::out_of_range& e)
 				{
 					std::cout << "impossible" << std::endl;
 				}
 			}
+			else
+				std::cout << "impossible" << std::endl;
 		}
 	}
 	else
@@ -169,11 +176,44 @@ static void	convertInt(const std::string &input)
 }
 
 
+static void	handle_nan_inf(const std::string &input, bool float_bool)
+{
+	if (float_bool == true)
+	{	
+		if (input == "nan")
+			std::cout << "nanf" << std::endl;
+		else if (input == "inf" || input == "inff")
+			std::cout << "inff" << std::endl;
+		else if (input == "-inf" || input == "-inff")
+			std::cout << "-inff" << std::endl;
+		else if (input == "+inf" || input == "+inff")
+			std::cout << "+inff" << std::endl;
+		else std::cout << "impossible" << std::endl;
+	}
+	else if (float_bool == false) // handle double
+	{
+		if (input == "nan")
+			std::cout << "nan" << std::endl;
+		else if (input == "inf" || input == "inff")
+			std::cout << "inf" << std::endl;
+		else if (input == "-inf" || input == "-inff")
+			std::cout << "-inf" << std::endl;
+		else if (input == "+inf" || input == "+inff")
+			std::cout << "+inf" << std::endl;
+		else std::cout << "impossible" << std::endl;
+	}
+}
+
 static void	convertFloat(const std::string &input)
 {
 	float	f = 0.0f;
 
 	std::cout << "float: ";
+	if (input.find("nan")  != std::string::npos || input.find("inf") != std::string::npos)
+	{
+		handle_nan_inf(input, true);
+		return ;
+	}
 	if (validInput(input))
 	{
 		try
@@ -190,22 +230,36 @@ static void	convertFloat(const std::string &input)
 		std::cout << "impossible" << std::endl;
 }
 
+
 static void	convertDouble(const std::string &input)
 {
 	double	d = 0.0;
 
-
 	std::cout << "double: ";
+	if (input.find("nan") != std::string::npos || input.find("inf") != std::string::npos)
+	{
+		handle_nan_inf(input, false);
+		return ;	
+	}
 	if (validInput(input))
 	{
 		try
 		{
 			d = static_cast<double>(std::stod(input));
+			if (std::isnan(d))
+				std::cout << "nan" << std::endl;
+			if (std::isinf(d))
+			{
+				if (input[0] == '-')
+					std::cout << "-inf" << std::endl;
+				else
+					std::cout << "+inf" << std::endl;
+			}
 			std::cout << std::setprecision(1) << std::fixed << d << std::endl;
 		}
 		catch(const std::out_of_range& e)
 		{
-			std::cout << "impossible" << std::endl;
+			std::cout << &e << std::endl;
 		}
 	}
 	else
@@ -220,3 +274,4 @@ void	ScalarConverter::convert(const std::string &input)
 	convertFloat(input);
 	convertDouble(input);
 }
+
