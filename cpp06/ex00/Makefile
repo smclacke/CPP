@@ -6,15 +6,13 @@
 #    By: smclacke <smclacke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/06/30 00:13:33 by smclacke      #+#    #+#                  #
-#    Updated: 2024/06/30 00:34:03 by smclacke      ########   odam.nl          #
+#    Updated: 2024/07/06 19:23:30 by smclacke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= convert
 
 INCLUDE			= -Iinclude
-
-ASCII			= slug_shrubbery
 
 CC				= c++
 CPPFLAGS		= -std=c++11 -Wall -Wextra -Werror -g -fsanitize=address
@@ -49,7 +47,6 @@ clean		:
 
 fclean		: clean
 	@ rm -f $(NAME)
-	@ rm -f $(ASCII)
 	@ echo "${YELLOW} $(NAME) fcleaned!${RESET}"
 
 re			: fclean all
