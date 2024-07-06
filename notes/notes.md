@@ -44,6 +44,16 @@ static function within class =
 
 
 ************************************************************************
+
+**SERIALIZATION / DESERIALIZATION**
+**SERIALIZATION / DESERIALIZATION**
+**SERIALIZATION / DESERIALIZATION**
+
+- serialization is the process of converting an object into a sequence of bytes so that it can be stored in memory or transmitted across a network
+
+- deserialization is the reverse process, where the byte stream is used to reconstruct the original object
+
+
 **PURE VIRTUAL / ABSTRACT CLASSES WOOOHOOOOOOO**
 **PURE VIRTUAL / ABSTRACT CLASSES WOOOHOOOOOOO**
 **PURE VIRTUAL / ABSTRACT CLASSES WOOOHOOOOOOO**
