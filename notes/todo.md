@@ -4,21 +4,11 @@
 
 
 **check this**
+CPP06/ex00
 
-You can add some additional files if you need to (i.e., to split your code). As these
-assignments are not verified by a program, feel free to do so as long as you turn in
-the mandatory files
-
+1) could add some validation checks and something that looks like im checking what it is first etc... but dont parse and dont over do itttttt
 
 
-**CPP06**
-
-For each exercise, the type conversion must be solved using one specific type of casting.
+2) For each exercise, the type conversion must be solved using one specific type of casting.
 Your choice will be checked during defense.
-
-
-**CHECK**
-
-i dont have to keep printing constructor messages right?!
-
 
