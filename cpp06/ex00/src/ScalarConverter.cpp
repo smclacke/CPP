@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/06 20:11:36 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/06 20:34:01 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/06 20:47:38 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	convertChar(const std::string &input, int length)
 	{
 		if (isdigit(input[0]))
 		{
-			num = std::stoi(input);
+			num = static_cast<int>(std::stoi(input));
 			if (isprint(num))
 				std::cout << "'" << c << "'" << std::endl;
 			else
@@ -98,7 +98,7 @@ static void	convertInt(const std::string &input, int length)
 	{
 		try
 		{
-			i = std::stoi(input);
+			i = static_cast<int>(std::stoi(input));
 			std::cout << i << std::endl;
 		}
 		catch(const std::invalid_argument& e)
@@ -113,23 +113,20 @@ static void	convertFloat(const std::string &input, int length)
 {
 	float	f = 0.0f;
 
-	(void) length;
-
 	std::cout << "float: ";
 	if (length == 1 && !isdigit(input[0]))
 	{
 		if (input[0] >= 0 && input[0] <= 127)
 		{
-			f = input[0];
-			std::cout << f << "f" << std::endl;
+			f = static_cast<float>(input[0]);
+			std::cout << f << ".0f" << std::endl;
 		}
 	}
 	else
 	{
-
 		try
 		{
-			f = std::stof(input);
+			f = static_cast<float>(std::stof(input));
 			std::cout << std::setprecision(1) << std::fixed << f << "f" << std::endl;
 		}
 		catch(const std::invalid_argument& e)
@@ -144,18 +141,26 @@ static void	convertDouble(const std::string &input, int length)
 {
 	double	d = 0.0;
 
-	(void) length;
-
 	std::cout << "double: ";
-	// if (length == 1)
-	try
+	if (length == 1 && !isdigit(input[0]))
 	{
-		d = std::stod(input);
-		std::cout << std::setprecision(1) << std::fixed << d << std::endl;
+		if (input[0] >= 0 && input[0] <= 127)
+		{
+			d = static_cast<double>(input[0]);
+			std::cout << d << ".0" << std::endl;
+		}
 	}
-	catch(const std::invalid_argument& e)
+	else
 	{
-		std::cout << "impossible" << std::endl;
+		try
+		{
+			d = static_cast<double>(std::stod(input));
+			std::cout << std::setprecision(1) << std::fixed << d << std::endl;
+		}
+		catch(const std::invalid_argument& e)
+		{
+			std::cout << "impossible" << std::endl;
+		}
 	}
 }
 
@@ -166,6 +171,7 @@ void	ScalarConverter::convert(const std::string &input)
 	int		length = input.length();
 
 	// check valid (simple) - 33! e.g.
+
 	convertChar(input, length);
 	convertInt(input, length);
 	convertFloat(input, length);
