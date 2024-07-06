@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/30 00:15:51 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/06 18:03:30 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/06 18:42:42 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -267,11 +267,56 @@ static void	convertDouble(const std::string &input)
 }
 
 
-void	ScalarConverter::convert(const std::string &input)
+ScalarConverter::type_t	ScalarConverter::checkType(const std::string &input)
 {
+	int		length = input.length();
+
+	if (length == 1 && !isdigit(input[0]))
+		return CHAR;
+	
+
 	convertChar(input);
 	convertInt(input);
 	convertFloat(input);
 	convertDouble(input);
+	
+}
+
+
+void	ScalarConverter::convert(const std::string &input)
+{
+	type_t inputType = checkType(input);
+
+	try
+	{
+		switch (inputType)
+		{
+			case CHAR:
+				// convert from char
+				break;
+			case INT:
+				// convert from int
+				break;
+
+			case FLOAT:
+				// convert from float
+				break;
+
+			case DOUBLE:
+				// convert from double
+				break;
+			
+			case IMPOSSIBLE:
+				// throw std:: // range / standard
+
+			default:
+				break;
+		}
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "impossible input!" << std::endl;
+	}
+	
 }
 
