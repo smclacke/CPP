@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/30 00:14:28 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/06 21:06:31 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/09 21:29:47 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,29 @@
 # define SCALARCONVERTER_HPP
 
 # include <iostream>
+# include <stdexcept>
+# include <string>
 # include <iomanip>
 # include <limits>
-# include <cctype>
-# include <stdexcept>
-# include <cmath>
-# include <string>
+# include <sstream>
+# include <cstdio>
+
+enum type_t
+{
+	CHAR,
+	INT,
+	FLOAT,
+	DOUBLE,
+	IMPOSSIBLE,
+	NONDISPLAY,
+	INF,
+	N_A_N,
+	NEG,
+	UNKNOWN
+};
 
 class ScalarConverter
 {
-
 	private:
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter &copy);
@@ -34,19 +47,6 @@ class ScalarConverter
 		static void	convert(const std::string &input); 
 	
 };
-
-
-// You must create a non-empty
-// (it means it has data members) Data structure
-
-
-// Use serialize() on the address of the Data object 
-// and pass its return value to deserialize().
-
-// Then, ensure the return value of deserialize() 
-// compares equal to the original pointer.
-
-// Do not forget to turn in the files of your Data structure.
 
 #endif
 

@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/30 00:16:03 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/06 20:48:49 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/09 20:25:33 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 
-	ScalarConverter::convert(argv[1]);
+	std::string	input = argv[1];
+	ScalarConverter::convert(input);
 	
 	return (0);
 }
