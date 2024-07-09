@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/06 21:04:28 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/09 22:10:35 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/09 22:16:35 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int	main()
 
 	delete ptr;
 
-	return (0);
+	return 0;
 }
 

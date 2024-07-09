@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/30 00:16:03 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/09 20:25:33 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/09 22:16:44 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 	{
 		std::cout << "Error: program takes one argument as input" << std::endl;
-		return (1);
+		return 1;
 	}
 
 	std::string	input = argv[1];
 	ScalarConverter::convert(input);
 	
-	return (0);
+	return 0;
 }
 
 
