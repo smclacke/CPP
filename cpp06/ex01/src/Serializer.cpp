@@ -6,17 +6,45 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/06 21:03:51 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/06 21:04:24 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/09 21:58:47 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/Serializer.hpp"
 
+// default
+Serializer::Serializer() {}
+
+// copy constructor
+Serializer::Serializer( const Serializer &copy)
+{
+	*this = copy;
+}
+
+// copy assignment operator
+Serializer	&Serializer::operator=(const Serializer &copy)
+{
+	if (this != &copy)
+		(void) copy;
+	return *this;
+}
+
+// destructor
+Serializer::~Serializer() {}
+
+
 // static member funcs
 
-// uintptr_t serialize(Data* ptr);
+
 // It takes a pointer and converts it to the unsigned integer type uintptr_t.
+uintptr_t serialize(Data *ptr)
+{
+	return reinterpret_cast<uintptr_t>(ptr);
+}
 
-
-// Data* deserialize(uintptr_t raw);
 // It takes an unsigned integer parameter and converts it to a pointer to Data
+Data	*deserialize(uintptr_t raw)
+{
+	return reinterpret_cast<Data *>(raw);
+}
+
