@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/09 22:15:57 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/10 15:25:50 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/10 15:29:31 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ Base	*generate(void)
 // prints actual type of object pointed to by p: 'A', 'B' or 'C'
 void	identify(Base *p)
 {
-	if (dynamic_cast<A*>(p) != NULL)
+	if (dynamic_cast<A*>(p))
 		std::cout << "Pointy class A object identified" << std::endl;
-	else if (dynamic_cast<B*>(p) != NULL)
+	else if (dynamic_cast<B*>(p))
 		std::cout << "Pointy class B object identified" << std::endl;
-	else if (dynamic_cast<C*>(p) != NULL)
+	else if (dynamic_cast<C*>(p))
 		std::cout << "Pointy class C object identified" << std::endl;
 	else
 		std::cout << "No known pointy class object identified" << std::endl;

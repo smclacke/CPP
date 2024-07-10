@@ -44,23 +44,55 @@ static function within class =
 
 
 ************************************************************************
+**CASTING**
+**CASTING**
+**CASTING**
 
-**STATIC_CAST**
-**STATIC_CAST**
-**STATIC_CAST**
+- 4 different types of casting in c++:
+static, const, dynamic, reinterpret
+
+*implicit vs explicit*
+- Implicit type conversion is done automatically by the compiler
+- explicit type conversion is done manually by the programmer
+	Explicit typecasting in C++ can be done in two ways - by using the assignment operator or the cast operator.
+
+*upcasting vs downcasting*
+upcasting: converting a dervied class reference or pointer to a base-class
+	(treat a derived type as if it were a base type)
+	always allowed for public inheritance, without explicit type cast
+downcasting: converting base-class pointer (reference) tp derived class pointer (reference)
+	not allowed without an explicit type cast (derived class could add new data members
+		that wouldn't apply to the base class)
 
 
+**Static cast**
+- simplest type of cast, a compile-time cast, converts between 'related types'
+- used when the types are known to be compatible, clear, compile-time checked conversion
+- does implicit conversions between types (float, pointer, void*...)
+	and also can call explicit conversion functions
+- returns the destination_type
 
-**REINTERPRET_CAST**
-**REINTERPRET_CAST**
-**REINTERPRET_CAST**
+
+**Const cast**
+- used to cast away the constness of variables
+- can be used to change non-const class members inside a const member function
+- can be used to pass const data to a function that doesn't receive const.  
+- undefined behavior to modify a value which is intially declared as const
+- considered safer than simple type casting, casting won't happen if the type of cast is not the same as original object. 
 
 
+**Dynamic cast**
+- (CPP6/ex02 e.g. from base class to derived class, (downcasting))
+- mainly used for safe downcasting at run time
+- there must be one virtual function in the base class for it to work - ensure the base class is polymorphic (validity is checked at runtime)
+- works only polymorphic case class because it uses this information to decide safe downcasting
 
-**DYNAMIC_CAST**
-**DYNAMIC_CAST**
-**DYNAMIC_CAST**
 
+**Reinterpret cast**
+- can be used for 'totally unrelated' data types
+- used to convert a pointer of some data type into a pointer of another data type, even if data types before and after conversion are different
+- does not check if pointer type and data pointed by the pointer if same or not
+- can be used for working with bits
 
 
 **SERIALIZATION / DESERIALIZATION**
