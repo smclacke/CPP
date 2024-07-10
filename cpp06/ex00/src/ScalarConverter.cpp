@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/06 20:11:36 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/09 21:41:44 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/10 16:31:42 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,28 +70,20 @@ static void	convertChar(char c)
 }
 
 
-static int	getInt(const std::string &input, int num)
-{
-	try
-	{
-		num = std::stoi(input);
-		return num;
-	}
-	catch(const std::invalid_argument& e)
-	{
-		impossible(NULL);
-		return IMPOSSIBLE;
-	}
-}
-
 static void	convertInt(const std::string &input)
 {
 	int		num = 0;
 
-	num = getInt(input, num);
-	if (num == IMPOSSIBLE)
+	try
+	{
+		num = std::stoi(input);
+	}
+	catch(const std::invalid_argument& e)
+	{
+		impossible(NULL);
 		return ;
-	
+	}
+
 	if (num >= 32 && num <= 126)
 		std::cout << "char: '" << static_cast<char>(num) << "'" << std::endl;
 	else
@@ -102,27 +94,19 @@ static void	convertInt(const std::string &input)
 	
 }
 
-static float	getFloat(const std::string &input, float f)
-{
-	try
-	{
-		f = std::stof(input);
-		return f;
-	}
-	catch(const std::invalid_argument& e)
-	{
-		impossible(NULL);
-		return IMPOSSIBLE;
-	}
-}
-
 static void	convertFloat(const std::string &input)
 {
 	float	f = 0.0f;
 
-	f = getFloat(input, f);
-	if (f == IMPOSSIBLE)
+	try
+	{
+		f = std::stof(input);
+	}
+	catch(const std::invalid_argument& e)
+	{
+		impossible(NULL);
 		return ;
+	}
 
 	if (f >= 32 && f <= 126)
 		std::cout << "char: '" << static_cast<char>(f) << "'" << std::endl;
@@ -144,29 +128,20 @@ static void	convertFloat(const std::string &input)
 		impossible("double");
 }
 
-static double	getDouble(const std::string &input, double d)
-{
-	try
-	{
-		d = std::stod(input);
-		return d;
-	}
-	catch(const std::invalid_argument& e)
-	{
-		impossible(NULL);
-		return IMPOSSIBLE;
-	}
-}
-
-
 static void	convertDouble(const std::string &input)
 {
 	double	d = 0.0;
 
-	d = getDouble(input, d);
-	if (d == IMPOSSIBLE)
+	try
+	{
+		d = std::stod(input);
+	}
+	catch(const std::invalid_argument& e)
+	{
+		impossible(NULL);
 		return ;
-	
+	}
+
 	if (d >= 32 && d <= 126)
 		std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
 	else if (isDoubleNanOrInf(input))
