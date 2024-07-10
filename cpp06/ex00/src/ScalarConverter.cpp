@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/06 20:11:36 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/10 16:31:42 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/10 16:46:02 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static void	convertInt(const std::string &input)
 	{
 		num = std::stoi(input);
 	}
-	catch(const std::invalid_argument& e)
+	catch(const std::out_of_range& e)
 	{
 		impossible(NULL);
 		return ;
@@ -102,7 +102,7 @@ static void	convertFloat(const std::string &input)
 	{
 		f = std::stof(input);
 	}
-	catch(const std::invalid_argument& e)
+	catch(const std::out_of_range& e)
 	{
 		impossible(NULL);
 		return ;
@@ -136,7 +136,7 @@ static void	convertDouble(const std::string &input)
 	{
 		d = std::stod(input);
 	}
-	catch(const std::invalid_argument& e)
+	catch(const std::out_of_range& e)
 	{
 		impossible(NULL);
 		return ;
