@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/06 21:03:51 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/09 22:09:47 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/10 14:51:01 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ uintptr_t Serializer::serialize(Data *ptr)
 // It takes an unsigned integer parameter and converts it to a pointer to Data
 Data	*Serializer::deserialize(uintptr_t raw)
 {
-	return reinterpret_cast<Data *>(raw);
+	return reinterpret_cast<Data*>(raw);
 }
 

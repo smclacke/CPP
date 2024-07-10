@@ -53,6 +53,9 @@ static function within class =
 
 - deserialization is the reverse process, where the byte stream is used to reconstruct the original object
 
+- the basic mechanisms are to flatten object(s) into a one-dimenstional stream of bits
+- and to turn the bits back into the original object
+
 
 **PURE VIRTUAL / ABSTRACT CLASSES WOOOHOOOOOOO**
 **PURE VIRTUAL / ABSTRACT CLASSES WOOOHOOOOOOO**

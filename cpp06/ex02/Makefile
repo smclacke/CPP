@@ -6,7 +6,7 @@
 #    By: smclacke <smclacke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/07/09 22:12:11 by smclacke      #+#    #+#                  #
-#    Updated: 2024/07/09 22:14:45 by smclacke      ########   odam.nl          #
+#    Updated: 2024/07/10 14:46:38 by smclacke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,15 +16,12 @@ INCLUDE			= -Iinclude
 
 CC				= c++
 CPPFLAGS		= -std=c++11 -Wall -Wextra -Werror -g -fsanitize=address
-HEADERS			= Base.hpp A.hpp B.hpp C.hpp
+HEADERS			= Base.hpp
 HEADER_DIR		= include
 HEADER			= $(addprefix $(HEADER_DIR)/, $(HEADERS))
 
 SRCS			= main.cpp					\
-				Base.cpp					\
-				A.cpp						\
-				B.cpp						\
-				C.cpp
+				Base.cpp
 
 
 SRC_DIR			= src
