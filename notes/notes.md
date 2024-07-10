@@ -125,10 +125,10 @@ downcasting: converting base-class pointer (reference) tp derived class pointer 
 - an abstract class' descendants must define the pure virtual function, otherwise the subclasses become abstract too by this definition
 
 
+
 **INTERFACE vs ABSTRACT CLASS**
 
 An abstract class allows you to create functionality that subclasses can implement or override. An interface only allows you to define functionality, not implement it
-
 
 
 **VIRTUAL**
@@ -146,9 +146,12 @@ An abstract class allows you to create functionality that subclasses can impleme
 	- When you declare a function as "virtual" in the base class, you're saying, "Hey, this function might be redefined in one of the derived classes."
 	When you call a virtual function on a base class pointer that's pointing to a derived class object, the function that actually gets called is determined by the type of the object the pointer is pointing to at runtime. This is called "runtime polymorphism".
 
+
+
 **EXTRA COMPILER FLAGS**
 **EXTRA COMPILER FLAGS**
 **EXTRA COMPILER FLAGS**
+
 -Wshadow
 Warn whenever a local variable or type declaration shadows another variable, parameter, type, class member (in C++), or instance variable (in Objective-C) or whenever a built-in function is shadowed. Note that in C++, the compiler warns if a local variable shadows an explicit typedef, but not if it shadows a struct/class/enum. If this warning is enabled, it includes also all instances of local shadowing. This means that -Wno-shadow=local and -Wno-shadow=compatible-local are ignored when -Wshadow is used. Same as -Wshadow=global.
 
@@ -180,6 +183,7 @@ Do not warn whenever a local variable shadows an instance variable in an Objecti
 
 	- multiple inheritance
 
+
 **POLYMORPHISM**
 **POLYMORPHISM**
 **POLYMORPHISM**
@@ -191,6 +195,7 @@ Do not warn whenever a local variable shadows an instance variable in an Objecti
 		it depends on the object the function is working with
 
 	- in C++ - polymorphism is achieved through inheritance and virtual functions
+
 
  **FUNCTION OVERLOADING**
  **FUNCTION OVERLOADING**
@@ -204,6 +209,7 @@ Do not warn whenever a local variable shadows an instance variable in an Objecti
 	takes more parameters. 
 
 	Function overloading - more than one function with same name but different parameters
+
 
 **Operator Overloading**
 **Operator Overloading**
