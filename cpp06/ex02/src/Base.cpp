@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/09 22:15:57 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/10 15:00:29 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/10 15:25:50 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,25 +59,25 @@ void	identify(Base &p)
 	try
 	{
 		(void)dynamic_cast<A&>(p);
-		std::cout << "Apery class A object identified" << std::endl;
+		std::cout << "Referency class A object identified" << std::endl;
 	}
 	catch(const std::bad_cast &e)
 	{
 		try
 		{
 			(void)dynamic_cast<B&>(p);
-			std::cout << "Apery class B object identified" << std::endl;
+			std::cout << "Referency class B object identified" << std::endl;
 		}
 		catch(const std::bad_cast &e)
 		{
 			try
 			{
 				(void)dynamic_cast<C&>(p);
-				std::cout << "Apery class C object identified" << std::endl;
+				std::cout << "Referency class C object identified" << std::endl;
 			}
 			catch(const std::bad_cast &e)
 			{
-				std::cout << "No known apery class object identified" << std::endl;
+				std::cout << "No known referency class object identified" << std::endl;
 			}
 		}
 	}

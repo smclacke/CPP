@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/06 21:03:51 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/10 14:51:01 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/10 15:23:05 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ Serializer::~Serializer() {}
 
 
 // static member funcs
-
 // It takes a pointer and converts it to the unsigned integer type uintptr_t.
 uintptr_t Serializer::serialize(Data *ptr)
 {

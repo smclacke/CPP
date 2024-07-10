@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/30 00:14:28 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/09 21:29:47 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/10 15:10:44 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,6 @@ enum type_t
 	FLOAT,
 	DOUBLE,
 	IMPOSSIBLE,
-	NONDISPLAY,
-	INF,
-	N_A_N,
-	NEG,
 	UNKNOWN
 };
 

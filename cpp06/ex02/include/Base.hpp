@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/09 22:15:45 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/10 14:59:09 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/10 15:05:53 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define BASE_HPP
 
 # include <iostream>
+# include <cstdlib>
+# include <random>
 
 class Base
 {

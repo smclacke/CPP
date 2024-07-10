@@ -45,6 +45,24 @@ static function within class =
 
 ************************************************************************
 
+**STATIC_CAST**
+**STATIC_CAST**
+**STATIC_CAST**
+
+
+
+**REINTERPRET_CAST**
+**REINTERPRET_CAST**
+**REINTERPRET_CAST**
+
+
+
+**DYNAMIC_CAST**
+**DYNAMIC_CAST**
+**DYNAMIC_CAST**
+
+
+
 **SERIALIZATION / DESERIALIZATION**
 **SERIALIZATION / DESERIALIZATION**
 **SERIALIZATION / DESERIALIZATION**
