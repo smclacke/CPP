@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 22:54:35 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/01 13:34:26 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/10 18:05:14 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define INTERN_HPP
 
 # include <iostream>
+# include <time.h>
 # include "AForm.hpp"
 # include "ShrubberyCreationForm.hpp"
 # include "RobotomyRequestForm.hpp"

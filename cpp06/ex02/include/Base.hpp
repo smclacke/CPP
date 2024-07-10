@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/09 22:15:45 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/10 15:05:53 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/10 18:03:55 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <cstdlib>
 # include <random>
+# include <time.h>
 
 class Base
 {

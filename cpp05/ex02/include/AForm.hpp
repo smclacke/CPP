@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 17:02:00 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/01 17:25:52 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/10 18:06:43 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define AFORM_HPP
 
 # include <iostream>
+# include <time.h>
 # include "Bureaucrat.hpp"
 
 class AForm

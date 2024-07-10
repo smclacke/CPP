@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/09 22:16:07 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/10 15:04:10 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/10 18:04:13 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		main()
 {
-
+	srand((unsigned)time(NULL));
 	Base *base_1 = generate();
 	Base *base_2 = generate();
 	Base *base_3 = generate();
