@@ -6,10 +6,9 @@
 #    By: smclacke <smclacke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/07/11 20:06:42 by smclacke      #+#    #+#                  #
-#    Updated: 2024/07/11 20:08:07 by smclacke      ########   odam.nl          #
+#    Updated: 2024/07/11 21:07:18 by smclacke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
-
 
 NAME			= whatever
 
@@ -21,8 +20,7 @@ HEADERS			= whatever.hpp
 HEADER_DIR		= include
 HEADER			= $(addprefix $(HEADER_DIR)/, $(HEADERS))
 
-SRCS			= main.cpp					\
-				whatever.cpp
+SRCS			= main.cpp
 
 
 SRC_DIR			= src
