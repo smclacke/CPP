@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/06/29 19:10:55 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/05 19:48:13 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/11 17:57:10 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ RobotomyRequestForm::~RobotomyRequestForm() {}
 // methods
 void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
+	srand((unsigned)time(NULL));
+
 	AForm::execute(executor);
 	std::cout << "some drilling noises...";
 
