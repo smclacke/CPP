@@ -44,6 +44,41 @@ static function within class =
 
 
 ************************************************************************
+
+**TEMPLATES**
+**TEMPLATES**
+**TEMPLATES**
+
+*function templates*
+
+ - used to create a family of functions with different argument types
+- creating a function that can operate on many different types
+
+	e.g.
+	template <class T>
+	returntype functionname (args for type T)
+	{
+		body
+	}
+
+
+*class templates*
+
+a class created from a class template is called a template class
+	e.g. classname <type> objectname (arglist)
+
+ - creating a class that is parameterised by a type
+ - can represent various similar classes operating on different data types
+	e.g. 
+	template <class T1, class T2 ...>
+	class classname
+	{
+		stuff
+	}
+
+
+
+
 **CASTING**
 **CASTING**
 **CASTING**
