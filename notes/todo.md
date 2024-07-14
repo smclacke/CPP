@@ -12,3 +12,7 @@ CPP06/ex00
 2) For each exercise, the type conversion must be solved using one specific type of casting.
 Your choice will be checked during defense.
 
+
+
+ - templates, why sometimes calling the functions wtih two
+	colons ? when yes and when no?

@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/11 21:08:50 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/11 22:12:54 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/14 11:40:19 by eugene        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,17 @@
 
 // third parameter can be an instantiated function template
 template <typename TT>
-TT	funck(TT param)
+void	funkyT(TT &param)
 {
-	if (param)
-		std::cout << "param found" << std::endl;
-	return param;
+	std::cout << param << std::endl;
 }
 
-
 // address of array | length of array | function
-template <typename T, typename TT>
-void	iter(T &array, int len, TT funck(TT param))
+template <typename T, typename size_t, typename TT>
+void	iter(T *array, size_t len, TT funkyT)
 {
-	for (int i = 0; i < len; i++)
-		funck(array[i]);
+	for (size_t i = 0; i < len; i++)
+		funkyT(array[i]);
 }
 
 
