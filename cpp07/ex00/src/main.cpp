@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/11 20:08:23 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/17 14:29:27 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/17 16:40:53 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,32 @@ int main()
 
 	////////// extra
 
-	// std::cout << std::endl << std::endl;
+	std::cout << std::endl << std::endl;
 
-	// float	f1 = 0.4f;
-	// float	f2 = 42.4f;
+	float	f1 = 0.4f;
+	float	f2 = 42.4f;
 	
-	// std::cout << "f1 = " << f1 << ", f2 = " << f2 << std::endl;
+	std::cout << "f1 = " << f1 << ", f2 = " << f2 << std::endl;
 	
-	// ::swap(f1, f2);
-	// std::cout << "f1 = " << f1 << ", f2 = " << f2 << std::endl;
+	::swap(f1, f2);
+	std::cout << "f1 = " << f1 << ", f2 = " << f2 << std::endl;
 	
-	// std::cout << "min( f1, f2 ) = " << ::min( f1, f2 ) << std::endl;
-	// std::cout << "max( f1, f2 ) = " << ::max( f1, f2 ) << std::endl;
+	std::cout << "min( f1, f2 ) = " << ::min( f1, f2 ) << std::endl;
+	std::cout << "max( f1, f2 ) = " << ::max( f1, f2 ) << std::endl;
+
+	std::cout << std::endl << std::endl;
+
+	char	f = 'f';
+	char	p = 'p';
+
+	std::cout << "f = " << f << ", p = " << p << std::endl;
+	::swap( f, p );
+	std::cout << "f = " << f << ", p = " << p << std::endl;
+	
+	std::cout << "min( f, p ) = " << ::min( f, p ) << std::endl;
+	std::cout << "max( f, p ) = " << ::max( f, p ) << std::endl;
+	
+
 
 	return 0;
 }

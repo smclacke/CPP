@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/11 21:07:41 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/17 14:38:14 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/17 16:43:31 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main()
 
 	::iter(intArray, len, funkyT<int>);
 
+
 	std::cout << std::endl << std::endl;
 
 	std::string strArray[4] = {"string ", "thing ", "function ", "words"};
@@ -27,6 +28,7 @@ int	main()
 
 	::iter(strArray, length, funkyT<std::string>);
 	
+
 	std::cout << std::endl << std::endl;
 
 	char	charArray[7] = {'a', 'i', 'r', 'd', 'w', 'n', 'r'};

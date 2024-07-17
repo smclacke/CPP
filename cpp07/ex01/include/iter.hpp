@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/11 21:08:50 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/17 14:45:57 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/17 16:41:53 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define ITER_HPP
 
 # include <iostream>
-
 
 template <typename TT>
 void	funkyT(TT &param)

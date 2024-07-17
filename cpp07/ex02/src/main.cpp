@@ -6,7 +6,7 @@
 /*   By: eugene <eugene@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/14 11:53:18 by eugene        #+#    #+#                 */
-/*   Updated: 2024/07/17 16:05:02 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/17 16:54:22 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,25 @@ int	main()
 	{
 		std::cerr << e.what() << std::endl;
 	}
+	
+
+	
+	// modifying copy arrays without changing the ogs
+
+	try
+	{
+		intArray3[1] = 666;
+		std::cout << "array3 element [1] = " << intArray3[1] << std::endl;
+		std::cout << "array2 element [1] = " << intArray2[1] << std::endl;
+		intArray2[1] = 4242;
+		std::cout << "array2 element [1] = " << intArray2[1] << std::endl;
+		std::cout << "OG array element [1] = " << intArray[1] << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
 	
 
 	
