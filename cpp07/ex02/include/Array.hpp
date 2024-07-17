@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   Array.hpp                                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: eugene <eugene@student.codam.nl>             +#+                     */
+/*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/07/14 12:14:18 by eugene        #+#    #+#                 */
-/*   Updated: 2024/07/17 16:58:09 by smclacke      ########   odam.nl         */
+/*   Created: 2024/07/17 17:05:43 by smclacke      #+#    #+#                 */
+/*   Updated: 2024/07/17 17:05:46 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

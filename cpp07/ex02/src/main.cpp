@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: eugene <eugene@student.codam.nl>             +#+                     */
+/*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/07/14 11:53:18 by eugene        #+#    #+#                 */
-/*   Updated: 2024/07/17 16:54:22 by smclacke      ########   odam.nl         */
+/*   Created: 2024/07/17 17:05:54 by smclacke      #+#    #+#                 */
+/*   Updated: 2024/07/17 17:05:56 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

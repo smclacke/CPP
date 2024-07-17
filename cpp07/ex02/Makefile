@@ -3,10 +3,10 @@
 #                                                         ::::::::             #
 #    Makefile                                           :+:    :+:             #
 #                                                      +:+                     #
-#    By: eugene <eugene@student.codam.nl>             +#+                      #
+#    By: smclacke <smclacke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
-#    Created: 2024/07/14 12:13:46 by eugene        #+#    #+#                  #
-#    Updated: 2024/07/14 12:14:10 by eugene        ########   odam.nl          #
+#    Created: 2024/07/17 17:06:01 by smclacke      #+#    #+#                  #
+#    Updated: 2024/07/17 17:06:03 by smclacke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
