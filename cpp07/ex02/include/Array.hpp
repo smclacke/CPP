@@ -6,7 +6,7 @@
 /*   By: eugene <eugene@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/14 12:14:18 by eugene        #+#    #+#                 */
-/*   Updated: 2024/07/17 15:08:23 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/17 15:59:33 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define ARRAY_HPP
 
 # include <iostream>
-# include <cstdlib>
+
 
 template <typename T>
 class Array
@@ -39,11 +39,11 @@ class Array
 
 		Array(const Array &copy)	// copy constructor
 		{
-			_size = copy._size;
-			_element = new T[_size];
+			this->_size = copy._size;
+			this->_element = new T[_size];
 
-			for (int i = 0; i < _size; i++)
-				_element[i] = copy._memebers[i];
+			for (unsigned int i = 0; i < this->_size; i++)
+				this->_element[i] = copy._element[i];
 		}
 
 		Array	&operator=(const Array &copy)	// copy assignment operator
@@ -59,22 +59,22 @@ class Array
 			}
 			return *this;
 		}
-
-		unsigned int	size()
+		
+		
+		// methods
+		unsigned int	size() const
 		{
 			return this->_size;
 		}
 
-		T*		getElement()
+		T 				&operator[](unsigned int i) const
 		{
-			return this->_element;
+			if (i >= this->_size)
+				throw std::out_of_range("Index is out of bounds");
+			return this->_element[i];
 		}
 
-		// Elements can be accessed through the subscript operator: [ ].
-		// When accessing an element with the [ ] operator, if its index is out of bounds, an
-			// std::exception is thrown.
 };
-
 
 
 #endif
