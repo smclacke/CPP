@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/11 20:08:23 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/11 21:06:55 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/17 14:29:27 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,23 @@ int main()
 	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
 	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
 	
+
+
+	////////// extra
+
+	// std::cout << std::endl << std::endl;
+
+	// float	f1 = 0.4f;
+	// float	f2 = 42.4f;
+	
+	// std::cout << "f1 = " << f1 << ", f2 = " << f2 << std::endl;
+	
+	// ::swap(f1, f2);
+	// std::cout << "f1 = " << f1 << ", f2 = " << f2 << std::endl;
+	
+	// std::cout << "min( f1, f2 ) = " << ::min( f1, f2 ) << std::endl;
+	// std::cout << "max( f1, f2 ) = " << ::max( f1, f2 ) << std::endl;
+
 	return 0;
 }
 

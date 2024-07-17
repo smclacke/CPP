@@ -52,7 +52,7 @@ static function within class =
 *function templates*
 
  - used to create a family of functions with different argument types
-- creating a function that can operate on many different types
+ - creating a function that can operate on many different types
 
 	e.g.
 	template <class T>
@@ -76,7 +76,19 @@ a class created from a class template is called a template class
 		stuff
 	}
 
+*templates vs void pointers*
 
+- in templates, the moment we create a specific container from 
+	the template fr type X, this container will only hold instances of type X
+- void* however allows the user to ender completely different
+	types into the same container
+
+ - template functions/classes are created at compile time with the types filled in at compile time, semi-automatically
+ - this helps create some amount of type safety
+
+ - can write all the classes and functions necessary and only 
+	specify the data type once objects have been instantiated 
+	with specific types
 
 
 **CASTING**
