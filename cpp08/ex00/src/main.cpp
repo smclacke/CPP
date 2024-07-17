@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/17 17:28:06 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/17 17:53:31 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/17 20:07:08 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,41 +14,48 @@
 
 int	main()
 {
-	int	x = 5;
-	typedef std::vector<int>		intContainer;
-	typedef intContainer::iterator intIterator;
-	intContainer	container = {1, 9, 7, 3};
-
-	intIterator i = std::find(container.begin(), container.end(), x);
+	int	x = 8;
+	int	y = 18;
+	int	z = 7;
+	int	a = 3;
+	std::vector<int>	vec = {41, 7, 65, 2, 8, 100, 33};
 
 	try
 	{
-		if (i != container.end())
-			std::cout << "Int: " << x << " found in container" << std::endl;
-		else
-			throw std::out_of_range("integer not found in container");
+		easyfind(vec, x);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	try
+	{
+		easyfind(vec, y);
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
 	
-}
-
-// int	main()
-// {
-// 	int	x = 5;
-// 	int	vec[4] = {4, 7, 2, 8};
-
-// 	try
-// 	{
-// 		::easyfind(vec, x);
-// 	}
-// 	catch(const std::exception& e)
-// 	{
-// 		std::cerr << e.what() << '\n';
-// 	}
+	try
+	{
+		easyfind(vec, z);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	
-// 	return 0;
-// }
+	try
+	{
+		easyfind(vec, a);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	return 0;
+}
 

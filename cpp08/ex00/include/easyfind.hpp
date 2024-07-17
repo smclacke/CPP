@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/17 17:26:29 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/17 17:56:00 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/17 20:06:31 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,16 @@
 // if no occurance is found, either throw exception or return an error value
 
 
+template <typename T>
+void	easyfind(T container, int x)
+{
+	typename T::iterator i = std::find(container.begin(), container.end(), x);
 
-// template <typename T>
-// void	easyfind(T container, int x)
-// {
-// 	typedef std::vector<int>		intContainer;
-// 	typedef intContainer::iterator intIterator;
-// 	intContainer	cont;
-
-// 	intIterator i = std::find(container.begin(), container.end(), x);
-
-// 	if (i != container.end())
-// 		std::cout << "Int: " << x << " found in container" << std::endl;
-// 	else
-// 		throw std::out_of_range("integer not found in container");
-// }
+	if (i != container.end())
+		std::cout << "Int: " << x << " found in container" << std::endl;
+	else
+		throw std::out_of_range("integer not found in container");
+}
 
 
 #endif
