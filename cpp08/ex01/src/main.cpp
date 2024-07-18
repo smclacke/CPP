@@ -6,12 +6,13 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/17 20:09:02 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/18 16:04:09 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/18 16:47:08 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/Span.hpp"
 
+// Test your Span at least with a minimum of 10 000 numbers
 
 int	main()
 {
@@ -29,10 +30,8 @@ int	main()
 
 	// // more testing...
 
-	// // Test your Span at least with a minimum of 10 000 numbers. More would be
-	// // even better
-
-	Span	pan = Span(10);
+	Span				pan = Span(15);
+	std::vector<int>	pans = {9, 4, 2, 6, 4};
 
 	pan.addNumber(78);
 	pan.addNumber(32);
@@ -42,9 +41,22 @@ int	main()
 	pan.addNumber(3);
 	pan.addNumber(300);
 	pan.addNumber(300);
-	pan.addNumber(30);
-	pan.addNumber(130);
-	// pan.addNumber(230);
+	// pan.addNumber(30);
+	// pan.addNumber(130);
+	// pan.addNumbers(pans);
+	// pan.addNumbers(pans);
+	// pan.addNumbers(pans);
+
+	std::vector<int>	bigVec(10000); // give random values and not just 0s
+
+	pan.addNumbers(bigVec); // why is this working?? vector should be out of space
+
+	
+	std::cout << pan.spanSize() << std::endl;
+	
+	for (ulong i = 0; i < pan.spanSize(); i++)
+		std::cout << "[" << i << "]" << pan[i] << std::endl;
+
 
 	return 0;
 

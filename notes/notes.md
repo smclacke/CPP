@@ -47,6 +47,16 @@ static function within class =
 
 **VECTORS/ALGORITHMS**
 
+*vector manipulation functions*
+- reserve: vector capacity be at least enough to contain n elements
+
+- size: number of actual objects held in the vector, which is not necessarily equal to its storage capacity
+
+- capacity: capacity is not necessarily equal to the vector size. It can be equal or greater, with the extra space allowing to accommodate for growth without the need to reallocate on each insertion
+
+- push_back: Adds a new element at the end of the vector, after its current last element The content of val is copied (or moved) to the new element
+
+- insert:  vector is extended by inserting new elements before the element at the specified position, effectively increasing the container size by the number of elements inserted (adding to the end of the _vecN vector, the nums elements from begin to end if -> ogVec.end(), newVec.begin(), newVec.end())
 
 
 
