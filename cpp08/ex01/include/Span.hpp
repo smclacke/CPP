@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/17 20:08:32 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/18 14:56:06 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/18 16:00:02 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 # define SPAN_HPP
 
 # include <iostream>
-
+# include <algorithm>
+# include <vector>
 
 class Span
 {
 	private:
-		unsigned int	_N;
+		std::vector<int>		_vecN;
+		unsigned int			_maxN;
 
 	public:
 		Span();
@@ -28,13 +30,11 @@ class Span
 		Span(const Span &copy);
 		Span	&operator=(const Span &copy);
 
-	// getters
-	unsigned int	getN() const;
-
 	// methods
 	void			addNumber(unsigned int num);
-	unsigned int	shortestSpan();
-	unsigned int	longestSpan();
+	// void			addNumbers();
+	// unsigned int	shortestSpan();
+	// unsigned int	longestSpan();
 
 };
 
