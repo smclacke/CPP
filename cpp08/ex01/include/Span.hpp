@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/17 20:08:32 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/18 16:38:27 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/18 17:31:23 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,12 @@ class Span
 
 	// methods
 	ulong			spanSize();
+	unsigned int	maxSize();
 	int				&operator[](unsigned int i);
 
 	void			addNumber(unsigned int num);
 	void			addNumbers(std::vector<int> nums);
-	// unsigned int	shortestSpan();
+	unsigned int	shortestSpan();
 	// unsigned int	longestSpan();
 
 };

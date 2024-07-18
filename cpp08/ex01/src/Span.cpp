@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/17 20:09:50 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/18 16:46:56 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/18 17:32:55 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,11 @@ Span	&Span::operator=(const Span &copy)
 // access private attributes of Span, get the size and print the vector values
 ulong		Span::spanSize()
 {
+	return this->_vecN.size();
+}
+
+unsigned int	Span::maxSize()
+{	
 	return this->_maxN;
 }
 
@@ -62,7 +67,6 @@ int		&Span::operator[](unsigned int i)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
 	return this->_vecN[i];
 }
 
@@ -74,12 +78,13 @@ void			Span::addNumber(unsigned int num)
 	{
 		if (_vecN.size() >= _maxN)
 			throw std::out_of_range("Not enough space in vector for more numbers");
+
+		_vecN.push_back(num);
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	_vecN.push_back(num);
 }
 
 
@@ -92,25 +97,80 @@ void			Span::addNumbers(std::vector<int> nums)
 	{
 		if (_vecN.size() + nums.size() > _maxN)
 			throw std::out_of_range("Not enough space in vector for more numbers");
+
+		_vecN.insert(_vecN.end(), nums.begin(), nums.end());
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	_vecN.insert(_vecN.end(), nums.begin(), nums.end());
 }
 
+// HOW TO USE TRY CATCH HERE AND NOT IN MAIN WHILE RETURNING INT...
 
 // // find out the shortest span or the longest span (or distance, if you prefer) 
 // // between all the numbers stored, and return it. 
 // // if there are no numbers stored, or only one, no span can be found.
 // // thus, throw an exception
-// unsigned int	Span::shortestSpan()
-// {
-	
-// }
+unsigned int	Span::shortestSpan()
+{
+	try
+	{
+		if (this->_vecN.size() < 2)
+			throw std::out_of_range("need more numbers!");
+		std::vector<int>	copyVecN = this->_vecN;
+		std::sort(copyVecN.begin(), copyVecN.end());
+
+		int	minSpan = copyVecN[1] - copyVecN[0];
+		for (ulong i = 1; i < copyVecN.size(); i++)
+		{
+			int	diffs = copyVecN[i] - copyVecN[i - 1];
+			minSpan = std::min(minSpan, diffs);
+		}
+		return minSpan;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+}
 
 // unsigned int	Span::longestSpan()
 // {
+// 	try
+// 	{
+// 		if (this->_vecN.size() < 2)
+// 			throw std::out_of_range("need more numbers!");
 
+		
+// 	}
+// 	catch(const std::exception& e)
+// 	{
+// 		std::cerr << e.what() << '\n';
+// 	}
+	
 // }
+
+
+// how shortest span:
+
+	// ascending order:
+	
+	// 3 6 9 11 17
+
+	// firstMin = 3
+	// diffs = 6 - 3 = 3
+	// diffs = 9 - 6 = 3
+	// diffs = 11 - 9 = 2
+	// diffs = 17 - 11 = 6
+
+	// update = 3,3 = 3
+	// update = '''''''
+	// update = 3,2 = 2
+	// update = 6,2 = 2
+
+	// min = 2
+
+
+
+

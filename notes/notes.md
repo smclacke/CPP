@@ -58,6 +58,7 @@ static function within class =
 
 - insert:  vector is extended by inserting new elements before the element at the specified position, effectively increasing the container size by the number of elements inserted (adding to the end of the _vecN vector, the nums elements from begin to end if -> ogVec.end(), newVec.begin(), newVec.end())
 
+- sort: Sorts the elements in the range [first,last) into ascending order
 
 
 **TEMPLATES**
@@ -377,10 +378,8 @@ definition whereas the source file (.cpp) contains the implementation.
 
 
 
-
-
-
-
+**************************************************************************
+**************************************************************************
 **************************************************************************
 **************************************************************************
 **************************************************************************
@@ -446,8 +445,15 @@ int Span::longestSpan() const
  */
 
 
+
 **************************************************************************
 **************************************************************************
+**************************************************************************
+**************************************************************************
+**************************************************************************
+
+
+
 
 **CPP04-EX03**
 Interfaces don’t exist in C++98 (not even in C++20). However, pure abstract classes 
