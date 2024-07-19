@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/17 17:28:06 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/17 20:07:08 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/19 17:01:14 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main()
 
 	try
 	{
-		easyfind(vec, x);
+		::easyfind(vec, x);
 	}
 	catch(const std::exception& e)
 	{
@@ -31,7 +31,7 @@ int	main()
 
 	try
 	{
-		easyfind(vec, y);
+		::easyfind(vec, y);
 	}
 	catch(const std::exception& e)
 	{
@@ -40,7 +40,7 @@ int	main()
 	
 	try
 	{
-		easyfind(vec, z);
+		::easyfind(vec, z);
 	}
 	catch(const std::exception& e)
 	{
@@ -49,7 +49,7 @@ int	main()
 	
 	try
 	{
-		easyfind(vec, a);
+		::easyfind(vec, a);
 	}
 	catch(const std::exception& e)
 	{

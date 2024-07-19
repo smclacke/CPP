@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/17 20:09:02 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/19 16:31:28 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/19 17:00:06 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,35 @@
 
 int	main()
 {
-	Span sp = Span(5);
+	// Span sp = Span(5);
 
-	sp.addNumber(6);
-	sp.addNumber(3);
-	sp.addNumber(17);
-	sp.addNumber(9);
-	sp.addNumber(11);
+	// sp.addNumber(6);
+	// sp.addNumber(3);
+	// sp.addNumber(17);
+	// sp.addNumber(9);
+	// sp.addNumber(11);
 	
-	// can't find a way of not returning an int from these methods
-	// so i need to use try/catch here...
-	try
-	{
-		std::cout << sp.shortestSpan() << std::endl;
-		// std::cout << sp.longestSpan() << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	// // can't find a way of not returning an int from these methods
+	// // so i need to use try/catch here...
+	// try
+	// {
+	// 	std::cout << sp.shortestSpan() << std::endl;
+	// 	std::cout << sp.longestSpan() << std::endl;
+	// }
+	// catch(const std::exception& e)
+	// {
+	// 	std::cerr << e.what() << '\n';
+	// }
 	
 	
 
 	// // more testing...
 
-	// Span				pan = Span(10000000);
-	// std::vector<int>	pans = {9, 4, 2, 6, 4};
+	Span				pan = Span(100);
+	std::vector<int>	pans = {9, 4, 2, 6, 4};
 	// std::vector<int>	bigPan(10000000);
 
-	// pan.addNumber(78);
+	pan.addNumber(78);
 	// pan.addNumber(32);
 	// pan.addNumber(45);
 	// pan.addNumber(51);
@@ -52,7 +52,7 @@ int	main()
 	// pan.addNumbers(bigPan);
 	// pan.addNumber(300);
 
-	// pan.addNumbers(pans);
+	pan.addNumbers(pans);
 	// pan.addNumbers(pans);
 	// pan.addNumbers(pans);
 
@@ -66,8 +66,10 @@ int	main()
 	// // size() used to get the max amount passed in constructor with N
 	// std::cout << "max size = " << pan.maxSize() << std::endl;
 
-	// for (uint i = 0; i < pan.maxSize(); i++)
-	// 	std::cout << "[" << i << "]  " << pan[i] << std::endl;
+	// exit(0);
+
+	for (uint i = 0; i < pan.maxSize(); i++)
+		std::cout << "[" << i << "]  " << pan[i] << std::endl;
 
 
 	return 0;

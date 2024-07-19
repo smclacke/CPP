@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/17 20:08:32 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/19 16:32:16 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/19 16:57:22 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,22 @@ class Span
 	int				&operator[](unsigned int i);
 
 	void			addNumber(unsigned int num);
-	void			addNumbers(std::vector<int> nums);
+
+	template <typename T>
+	void			addNumbers(T nums)
+	{
+		try
+		{
+			if (_vecN.size() + nums.size() > _maxN)
+				throw std::out_of_range("Not enough space in vector for more numbers");
+
+			_vecN.insert(_vecN.end(), nums.begin(), nums.end());
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+	}
 
 	unsigned int	shortestSpan();
 	unsigned int	longestSpan();

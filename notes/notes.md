@@ -60,6 +60,9 @@ static function within class =
 
 - sort: Sorts the elements in the range [first,last) into ascending order
 
+- auto: (algorithm library) deduces the type of a declared variable from its initialization expression
+
+- minmax_element: (algorithm library) Returns a pair with an iterator pointing to the element with the smallest value in the range [first,last) as first element, and the largest as second
 
 **TEMPLATES**
 **TEMPLATES**
