@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/17 20:09:02 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/18 17:27:51 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/19 16:31:28 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,23 @@ int	main()
 	Span sp = Span(5);
 
 	sp.addNumber(6);
-	// sp.addNumber(3);
-	// sp.addNumber(17);
-	// sp.addNumber(9);
-	// sp.addNumber(11);
+	sp.addNumber(3);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
 	
+	// can't find a way of not returning an int from these methods
+	// so i need to use try/catch here...
+	try
+	{
+		std::cout << sp.shortestSpan() << std::endl;
+		// std::cout << sp.longestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	
-	std::cout << sp.shortestSpan() << std::endl;
-	// std::cout << sp.longestSpan() << std::endl;
 	
 
 	// // more testing...

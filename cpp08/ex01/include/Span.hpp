@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/17 20:08:32 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/18 17:31:23 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/19 16:32:16 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <iostream>
 # include <algorithm>
 # include <vector>
+
+// make everything template... so vector without specified type
+// not always necessarily vector of ints..
 
 class Span
 {
@@ -37,8 +40,9 @@ class Span
 
 	void			addNumber(unsigned int num);
 	void			addNumbers(std::vector<int> nums);
+
 	unsigned int	shortestSpan();
-	// unsigned int	longestSpan();
+	unsigned int	longestSpan();
 
 };
 

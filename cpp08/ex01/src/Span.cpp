@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/17 20:09:50 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/18 17:32:55 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/19 16:33:45 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ void			Span::addNumbers(std::vector<int> nums)
 	}
 }
 
-// HOW TO USE TRY CATCH HERE AND NOT IN MAIN WHILE RETURNING INT...
 
 // // find out the shortest span or the longest span (or distance, if you prefer) 
 // // between all the numbers stored, and return it. 
@@ -114,43 +113,47 @@ void			Span::addNumbers(std::vector<int> nums)
 // // thus, throw an exception
 unsigned int	Span::shortestSpan()
 {
-	try
-	{
-		if (this->_vecN.size() < 2)
-			throw std::out_of_range("need more numbers!");
-		std::vector<int>	copyVecN = this->_vecN;
-		std::sort(copyVecN.begin(), copyVecN.end());
+	if (this->_vecN.size() < 2)
+		throw std::out_of_range("need more numbers!");
 
-		int	minSpan = copyVecN[1] - copyVecN[0];
-		for (ulong i = 1; i < copyVecN.size(); i++)
-		{
-			int	diffs = copyVecN[i] - copyVecN[i - 1];
-			minSpan = std::min(minSpan, diffs);
-		}
-		return minSpan;
-	}
-	catch(const std::exception& e)
+	std::vector<int>	copyVecN = this->_vecN;
+	std::sort(copyVecN.begin(), copyVecN.end());
+
+
+	int	minSpan = copyVecN[1] - copyVecN[0];
+	for (ulong i = 1; i < copyVecN.size(); i++)
 	{
-		std::cerr << e.what() << '\n';
+		int	diffs = copyVecN[i] - copyVecN[i - 1];
+		minSpan = std::min(minSpan, diffs);
 	}
+	return minSpan;
 }
 
-// unsigned int	Span::longestSpan()
-// {
-// 	try
-// 	{
-// 		if (this->_vecN.size() < 2)
-// 			throw std::out_of_range("need more numbers!");
+unsigned int	Span::longestSpan()
+{
+	if (this->_vecN.size() < 2)
+		throw std::out_of_range("need more numbers!");
 
-		
-// 	}
-// 	catch(const std::exception& e)
-// 	{
-// 		std::cerr << e.what() << '\n';
-// 	}
-	
-// }
+	std::vector<int>	copyVecN = this->_vecN;
+	std::sort(copyVecN.begin(), copyVecN.end());
 
+	int	minSpan = copyVecN[1] - copyVecN[0];
+	for (ulong i = 1; i < copyVecN.size(); i++)
+	{
+		int	diffs = copyVecN[i] - copyVecN[i - 1];
+		minSpan = std::min(minSpan, diffs);
+	}
+	return minSpan;
+
+
+}
+
+// how longest span:
+
+	// 17 11 9 6 3
+
+	// firstMax = 6
+	// diffs = 
 
 // how shortest span:
 
