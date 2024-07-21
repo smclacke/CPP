@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/17 20:09:50 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/19 16:57:36 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/21 15:25:13 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ Span	&Span::operator=(const Span &copy)
 // methods
 
 // access private attributes of Span, get the size and print the vector values
+// size() used on vector itself gives what has been added not our int max
 ulong		Span::spanSize()
 {
 	return this->_vecN.size();
@@ -91,20 +92,20 @@ void			Span::addNumber(unsigned int num)
 // fill your Span using a range of iterators.
 // implement a member function to add many numbers to your Span in one call.
 // adding to the end of the _vecN vector, the nums elements from begin to end
-// void			Span::addNumbers(std::vector<int> nums)
-// {
-// 	try
-// 	{
-// 		if (_vecN.size() + nums.size() > _maxN)
-// 			throw std::out_of_range("Not enough space in vector for more numbers");
+void			Span::addNumbers(std::vector<int> nums)
+{
+	try
+	{
+		if (_vecN.size() + nums.size() > _maxN)
+			throw std::out_of_range("Not enough space in vector for more numbers");
 
-// 		_vecN.insert(_vecN.end(), nums.begin(), nums.end());
-// 	}
-// 	catch(const std::exception& e)
-// 	{
-// 		std::cerr << e.what() << '\n';
-// 	}
-// }
+		_vecN.insert(_vecN.end(), nums.begin(), nums.end());
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+}
 
 
 // // find out the shortest span or the longest span (or distance, if you prefer) 
@@ -139,15 +140,17 @@ unsigned int	Span::longestSpan()
 		throw std::out_of_range("invalid");
 
 	uint	result = *minMax.second - *minMax.first;
+
 	return (result);
 }
 
 // how longest span:
 
-	// 17 11 9 6 3
+	// 6 3 17 9 11
 
-	// firstMax = 6
-	// diffs = 
+	// minMax = 3 + 17
+	// check either is null equivalent (one past last element)
+	// 3 - 17 = 14 
 
 // how shortest span:
 
