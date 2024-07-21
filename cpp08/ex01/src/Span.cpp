@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/17 20:09:50 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/21 16:30:30 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/21 16:42:32 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,11 @@ Span	&Span::operator=(const Span &copy)
 // methods
 
 // access private attributes of Span, get the size and print the vector values
-// size() used on vector itself gives what has been added not our int max
 ulong		Span::spanSize()
 {
 	return this->_vecN.size();
 }
 
-// vector can store maxN integers
 unsigned int	Span::maxSize()
 {	
 	return this->_maxN;
@@ -116,10 +114,10 @@ void			Span::addNumbers(std::vector<int> nums)
 }
 
 
-// // find out the shortest span or the longest span (or distance, if you prefer) 
-// // between all the numbers stored, and return it. 
-// // if there are no numbers stored, or only one, no span can be found.
-// // thus, throw an exception
+// find out the shortest span or the longest span 
+// between all the numbers stored, and return it. 
+// if there are no numbers stored, or only one, no span can be found.
+// thus, throw an exception
 unsigned int	Span::shortestSpan()
 {
 	if (this->_vecN.size() < 2)
@@ -138,6 +136,7 @@ unsigned int	Span::shortestSpan()
 	return minSpan;
 }
 
+
 unsigned int	Span::longestSpan()
 {
 	if (this->_vecN.size() < 2)
@@ -152,13 +151,15 @@ unsigned int	Span::longestSpan()
 	return (result);
 }
 
+
 // how longest span:
 
 	// 6 3 17 9 11
 
 	// minMax = 3 + 17
-	// check either is null equivalent (one past last element)
+	// check neither is null equivalent (one past last element)
 	// 3 - 17 = 14 
+
 
 // how shortest span:
 

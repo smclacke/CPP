@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/17 20:08:32 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/21 16:21:57 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/21 16:39:51 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 # include <iostream>
 # include <algorithm>
 # include <vector>
-
-// make everything template... so vector without specified type
-// not always necessarily vector of ints..
 
 class Span
 {

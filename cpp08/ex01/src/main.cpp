@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/17 20:09:02 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/21 16:32:04 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/21 16:39:22 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,27 @@
 int	main()
 {
 
-	// Span sp = Span(5);
+	Span sp = Span(5);
 
-	// sp.addNumber(6);
-	// sp.addNumber(17);
-	// sp.addNumber(3);
-	// sp.addNumber(9);
-	// sp.addNumber(11);
+	sp.addNumber(6);
+	sp.addNumber(17);
+	sp.addNumber(3);
+	sp.addNumber(9);
+	sp.addNumber(11);
 	
-	// // can't find a way of not returning an int from these methods
-	// // so i need to use try/catch here...
-	// try
-	// {
-	// 	std::cout << sp.shortestSpan() << std::endl;
-	// 	std::cout << sp.longestSpan() << std::endl;
-	// }
-	// catch(const std::exception& e)
-	// {
-	// 	std::cerr << e.what() << '\n';
-	// }
+	
+	try
+	{
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 
 	std::cout << std::endl;
 
-	// // more testing...
 
 	Span				pan = Span(10);
 	std::vector<int>	pans = {9, 4, 2, 6, 4};
@@ -83,6 +81,9 @@ int	main()
 	Span				bigSpam(100020);
 	std::vector<int>	spamming(100000);
 
+	for (uint i = 0; i < spamming.size(); i++)
+		spamming[i] = i + 40;
+
 	bigSpam.addNumbers(spamming);
 	bigSpam.addNumber(2300000);
 	bigSpam.addNumber(24);
@@ -99,6 +100,7 @@ int	main()
 	bigSpam.addNumber(2063);
 	bigSpam.addNumber(2064);
 
+	bigSpam.printVectorValues();
 
 	try
 	{
@@ -110,13 +112,7 @@ int	main()
 		std::cerr << e.what() << '\n';
 	}
 
-	// bigSpam.printVectorValues();
 	
 	return 0;
 
 }
-
-
-// expected output:
-// 2
-// 14

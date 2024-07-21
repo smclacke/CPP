@@ -45,6 +45,26 @@ static function within class =
 
 ************************************************************************
 
+**CPP08 EX02 NOTES**
+std::stack
+The std::stack class is a container adaptor that gives the programmer the functionality of a stack - specifically, a LIFO (last-in, first-out) data structure
+
+std::deque
+std::deque (double-ended queue) is an indexed sequence container that allows fast insertion and deletion at both its beginning and its end. In addition, insertion and deletion at either end of a deque never invalidates pointers or references to the rest of the elements.
+
+template: This keyword indicates that the following declaration is a template.
+<class T, class Container= std::deque<T>>: These are template parameters.
+class T: Specifies that T is a template parameter which can be any type.
+class Container = std::deque<T>: Specifies that Container is another template parameter, which defaults to std::deque<T> if not provided. std::deque is a double-ended queue from the C++ Standard Library, and std::deque<T> means a deque that stores elements of type T.
+
+class myClass: Declares a class named myClass.
+: public std::stack<T>: Indicates that myClass publicly inherits from std::stack<T>.
+std::stack<T>: A stack data structure from the C++ Standard Library, where T is the type of elements in the stack
+
+
+When inheriting from std::stack, the this->c refers to the underlying container used by the std::stack to store its elements. In the std::stack template, the container is a protected member named c. This container can be of any type that meets the requirements (like std::deque, std::vector, etc.), and by default, it is std::deque.
+
+
 **VECTORS/ALGORITHMS**
 
 *vector manipulation functions*
@@ -386,6 +406,68 @@ definition whereas the source file (.cpp) contains the implementation.
 **************************************************************************
 **************************************************************************
 **************************************************************************
+template: This keyword indicates that the following declaration is a template.
+<class T, class Container= std::deque<T>>: These are template parameters.
+class T: Specifies that T is a template parameter which can be any type.
+class Container = std::deque<T>: Specifies that Container is another template parameter, which defaults to std::deque<T> if not provided. std::deque is a double-ended queue from the C++ Standard Library, and std::deque<T> means a deque that stores elements of type T.
+
+class myClass: Declares a class named myClass.
+: public std::stack<T>: Indicates that myClass publicly inherits from std::stack<T>.
+std::stack<T>: A stack data structure from the C++ Standard Library, where T is the type of elements in the stack
+
+
+template <class T, class Container= std::deque <T>>
+class	MutantStack : public std::stack<T>
+{
+	public:
+		// Default Constructor
+		MutantStack() : std::stack<T>() {};
+
+		// Destructor
+		~MutantStack() {};
+
+		// Copy constructor
+		MutantStack(const MutantStack& value)
+		{
+			// std::cout << "Copy constructor called" << std::endl;
+			*this = value;
+		}
+
+		// Assignment= operator
+		MutantStack<T> &operator=(const MutantStack<T>& value)
+		{
+			// std::cout << "Assignment operator called" << std::endl;
+			if (this != &value)
+			{
+				this->c = value.c;
+			}
+			return *this;
+		}
+
+		// Constructor
+		MutantStack(const std::stack<T> &value) : std::stack<T>(value) {};
+	
+		// Member function
+		/* Alias for iterator
+		 * 	- Type alias iterator for the iterator type of the underlying container of std::stack<T>. 
+		 *	- This is using the typename keyword to specify that container_type::iterator is a type. 
+		 *	- 'container_type' A type that provides the base container to be adapted by a stack. */
+		using iterator = typename std::stack<T>::container_type::iterator;
+
+		// Iterator functions
+		// 'this->c' refers to the underlying container of the inherited 'std::stack<T>'
+		iterator begin()
+		{
+			return (this->c.begin());
+		}
+
+		iterator end()
+		{
+			return (this->c.end());
+		}
+};
+
+
 **************************************************************************
 **************************************************************************
 **************************************************************************
