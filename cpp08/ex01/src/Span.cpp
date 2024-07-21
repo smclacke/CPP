@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/17 20:09:50 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/21 15:25:13 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/21 16:30:30 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ ulong		Span::spanSize()
 	return this->_vecN.size();
 }
 
+// vector can store maxN integers
 unsigned int	Span::maxSize()
 {	
 	return this->_maxN;
@@ -59,16 +60,23 @@ unsigned int	Span::maxSize()
 
 int		&Span::operator[](unsigned int i)
 {
+	if (i >= this->_vecN.size())
+		throw std::out_of_range("Index out of vector range");
+	return this->_vecN[i];
+}
+
+void	Span::printVectorValues()
+{
 	try
 	{
-		if (i >= this->_vecN.size())
-			throw std::out_of_range("Index out of vector range");
+		for (uint i = 0; i < this->_maxN; i++)
+			std::cout << "[" << i << "]  " << this->_vecN[i] << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	return this->_vecN[i];
+	
 }
 
 // add a single number to the Span. It will be used in order to fill it.
@@ -78,7 +86,7 @@ void			Span::addNumber(unsigned int num)
 	try
 	{
 		if (_vecN.size() >= _maxN)
-			throw std::out_of_range("Not enough space in vector for more numbers");
+			throw std::out_of_range("Not enough space in vector for another element");
 
 		_vecN.push_back(num);
 	}

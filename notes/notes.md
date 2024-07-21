@@ -58,11 +58,12 @@ static function within class =
 
 - insert:  vector is extended by inserting new elements before the element at the specified position, effectively increasing the container size by the number of elements inserted (adding to the end of the _vecN vector, the nums elements from begin to end if -> ogVec.end(), newVec.begin(), newVec.end())
 
-- sort: Sorts the elements in the range [first,last) into ascending order
+- sort: Sorts the elements in the range [first,last] into ascending order
 
 - auto: (algorithm library) deduces the type of a declared variable from its initialization expression
 
-- minmax_element: (algorithm library) Returns a pair with an iterator pointing to the element with the smallest value in the range [first,last) as first element, and the largest as second
+- minmax_element: (algorithm library) Returns a pair with an iterator pointing to the element with the smallest value in the range [first,last] as first element, and the largest as second
+
 
 **TEMPLATES**
 **TEMPLATES**
@@ -386,69 +387,6 @@ definition whereas the source file (.cpp) contains the implementation.
 **************************************************************************
 **************************************************************************
 **************************************************************************
-
-/**
- * @example
- * 
- * 
-// Member function
-// Adds a new number to the Span.
-void Span::addNumber(int num)
-{
-	if (_vecNumbers.size() >= _maxSize)
-		throw std::runtime_error("Span is full!");
-
-	_vecNumbers.push_back(num);				// Adds um to the _vecNumbers vector.
-}
-
-// Adds many numbers at once to the Span.
-void	Span::addManyNumbers(const std::vector<int> &nums)
-{
-	if (_vecNumbers.size() + nums.size() > _maxSize)
-		throw std::runtime_error("Span is full!");
-
-	_vecNumbers.insert(_vecNumbers.end(), nums.begin(), nums.end()); // Adds vector nums to the _vecNumbers vector.
-}
-
-// Finds the shortest span (difference) between any two numbers stored in the Span.
-int Span::shortestSpan() const
-{
-	if (_vecNumbers.size() < 2)
-		throw std::runtime_error("Insufficient numbers to find span!");
-
-	std::vector<int> copyVecNum = _vecNumbers;		// Copy to avoid modifying the original vector.
-	std::sort(copyVecNum.begin(), copyVecNum.end());	// Sorts in ascending order.
-
-	int minSpan = copyVecNum[1] - copyVecNum[0];
-	for (size_t i = 1; i < copyVecNum.size(); i++)
-	{
-		int span = copyVecNum[i] - copyVecNum[i - 1];
-		minSpan = std::min(minSpan, span);		// Updates minSpan to be the minimum.
-	}
-	return (minSpan);
-}
-
-// This function finds the longest span (difference) between any two numbers stored in the Span.
-int Span::longestSpan() const          
-{
-	if (_vecNumbers.size() < 2)
-		throw std::runtime_error("Insufficient numbers to find span!");
-
-	/*	//std::vector<int>::iterator result = std::minmax_element(_vecNumbers.begin(), _vecNumbers.end());
-	 *	 'std::minmax_element' returns a pair of iterators, not a single iterator. 
-	 *	 'auto' automatically deducted from its initializer: the return type is auto. 
-
-	 
-	auto result = std::minmax_element(_vecNumbers.begin(), _vecNumbers.end());	// Find terators to min/max elements.
-	if (result.first == _vecNumbers.end() || result.second == _vecNumbers.end())
-		throw std::runtime_error("Invalid iterators returned by std::minmax_element");
-
-	return (*result.second - *result.first);		// Returns the difference between max and min values.
-}
- */
-
-
-
 **************************************************************************
 **************************************************************************
 **************************************************************************

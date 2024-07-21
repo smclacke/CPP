@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/17 20:08:32 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/21 15:20:12 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/21 16:21:57 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class Span
 	ulong			spanSize();
 	unsigned int	maxSize();
 	int				&operator[](unsigned int i);
+	void			printVectorValues();
 
 	void			addNumber(unsigned int num);
 	void			addNumbers(std::vector<int> nums);
