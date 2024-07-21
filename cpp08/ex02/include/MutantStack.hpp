@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/21 16:46:25 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/21 19:23:07 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/21 19:37:29 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,9 @@ class MutantStack : public std::stack<T, Container>
 
 		void	printStats()
 		{
-			std::cout << "top = " << this->c.top() << " size = " << this->c.size() << std::endl;
+			// how top??
+			// std::cout << "top = " << this->c.top() << std::endl;
+			std::cout << " size = " << this->c.size() << std::endl;
 		}
 
 };
