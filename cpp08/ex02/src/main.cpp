@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/21 16:44:05 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/21 17:36:39 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/21 19:22:20 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,13 @@ int	main()
 		std::cout << *it << std::endl; // iterating through elements
 		++it;
 	}
-	std::stack<int> s(mstack); // what are you??
+	std::stack<int> s(mstack); // what are you?? and why
 
+	std::cout << " --- from subject PFD --- " << std::endl;
+	
 	//// from subject pdf
+
+
 
 	std::cout << std::endl << std::endl;
 
@@ -68,13 +72,20 @@ int	main()
 	charStack.push('f');
 	charStack.push('g');
 
-	std::cout << "top = " << charStack.top() << " size = " << charStack.size() << std::endl;
+	// std::cout << "top = " << charStack.top() << " size = " << charStack.size() << std::endl;
 
-	charStack.pop();
-	charStack.pop();
-	charStack.pop();
+	charStack.printStats();	
+	// charStack.printValues();	
 
+	// MutantStack<char>::iterator charIt = charStack.begin();
+	// MutantStack<char>::iterator charIte = charStack.end();
 	
+	
+	// while (charIt != charIte)
+	// {
+	// 	std::cout << *charIt << std::endl;
+	// 	++charIt;
+	// }
 
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/21 16:46:25 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/21 17:37:34 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/21 19:23:07 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,20 +46,34 @@ class MutantStack : public std::stack<T, Container>
 		using iterator = typename
 		std::stack<T>::container_type::iterator;
 		
-		iterator begin()
+		iterator	begin()
 		{
 			return this->c.begin();
 		}
 
-		iterator end()
+		iterator	end()
 		{
 			return this->c.end();
 		}
 
-
 		void	printValues()
 		{
-			
+			iterator	it;
+			iterator	ite;
+
+			it = this->c.begin();
+			ite = this->c.end();
+
+			while (it != ite)
+			{
+				std::cout << *it << std::endl;
+				++it;
+			}
+		}
+
+		void	printStats()
+		{
+			std::cout << "top = " << this->c.top() << " size = " << this->c.size() << std::endl;
 		}
 
 };
