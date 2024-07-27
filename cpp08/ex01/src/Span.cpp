@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/17 20:09:50 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/21 16:42:32 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/27 17:43:23 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,9 @@ void	Span::printVectorValues()
 	try
 	{
 		for (uint i = 0; i < this->_maxN; i++)
+		{
 			std::cout << "[" << i << "]  " << this->_vecN[i] << std::endl;
+		}
 	}
 	catch(const std::exception& e)
 	{
