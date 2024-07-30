@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/21 16:46:25 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/30 14:14:21 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/30 16:00:46 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 
 # include <iostream>
 # include <algorithm>
-# include <vector>
 # include <stack>
+# include <vector>
 # include <deque>
 # include <list>
+# include <array>
 
 template <class T, class Container = std::deque <T>>
 class MutantStack : public std::stack<T, Container>
@@ -34,7 +35,7 @@ class MutantStack : public std::stack<T, Container>
 		{
 			*this = copy;
 		}
-		
+
 		MutantStack<T>		&operator=(const MutantStack<T> &copy) // copy assignment operator
 		{
 			if (this != &copy)
@@ -43,6 +44,7 @@ class MutantStack : public std::stack<T, Container>
 		}
 
 		// methods | iterators
+
 		using iterator = typename
 		std::stack<T, Container>::container_type::iterator;
 
@@ -58,22 +60,18 @@ class MutantStack : public std::stack<T, Container>
 
 		void	printValues()
 		{
-			iterator	it = this->c.begin();
-			iterator	ite = this->c.end();
+			iterator	it;
 
-			while (it != ite)
-			{
+			for (it = this->c.begin(); it != this->c.end(); ++it)
 				std::cout << *it << std::endl;
-				++it;
-			}
 		}
 
 		void	printStats()
 		{
-			std::cout << "top = " << this->c.back();
-			std::cout << " size = " << this->c.size() << std::endl;
+			std::cout << "top/back = [" << this->c.back() << "] | ";
+			std::cout << "front = [" << this->c.front() << "] | ";
+			std::cout << "size = [" << this->c.size() << "] " << std::endl;
 		}
-
 };
 
 

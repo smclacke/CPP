@@ -65,6 +65,41 @@ std::stack<T>: A stack data structure from the C++ Standard Library, where T is 
 When inheriting from std::stack, the this->c refers to the underlying container used by the std::stack to store its elements. In the std::stack template, the container is a protected member named c. This container can be of any type that meets the requirements (like std::deque, std::vector, etc.), and by default, it is std::deque.
 
 
+**ITERATORS**
+
+- an object that acts as a pointer or an intermediary to access elements in a container
+- supports various operations to navigate throgh the container, access eleents
+	and perform modifications
+
+		// old and less nice way of doing the same as below
+		 void	printValues()
+		 {
+		 	iterator	it = this->c.begin();
+		 	iterator	ite = this->c.end();
+
+	 		while (it != ite)
+		 	{
+		 		std::cout << *it << std::endl;
+		 		++it;
+		 	}
+		 }
+
+		void	printValues()
+		{
+			iterator	it;
+
+			for (it = this->c.begin(); it != this->c.end(); ++it)
+				std::cout << *it << std::endl;
+		}
+
+
+		// defines a type alias name 'iterator' representing the type of iterator 
+		// used by the container inside the stack
+		// e.g. i want the iterator from 'container' type container
+		using iterator = typename
+		std::stack<T, Container>::container_type::iterator;
+
+
 **VECTORS/ALGORITHMS**
 
 *vector manipulation functions*

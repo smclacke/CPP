@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/16 16:44:26 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/04/16 16:45:15 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/30 15:37:27 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	replaceString(std::ifstream &infile, std::string s1, std::string s2, std::o
 			else
 				break ;
 		}
-		outfile << line << std::endl;	
+		outfile << line << std::endl;
 	}
 }
 

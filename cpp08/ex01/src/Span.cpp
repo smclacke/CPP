@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/17 20:09:50 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/30 12:48:12 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/30 15:54:49 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,7 +150,7 @@ unsigned int	Span::longestSpan()
 
 	uint	result = *minMax.second - *minMax.first;
 
-	return (result);
+	return result;
 }
 
 
