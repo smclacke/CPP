@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/21 16:44:05 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/21 19:22:20 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/30 12:56:52 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	main()
 {
 	
 	//// from subject pdf
+
 	MutantStack<int> mstack;
 
 	mstack.push(5);

@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/17 20:09:50 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/27 17:43:23 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/30 12:48:12 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,17 +156,19 @@ unsigned int	Span::longestSpan()
 
 // how longest span:
 
+	// whatever order we get it in:
 	// 6 3 17 9 11
 
 	// minMax = 3 + 17
 	// check neither is null equivalent (one past last element)
 	// 3 - 17 = 14 
 
+	// max = 14
+
 
 // how shortest span:
 
 	// ascending order:
-	
 	// 3 6 9 11 17
 
 	// firstMin = 3
