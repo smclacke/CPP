@@ -1,0 +1,49 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   main.cpp                                           :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2024/07/30 17:44:29 by smclacke      #+#    #+#                 */
+/*   Updated: 2024/07/30 17:52:37 by smclacke      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
+# include "../include/BitcoinExchange.hpp"
+
+// If the date used in the input does not exist in your DB then you
+// must use the closest date contained in your DB. Be careful to use the
+// lower date and not the upper one.
+
+int	main(int argc, char **argv)
+{
+
+	if (argc != 2)
+	{
+		std::cout << "invalid input" << std::endl;
+		return 1;
+	}
+
+	
+	// get arg file
+
+	// display on standard output the result of the value multipled by the
+	// exchange rate according to the date indicated in your database
+
+	return 0;
+}
+
+// example of program's use:
+
+// Error: could not open file.
+// $> ./btc input.txt
+// 2011-01-03 => 3 = 0.9
+// 2011-01-03 => 2 = 0.6
+// 2011-01-03 => 1 = 0.3
+// 2011-01-03 => 1.2 = 0.36
+// 2011-01-09 => 1 = 0.32
+// Error: not a positive number.
+// Error: bad input => 2001-42-42
+// 2012-01-11 => 1 = 7.1
+// Error: too large a number
