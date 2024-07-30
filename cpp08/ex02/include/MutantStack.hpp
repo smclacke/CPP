@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/21 16:46:25 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/21 19:37:29 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/30 14:14:21 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ class MutantStack : public std::stack<T, Container>
 
 		// methods | iterators
 		using iterator = typename
-		std::stack<T>::container_type::iterator;
-		
+		std::stack<T, Container>::container_type::iterator;
+
 		iterator	begin()
 		{
 			return this->c.begin();
@@ -58,11 +58,8 @@ class MutantStack : public std::stack<T, Container>
 
 		void	printValues()
 		{
-			iterator	it;
-			iterator	ite;
-
-			it = this->c.begin();
-			ite = this->c.end();
+			iterator	it = this->c.begin();
+			iterator	ite = this->c.end();
 
 			while (it != ite)
 			{
@@ -73,14 +70,11 @@ class MutantStack : public std::stack<T, Container>
 
 		void	printStats()
 		{
-			// how top??
-			// std::cout << "top = " << this->c.top() << std::endl;
+			std::cout << "top = " << this->c.back();
 			std::cout << " size = " << this->c.size() << std::endl;
 		}
 
 };
-
-
 
 
 #endif
