@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:44:29 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/31 13:38:22 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/31 15:36:44 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,26 @@
 int	main(int argc, char **argv)
 {
 
-	if (argc != 2)
+	// if (argc != 2)
+	// {
+	// 	std::cout << "invalid input" << std::endl;
+	// 	return 1;
+	// }
+
+	(void) argc;
+	(void) argv;
+
+	DataBase		base;
+
+	try
 	{
-		std::cout << "invalid input" << std::endl;
+		base.getDataBase();
+		// parse
+		// store
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
 		return 1;
 	}
 

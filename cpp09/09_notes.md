@@ -91,5 +91,5 @@ std::map :
 	- keys are sorted by using 'Compare' comparison function
 	- Search, removal and insertion operations have logarithmic complexity
 	- maps are implemented as Red-Black tress (self-balancing binary search tree data structure)
-
+	- iterators iterate in ascending order of keys, where asccending is defined by the comparsion that was used for construction
 
