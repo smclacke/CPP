@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:44:29 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/31 19:24:16 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/31 19:59:04 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	try
 	{
 		getInputFile(argv[1]);
-		// getDataBase();
+		getDataBase();
 		// displayResult();
 	}
 	catch(const std::exception& e)

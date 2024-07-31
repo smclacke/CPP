@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:45:43 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/31 19:28:33 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/31 20:00:59 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,20 @@ void	getInputFile(char *argv)
 		throw invalidFile();
 
 	std::string	line;
-	getline(inputFile, line);		// skip first line
+	getline(inputFile, line);
 	while (getline(inputFile, line))
 	{
-		validate
-		if (!validDate(line))
-			throw invalidValue();
-
-		validValue(line, ' '); // you need to throw
-		
-		// try
-		// {
-		// }
-		// catch(const std::exception& e)
-		// {
-		// 	std::cerr << e.what() << '\n';
-		// }
+		try
+		{
+			if (!validDate(line))
+				throw invalidValue();
+			std::cout << line << std::endl;
+			// validValue(line, ' '); // needs to come back with it's throw..
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
 
 		
 		// add to map
@@ -65,20 +63,26 @@ void	getDataBase()
 		throw invalidFile();
 
 
-	// std::string line;
-	// getline(dataBaseFile, line);		// skips first line
-	// while (getline(dataBaseFile, line))
-	// {
-			// validate
-			// if (!validDate(line))
-			// 	throw invalidValue();
-			
+	std::string line;
+	getline(dataBaseFile, line);
+	while (getline(dataBaseFile, line))
+	{
+		try
+		{
+			if (!validDate(line))
+				throw invalidValue();
 			// validValue(line, ','); // throws it's own exceptions like above
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
 
-
-			// add to map
-			// ::dbMap
-	// }
+		
+		// add to map
+		// ::dbMap
+		
+	}
 	dataBaseFile.close();
 }
 
@@ -86,19 +90,51 @@ void	getDataBase()
 
 // parsing utils
 
-// valid date
-// bool	validDate(std::string line)
-// {
-// 	// 2009-03-23
-// 	// year-month-day
-// 	// if first 4 not digits...
-// 	// if first 4 as digit more than 2024
-// 	// if fifth and eighth not dash
-// 	// is six and seven more than 12
-// 	// if nine and ten more than 31
-// }
+static int	isDash(int c)
+{
+	return c == '-';
+}
 
+bool	validDate(std::string line)
+{
+	line = line.substr(0, 10);
 
+	for (size_t i = 0; i < line.length(); i++)
+	{
+		if (line.length() != 10 || (!std::isdigit(line[i]) && !isDash(line[i])))
+			return false;
+	}
+	
+	std::string year = line.substr(0, 4);
+	std::string month = line.substr(5, 2);
+	std::string day = line.substr(8, 2);
+
+	int	yearNum;
+	int	monthNum;
+	int	dayNum;
+	
+	try
+	{
+		yearNum = std::stoi(year);
+		monthNum = std::stoi(month);
+		dayNum = std::stoi(day);
+	}
+	catch(const std::out_of_range& e)
+	{
+		return false;
+	}
+	
+	// doesnt specify in pdf date range...
+	// need to check if feb that no 30 days? .... 
+	if (yearNum > 2024 || yearNum < 1000)
+		return false;
+	if (monthNum > 12)
+		return false;
+	if (dayNum > 31)
+		return false;
+
+	return true;
+}
 
 void	validValue(std::string line, int delim)
 {
@@ -111,32 +147,8 @@ void	validValue(std::string line, int delim)
 	// if delim comma, skip directly to next char
 	
 
-	// this is a big pile of poo but yeah...
-	std::cout << line << std::endl;
-	std::string	value = line.substr(line.find_first_of("|") + 2);
-
-	// std::cout << value << std::endl;
-	
-	// int	len = value.length();
-	
-	// for (int i = 0; i < len; i++)
-	// {
-	// 	if (!std::isdigit(value[i]) && !isdot(value[i]) && !std::isspace(value[i]))
-	// 	{
-	// 		if (value[i] == '-')
-	// 		{
-	// 			throw invalidNegative();
-	// 			return ;
-	// 		}
-	// 		else
-	// 		{
-	// 			throw invalidValue();
-	// 			return ;
-	// 		}
-	// 	}
-	// }
-	
-	
+	// std::cout << line << delim << std::endl;
+	// std::string	value = line.substr(line.find_first_of("|") + 2);
 
 	
 	// if num not numming
