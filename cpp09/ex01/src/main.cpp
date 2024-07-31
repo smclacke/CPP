@@ -6,11 +6,23 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:53:17 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/30 17:53:40 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/31 13:23:33 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/RPN.hpp"
+
+// e.g.: 
+
+//  ./RPN "8 9 * 9 - 9 - 9 - 4 - 1 +"
+// 	42
+//  ./RPN "7 7 * 7 -"
+// 	42
+//  ./RPN "1 2 * 2 / 2 * 2 4 - +"
+// 	0
+//  ./RPN "(1 + 1)"
+// 	Error
+
 
 int	main()
 {

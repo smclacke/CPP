@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/21 16:44:05 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/30 16:29:36 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/31 13:30:04 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 int	main()
 {
 	std::cout << "-----------------------------------------------------" << std::endl;
-	std::cout << " --- from subject PFD --- " << std::endl;
+	std::cout << " --- from subject PDF --- " << std::endl;
 	
 	MutantStack<int> mstack;
 

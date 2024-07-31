@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:44:29 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/30 17:52:37 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/31 13:38:22 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ int	main(int argc, char **argv)
 	}
 
 	
-	// get arg file
+	// parse + store DB info in std::map
+	
+	// get arg file, (e.g. input.txt), extract necessary data from DB based on 
+	// input given to program (input.txt)
 
 	// display on standard output the result of the value multipled by the
 	// exchange rate according to the date indicated in your database
@@ -36,8 +39,10 @@ int	main(int argc, char **argv)
 
 // example of program's use:
 
+// ./btc
 // Error: could not open file.
-// $> ./btc input.txt
+
+//  ./btc input.txt
 // 2011-01-03 => 3 = 0.9
 // 2011-01-03 => 2 = 0.6
 // 2011-01-03 => 1 = 0.3
