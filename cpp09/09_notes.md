@@ -1,6 +1,19 @@
 
 **CPP09:**
 
+// # include <stack>
+// # include <deque>
+// # include <forward_list>
+// # include <vector>
+// # include <array>
+// # include <list>
+// # include <map>
+
+
+- map bitcoin
+- stack RNP
+- vec + deque pmerge
+
 *bitcoin :*
 
 database format CSV (fields/columns separated by comma character and records/rows terminated by newlines)
