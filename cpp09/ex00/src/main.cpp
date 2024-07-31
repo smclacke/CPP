@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:44:29 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/31 18:05:47 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/31 19:24:16 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	main(int argc, char **argv)
 	try
 	{
 		getInputFile(argv[1]);
-		getDataBase();
-		displayResult();
+		// getDataBase();
+		// displayResult();
 	}
 	catch(const std::exception& e)
 	{
@@ -34,8 +34,6 @@ int	main(int argc, char **argv)
 	}
 
 	// test parsing + storing of DB
-
-	// close files + clean up maps? anything memory...
 
 	return 0;
 }

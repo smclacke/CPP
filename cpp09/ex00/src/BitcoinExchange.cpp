@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:45:43 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/31 18:34:14 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/31 19:28:33 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 // @todo (unlike jisse) check date vadility + value in both DB and input
 // @todo how to give variables to exceptions to print specific bad input
+
 
 // ---------- input data ----------//
 
@@ -28,27 +29,30 @@ void	getInputFile(char *argv)
 	if (!inputFile.is_open())
 		throw invalidFile();
 
-	// skip first line !
 	std::string	line;
-	getline(inputFile, line);
+	getline(inputFile, line);		// skip first line
 	while (getline(inputFile, line))
 	{
-		// validate
+		validate
 		if (!validDate(line))
-			throw invalidValue ();
-		try
-		{
-			validValue(line); // let it throw correct error from func
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
+			throw invalidValue();
+
+		validValue(line, ' '); // you need to throw
+		
+		// try
+		// {
+		// }
+		// catch(const std::exception& e)
+		// {
+		// 	std::cerr << e.what() << '\n';
+		// }
+
+		
 		// add to map
 		// ::inputMap;
 
-		std::cout << line << std::endl;
 	}
+	inputFile.close();
 }
 
 
@@ -60,19 +64,92 @@ void	getDataBase()
 	if (!dataBaseFile.is_open())
 		throw invalidFile();
 
-	
-	// ::dbMap
-	// parse + store database here
-	// getline ... stringstream etc
 
-	// skip first line !
 	// std::string line;
-	// getline(dataBaseFile, line);
+	// getline(dataBaseFile, line);		// skips first line
 	// while (getline(dataBaseFile, line))
 	// {
-	// 	...
+			// validate
+			// if (!validDate(line))
+			// 	throw invalidValue();
+			
+			// validValue(line, ','); // throws it's own exceptions like above
+
+
+			// add to map
+			// ::dbMap
 	// }
+	dataBaseFile.close();
 }
+
+
+
+// parsing utils
+
+// valid date
+// bool	validDate(std::string line)
+// {
+// 	// 2009-03-23
+// 	// year-month-day
+// 	// if first 4 not digits...
+// 	// if first 4 as digit more than 2024
+// 	// if fifth and eighth not dash
+// 	// is six and seven more than 12
+// 	// if nine and ten more than 31
+// }
+
+
+
+void	validValue(std::string line, int delim)
+{
+
+	// if delim not in line (date without anything else)
+		// error
+
+	// if delim is space, substr space pipe space ... ??
+
+	// if delim comma, skip directly to next char
+	
+
+	// this is a big pile of poo but yeah...
+	std::cout << line << std::endl;
+	std::string	value = line.substr(line.find_first_of("|") + 2);
+
+	// std::cout << value << std::endl;
+	
+	// int	len = value.length();
+	
+	// for (int i = 0; i < len; i++)
+	// {
+	// 	if (!std::isdigit(value[i]) && !isdot(value[i]) && !std::isspace(value[i]))
+	// 	{
+	// 		if (value[i] == '-')
+	// 		{
+	// 			throw invalidNegative();
+	// 			return ;
+	// 		}
+	// 		else
+	// 		{
+	// 			throw invalidValue();
+	// 			return ;
+	// 		}
+	// 	}
+	// }
+	
+	
+
+	
+	// if num not numming
+	// error
+
+	// if num > (?) || < (?)
+	// throw invalidTooLarge();
+
+	// if num is negative...
+	// throw invalidNegative();
+	
+}
+
 
 
 //  std::map  - Lookup
@@ -96,23 +173,6 @@ void	displayResult()
 	// if key (date) not found, use the closest data (lower date not upper one)
 }
 
-
-
-// parsing utils
-
-// valid date
-bool	validDate(std::string line)
-{
-	
-}
-
-// valid value
-void	validValue(std::string line)
-{
-	// throw invalidNegative();
-	// throw invalidTooLarge();
-	
-}
 
 
 

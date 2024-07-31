@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:45:06 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/31 18:32:16 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/31 19:20:02 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	displayResult();
 
 // parsing utils
 bool	validDate(std::string line);
-void	validValue(std::string line);
+void	validValue(std::string line, int delim);
 
 
 // exceptions
