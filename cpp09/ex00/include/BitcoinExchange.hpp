@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:45:06 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/31 16:12:19 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/31 16:29:54 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <string>
 # include <fstream>
+# include <filesystem>
 # include <algorithm>
 # include <map>
 
