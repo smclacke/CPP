@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:45:43 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/31 16:30:18 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/31 16:56:24 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,13 @@ void	getDataBase()
 
 void	getDataFile(char *argv)
 {
-	std::string	file = argv;
+	std::string		input = argv;
+	
+	if (input.substr(input.find_last_of(".") + 1) != "csv")
+		throw invalidFile();
 
-	filesystem::path	filePath = ".cvs"
-
-	std::cout << file << std::endl;
 	std::ifstream	inputFile(argv);
+
 	if (!inputFile.is_open())
 		throw invalidFile();
 }
@@ -35,5 +36,6 @@ void	getDataFile(char *argv)
 
 const char*	invalidFile::what() const throw()
 {
-	return "Error opening file";
+	return "Error: invalid file";
 }
+
