@@ -6,15 +6,11 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:44:29 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/31 16:13:39 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/07/31 18:05:47 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/BitcoinExchange.hpp"
-
-// If the date used in the input does not exist in your DB then you
-// must use the closest date contained in your DB. Be careful to use the
-// lower date and not the upper one.
 
 int	main(int argc, char **argv)
 {
@@ -24,14 +20,12 @@ int	main(int argc, char **argv)
 		std::cout << "Error invalid input" << std::endl;
 		return 1;
 	}
-	
-	// parse + store DB info in std::map
+
 	try
 	{
-		getDataFile(argv[1]);
+		getInputFile(argv[1]);
 		getDataBase();
-		// parse
-		// store
+		displayResult();
 	}
 	catch(const std::exception& e)
 	{
@@ -39,27 +33,13 @@ int	main(int argc, char **argv)
 		return 1;
 	}
 
-	try
-	{
-		// ... parse input + find needed info from DB
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-		return 1;
-	}
-	
-	
-	// getDataFile
-	// get arg file, (e.g. input.txt), extract necessary data from DB based on 
-	// input given to program (input.txt)
+	// test parsing + storing of DB
 
-
-	// display on standard output the result of the value multipled by the
-	// exchange rate according to the date indicated in your database
+	// close files + clean up maps? anything memory...
 
 	return 0;
 }
+
 
 // example of program's use:
 
