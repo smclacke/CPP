@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:45:43 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/31 20:00:59 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/01 13:47:37 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,8 @@ void	getDataBase()
 		{
 			std::cerr << e.what() << '\n';
 		}
-
-		
 		// add to map
-		// ::dbMap
-		
+		// ::dbMap;
 	}
 	dataBaseFile.close();
 }
@@ -136,8 +133,8 @@ bool	validDate(std::string line)
 	return true;
 }
 
-void	validValue(std::string line, int delim)
-{
+// void	validValue(std::string line, int delim)
+// {
 
 	// if delim not in line (date without anything else)
 		// error
@@ -160,7 +157,8 @@ void	validValue(std::string line, int delim)
 	// if num is negative...
 	// throw invalidNegative();
 	
-}
+	// add here to map
+// }
 
 
 
