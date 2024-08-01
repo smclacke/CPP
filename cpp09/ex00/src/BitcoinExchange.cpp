@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:45:43 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/01 13:47:37 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/01 13:48:36 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	getDataBase()
 	if (!dataBaseFile.is_open())
 		throw invalidFile();
 
+// create date + value vars here, check them then add to map!!
 
 	std::string line;
 	getline(dataBaseFile, line);
