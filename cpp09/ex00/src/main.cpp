@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:44:29 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/31 19:59:04 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/01 15:44:58 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 int	main(int argc, char **argv)
 {
+
+	std::map<std::string, float>	inputMap;
+	std::map<std::string, float>	dbMap;
 
 	if (argc != 2)
 	{
@@ -23,18 +26,15 @@ int	main(int argc, char **argv)
 
 	try
 	{
-		getInputFile(argv[1]);
-		getDataBase();
-		// displayResult();
+		getInputFile(argv[1], inputMap);
+		getDataBase(dbMap);
+		// displayResult(inputMap, dbMap);
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 		return 1;
 	}
-
-	// test parsing + storing of DB
-
 	return 0;
 }
 
@@ -54,3 +54,4 @@ int	main(int argc, char **argv)
 // Error: bad input => 2001-42-42
 // 2012-01-11 => 1 = 7.1
 // Error: too large a number
+

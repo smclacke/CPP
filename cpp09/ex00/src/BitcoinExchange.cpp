@@ -6,20 +6,26 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:45:43 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/01 13:48:36 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/01 15:56:15 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/BitcoinExchange.hpp"
 
-// @todo (unlike jisse) check date vadility + value in both DB and input
 // @todo how to give variables to exceptions to print specific bad input
+// 		how to global mapsss
+
+// @todo check - the database should not actually be touched tho right??
+// 		only input file... cause checking validity of DB values is different to input + maybe dates...
+
+// @todo check date validity... not checking if feb has 31 days,,,
 
 
 // ---------- input data ----------//
 
-void	getInputFile(char *argv)
+void	getInputFile(char *argv, std::map<std::string, float> map)
 {
+	(void) map;
 	std::string		input = argv;
 	
 	if (input.substr(input.find_last_of(".") + 1) != "csv")
@@ -35,20 +41,29 @@ void	getInputFile(char *argv)
 	{
 		try
 		{
-			if (!validDate(line))
+			std::string dateLine = line.substr(0, 10);
+			if (!validDate(dateLine))
 				throw invalidValue();
-			std::cout << line << std::endl;
-			// validValue(line, ' '); // needs to come back with it's throw..
+			std::string	valueLine = line.substr(13, (line.length() - 13));
+			float	value;
+			try
+			{
+				value = std::stof(valueLine);
+			}
+			catch(const std::exception& e)
+			{
+				throw invalidValue();
+				return ;
+			}
+			validInputValue(value);
+
+			// map.insert(dateLine, value);
+
 		}
 		catch(const std::exception& e)
 		{
 			std::cerr << e.what() << '\n';
 		}
-
-		
-		// add to map
-		// ::inputMap;
-
 	}
 	inputFile.close();
 }
@@ -56,13 +71,12 @@ void	getInputFile(char *argv)
 
 // ---------- database ----------//
 
-void	getDataBase()
+void	getDataBase(std::map<std::string, float> map)
 {
+	(void) map; //////
 	std::ifstream	dataBaseFile("data.csv");
 	if (!dataBaseFile.is_open())
 		throw invalidFile();
-
-// create date + value vars here, check them then add to map!!
 
 	std::string line;
 	getline(dataBaseFile, line);
@@ -70,16 +84,29 @@ void	getDataBase()
 	{
 		try
 		{
-			if (!validDate(line))
+			std::string dateLine = line.substr(0, 10);
+			if (!validDate(dateLine))
 				throw invalidValue();
-			// validValue(line, ','); // throws it's own exceptions like above
+			std::string valueLine = line.substr(11, (line.length() - 11));
+			float	value;
+			try
+			{
+				value = std::stof(valueLine);
+			}
+			catch(const std::exception& e)
+			{
+				throw invalidValue();
+				return ;
+			}
+			// validValue(valueLine); ??
+
+			// add dateLine + valueLine to map, then while loop...
+			// map.
 		}
 		catch(const std::exception& e)
 		{
 			std::cerr << e.what() << '\n';
 		}
-		// add to map
-		// ::dbMap;
 	}
 	dataBaseFile.close();
 }
@@ -95,8 +122,6 @@ static int	isDash(int c)
 
 bool	validDate(std::string line)
 {
-	line = line.substr(0, 10);
-
 	for (size_t i = 0; i < line.length(); i++)
 	{
 		if (line.length() != 10 || (!std::isdigit(line[i]) && !isDash(line[i])))
@@ -107,15 +132,15 @@ bool	validDate(std::string line)
 	std::string month = line.substr(5, 2);
 	std::string day = line.substr(8, 2);
 
-	int	yearNum;
-	int	monthNum;
-	int	dayNum;
+	float	yearNum;
+	float	monthNum;
+	float	dayNum;
 	
 	try
 	{
-		yearNum = std::stoi(year);
-		monthNum = std::stoi(month);
-		dayNum = std::stoi(day);
+		yearNum = std::stof(year);
+		monthNum = std::stof(month);
+		dayNum = std::stof(day);
 	}
 	catch(const std::out_of_range& e)
 	{
@@ -134,32 +159,23 @@ bool	validDate(std::string line)
 	return true;
 }
 
-// void	validValue(std::string line, int delim)
-// {
 
-	// if delim not in line (date without anything else)
-		// error
+// db values are a bit different
+void	validInputValue(float value)
+{
+	try
+	{
+		if (value < 0)
+			throw invalidNegative();
 
-	// if delim is space, substr space pipe space ... ??
-
-	// if delim comma, skip directly to next char
-	
-
-	// std::cout << line << delim << std::endl;
-	// std::string	value = line.substr(line.find_first_of("|") + 2);
-
-	
-	// if num not numming
-	// error
-
-	// if num > (?) || < (?)
-	// throw invalidTooLarge();
-
-	// if num is negative...
-	// throw invalidNegative();
-	
-	// add here to map
-// }
+		if (value > 1000)
+			throw invalidTooLarge();
+	}
+	catch(const std::out_of_range& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+}
 
 
 
@@ -176,9 +192,12 @@ bool	validDate(std::string line)
 
 // upper_bound: returns an iterator to the first element greater than the given key
 
-void	displayResult()
+void	displayResult(std::map<std::string, float> inputMap, std::map<std::string, float> dbMap)
 {
 	std::cout << "results are being processed..." << std::endl;
+
+	(void) inputMap;
+	(void) dbMap;
 	// compare dbMap key to inputMap key.. then multiply the values
 	// and display
 	// if key (date) not found, use the closest data (lower date not upper one)
