@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:45:06 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/02 14:43:42 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/02 16:13:33 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 # include <map>
 
 
-void	getDataBase(std::map<std::string, float> map);
-void	getInputFile(char *argv, std::map<std::string, float> map);
-void	displayResult(std::map<std::string, float> inputMap, std::map<std::string, float> dbMap);
+void	getDataBase(std::map<std::string, float> &map);
+void	getInputFile(char *argv);
+void	displayResult(std::map<std::string, float> &Map, std::string dateLine, float value);
 
 
 // parsing utils

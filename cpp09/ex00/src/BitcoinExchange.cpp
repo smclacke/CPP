@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:45:43 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/02 14:53:49 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/02 16:12:40 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,9 @@
 
 // upper_bound: returns an iterator to the first element greater than the given key
 
-void	displayResult(std::map<std::string, float> inputMap, std::map<std::string, float> dbMap)
+void	displayResult(std::map<std::string, float> &map, std::string dateLine, float value)
 {
 	std::cout << "results are being processed..." << std::endl;
-
-	(void) inputMap;
-	(void) dbMap;
-
 
 	// compare dbMap key to inputMap key.. then multiply the values
 	// and display
@@ -57,8 +53,8 @@ void	displayResult(std::map<std::string, float> inputMap, std::map<std::string, 
 
 
 // ---------- database ----------//
-
-void	getDataBase(std::map<std::string, float> map)
+// ONLY YOU IN MAP
+void	getDataBase(std::map<std::string, float> &map)
 {
 	std::ifstream	dataBaseFile("data.csv");
 	if (!dataBaseFile.is_open())
@@ -84,19 +80,17 @@ void	getDataBase(std::map<std::string, float> map)
 			std::cerr << e.what() << '\n';
 		}
 	}
-
-	// print map
-	// for (it mapIt = map.begin(); mapIt != map.end(); ++mapIt)
-	// 	std::cout << "key  = " << mapIt->first << " => value =  " << mapIt->second << std::endl;
-
 	dataBaseFile.close();
 }
 
 
 // ---------- input data ----------//
 
-void	getInputFile(char *argv, std::map<std::string, float> map)
+void	getInputFile(char *argv)
 {
+	float	value;
+	std::map<std::string, float>	dbMap;
+
 	std::string		input = argv;
 	if (input.substr(input.find_last_of(".") + 1) != "csv")
 		throw invalidFile();
@@ -106,8 +100,6 @@ void	getInputFile(char *argv, std::map<std::string, float> map)
 		throw invalidFile();
 
 	std::string	line;
-	typedef std::map<std::string, float>::const_iterator it;
-	it mapIt = map.begin();
 	getline(inputFile, line);
 	while (getline(inputFile, line))
 	{
@@ -119,24 +111,16 @@ void	getInputFile(char *argv, std::map<std::string, float> map)
 			std::cout << "Error: bad input => " << dateLine << std::endl;
 			continue ;
 		}
-		std::string	valueLine = line.substr(13, (line.length() - 13));
+		std::string	valueLine = line.substr(13);
 		if (!validValue(valueLine))
 			continue ;
 
-		float value = std::stof(valueLine);
-		map.insert(mapIt, {dateLine, value});
-		// std::cout << "key  = " << mapIt->first << " => value =  " << mapIt->second << std::endl;
-		++mapIt;
-		// compare + display...
+		value = std::stof(valueLine);
+		getDataBase(dbMap);
+		// print db map to check..
+		// print dateline + value to check...
+		displayResult(dbMap, dateLine, value);
 	}
-
-	// print map
-	// int	count = 0;
-	// for (it mapIt = map.begin(); mapIt != map.end(); ++mapIt)
-	// 	std::cout << "key  = " << mapIt->first << " => value =  " << mapIt->second << std::endl;
-		// count++;
-	// std::cout << count << std::endl;
-
 	inputFile.close();
 }
 
@@ -153,11 +137,6 @@ bool	checkLine(std::string line)
 	if (line.find_first_not_of('\t') == std::string::npos)
 		return false;
 	return true;	
-}
-
-static int	isDot(int c)
-{
-	return c == '.';
 }
 
 static int	isDash(int c)
@@ -198,19 +177,16 @@ bool	validDate(std::string line)
 
 bool	validValue(std::string line)
 {
-	for (size_t i = 0; i < line.length(); i++)
+	float value;
+	try
 	{
-		if (!std::isdigit(line[i]) && !isDot(line[i]))
-		{
-			if (isDash(line[i]))
-				std::cout << "Error: not a positive number" << std::endl;
-			else
-				std::cout << "Error: bad input => " << line << std::endl;
-			return false;
-		}
+		value = std::stof(line);
 	}
-
-	float value = std::stof(line);
+	catch(const std::exception& e)
+	{
+		std::cout << "Error: bad input => " << line << std::endl;
+		return false;
+	}
 	if (value < 0)
 	{
 		std::cout << "Error: not a positive number" << std::endl;
@@ -224,7 +200,6 @@ bool	validValue(std::string line)
 	
 	return true;
 }
-
 
 
 // exceptions

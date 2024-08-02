@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:44:29 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/02 14:20:16 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/02 16:10:51 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 
 int	main(int argc, char **argv)
 {
-
-	std::map<std::string, float>	dbMap;
-	std::map<std::string, float>	inputMap;
-
 	if (argc != 2)
 	{
 		std::cout << "Error invalid input" << std::endl;
@@ -26,8 +22,7 @@ int	main(int argc, char **argv)
 
 	try
 	{
-		getDataBase(dbMap);
-		getInputFile(argv[1], inputMap);
+		getInputFile(argv[1]);
 	}
 	catch(const std::exception& e)
 	{
