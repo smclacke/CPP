@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:45:43 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/02 10:13:09 by eugene        ########   odam.nl         */
+/*   Updated: 2024/08/02 14:53:49 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ void	getDataBase(std::map<std::string, float> map)
 		throw invalidFile();
 
 	std::string line;
-	std::map<std::string, float>::iterator it = map.begin();
+	typedef std::map<std::string, float>::const_iterator it;
+	it mapIt = map.begin();
 	getline(dataBaseFile, line);
 	while (getline(dataBaseFile, line))
 	{
@@ -75,8 +76,8 @@ void	getDataBase(std::map<std::string, float> map)
 			std::string valueLine = line.substr(11, (line.length() - 11));
 			float	value = std::stof(valueLine);
 
-			map.insert(it, {dateLine, value});
-			++it;
+			map.insert(mapIt, {dateLine, value});
+			++mapIt;
 		}
 		catch(const std::exception& e)
 		{
@@ -85,9 +86,9 @@ void	getDataBase(std::map<std::string, float> map)
 	}
 
 	// print map
-	// for (auto it = map.begin(); it != map.end(); ++it)
-	// 	std::cout << "key  = " << it->first << " => value =  " << it->second << std::endl;
-	
+	// for (it mapIt = map.begin(); mapIt != map.end(); ++mapIt)
+	// 	std::cout << "key  = " << mapIt->first << " => value =  " << mapIt->second << std::endl;
+
 	dataBaseFile.close();
 }
 
@@ -105,47 +106,37 @@ void	getInputFile(char *argv, std::map<std::string, float> map)
 		throw invalidFile();
 
 	std::string	line;
-	// std::map<std::string, float>::iterator it = map.begin();
+	typedef std::map<std::string, float>::const_iterator it;
+	it mapIt = map.begin();
 	getline(inputFile, line);
 	while (getline(inputFile, line))
 	{
-		try
+		if (!checkLine(line))
+			continue ;
+		std::string dateLine = line.substr(0, 10);
+		if (!validDate(dateLine))
 		{
-			if (!checkLine(line))
-				continue ;
-			std::string dateLine = line.substr(0, 10);
-			if (!validDate(dateLine))
-				throw invalidValue();
-			std::string	valueLine = line.substr(13, (line.length() - 13));
-			float	value;
-			try
-			{
-				value = std::stof(valueLine);
-			}
-			catch(const std::exception& e)
-			{
-				throw invalidValue();
-				return ;
-			}
-			validValue(value);
-			// map insert<std::make_pair<,>(var,var)
-			// map.insert(it, {dateLine, value});
-			// ++it;
-			
-			
-			// compare + display...
+			std::cout << "Error: bad input => " << dateLine << std::endl;
+			continue ;
+		}
+		std::string	valueLine = line.substr(13, (line.length() - 13));
+		if (!validValue(valueLine))
+			continue ;
 
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
+		float value = std::stof(valueLine);
+		map.insert(mapIt, {dateLine, value});
+		// std::cout << "key  = " << mapIt->first << " => value =  " << mapIt->second << std::endl;
+		++mapIt;
+		// compare + display...
 	}
 
 	// print map
-	// for (auto it = map.begin(); it != map.end(); ++it)
-	// std::cout << "key  = " << it->first << " => value =  " << it->second << std::endl;
-	
+	// int	count = 0;
+	// for (it mapIt = map.begin(); mapIt != map.end(); ++mapIt)
+	// 	std::cout << "key  = " << mapIt->first << " => value =  " << mapIt->second << std::endl;
+		// count++;
+	// std::cout << count << std::endl;
+
 	inputFile.close();
 }
 
@@ -162,6 +153,11 @@ bool	checkLine(std::string line)
 	if (line.find_first_not_of('\t') == std::string::npos)
 		return false;
 	return true;	
+}
+
+static int	isDot(int c)
+{
+	return c == '.';
 }
 
 static int	isDash(int c)
@@ -185,19 +181,10 @@ bool	validDate(std::string line)
 	float	monthNum;
 	float	dayNum;
 	
-	try
-	{
-		yearNum = std::stof(year);
-		monthNum = std::stof(month);
-		dayNum = std::stof(day);
-	}
-	catch(const std::out_of_range& e)
-	{
-		return false;
-	}
-	
-	// doesnt specify in pdf date range...
-	// need to check if feb that no 30 days? .... 
+	yearNum = std::stof(year);
+	monthNum = std::stof(month);
+	dayNum = std::stof(day);
+
 	if (yearNum > 2024 || yearNum < 1000)
 		return false;
 	if (monthNum > 12)
@@ -209,20 +196,33 @@ bool	validDate(std::string line)
 }
 
 
-void	validValue(float value)
+bool	validValue(std::string line)
 {
-	try
+	for (size_t i = 0; i < line.length(); i++)
 	{
-		if (value < 0)
-			throw invalidNegative();
+		if (!std::isdigit(line[i]) && !isDot(line[i]))
+		{
+			if (isDash(line[i]))
+				std::cout << "Error: not a positive number" << std::endl;
+			else
+				std::cout << "Error: bad input => " << line << std::endl;
+			return false;
+		}
+	}
 
-		if (value > 1000)
-			throw invalidTooLarge();
-	}
-	catch(const std::out_of_range& e)
+	float value = std::stof(line);
+	if (value < 0)
 	{
-		std::cerr << e.what() << '\n';
+		std::cout << "Error: not a positive number" << std::endl;
+		return false;
 	}
+	if (value > 1000)
+	{
+		std::cout << "Error: too large a number" << std::endl;
+		return false;
+	}
+	
+	return true;
 }
 
 
@@ -233,19 +233,3 @@ const char*	invalidFile::what() const throw()
 {
 	return "Error: could not open file";
 }
-
-const char*	invalidValue::what() const throw()
-{
-	return "Error: bad input => "; // get + add the bad input
-}
-
-const char*	invalidNegative::what() const throw()
-{
-	return "Error: not a positive number";
-}
-
-const char*	invalidTooLarge::what() const throw()
-{
-	return "Error: too large a number";
-}
-

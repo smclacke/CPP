@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:44:29 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/01 16:53:06 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/02 14:20:16 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,6 @@ int	main(int argc, char **argv)
 	{
 		getDataBase(dbMap);
 		getInputFile(argv[1], inputMap);
-
-
-	// why cant i print here???
-		std::map<std::string, float>::iterator it;
-		for (it = dbMap.begin(); it != dbMap.end(); ++it)
-			std::cout << "key  = " << it->first << " => value =  " << it->second << std::endl;
 	}
 	catch(const std::exception& e)
 	{
