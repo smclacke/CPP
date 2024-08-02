@@ -6,25 +6,11 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:45:43 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/01 16:50:11 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/02 10:13:09 by eugene        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/BitcoinExchange.hpp"
-
-// @todo how to give variables to exceptions to print specific bad input
-// 		how to global mapsss
-
-// im going on no touching the database for this below todo...
-// @todo check - the database should not actually be touched tho right??
-// 		only input file... cause checking validity of DB values is different to input + maybe dates...
-
-// @todo check date validity... not checking if feb has 31 days,,,
-
-// !!!!!!!!!!
-// @todo - where should i actually throw errors cause when comparison made, 
-// give output for each line, if line bad then error.... or add error to map???
-
 
 
 // ---------- displayResult ----------//
@@ -49,13 +35,24 @@ void	displayResult(std::map<std::string, float> inputMap, std::map<std::string, 
 	(void) inputMap;
 	(void) dbMap;
 
-	// EXCEPTIONS NEED TO HAPPEN HERE :( :( :( ))) 	ORRRRRR, add error to map??
 
 	// compare dbMap key to inputMap key.. then multiply the values
 	// and display
 	// if key (date) not found, use the closest data (lower date not upper one)
 }
 
+
+/**
+ * std::map<var,var>::iterator it;
+ * 
+ * it = map.find(date);
+ * if (it == map.end())
+ * 	it = map.lower_bound(date)
+ * 	if (it != map.begin())
+ * 		it--;
+ * 
+ * exValue * it->Second
+ */
 
 
 
@@ -108,7 +105,7 @@ void	getInputFile(char *argv, std::map<std::string, float> map)
 		throw invalidFile();
 
 	std::string	line;
-	std::map<std::string, float>::iterator it = map.begin();
+	// std::map<std::string, float>::iterator it = map.begin();
 	getline(inputFile, line);
 	while (getline(inputFile, line))
 	{
@@ -131,8 +128,9 @@ void	getInputFile(char *argv, std::map<std::string, float> map)
 				return ;
 			}
 			validValue(value);
-			map.insert(it, {dateLine, value});
-			++it;
+			// map insert<std::make_pair<,>(var,var)
+			// map.insert(it, {dateLine, value});
+			// ++it;
 			
 			
 			// compare + display...
