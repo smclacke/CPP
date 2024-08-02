@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:45:43 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/02 16:12:40 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/02 16:18:42 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	displayResult(std::map<std::string, float> &map, std::string dateLine, floa
 
 
 // ---------- database ----------//
-// ONLY YOU IN MAP
+
 void	getDataBase(std::map<std::string, float> &map)
 {
 	std::ifstream	dataBaseFile("data.csv");
@@ -117,8 +117,6 @@ void	getInputFile(char *argv)
 
 		value = std::stof(valueLine);
 		getDataBase(dbMap);
-		// print db map to check..
-		// print dateline + value to check...
 		displayResult(dbMap, dateLine, value);
 	}
 	inputFile.close();

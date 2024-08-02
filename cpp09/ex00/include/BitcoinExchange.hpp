@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:45:06 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/02 16:13:33 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/02 16:14:44 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,6 @@ class invalidFile : public std::exception
 	public:
 		const char *what() const throw(); 
 };
-
-class invalidNegative : public std::exception
-{
-	public:
-		const char *what() const throw(); 
-};
-
-class invalidTooLarge : public std::exception
-{
-	public:
-		const char *what() const throw(); 
-};
-
 
 #endif 
 
