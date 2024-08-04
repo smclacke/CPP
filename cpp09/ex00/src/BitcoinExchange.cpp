@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:45:43 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/04 21:24:18 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/04 21:26:43 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,7 +159,7 @@ static void	getDataBase(std::map<std::string, float> &map)
 			}
 			catch(const std::out_of_range& e)
 			{
-				return ; // ??
+				return ;
 			}
 
 			map.insert(mapIt, {dateLine, value});
@@ -213,7 +213,7 @@ void	getExchange(char *argv)
 		}
 		catch(const std::out_of_range& e)
 		{
-			return ; /// ?
+			return ;
 		}
 		
 		getDataBase(dbMap);

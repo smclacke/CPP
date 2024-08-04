@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:45:06 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/04 21:24:26 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/04 21:26:36 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 void	getExchange(char *argv);
 
-// exceptions
+// exception
 class invalidFile : public std::exception
 {
 	public:
