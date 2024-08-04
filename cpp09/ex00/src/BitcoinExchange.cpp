@@ -6,127 +6,15 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:45:43 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/04 17:59:08 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/04 21:24:18 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/BitcoinExchange.hpp"
 
-
-// ---------- displayResult ----------//
-
-//  std::map  - Lookup
-// count: returns the number of elements matching specific key
-
-// find: finds element with specific key
-
-// contains: checks if the container contains element with specific key
-
-// equal_range: returns range of elements matching a specific key
-
-// lower_bound: returns an iterator to the first element not less than the given key
-
-// upper_bound: returns an iterator to the first element greater than the given key
-
-void	displayResult(std::map<std::string, float> &map, std::string dateLine, float value)
-{
-	std::cout << "results are being processed..." << std::endl;
-
-	// compare dbMap key to inputMap key.. then multiply the values
-	// and display
-	// if key (date) not found, use the closest data (lower date not upper one)
-}
-
-
-/**
- * std::map<var,var>::iterator it;
- * 
- * it = map.find(date);
- * if (it == map.end())
- * 	it = map.lower_bound(date)
- * 	if (it != map.begin())
- * 		it--;
- * 
- * exValue * it->Second
- */
-
-
-
-// ---------- database ----------//
-
-void	getDataBase(std::map<std::string, float> &map)
-{
-	std::ifstream	dataBaseFile("data.csv");
-	if (!dataBaseFile.is_open())
-		throw invalidFile();
-
-	std::string line;
-	typedef std::map<std::string, float>::const_iterator it;
-	it mapIt = map.begin();
-	getline(dataBaseFile, line);
-	while (getline(dataBaseFile, line))
-	{
-		try
-		{
-			std::string dateLine = line.substr(0, 10);
-			std::string valueLine = line.substr(11, (line.length() - 11));
-			float	value = std::stof(valueLine); // protection
-
-			map.insert(mapIt, {dateLine, value});
-			++mapIt;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
-	}
-	dataBaseFile.close();
-}
-
-
-// ---------- input data ----------//
-
-void	getInputFile(char *argv)
-{
-	float	value;
-	std::map<std::string, float>	dbMap;
-
-	std::string		input = argv;
-	if (input.substr(input.find_last_of(".") + 1) != "csv")
-		throw invalidFile();
-
-	std::ifstream	inputFile(argv);
-	if (!inputFile.is_open())
-		throw invalidFile();
-
-	std::string	line;
-	getline(inputFile, line);
-	while (getline(inputFile, line))
-	{
-		if (!checkLine(line))
-			continue ;
-		std::string dateLine = line.substr(0, 10);
-		if (!validDate(dateLine))
-		{
-			std::cout << "Error: bad input => " << dateLine << std::endl;
-			continue ;
-		}
-		std::string	valueLine = line.substr(13);
-		if (!validValue(valueLine))
-			continue ;
-
-		value = std::stof(valueLine); // protection?
-		getDataBase(dbMap);
-		displayResult(dbMap, dateLine, value);
-	}
-	inputFile.close();
-}
-
-
-
 // parsing utils
 
-bool	checkLine(std::string line)
+static bool	checkLine(std::string line)
 {
 	if (line.empty())
 		return false;
@@ -142,7 +30,7 @@ static int	isDash(int c)
 	return c == '-';
 }
 
-bool	validDate(std::string line)
+static bool	validDate(std::string line)
 {
 	for (size_t i = 0; i < line.length(); i++)
 	{
@@ -157,13 +45,18 @@ bool	validDate(std::string line)
 	float	yearNum;
 	float	monthNum;
 	float	dayNum;
-	
-	// add protection here?
-	
-	yearNum = std::stof(year);
-	monthNum = std::stof(month);
-	dayNum = std::stof(day);
 
+	try
+	{
+		yearNum = std::stof(year);
+		monthNum = std::stof(month);
+		dayNum = std::stof(day);
+	}
+	catch(const std::out_of_range& e)
+	{
+		return false;
+	}
+	
 	if (yearNum > 2024 || yearNum < 1000)
 		return false;
 	if (monthNum > 12)
@@ -175,7 +68,7 @@ bool	validDate(std::string line)
 }
 
 
-bool	validValue(std::string line)
+static bool	validValue(std::string line)
 {
 	float value;
 	try
@@ -189,12 +82,12 @@ bool	validValue(std::string line)
 	}
 	if (value < 0)
 	{
-		std::cout << "Error: not a positive number" << std::endl;
+		std::cout << "Error: not a positive number." << std::endl;
 		return false;
 	}
 	if (value > 1000)
 	{
-		std::cout << "Error: too large a number" << std::endl;
+		std::cout << "Error: too large a number." << std::endl;
 		return false;
 	}
 	
@@ -206,5 +99,128 @@ bool	validValue(std::string line)
 
 const char*	invalidFile::what() const throw()
 {
-	return "Error: could not open file";
+	return "Error: could not open file.";
 }
+
+
+// ---------- displayResult ----------//
+
+
+//  std::map  - Lookup
+// find: finds element with specific key
+// lower_bound: returns an iterator to the first element not less than the given key
+// upper_bound: returns an iterator to the first element greater than the given key
+
+static void	displayResult(std::map<std::string, float> &map, std::string dateLine, float value)
+{
+	std::map<std::string, float>::iterator	it;
+
+	it = map.find(dateLine);
+	if (it == map.end())
+	{
+		it = map.lower_bound(dateLine);
+		if (it != map.begin())
+			it--;
+	}
+
+	float		num = it->second;
+	float		result = num * value;
+
+	std::cout << result << std::endl;
+
+}
+
+
+// ---------- database ----------//
+
+static void	getDataBase(std::map<std::string, float> &map)
+{
+	std::ifstream	dataBaseFile("data.csv");
+	if (!dataBaseFile.is_open())
+		throw invalidFile();
+
+	typedef std::map<std::string, float>::const_iterator it;
+	it mapIt = map.begin();
+	
+	std::string line;
+	getline(dataBaseFile, line);
+	while (getline(dataBaseFile, line))
+	{
+		try
+		{
+			std::string dateLine = line.substr(0, 10);
+			std::string valueLine = line.substr(11, (line.length() - 11));
+			
+			float value;
+			try
+			{
+				value = std::stof(valueLine);
+				
+			}
+			catch(const std::out_of_range& e)
+			{
+				return ; // ??
+			}
+
+			map.insert(mapIt, {dateLine, value});
+			++mapIt;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+	}
+	dataBaseFile.close();
+}
+
+
+// ---------- input data ----------//
+
+void	getExchange(char *argv)
+{
+	std::string		input = argv;
+	if (input.substr(input.find_last_of(".") + 1) != "csv")
+		throw invalidFile();
+
+	std::ifstream	inputFile(argv);
+	if (!inputFile.is_open())
+		throw invalidFile();
+		
+	float	value;
+	std::map<std::string, float>	dbMap;
+
+	std::string	line;
+	getline(inputFile, line);
+	while (getline(inputFile, line))
+	{
+		if (!checkLine(line))
+			continue ;
+
+		std::string dateLine = line.substr(0, 10);
+		if (!validDate(dateLine))
+		{
+			std::cout << "Error: bad input => " << dateLine << std::endl;
+			continue ;
+		}
+
+		std::string	valueLine = line.substr(13);
+		if (!validValue(valueLine))
+			continue ;
+
+		try
+		{
+			value = std::stof(valueLine);
+		}
+		catch(const std::out_of_range& e)
+		{
+			return ; /// ?
+		}
+		
+		getDataBase(dbMap);
+		std::cout << dateLine << " => " << valueLine << " = ";
+
+		displayResult(dbMap, dateLine, value);
+	}
+	inputFile.close();
+}
+

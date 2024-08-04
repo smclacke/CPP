@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:44:29 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/02 16:17:04 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/04 21:20:19 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 	}
 	try
 	{
-		getInputFile(argv[1]);
+		getExchange(argv[1]);
 	}
 	catch(const std::exception& e)
 	{

@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:45:06 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/02 16:14:44 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/04 21:24:26 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,7 @@
 # include <map>
 
 
-void	getDataBase(std::map<std::string, float> &map);
-void	getInputFile(char *argv);
-void	displayResult(std::map<std::string, float> &Map, std::string dateLine, float value);
-
-
-// parsing utils
-bool	checkLine(std::string line);
-bool	validDate(std::string line);
-bool	validValue(std::string line);
-
+void	getExchange(char *argv);
 
 // exceptions
 class invalidFile : public std::exception
