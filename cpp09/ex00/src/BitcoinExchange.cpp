@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:45:43 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/02 16:18:42 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/04 17:59:08 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	getDataBase(std::map<std::string, float> &map)
 		{
 			std::string dateLine = line.substr(0, 10);
 			std::string valueLine = line.substr(11, (line.length() - 11));
-			float	value = std::stof(valueLine);
+			float	value = std::stof(valueLine); // protection
 
 			map.insert(mapIt, {dateLine, value});
 			++mapIt;
@@ -115,7 +115,7 @@ void	getInputFile(char *argv)
 		if (!validValue(valueLine))
 			continue ;
 
-		value = std::stof(valueLine);
+		value = std::stof(valueLine); // protection?
 		getDataBase(dbMap);
 		displayResult(dbMap, dateLine, value);
 	}
@@ -157,6 +157,8 @@ bool	validDate(std::string line)
 	float	yearNum;
 	float	monthNum;
 	float	dayNum;
+	
+	// add protection here?
 	
 	yearNum = std::stof(year);
 	monthNum = std::stof(month);
