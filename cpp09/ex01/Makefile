@@ -6,11 +6,11 @@
 #    By: smclacke <smclacke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/07/30 17:52:51 by smclacke      #+#    #+#                  #
-#    Updated: 2024/07/30 17:53:10 by smclacke      ########   odam.nl          #
+#    Updated: 2024/08/05 17:26:05 by smclacke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= RPM
+NAME			= RPN
 
 INCLUDE			= -Iinclude
 

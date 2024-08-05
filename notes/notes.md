@@ -441,67 +441,77 @@ definition whereas the source file (.cpp) contains the implementation.
 **************************************************************************
 **************************************************************************
 **************************************************************************
-template: This keyword indicates that the following declaration is a template.
-<class T, class Container= std::deque<T>>: These are template parameters.
-class T: Specifies that T is a template parameter which can be any type.
-class Container = std::deque<T>: Specifies that Container is another template parameter, which defaults to std::deque<T> if not provided. std::deque is a double-ended queue from the C++ Standard Library, and std::deque<T> means a deque that stores elements of type T.
-
-class myClass: Declares a class named myClass.
-: public std::stack<T>: Indicates that myClass publicly inherits from std::stack<T>.
-std::stack<T>: A stack data structure from the C++ Standard Library, where T is the type of elements in the stack
 
 
-template <class T, class Container= std::deque <T>>
-class	MutantStack : public std::stack<T>
+static int isValidOperator(std::stack<int> &storage, char charactar)
 {
-	public:
-		// Default Constructor
-		MutantStack() : std::stack<T>() {};
+	int operant1;
+	int operant2;
 
-		// Destructor
-		~MutantStack() {};
-
-		// Copy constructor
-		MutantStack(const MutantStack& value)
+	if (storage.size() < 2)
+		throw std::range_error("Error");
+	operant2 = storage.top(); 
+	storage.pop();
+	operant1 = storage.top();
+	storage.pop();
+	switch (charactar)
+	{
+		case '+':
+			return operant1 + operant2;
+		case '-':
+			return operant1 - operant2;
+		case '*':
+			return operant1 * operant2;
+		case '/':
 		{
-			// std::cout << "Copy constructor called" << std::endl;
-			*this = value;
+			if (operant2 == 0)
+				throw std::invalid_argument("Error");
+			return operant1 / operant2;
 		}
+		default:
+			throw std::logic_error("Error");
+	}
+}
 
-		// Assignment= operator
-		MutantStack<T> &operator=(const MutantStack<T>& value)
-		{
-			// std::cout << "Assignment operator called" << std::endl;
-			if (this != &value)
-			{
-				this->c = value.c;
-			}
-			return *this;
-		}
 
-		// Constructor
-		MutantStack(const std::stack<T> &value) : std::stack<T>(value) {};
+// e.g.: 
+
+//  ./RPN "8 9 * 9 - 9 - 9 - 4 - 1 +"
+// 	42
+//  ./RPN "7 7 * 7 -"
+// 	42
+//  ./RPN "1 2 * 2 / 2 * 2 4 - +"
+// 	0
+//  ./RPN "(1 + 1)"
+// 	Error
+
+	// input numbers always less than 10
+	// must handle operations: + - / *
 	
-		// Member function
-		/* Alias for iterator
-		 * 	- Type alias iterator for the iterator type of the underlying container of std::stack<T>. 
-		 *	- This is using the typename keyword to specify that container_type::iterator is a type. 
-		 *	- 'container_type' A type that provides the base container to be adapted by a stack. */
-		using iterator = typename std::stack<T>::container_type::iterator;
 
-		// Iterator functions
-		// 'this->c' refers to the underlying container of the inherited 'std::stack<T>'
-		iterator begin()
-		{
-			return (this->c.begin());
-		}
+static bool isIntorOperator(char character)
+{
+	return (character <= '9' && character >= '0');
+}
 
-		iterator end()
-		{
-			return (this->c.end());
-		}
-};
+int rpn(const char *str)
+{
+	std::stack<int> storage;
 
+	for (size_t i=0; str[i] != '\0'; i++)
+	{
+		if (isspace(str[i]))
+			continue;
+		if (isIntorOperator(str[i]))
+			storage.push(str[i] - '0');
+		else
+			storage.push(isValidOperator(storage, str[i]));
+	}
+
+	if (storage.size() == 0)
+		throw std::invalid_argument("Error");
+	return storage.top();
+}
 
 **************************************************************************
 **************************************************************************
