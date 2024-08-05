@@ -6,7 +6,9 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/31 13:22:52 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/31 13:22:53 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/05 15:54:51 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+# include "../include/RPN.hpp"
 

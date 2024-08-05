@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:53:17 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/31 13:23:33 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/05 15:55:41 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@
 //  ./RPN "(1 + 1)"
 // 	Error
 
+	// numbers always less than 10
+	
 
 int	main()
 {
-
 
 	return 0;
 }
