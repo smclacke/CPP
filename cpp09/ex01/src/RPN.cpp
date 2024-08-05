@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/31 13:22:52 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/05 18:08:12 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/05 20:26:54 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,8 @@ static int	doCalc(std::stack<int> &stackRPN, char op)
 		default:
 			throw stackIssues();
 	}
-
 }
+
 
 void	resultRNP(std::string str)
 {
@@ -110,5 +110,6 @@ void	resultRNP(std::string str)
 		throw stackIssues();
 
 	result = stackRPN.top();
-	std::cout << "Result: " << result << std::endl;
+	std::cout << result << std::endl;
 }
+
