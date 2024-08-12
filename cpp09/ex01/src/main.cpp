@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:53:17 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/05 17:25:49 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/12 16:30:29 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int argc, char **argv)
 {
 	if (argc != 2)
 	{
-		std::cout << "Error" << std::endl;
+		std::cout << "Error: invalid number of arguments" << std::endl;
 		return 1;
 	}
 	try

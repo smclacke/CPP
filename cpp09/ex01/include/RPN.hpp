@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/05 15:52:17 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/05 17:46:32 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/12 16:23:44 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 # include <cctype>
 # include <algorithm>
 # include <stack>
-
-// define ops?
 
 
 // methods

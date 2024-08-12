@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/31 13:22:52 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/05 20:26:54 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/12 16:30:58 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ const char*	invalidString::what() const throw()
 
 const char*	stackIssues::what() const throw()
 {
-	return "Error: invlaid input";
+	return "Error: invalid input";
 }
 
 const char*	infinityIssues::what() const throw()
@@ -90,6 +90,7 @@ void	resultRNP(std::string str)
 {
 	std::stack<int>		stackRPN;
 	int					result;
+	int					ret;
 
 	if (str.empty())
 		throw invalidString();
@@ -103,10 +104,13 @@ void	resultRNP(std::string str)
 		if (validInt(str[i]))
 			stackRPN.push(str[i] - '0');
 		else if (validOp(str[i]))
-			stackRPN.push(doCalc(stackRPN, str[i]));
+		{
+			ret = doCalc(stackRPN, str[i]);
+			stackRPN.push(ret);
+		}
 	}
 
-	if (stackRPN.size() == 0 || stackRPN.size() > 2)
+	if (stackRPN.size() != 1)
 		throw stackIssues();
 
 	result = stackRPN.top();
