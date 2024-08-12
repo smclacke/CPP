@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/12 16:47:09 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/12 17:58:34 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/12 18:00:33 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ bool	convertNums(char **args, std::vector<int> &vec, std::list<int> &list)
 	// sort
 	// time stuff
 	// print
-
 // }
 
 

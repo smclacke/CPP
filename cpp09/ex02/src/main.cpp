@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/31 13:29:08 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/12 17:59:41 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/12 18:00:13 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,12 @@ int	main(int argc, char **argv)
 	for (itVec = vec.begin(); itVec != vec.end(); itVec++)
 		std::cout << "vec : " << *itVec << std::endl;
 
-
 	std::cout << std::endl << "-------------------------" << std::endl;
 
-	// printing
 	std::list<int>::iterator itList;
 	for (itList = list.begin(); itList != list.end(); itList++)
 		std::cout << "list : " << *itList << std::endl;
+
 
 	// sortNums(vec, deq);
 	return 0;
