@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/31 13:29:08 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/12 17:53:26 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/12 17:59:41 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ int	main(int argc, char **argv)
 		return 1;
 	}
 	std::vector<int>	vec;
-	std::deque<int>		deq;
+	std::list<int>		list;
 
-	if (!convertNums(argv, vec, deq))
+	if (!convertNums(argv, vec, list))
 		return 1;
 
 	// printing
@@ -55,10 +55,9 @@ int	main(int argc, char **argv)
 	std::cout << std::endl << "-------------------------" << std::endl;
 
 	// printing
-	std::deque<int>::iterator itDeq;
-	for (itDeq = deq.begin(); itDeq != deq.end(); itDeq++)
-		std::cout << "deq : " << *itDeq << std::endl;
-
+	std::list<int>::iterator itList;
+	for (itList = list.begin(); itList != list.end(); itList++)
+		std::cout << "list : " << *itList << std::endl;
 
 	// sortNums(vec, deq);
 	return 0;
