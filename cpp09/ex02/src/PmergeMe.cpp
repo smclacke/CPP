@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/12 16:47:09 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/12 20:47:54 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/12 21:29:53 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ bool	convertNums(char **args, std::vector<int> &vec, std::list<int> &list)
 	return true;
 }
 
-static int		jacobsthalSequence(int n)
+static int	jacobsthalSequence(int n)
 {
 	if (n == 0)
 		return 0;
@@ -101,7 +101,30 @@ static void	listSearchPairs(std::list<int> &sortedList, std::list<int>::iterator
 	}
 }
 
-static std::list<int>	listSort(std::list<int> &list)
+static void		listLargeSort(std::list<int> &sortedList, std::list<int> &addList)
+{
+	int	i = 1;
+	int	j = 1;
+	int	length = addList.size();
+	
+	sortedList.push_front(addList.front());
+	while (i < length)
+	{
+		for (int jac = jacobsthalSequence(j); jac > 0 && jac > jacobsthalSequence(j - 1); --j)
+		{
+			auto it = addList.begin();
+			if (jac >= length)
+				jac = length -1;
+			std::advance(it, jac);
+
+			listSearchPairs(sortedList, sortedList.begin(), sortedList.end(), *it);
+			++i;
+		}
+		++j;
+	}
+}
+
+static void	listSort(std::list<int> &list)
 {
 	int	struggler = -1;
 
@@ -123,49 +146,137 @@ static std::list<int>	listSort(std::list<int> &list)
 		addList.push_back(pair.second);
 	}
 	
-	int	i = 1;
-	int	j = 1;
-	int	length = addList.size();
+	listLargeSort(sortedList, addList);
+
+	if (struggler != -1)
+		listSearchPairs(sortedList, sortedList.begin(), sortedList.end(), struggler);
+
+	list = sortedList;
+}
+
+
+
+// vector
+static void	vectorSortPairs(std::vector<std::pair<int, int>> &pairs, size_t startPos)
+{
+	if (startPos == pairs.size() - 1)
+		return ;
+
+	for (size_t it = startPos + 1; it < pairs.size(); ++it)
+	{
+		if (!comparePairs(pairs[startPos], pairs[it]))
+			std::swap(pairs[startPos], pairs[it]);
+	}
+	vectorSortPairs(pairs, startPos + 1);
+
+}
+
+static std::vector<std::pair<int, int>>	vectorMakePairs(std::vector<int> &vec, std::vector<std::pair<int, int>> &pairs)
+{
+	size_t	sizeVec = vec.size();
+
+	for (size_t i = 0; i < sizeVec; i += 2)
+	{
+		int first = vec[i];
+		int second = vec[i + 1];
+		pairs.push_back(std::make_pair(std::max(first, second), std::min(first, second)));
+	}
+
+	size_t	startPos = 0;
+	vectorSortPairs(pairs, startPos);
+	return pairs;
+}
+
+static void	vectorSearchPairs(std::vector<int> &sortedVector, int start, int len, int value)
+{
+	if (start == len || start >= len)
+	{
+		sortedVector.insert(sortedVector.begin() + start, value);
+		return ;
+	}
 	
-	sortedList.push_front(addList.front());
-	while (i < length)
+	auto middle = start + (len - start) / 2;
+
+	if (sortedVector[middle] < value)
+		vectorSearchPairs(sortedVector, middle + 1, len, value);
+	else if (sortedVector[middle] > value)
+		vectorSearchPairs(sortedVector, start, middle, value);
+	else
+	{
+		sortedVector.insert(sortedVector.begin() + middle, value);
+		return ;
+	}
+}
+
+static void	vectorLargeSort(std::vector<int> &sortedVector, std::vector<int> &addVector)
+{
+	int		i = 1;
+	int		j = 1;
+	int		sizeVec = addVector.size();
+	
+	sortedVector.insert(sortedVector.begin(), addVector.front());
+
+	while (i < sizeVec)
 	{
 		for (int jac = jacobsthalSequence(j); jac > 0 && jac > jacobsthalSequence(j - 1); --j)
 		{
-			auto it = addList.begin();
-			if (jac >= length)
-				jac = length -1;
+			auto it = addVector.begin();
+			if (jac >= sizeVec)
+				jac = sizeVec - 1;
 			std::advance(it, jac);
 
-			listSearchPairs(sortedList, sortedList.begin(), sortedList.end(), *it);
+			vectorSearchPairs(sortedVector, 0, sortedVector.size(), *it);
 			++i;
 		}
 		++j;
 	}
-	if (struggler != -1)
-		listSearchPairs(sortedList, sortedList.begin(), sortedList.end(), struggler);
-
-	return sortedList;
 }
 
-// vector
+static void	vectorSort(std::vector<int> &vec)
+{
+	int	struggler = -1;
+	
+	if (vec.size() % 2 != 0)
+	{
+		struggler = vec.back();
+		vec.pop_back();
+	}
+
+	std::vector<std::pair<int, int>> pairs;
+	pairs = vectorMakePairs(vec, pairs);
+	
+	std::vector<int>	sortedVector;
+	std::vector<int>	addVector;
+
+	for (auto &pair : pairs)
+	{
+		sortedVector.push_back(pair.first);
+		addVector.push_back(pair.second);
+	}
+
+	vectorLargeSort(sortedVector, addVector);
+
+	if (struggler != -1)
+		vectorSearchPairs(sortedVector, 0, sortedVector.size(), struggler);
+
+	vec = sortedVector;
+}
 
 
 void	sortNums(std::vector<int> &vec, std::list<int> &list)
 {
-	std::list<int>		resultList;
-	// std::vector<int>		resultVector;
 	auto	startVec = std::chrono::high_resolution_clock::now();
-	// resultVector = vectorSort(vec);
+	vectorSort(vec);
 	auto	endVec = std::chrono::high_resolution_clock::now();
 	auto	durationVec = std::chrono::duration_cast<std::chrono::microseconds>(endVec - startVec).count();
 
 	auto	startList = std::chrono::high_resolution_clock::now();
-	resultList = listSort(list);
+	listSort(list);
 	auto	endList = std::chrono::high_resolution_clock::now();
 	auto	durationList = std::chrono::duration_cast<std::chrono::microseconds>(endList - startList).count();
 
-	int amount = printNums(resultList, 2);
+	// int amount = printNums(list, 2);
+	int amount = printNums(vec, 2);
 
 	std::cout << "Time to process a range of " << amount << " elements with std::vector : " << durationVec << " us" << std::endl;
 	std::cout << "Time to process a range of " << amount << " elements with std::list : " << durationList << " us" << std::endl;
