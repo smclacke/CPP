@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:45:43 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/04 21:26:43 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/12 16:46:26 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,7 @@ static bool	validDate(std::string line)
 		return false;
 	}
 	
-	if (yearNum > 2024 || yearNum < 1000)
-		return false;
-	if (monthNum > 12)
-		return false;
-	if (dayNum > 31)
+	if (yearNum > 2024 || yearNum < 1000 || monthNum > 12 || dayNum > 31)
 		return false;
 
 	return true;
@@ -105,8 +101,7 @@ const char*	invalidFile::what() const throw()
 
 // ---------- displayResult ----------//
 
-
-//  std::map  - Lookup
+// std::map  - Lookup
 // find: finds element with specific key
 // lower_bound: returns an iterator to the first element not less than the given key
 // upper_bound: returns an iterator to the first element greater than the given key
@@ -155,7 +150,6 @@ static void	getDataBase(std::map<std::string, float> &map)
 			try
 			{
 				value = std::stof(valueLine);
-				
 			}
 			catch(const std::out_of_range& e)
 			{

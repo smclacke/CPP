@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:44:29 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/04 21:20:19 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/12 16:38:22 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 {
 	if (argc != 2)
 	{
-		std::cout << "Error invalid input" << std::endl;
+		std::cout << "Error: invalid input" << std::endl;
 		return 1;
 	}
 	try
