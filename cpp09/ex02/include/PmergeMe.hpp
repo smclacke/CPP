@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/12 16:47:36 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/13 16:48:56 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/13 16:58:08 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,6 @@
 # include <deque>
 # include <ctime>
 # include <chrono>
-
-// The Ford-Johnson algorithm can be understood in terms of merging and insertion strategies:
-// "Merge-Insertion" algorithm
-
-// Step 1: Start by comparing pairs of elements. The smallest element from each pair
-// 		 is inserted into the list, while the larger one is temporarily set aside.
-
-// Step 2: Sort the smaller elements using a highly efficient sorting method (which could be 
-// 		a recursive application of the Ford-Johnson algorithm or another efficient method).
-
-// Step 3: Merge the sorted list of smaller elements with the larger elements that were set 
-// 		aside earlier.
-
-// Step 4: Insert the larger elements into the appropriate positions within the sorted list.
-
 
 // methods
 void	sortNums(char **args, std::vector<int> &vec, std::deque<int> &deque);
@@ -106,8 +91,8 @@ void	insertSort(Container &container)
 
 	for (it = container.begin(); it != container.end(); it++)
 	{
-		auto const interstion_point = std::upper_bound(container.begin(), it, *it);
-		std::rotate(interstion_point, it, it + 1);
+		auto const insertion_point = std::upper_bound(container.begin(), it, *it);
+		std::rotate(insertion_point, it, it + 1);
 	}
 }
 
@@ -115,7 +100,7 @@ template <class Container>
 void	mergeInsertSort(Container &container)
 {
 	size_t	len = container.size();
-	size_t	max = 100;
+	size_t	max = 2;
 
 	if (len > max)
 	{
