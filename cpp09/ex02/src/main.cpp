@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/31 13:29:08 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/13 16:49:05 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/13 18:44:05 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	main(int argc, char **argv)
 	std::vector<int>	vec;
 	std::deque<int>		deque;
 
-	sortNums(argv, vec, deque);
-
-	return 0;
+	return sortNums(argv, vec, deque);
 }
+

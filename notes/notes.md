@@ -362,6 +362,513 @@ Do not warn whenever a local variable shadows an instance variable in an Objecti
 	
 
 
+**************************************************************************
+**************************************************************************
+**************************************************************************
+**************************************************************************
+**************************************************************************
+**************************************************************************
+
+static int	jacobsthalSequence(int n)
+{
+	if (n == 0)
+		return 0;
+	if (n == 1)
+		return 1;
+	int	previous = 0;
+	int	current = 1;
+	for (int i = 2; i < n; ++i)
+	{
+		int	next = current + 2 * previous;
+		previous = current;
+		current = next;
+	}
+	return current;
+}
+
+static bool	comparePairs(std::pair<int, int> &firstPair, std::pair<int, int> &secondPair)
+{
+	return firstPair.first < secondPair.first;
+}
+
+
+// list
+static void	listSortPairs(std::list<std::pair<int, int>> &pairs, std::list<std::pair<int, int>>::iterator startPos)
+{
+	if (startPos == std::prev(pairs.end()))
+		return ;
+
+	for (std::list<std::pair<int,int>>::iterator it = std::next(startPos); it != pairs.end(); it++)
+	{
+		if (!comparePairs(*startPos, *it))
+			std::iter_swap(startPos, it);
+	}
+	listSortPairs(pairs, std::next(startPos));
+}
+
+static std::list<std::pair<int, int>>	listMakePairs(std::list<int> &list, std::list<std::pair<int, int>> &pairs)
+{
+	std::list<int>::iterator it = list.begin();
+	while (it != list.end())
+	{
+		int	first = *it;
+		++it;
+		int	second = *it;
+		++it;
+		pairs.push_back(std::make_pair(std::max(first, second), std::min(first, second)));
+	}
+
+	auto	startPos = pairs.begin();
+	listSortPairs(pairs, startPos);
+
+	return pairs;
+}
+
+// INSERT
+static void	listSearchPairs(std::list<int> &sortedList, std::list<int>::iterator start, std::list<int>::iterator len, int value)
+{
+	if (start == len || *start >= value)
+	{
+		sortedList.insert(start, value);
+		return ;
+	}
+	
+	auto middle = std::next(start, std::distance(start, len) / 2);
+
+	if (*middle < value)
+		listSearchPairs(sortedList, std::next(middle), len, value);
+	else if (*middle > value)
+		listSearchPairs(sortedList, start, middle, value);
+	else
+	{
+		sortedList.insert(middle, value);
+		return ;
+	}
+}
+
+// MERGE
+static void		listLargeSort(std::list<int> &sortedList, std::list<int> &addList)
+{
+	int	i = 1;
+	int	j = 1;
+	int	length = addList.size();
+	
+	sortedList.push_front(addList.front());
+	while (i < length)
+	{
+		for (int jac = jacobsthalSequence(j); jac > 0 && jac > jacobsthalSequence(j - 1); --j)
+		{
+			auto it = addList.begin();
+			if (jac >= length)
+				jac = length -1;
+			std::advance(it, jac);
+
+			listSearchPairs(sortedList, sortedList.begin(), sortedList.end(), *it);
+			++i;
+		}
+		++j;
+	}
+}
+
+static void	listSort(std::list<int> &list)
+{
+	int	struggler = -1;
+
+	if (list.size() % 2 != 0)
+	{
+		struggler = list.back();
+		list.pop_back();
+	}
+	
+	std::list<std::pair<int, int>> pairs;
+	pairs = listMakePairs(list, pairs);
+
+	std::list<int>	sortedList;
+	std::list<int>	addList;
+	
+	for (auto &pair : pairs)
+	{
+		sortedList.push_back(pair.first);
+		addList.push_back(pair.second);
+	}
+	
+	listLargeSort(sortedList, addList);
+
+	if (struggler != -1)
+		listSearchPairs(sortedList, sortedList.begin(), sortedList.end(), struggler);
+
+	list = sortedList;
+}
+
+
+
+// vector
+static void	vectorSortPairs(std::vector<std::pair<int, int>> &pairs, size_t startPos)
+{
+	if (startPos == pairs.size() - 1)
+		return ;
+
+	for (size_t it = startPos + 1; it < pairs.size(); ++it)
+	{
+		if (!comparePairs(pairs[startPos], pairs[it]))
+			std::swap(pairs[startPos], pairs[it]);
+	}
+	vectorSortPairs(pairs, startPos + 1);
+
+}
+
+static std::vector<std::pair<int, int>>	vectorMakePairs(std::vector<int> &vec, std::vector<std::pair<int, int>> &pairs)
+{
+	size_t	sizeVec = vec.size();
+
+	for (size_t i = 0; i < sizeVec; i += 2)
+	{
+		int first = vec[i];
+		int second = vec[i + 1];
+		pairs.push_back(std::make_pair(std::max(first, second), std::min(first, second)));
+	}
+
+	size_t	startPos = 0;
+	vectorSortPairs(pairs, startPos);
+	return pairs;
+}
+
+static void	vectorSearchPairs(std::vector<int> &sortedVector, int start, int len, int value)
+{
+	if (start == len || start >= len)
+	{
+		sortedVector.insert(sortedVector.begin() + start, value);
+		return ;
+	}
+	
+	auto middle = start + (len - start) / 2;
+
+	if (sortedVector[middle] < value)
+		vectorSearchPairs(sortedVector, middle + 1, len, value);
+	else if (sortedVector[middle] > value)
+		vectorSearchPairs(sortedVector, start, middle, value);
+	else
+	{
+		sortedVector.insert(sortedVector.begin() + middle, value);
+		return ;
+	}
+}
+
+static void	vectorLargeSort(std::vector<int> &sortedVector, std::vector<int> &addVector)
+{
+	int		i = 1;
+	int		j = 1;
+	int		sizeVec = addVector.size();
+	
+	sortedVector.insert(sortedVector.begin(), addVector.front());
+
+	while (i < sizeVec)
+	{
+		for (int jac = jacobsthalSequence(j); jac > 0 && jac > jacobsthalSequence(j - 1); --j)
+		{
+			auto it = addVector.begin();
+			if (jac >= sizeVec)
+				jac = sizeVec - 1;
+			std::advance(it, jac);
+
+			vectorSearchPairs(sortedVector, 0, sortedVector.size(), *it);
+			++i;
+		}
+		++j;
+	}
+}
+
+static void	vectorSort(std::vector<int> &vec)
+{
+	int	struggler = -1;
+	
+	if (vec.size() % 2 != 0)
+	{
+		struggler = vec.back();
+		vec.pop_back();
+	}
+
+	std::vector<std::pair<int, int>> pairs;
+	pairs = vectorMakePairs(vec, pairs);
+	
+	std::vector<int>	sortedVector;
+	std::vector<int>	addVector;
+
+	for (auto &pair : pairs)
+	{
+		sortedVector.push_back(pair.first);
+		addVector.push_back(pair.second);
+	}
+
+	vectorLargeSort(sortedVector, addVector);
+
+	if (struggler != -1)
+		vectorSearchPairs(sortedVector, 0, sortedVector.size(), struggler);
+
+	vec = sortedVector;
+}
+
+
+void	sortNums(std::vector<int> &vec, std::list<int> &list)
+{
+	auto	startVec = std::chrono::high_resolution_clock::now();
+	vectorSort(vec);
+	auto	endVec = std::chrono::high_resolution_clock::now();
+	auto	durationVec = std::chrono::duration_cast<std::chrono::microseconds>(endVec - startVec).count();
+
+	auto	startList = std::chrono::high_resolution_clock::now();
+	listSort(list);
+	auto	endList = std::chrono::high_resolution_clock::now();
+	auto	durationList = std::chrono::duration_cast<std::chrono::microseconds>(endList - startList).count();
+
+	// int amount = printNums(list, 2);
+	int amount = printNums(vec, 2);
+
+	std::cout << "Time to process a range of " << amount << " elements with std::vector : " << durationVec << " us" << std::endl;
+	std::cout << "Time to process a range of " << amount << " elements with std::list : " << durationList << " us" << std::endl;
+
+}
+
+**************************************************************************
+**************************************************************************
+**************************************************************************
+**************************************************************************
+**************************************************************************
+**************************************************************************
+
+template <typename T, typename T2> int PmergeMe::ParsePairArray(T array, T2 &pair_array) { auto arr_it = array.begin();
+
+for (auto pair_it = pair_array.begin(); pair_it != pair_array.end(); pair_it++)
+{
+    pair_it->first = *arr_it;
+    arr_it++;
+    pair_it->second = *arr_it;
+    if (pair_it->first < pair_it->second)
+        std::swap(pair_it->first, pair_it->second);
+    arr_it++;
+}
+if (arr_it != array.end())
+    return (*arr_it);
+return (-1);
+}
+
+template void PmergeMe::MergeSort(T it_begin, T it_end, std::ptrdiff_t distance) { std::vector<std::pair<int, int>> pair_array; auto left_begin = it_begin; auto left_end = it_end - ((distance / 2)); T right_begin; auto right_end = it_end;
+
+right_begin = it_begin + ((distance / 2));
+if (distance % 2 != 0)
+    left_end--;
+while (left_begin != left_end + 1 && right_begin != right_end + 1)
+{
+    if (left_begin->first <= right_begin->first)
+    {
+        pair_array.push_back(std::make_pair(left_begin->first, left_begin->second));
+        left_begin++;
+    }
+    else
+    {
+        pair_array.push_back(std::make_pair(right_begin->first, right_begin->second));
+        right_begin++;
+    }
+}
+for (auto left = left_begin; left != left_end + 1; left++)
+    pair_array.push_back(std::make_pair(left->first, left->second));
+for (auto right = right_begin; right != right_end + 1; right++)
+    pair_array.push_back(std::make_pair(right->first, right->second));
+std::copy(pair_array.begin(), pair_array.end(), it_begin);
+}
+
+template void PmergeMe::BigSort(T it_begin, T it_end) { std::ptrdiff_t distance;
+
+distance = std::distance(it_begin, it_end) + 1;
+if (it_begin == it_end)
+    return;
+BigSort(it_begin, it_end - (distance / 2));
+BigSort(it_begin + ((distance / 2)), it_end);
+return (this->MergeSort(it_begin, it_end, distance));
+}
+
+template <typename T, typename T2> void PmergeMe::SmallSort(T pair_array, T2 &array, int struggler) { T2 sorted_array; T2 jacob_array;
+
+auto p_it = pair_array.begin();
+jacob_array = this->JacobBuilder<T2>(pair_array.size());
+for (auto pair_it = pair_array.begin(); pair_it != pair_array.end(); pair_it++)
+    sorted_array.push_back(pair_it->first);
+for (auto jacob_it = jacob_array.begin(); jacob_it != jacob_array.end(); jacob_it++)
+{
+    auto it = std::lower_bound(sorted_array.begin(), sorted_array.end(), (p_it + *(jacob_it))->second);
+    sorted_array.insert(it, (p_it + *(jacob_it))->second);
+    pair_array.erase(p_it + *(jacob_it));
+}
+for (auto pair_it = pair_array.rbegin(); pair_it != pair_array.rend(); pair_it++)
+{
+    auto it = std::lower_bound(sorted_array.begin(), sorted_array.end(), pair_it->second);
+    sorted_array.insert(it, pair_it->second);
+}
+
+if (struggler != -1)
+{
+    auto it = std::lower_bound(sorted_array.begin(), sorted_array.end(), struggler);
+    sorted_array.insert(it, struggler);
+}
+std::copy(sorted_array.begin(), sorted_array.end(), array.begin());
+}
+
+void PmergeMe::sort_vector(void) { int struggler; std::vector<std::pair<int, int>> pair_array; std::chrono::high_resolution_clock::time_point start_timer = std::chrono::high_resolution_clock::now();
+
+pair_array.resize(this->_vec.size() / 2);
+struggler = this->ParsePairArray(this->_vec, pair_array);
+this->BigSort(pair_array.begin(), pair_array.end() - 1);
+this->SmallSort(pair_array, this->_vec, struggler);
+std::chrono::high_resolution_clock::time_point end_timer = std::chrono::high_resolution_clock::now();
+this->_vectime = std::chrono::duration_cast<std::chrono::nanoseconds>(end_timer - start_timer).count();
+}
+
+void PmergeMe::sort_deque(void) { int struggler; std::deque<std::pair<int, int>> pair_array; std::chrono::high_resolution_clock::time_point start_timer = std::chrono::high_resolution_clock::now();
+
+pair_array.resize(this->_vec.size() / 2);
+struggler = this->ParsePairArray(this->_deq, pair_array);
+this->BigSort(pair_array.begin(), pair_array.end() - 1);
+this->SmallSort(pair_array, this->_deq, struggler);
+std::chrono::high_resolution_clock::time_point end_timer = std::chrono::high_resolution_clock::now();
+this->_dequetime = std::chrono::duration_cast<std::chrono::nanoseconds>(end_timer - start_timer).count();
+}
+
+
+**************************************************************************
+**************************************************************************
+**************************************************************************
+**************************************************************************
+**************************************************************************
+**************************************************************************
+
+**************************************************************************
+**************************************************************************
+**************************************************************************
+**************************************************************************
+**************************************************************************
+**************************************************************************
+
+
+
+
+**************************************************************************
+**RANDOM FROM EXERCISES**
+**RANDOM FROM EXERCISES**
+**RANDOM FROM EXERCISES**
+
+
+**CPP09:**
+
+// # include <stack>
+// # include <deque>
+// # include <forward_list>
+// # include <vector>
+// # include <array>
+// # include <list>
+// # include <map>
+
+
+- map bitcoin
+- stack RNP
+- vec + deque pmerge
+
+*bitcoin :*
+
+database format CSV (fields/columns separated by comma character and records/rows terminated by newlines)
+
+database representing bitcoin price over time
+
+
+program takes as input a second database, storing the different prices/ dates to evaluate
+
+program rules:
+
+	- name is btc
+	- take file as argument
+	- format : "data | value"
+	- valid date will always be in the following format : Year-Month-Day
+	- float / positive integer between 0 and 1000
+	- error message on std out
+
+	- program will use the value in your input file
+	- program should display on standard output the result of the value multiplied by the exchange rate according to the date indicated in your database
+
+	~ if date used in input does not exist in your DB then use the closest date contained in your DB, use lower date not uppper one 
+
+
+----------------------------------------------------------------
+
+
+*RPN :*
+
+program rules:
+
+	- name is RPN
+	- takes an inverted Polish mathematical expression as an argument
+	- numbers used in this operation and passed as arguments will always be less than 10, calculation itself but also result do not take into account this rule
+	- must process this expression and output the correct result on the standard output
+	- error message on std out
+	- must handle operations with these tokens: "+ - / *"
+	- do not need to manage brackets or decimal numbers
+
+
+----------------------------------------------------------------
+
+*PmergeMe :*
+
+program rules:
+
+	- name PmergeMe
+	- must be able to use positive integer sequence as argument
+	- use merge-insert sort algorithm to sort the positive integer sequence
+	- need to use Ford-JOhnson algorithm
+	- errors on std out
+	- use two different containers
+	- handle at least 3000 different integrs
+
+	- strongly advised to implement your algorithm for each container 
+		avoiding using a generic function
+
+	- first line you must display explicit text followed by unsorted positive integer sequence
+	- second line display explicit text followed by unsorted positive integer sequence
+	- third line distplay explicit text indication the time used by your algorithm by specifying the first container used to sort the positive integer sequence
+
+	- format for display of the time used to carry out your sorting is free but the precision chosen must allow to clearly see the difference between two containers used
+
+	~ indication of time is deliberately strange in PDF example
+		must indicate time used to perform all your operations, both sorting part and data management part
+
+	~ management of errors related to duplicated is left to your discretion
+
+	~ containers used previously are forbidden
+
+
+
+----------------------------------------------------------------
+**----------- in human  -----------**
+
+from: https://medium.com/@sofia.huppertz/cpp09-school42-1efa42df7803
+
+
+*Bitcoin*
+
+- parsing and storing a database (Bitcoin historical exchange rate) inside a std::map
+- extracting the necessary data based on the input passed down to the program
+- use classes
+
+std::map :
+
+	- a sorted associative container that contains key-value pairs with unique keys
+	- keys are sorted by using 'Compare' comparison function
+	- Search, removal and insertion operations have logarithmic complexity
+	- maps are implemented as Red-Black tress (self-balancing binary search tree data structure)
+	- iterators iterate in ascending order of keys, where asccending is defined by the comparsion that was used for construction
+
+
+
+
+
+
 **CPP02- Floats and Fixed point numbers**
 **CPP02- Floats and Fixed point numbers**
 **CPP02- Floats and Fixed point numbers**
@@ -428,318 +935,6 @@ functions below:
 
 Split your class code into two files. The header file (.hpp/.h) contains the class
 definition whereas the source file (.cpp) contains the implementation.
-
-
-**************************************************************************
-**RANDOM FROM EXERCISES**
-**RANDOM FROM EXERCISES**
-**RANDOM FROM EXERCISES**
-
-
-
-**************************************************************************
-**************************************************************************
-**************************************************************************
-**************************************************************************
-
-//------------------------------------------------------------------------------
-// --- Member function ---
-// Compares two pairs of integers based on their first elements
-bool	comparePairs(const std::pair<int, int> &pair1, const std::pair<int, int> &pair2) 
-{
-	return (pair1.first < pair2.first);
-}
-
-// Compute the n-th term in the Jacobsthal sequence based on the previous two terms, following the defined recurrence relation.
-int	jacobsthalSequence(int n)
-{
-	// Base Cases 0 & 1
-	if (n == 0)				// 0th term in the Jacobsthal sequence is 0
-		return (0);
-	if (n == 1)				// 1st term in the Jacobsthal sequence is 1
-		return (1);
-
-	// Recurrence Relation
-	int prev = 0;				// Previous term ('J(n-2)')
-	int current = 1;			// Current term ('J(n-1)')
-	for (int i = 2; i < n; ++i)
-	{
-		// Calculates the next term in the sequence using the Jacobsthal sequence
-		int next = current + 2 *prev;	// ('J(n) = J(n-1) + 2 * J(n-2)')
-		prev = current;
-		current = next;
-	}
-	return (current);			// Return the n-th term in the Jacobsthal sequence
-}
-
-//------------------------------------------------------------------------------
-// VECTOR
-//------------------------------------------------------------------------------
-// Recursive function to sort pairs
-void	vecRecursivePairSort(std::vector<std::pair<int, int>> &pairs, size_t startIdx) 
-{
-	// If 'startIdx' reaches the last index, the vector is sorted
-	if (startIdx == pairs.size() - 1)
-		return ;
-
-	for (size_t it = startIdx + 1; it < pairs.size(); ++it) 
-	{
-		// Compare the pair at 'startIdx' with the current pair at index 'it'
-		if (!comparePairs(pairs[startIdx], pairs[it]))
-			std::swap(pairs[startIdx], pairs[it]);
-	}
-	// Recursively sort the remaining elements of the vector
-	vecRecursivePairSort(pairs, startIdx + 1);
-}
-
-// Searches for the appropriate position to insert a value into a sorted vector (main_chain) of integers.
-void	vecBinarySearch(std::vector<int>& main_chain, int start, int len, int value)
-{
-	if (start == len || start >= len)
-	{
-		// insert the value at the specified start index and return.
-		main_chain.insert(main_chain.begin() + start, value);
-		return ;
-	}
-
-	// Calculate the mid index of the range.
-	int mid = start + (len - start) / 2;
-	
-	if (main_chain[mid] < value)					// If the middle element is less than the value,
-		vecBinarySearch(main_chain, mid + 1, len, value);	// search the upper half of the range.
-	else if (main_chain[mid] > value)				// If the middle element is greater than the value,
-		vecBinarySearch(main_chain, start, mid, value);		// search the lower half of the range.
-	else								// If the middle element is equal to the value,
-	{
-		main_chain.insert(main_chain.begin() + mid, value);	// insert the value at the mid index.
-		return ;
-	}
-}
-
-// Ford-Johnson-Sort for vector
-std::vector<int>	PmergeMe::vecJohnsonSort(const std::string& str)
-{
-	std::vector<int> x;
-	std::istringstream iss(str);
-
-	// Parse the string to extract integers
-	int num;
-	while (iss >> num)
-		x.push_back(num);
-
-	// Step 1: Handle a possible remaining element if the size of x is odd
-	int struggler = -1;
-
-	if  (x.size() % 2 != 0)
-	{
-		struggler = x.back();
-		x.pop_back();
-	}
-
-	// Step 2: Group elements to pairs & determine larger elements of each pair
-	int n = x.size();
-	std::vector<std::pair<int, int>> pairs;
-	for (int i = 0; i < n; i += 2)
-	{
-		int first = x[i];
-		int second = x[i + 1];
-		pairs.push_back(std::make_pair(std::max(first, second), std::min(first, second))); // make pair and put lager element first
-	}
-
-		// // Print pairs
-		// std::cout << "\n-------------------------------------------------" << std::endl;
-		// std::cout << "Pairs: ";
-		// for (const auto& pair : pairs)
-		// 	std::cout << "(" << pair.first << ", " << pair.second << ")";
-		// std::cout << std::endl << std::endl;
-		// std::cout << "-------------------------------------------------" << std::endl;
-
-	// Step 3: Recursively sort larger elements from each pair
-	size_t startIdx = 0;
-	vecRecursivePairSort(pairs, startIdx);
-
-		// // Print sorted pairs
-		// std::cout << "Sorted Pairs: ";
-		// for (const auto& pair : pairs) 
-		// 	std::cout << "(" << pair.first << ", " << pair.second << ") ";
-		// std::cout << std::endl << std::endl;
-		// std::cout << "-------------------------------------------------" << std::endl;
-
-	// Step 4: Create main_chain and pend
-	std::vector<int> main_chain;
-    	std::vector<int> pend;
-
-	for (const auto& pair : pairs) 
-	{
-		main_chain.push_back(pair.first);	// main_chain: first element of the pair
-		pend.push_back(pair.second);		// pend: second element of the pair
-	}
-
-		// // Print main_chain elements & print pend elements
-		// std::cout << "main_chain: ";
-		// for (const auto& element : main_chain)
-		// 	std::cout << element << " ";
-		// std::cout << std::endl;
-
-		// std::cout << "pend: ";
-		// for (const auto& element : pend)
-		// 	std::cout << element << " ";
-		// std::cout << std::endl << std::endl;
-		// std::cout << "-------------------------------------------------" << std::endl;
-
-
-	// Step 5: Generate order of insertion using Jacobsthal sequence
-	int i = 1;
-	int k = 1;
-	int pendSize = pend.size();
-
-	main_chain.insert(main_chain.begin(), pend.front());
-
-	while (i < pendSize)
-	{
-	        for (int j = jacobsthalSequence(k); j > 0 && j > jacobsthalSequence(k - 1); --j)
-	        {
-			auto it = pend.begin();
-		        if (j >= pendSize)
-				j = pendSize - 1;
-			std::advance(it, j);
-	
-			// Step 6: Use binary search for insertion positions
-			vecBinarySearch(main_chain, 0, main_chain.size(), *it);
-			++i;
-	        }
-	        ++k;
-	}
-	
-	// Step 7: Insert the struggler
-	if (struggler != -1)
-		vecBinarySearch(main_chain, 0, main_chain.size(), struggler);
-
-	return main_chain;	// Return sorted vector
-}
-
-//------------------------------------------------------------------------------
-// LIST
-//------------------------------------------------------------------------------
-// Recursive function to sort pairs
-void	listRecursivePairSort(std::list<std::pair<int, int>> &pairs, std::list<std::pair<int, int>>::iterator startIdx) 
-{
-	// If 'startIdx' reaches the last index, the list is sorted
-	if (startIdx == std::prev(pairs.end()))
-		return ;
-
-	for (std::list<std::pair<int, int>>::iterator it = std::next(startIdx); it != pairs.end(); ++it) 
-	{
-		// Compare the pair at 'startIdx' with the current pair at index 'it'
-		if (!comparePairs(*startIdx, *it))
-			std::iter_swap(startIdx, it);
-	}
-	// Recursively sort the remaining elements of the list
-	listRecursivePairSort(pairs, std::next(startIdx));
-}
-
-// Searches for the appropriate position to insert a value into a sorted list (main_chain) of integers.
-void	listBinarySearch(std::list<int>& main_chain, std::list<int>::iterator start, std::list<int>::iterator len, int value)
-{
-	if (start == len || *start >= value)
-	{
-		// insert the value at the specified start index and return.
-		main_chain.insert(start, value);
-		return::cout << "\n-------------------------------------------------" << std::endl;
-		// std::cout << "Pairs: ";
-		// for (const auto& pair : pairs)
-		// 	std::cout << "(" << pair.first << ", " << pair.second << ")";
-		// std::cout << std::endl << std::endl;
-		// std::cout << "-------------------------------------------------" << std::endl;
-
-	// Step 3: Recursively sort larger elements from each pair
-	auto startIdx = pairs.begin();
-	listRecursivePairSort(pairs, startIdx);
-
-		// // Print sorted pairs
-		// std::cout << "Sorted Pairs: ";
-		// for (const auto& pair : pairs) 
-		// 	std::cout << "(" << pair.first << ", " << pair.second << ") ";
-		// std::cout << std::endl << std::endl;
-		// std::cout << "-------------------------------------------------" << std::endl;
-
-	// Step 4: Create main_chain and pend
-	std::list<int> main_chain;
-	std::list<int> pend;
-
-	for (const auto& pair : pairs) 
-	{
-		main_chain.push_back(pair.first);
-		pend.push_back(pair.second);
-	}
-
-		// // Print main_chain elements & print pend elements
-		// std::cout << "main_chain: ";
-		// for (const auto& element : main_chain)
-		// 	std::cout << element << " ";
-		// std::cout << std::endl;
-
-		// std::cout << "pend: ";
-		// for (const auto& element : pend)
-		// 	std::cout << element << " ";
-		// std::cout << std::endl << std::endl;
-		// std::cout << "-------------------------------------------------" << std::endl;
-
-	// Step 5: Generate order of insertion using Jacobsthal sequence
-	int i = 1;
-	int k = 1;
-	int len = pend.size();
-	
-	main_chain.push_front(pend.front());
-
-	while (i < len)
-	{
-		for (int j = jacobsthalSequence(k); j > 0 && j > jacobsthalSequence(k - 1); --j)
-		{
-			auto it = pend.begin();
-			if (j >= len)
-				j = len - 1;
-			std::advance(it, j);
-
-			// Step 6: Use binary search for insertion positions
-			listBinarySearch(main_chain, main_chain.begin(), main_chain.end(), *it);
-			++i;
-		}
-		++k;
-	}
-	
-	// Step 7: Insert the struggler
-	if (struggler != -1)
-		listBinarySearch(main_chain, main_chain.begin(), main_chain.end(), struggler);
-
-	return main_chain;	// Return sorted list
-}
-
-
-**************************************************************************
-**************************************************************************
-**************************************************************************
-**************************************************************************
-**************************************************************************
-**************************************************************************
-
-
-**************************************************************************
-**************************************************************************
-**************************************************************************
-**************************************************************************
-**************************************************************************
-**************************************************************************
-
-**************************************************************************
-**************************************************************************
-**************************************************************************
-**************************************************************************
-**************************************************************************
-**************************************************************************
-
-
-
 
 **CPP04-EX03**
 Interfaces don’t exist in C++98 (not even in C++20). However, pure abstract classes 
