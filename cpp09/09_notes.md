@@ -106,3 +106,63 @@ std::map :
 	- maps are implemented as Red-Black tress (self-balancing binary search tree data structure)
 	- iterators iterate in ascending order of keys, where asccending is defined by the comparsion that was used for construction
 
+
+
+//// insertion sort
+
+//template <class T>
+vector<int> insertSort(vector<int> array){
+    unsigned int i, j;
+    vector<int> sortedArray;
+    int max;
+    
+    for(i = 0; i<array.size();i++){
+        max = array[i];
+        
+        for(j = i; j<array.size();j++){
+           max = array[j] > max ? array[j]:max;  
+              
+        }
+        
+        sortedArray[i] = max;
+    }
+    
+    return sortedArray;
+}
+
+
+/* Function to sort array using insertion sort */
+// void insertionSort(int arr[], int n)
+// {
+//     for (int i = 1; i < n; ++i) {
+//         int key = arr[i];
+//         int j = i - 1;
+
+//         /* Move elements of arr[0..i-1], that are
+//            greater than key, to one position ahead
+//            of their current position */
+//         while (j >= 0 && arr[j] > key) {
+//             arr[j + 1] = arr[j];
+//             j = j - 1;
+//         }
+//         arr[j + 1] = key;
+//     }
+// }
+
+
+// using iterator:
+
+// Function to sort the array 
+void insertionSort(std::vector<int> &vec) 
+{ 
+    for (auto it = vec.begin(); it != vec.end(); it++) 
+    {         
+        // Searching the upper bound, i.e., first  
+        // element greater than *it from beginning 
+        auto const insertion_point =  
+                std::upper_bound(vec.begin(), it, *it); 
+          
+        // Shifting the unsorted part 
+        std::rotate(insertion_point, it, it+1);         
+    } 
+} 

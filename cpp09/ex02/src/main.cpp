@@ -6,17 +6,11 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/31 13:29:08 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/12 21:27:45 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/13 16:19:17 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/PmergeMe.hpp"
-
-//  ./PmergeMe 100 4 789 33 44 1000 4 6 234 768678 345 5 3 45 345 56 75 67 2 3 25 45 676  345 23 42 3 35 56 8 6 3 4 
-// Before: 100 4 789 33 44 1000 4 6 234 768678 345 5 3 45 345 56 75 67 2 3 25 45 676 345 23 42 3 35 56 8 6 3 4 
-// After: 2 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 4 6 6 35 42 45 45 56 75 100 345 345 676 789 1000 768678 
-// Time to process a range of 33 elements with std::vector : 80 us
-// Time to process a range of 33 elements with std::list : 127 us
 
 int	main(int argc, char **argv)
 {
@@ -26,12 +20,26 @@ int	main(int argc, char **argv)
 		return 1;
 	}
 	std::vector<int>	vec;
-	std::list<int>		list;
+	std::deque<int>		deque;
 
-	if (!convertNums(argv, vec, list))
+	auto	startVec = std::chrono::high_resolution_clock::now();
+	auto	startDeque = std::chrono::high_resolution_clock::now();
+	// int amount = printNums(deque, 1);
+
+	if (!convertNums(argv, vec, deque))
 		return 1;
 
-	sortNums(vec, list);
+	int amount = printNums(vec, 1);
+	sortNums(vec, deque);
+
+	auto	endVec = std::chrono::high_resolution_clock::now();
+	auto	durationVec = std::chrono::duration_cast<std::chrono::microseconds>(endVec - startVec).count();
+	auto	endDeque = std::chrono::high_resolution_clock::now();
+	auto	durationDeque = std::chrono::duration_cast<std::chrono::microseconds>(endDeque - startDeque).count();
+
+	std::cout << "Time to process a range of " << amount << " elements with std::vector : " << durationVec << " us" << std::endl;
+	std::cout << "Time to process a range of " << amount << " elements with std::deque : " << durationDeque << " us" << std::endl;
+
 
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/12 16:47:36 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/12 20:46:05 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/13 16:13:00 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <cctype>
 # include <algorithm>
 # include <vector>
-# include <list>
+# include <deque>
 # include <ctime>
 # include <chrono>
 
@@ -37,8 +37,8 @@
 
 
 // methods
-bool	convertNums(char **args, std::vector<int> &vec, std::list<int> &list);
-void	sortNums(std::vector<int> &vec, std::list<int> &list);
+bool	convertNums(char **args, std::vector<int> &vec, std::deque<int> &deque);
+void	sortNums(std::vector<int> &vec, std::deque<int> &deque);
 
 
 // templates
@@ -85,6 +85,47 @@ int	printNums(Container &container, int flag)
 	std::cout << std::endl;
 
 	return total;
+}
+
+
+template <class Container>
+void	insertSort(Container &container)
+{
+	typename Container::iterator	it;
+
+	for (it = container.begin(); it != container.end(); it++)
+	{
+		auto const interstion_point = std::upper_bound(container.begin(), it, *it);
+		std::rotate(interstion_point, it, it + 1);
+	}
+}
+
+template <class Container>
+void	mergeInsertSort(Container &container)
+{
+	size_t	len = container.size();
+	size_t	max = 5; // if many elements, split into smaller containers to sort
+
+	// after splitting and sorting, merge back together and perform final insert
+
+	if (len > max)
+	{
+		typename Container::iterator	begin = container.begin();
+		typename Container::iterator	mid = container.begin();
+		typename Container::iterator	end = container.end();
+		std::advance(mid, container.size() / 2); // get to end (need?)
+
+		Container	left(begin, mid);
+		Container	right(mid, end); // chop in two
+
+		if (left.size() > 1)
+			mergeInsertSort(left);
+		if (right.size() > 1)
+			mergeInsertSort(right);
+		std::merge(left.begin(), left.end(), right.begin(), right.end(), container.begin());
+	}
+	else
+		insertSort(container);
 }
 
 
