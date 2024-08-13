@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/12 16:47:36 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/13 16:13:00 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/13 16:48:56 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@
 
 
 // methods
-bool	convertNums(char **args, std::vector<int> &vec, std::deque<int> &deque);
-void	sortNums(std::vector<int> &vec, std::deque<int> &deque);
+void	sortNums(char **args, std::vector<int> &vec, std::deque<int> &deque);
 
 
 // templates
@@ -65,6 +64,18 @@ bool	convertContain(char *str, Container &container)
 	}
 	return true;
 }
+
+template <class Container>
+bool	convertNums(char **args, Container &container)
+{
+	for (size_t i = 1; args[i]; i++)
+	{
+		if (!convertContain(args[i], container))
+			return false;
+	}
+	return true;
+}
+
 
 template <class Container>
 int	printNums(Container &container, int flag)
@@ -104,19 +115,17 @@ template <class Container>
 void	mergeInsertSort(Container &container)
 {
 	size_t	len = container.size();
-	size_t	max = 5; // if many elements, split into smaller containers to sort
-
-	// after splitting and sorting, merge back together and perform final insert
+	size_t	max = 100;
 
 	if (len > max)
 	{
 		typename Container::iterator	begin = container.begin();
 		typename Container::iterator	mid = container.begin();
 		typename Container::iterator	end = container.end();
-		std::advance(mid, container.size() / 2); // get to end (need?)
+		std::advance(mid, container.size() / 2);
 
 		Container	left(begin, mid);
-		Container	right(mid, end); // chop in two
+		Container	right(mid, end);
 
 		if (left.size() > 1)
 			mergeInsertSort(left);
