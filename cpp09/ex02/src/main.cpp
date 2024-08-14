@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/31 13:29:08 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/14 16:42:58 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/14 16:50:48 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	main(int argc, char **argv)
 
 
 /**
+ * 
+ * // --- from wiki --- //
  * Merge-insertion sort performs the following steps on an input X of n elements:
  * 1. group elements of X into [n/2] pairs of elements, leaving one element 
  * 		unpaired if elements total is odd
@@ -48,27 +50,16 @@ int	main(int argc, char **argv)
  * 		element should be inserted
  * 
  * 
- */
-
-
-
-/**
- * The Merge Insertion Sort algorithm is as follows:
-
-Given an unsorted list, group the list into pairs. If the list is odd, the last element is unpaired.
-
-Each pair is sorted (using a single comparison each) into what we will call [a b] pairs.
-
-The pairs are sorted recursively based on the a of each, and we call the pairs [a1 b1], [a2 b2] etc. If the list was odd, the unpaired element is considered the last b.
-
-We call the chain of as the "main-chain".
-
-At this point, we could take any of the bs and use binary-search-insertion to insert that b into the main-chain (which starts of as just the as). When inserting, we only need to consider the values "left" of the b in question (for example, when inserting b4 we only need to consider the chain up to and including a3).
-
-We could insert the bs in order (b1, b2 ...), but the "key insight" from above suggest otherwise. Different bs have different worst-case costs to insert into the main-chain (worst case cost for binary-search-insertion is floor(log2(N) where N is the length of the relevant part of the main-chain). We can minimize the cost by following an order based on the Jacobsthal Numbers: 1 3 2 5 4 11 10 9 8 7 6 21 20 19 18... (ignoring values which are greater than the bs we have).
-
-And so, we insert the bs, one at a time, into the main-chain following the above progression, eventually resulting in a sorted list.
-
-It turns out that the order of such comparisons can be determined by an integer progression called the Jacobsthal numbers, when optimizing for the worst-case.
- 
+ * // --- //
+ * 
+ * given an unsorted list, group the list into pairs, if odd, last element is unpaired
+ * each pair is sorted (using a single comparison each) into pairs recursively based on the first in the pair [a1 b1] [a2 b2]
+ * if odd, last element is the last b
+ * can now use binary-search-insertion to insert any b into the sorted list (which starts off as just a elements)
+ * we only need to consider the elements "left" of the b in question [b4, consider t/m a3]
+ * use Jacobsthal Numbers: [1 3 2 5 4 11 10 9 8 7 6 21 20 19 18 ...] (ignoring values greater than the bs we have)
+ * insert bs, one at a time into sorted list follownig above progression, eventually resulting in a sorted list
+ * 
+ * the order of such comparisons can be determined by the interger progression called jacobsthal numbers (optimizing for the worst-case)
+ * 
  */
