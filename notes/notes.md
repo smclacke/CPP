@@ -369,6 +369,203 @@ Do not warn whenever a local variable shadows an instance variable in an Objecti
 **************************************************************************
 **************************************************************************
 
+	// std::cout << "-------------------------------------------------" << std::endl;
+
+// Step 3: Recursively sort larger elements from each pair
+size_t startIdx = 0;
+vecRecursivePairSort(pairs, startIdx);
+
+	// // Print sorted pairs
+	// std::cout << "Sorted Pairs: ";
+	// for (const auto& pair : pairs) 
+	// 	std::cout << "(" << pair.first << ", " << pair.second << ") ";
+	// std::cout << std::endl << std::endl;
+	// std::cout << "-------------------------------------------------" << std::endl;
+
+// Step 4: Create main_chain and pend
+std::vector<int> main_chain;
+	std::vector<int> pend;
+
+for (const auto& pair : pairs) 
+{
+	main_chain.push_back(pair.first);	// main_chain: first element of the pair
+	pend.push_back(pair.second);		// pend: second element of the pair
+}
+
+	// // Print main_chain elements & print pend elements
+	// std::cout << "main_chain: ";
+	// for (const auto& element : main_chain)
+	// 	std::cout << element << " ";
+	// std::cout << std::endl;
+
+	// std::cout << "pend: ";
+	// for (const auto& element : pend)
+	// 	std::cout << element << " ";
+	// std::cout << std::endl << std::endl;
+	// std::cout << "-------------------------------------------------" << std::endl;
+
+
+// Step 5: Generate order of insertion using Jacobsthal sequence
+int i = 1;
+int k = 1;
+int pendSize = pend.size();
+
+main_chain.insert(main_chain.begin(), pend.front());
+
+while (i < pendSize)
+{
+        for (int j = jacobsthalSequence(k); j > 0 && j > jacobsthalSequence(k - 1); --j)
+        {
+		auto it = pend.begin();
+	        if (j >= pendSize)
+			j = pendSize - 1;
+		std::advance(it, j);
+
+		// Step 6: Use binary search for insertion positions
+		vecBinarySearch(main_chain, 0, main_chain.size(), *it);
+		++i;
+        }
+        ++k;
+}
+
+// Step 7: Insert the struggler
+if (struggler != -1)
+	vecBinarySearch(main_chain, 0, main_chain.size(), struggler);
+
+return main_chain;	// Return sorted vector
+}
+
+//------------------------------------------------------------------------------ // LIST //------------------------------------------------------------------------------ // Recursive function to sort pairs void listRecursivePairSort(std::list<std::pair<int, int>> &pairs, std::list<std::pair<int, int>>::iterator startIdx) { // If 'startIdx' reaches the last index, the list is sorted if (startIdx == std::prev(pairs.end())) return ;
+
+for (std::list<std::pair<int, int>>::iterator it = std::next(startIdx); it != pairs.end(); ++it) 
+{
+	// Compare the pair at 'startIdx' with the current pair at index 'it'
+	if (!comparePairs(*startIdx, *it))
+		std::iter_swap(startIdx, it);
+}
+// Recursively sort the remaining elements of the list
+listRecursivePairSort(pairs, std::next(startIdx));
+}
+
+// Searches for the appropriate position to insert a value into a sorted list (main_chain) of integers. void listBinarySearch(std::list& main_chain, std::list::iterator start, std::list::iterator len, int value) { if (start == len || *start >= value) { // insert the value at the specified start index and return. main_chain.insert(start, value); return ; }
+
+// Calculate the mid index of the range.
+auto mid = std::next(start, std::distance(start, len) / 2);
+
+if (*mid < value)							// If the middle element is less than the value,
+	listBinarySearch(main_chain, std::next(mid), len, value);	// search the upper half of the range.
+else if (*mid > value)							// If the middle element is greater than the value,
+	listBinarySearch(main_chain, start, mid, value);		// search the lower half of the range.
+else									// If the middle element is equal to the value,
+{
+	main_chain.insert(mid, value);					// insert the value at the mid index.
+	return ;
+}
+}
+
+// Ford-Johnson-Sort for list std::list PmergeMe::listJohnsonSort(const std::string& str) { std::list x; std::istringstream iss(str);
+
+// Parse the string to extract integers
+int num;
+while (iss >> num)
+	x.push_back(num);
+
+// Step 1: Handle a possible remaining element if the size of x is odd
+int struggler = -1;
+
+if  (x.size() % 2 != 0)
+{
+	struggler = x.back();
+	x.pop_back();
+}
+
+// Step 2: Group elements to pairs & determine larger elements of each pair
+std::list<std::pair<int, int>> pairs;
+auto it = x.begin();
+while (it != x.end())
+{
+	int first = *it;
+	++it;
+	int second = *it;
+	++it;
+	pairs.push_back(std::make_pair(std::max(first, second), std::min(first, second))); // make pair and put lager element first
+}
+
+	// // Print pairs
+	// std::cout << "\n-------------------------------------------------" << std::endl;
+	// std::cout << "Pairs: ";
+	// for (const auto& pair : pairs)
+	// 	std::cout << "(" << pair.first << ", " << pair.second << ")";
+	// std::cout << std::endl << std::endl;
+	// std::cout << "-------------------------------------------------" << std::endl;
+
+// Step 3: Recursively sort larger elements from each pair
+auto startIdx = pairs.begin();
+listRecursivePairSort(pairs, startIdx);
+
+	// // Print sorted pairs
+	// std::cout << "Sorted Pairs: ";
+	// for (const auto& pair : pairs) 
+	// 	std::cout << "(" << pair.first << ", " << pair.second << ") ";
+	// std::cout << std::endl << std::endl;
+	// std::cout << "-------------------------------------------------" << std::endl;
+
+// Step 4: Create main_chain and pend
+std::list<int> main_chain;
+std::list<int> pend;
+
+for (const auto& pair : pairs) 
+{
+	main_chain.push_back(pair.first);
+	pend.push_back(pair.second);
+}
+
+	// // Print main_chain elements & print pend elements
+	// std::cout << "main_chain: ";
+	// for (const auto& element : main_chain)
+	// 	std::cout << element << " ";
+	// std::cout << std::endl;
+
+	// std::cout << "pend: ";
+	// for (const auto& element : pend)
+	// 	std::cout << element << " ";
+	// std::cout << std::endl << std::endl;
+	// std::cout << "-------------------------------------------------" << std::endl;
+
+// Step 5: Generate order of insertion using Jacobsthal sequence
+int i = 1;
+int k = 1;
+int len = pend.size();
+
+main_chain.push_front(pend.front());
+
+while (i < len)
+{
+	for (int j = jacobsthalSequence(k); j > 0 && j > jacobsthalSequence(k - 1); --j)
+	{
+		auto it = pend.begin();
+		if (j >= len)
+			j = len - 1;
+		std::advance(it, j);
+
+		// Step 6: Use binary search for insertion positions
+		listBinarySearch(main_chain, main_chain.begin(), main_chain.end(), *it);
+		++i;
+	}
+	++k;
+}
+
+// Step 7: Insert the struggler
+if (struggler != -1)
+	listBinarySearch(main_chain, main_chain.begin(), main_chain.end(), struggler);
+
+return main_chain;	// Return sorted list
+}
+
+
+
+// WHAT I HAVE NOW
+
 static int	jacobsthalSequence(int n)
 {
 	if (n == 0)

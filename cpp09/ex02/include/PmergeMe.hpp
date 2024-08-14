@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/12 16:47:36 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/13 20:14:04 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/14 13:04:07 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,45 +68,6 @@ int	printNums(Container &container)
 	}
 	std::cout << std::endl;
 	return total;
-}
-
-
-
-template <class Container>
-void	insertSort(Container &container, typename Container::iterator it)
-{
-	
-}
-
-template <class Container>
-std::list<std::pair<int, int>>	makePairs(Container &container)
-{
-	
-}
-
-template <class Container>
-void	mergeSort(Container &sorted, Container &add)
-{
-	int		i = 1;
-	int		j = 1;
-	int		len = add.size();
-
-	sorted.push_front(add.front());
-	while (i < len)
-	{
-		for (int jacob = jacobsthal(j); jacob > 0 && jacob > jacobsthal(j - 1); --j)
-		{
-			auto it = add.begin();
-			if (jacob >= length)
-				jacob = length - 1;
-			std::advance(it, jacob);
-
-			// insertSort(sorted, sorted.begin(), sorted.end(), *it);
-			insertSort(sorted, *it);
-			++i;
-		}
-		++j;
-	}
 }
 
 
