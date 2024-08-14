@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/12 16:47:09 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/14 15:57:46 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/14 16:28:51 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,31 +114,17 @@ static void	vectorMergeSort(std::vector<int> &sortedVector, std::vector<int> &ad
 
 	while (i < sizeVec)
 	{
-		//
-		int jac = jacobsthal(j);
-		
-		if (jac >= sizeVec)
-			jac = sizeVec - 1;
-		vectorInsertSort(sortedVector, 0, sortedVector.size(), addVector[jac]);
-		++i;
-		++j;
-		//
-		
-		// orrr
-		
-		//
-		// for (int jac = jacobsthal(j); jac > 0 && jac > jacobsthal(j - 1); --j)
-		// {
-		// 	auto it = addVector.begin();
-		// 	if (jac >= sizeVec)
-		// 		jac = sizeVec - 1;
-		// 	std::advance(it, jac);
+		for (int jac = jacobsthal(j); jac > 0 && jac > jacobsthal(j - 1); --jac)
+		{
+			auto it = addVector.begin();
+			if (jac >= sizeVec)
+				jac = sizeVec - 1;
+			std::advance(it, jac);
 
-		// 	vectorInsertSort(sortedVector, 0, sortedVector.size(), *it);
-		// 	++i;
-		// }
-		// ++j;
-		//
+			vectorInsertSort(sortedVector, 0, sortedVector.size(), *it);
+			++i;
+		}
+		++j;
 	}
 }
 
@@ -193,6 +179,7 @@ static void	dequeSortPairs(std::deque<std::pair<int, int>> &pairs, std::deque<st
 static std::deque<std::pair<int, int>>	dequeMakePairs(std::deque<int> &deque, std::deque<std::pair<int, int>> &pairs)
 {
 	std::deque<int>::iterator it = deque.begin();
+
 	while (it != deque.end())
 	{
 		int	first = *it;
@@ -233,16 +220,17 @@ static void		dequeMergeSort(std::deque<int> &sortedDeque, std::deque<int> &add)
 {
 	int	i = 1;
 	int	j = 1;
-	int	length = add.size();
+	int	size = add.size();
 	
 	sortedDeque.push_front(add.front());
-	while (i < length)
+
+	while (i < size)
 	{
-		for (int jac = jacobsthal(j); jac > 0 && jac > jacobsthal(j - 1); --j)
+		for (int jac = jacobsthal(j); jac > 0 && jac > jacobsthal(j - 1); --jac)
 		{
 			auto it = add.begin();
-			if (jac >= length)
-				jac = length -1;
+			if (jac >= size)
+				jac = size -1;
 			std::advance(it, jac);
 
 			dequeInsertSort(sortedDeque, sortedDeque.begin(), sortedDeque.end(), *it);
@@ -301,13 +289,9 @@ int	sortNums(char **args, std::vector<int> &vec, std::deque<int> &deque)
 	auto	endDeque = std::chrono::high_resolution_clock::now();
 	auto	durationDeque = std::chrono::duration_cast<std::chrono::microseconds>(endDeque - startDeque).count();
 
-
-	std::cout << "\n\n";
 	printArgs(args);
-	std::cout << "\n\n";
 	int amount = printNums(vec);
 	printNums(deque);
-	std::cout << "\n\n";
 
 	std::cout << "Time to process a range of " << amount << " elements with std::vector : " << durationVec << " us" << std::endl;
 	std::cout << "Time to process a range of " << amount << " elements with std::deque : " << durationDeque << " us" << std::endl;
