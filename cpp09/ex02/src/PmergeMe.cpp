@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/12 16:47:09 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/14 16:28:51 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/14 19:29:01 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -291,7 +291,7 @@ int	sortNums(char **args, std::vector<int> &vec, std::deque<int> &deque)
 
 	printArgs(args);
 	int amount = printNums(vec);
-	printNums(deque);
+	// printNums(deque);
 
 	std::cout << "Time to process a range of " << amount << " elements with std::vector : " << durationVec << " us" << std::endl;
 	std::cout << "Time to process a range of " << amount << " elements with std::deque : " << durationDeque << " us" << std::endl;

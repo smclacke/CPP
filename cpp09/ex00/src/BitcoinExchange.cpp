@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/30 17:45:43 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/12 16:46:26 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/14 19:23:26 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,15 +189,34 @@ void	getExchange(char *argv)
 	{
 		if (!checkLine(line))
 			continue ;
-
-		std::string dateLine = line.substr(0, 10);
+		
+		std::string dateLine;
+		try
+		{
+			dateLine = line.substr(0, 10);
+		}
+		catch(const std::exception& e)
+		{
+			
+			std::cout << "Error: bad input => " << std::endl;
+			continue ;
+		}
 		if (!validDate(dateLine))
 		{
 			std::cout << "Error: bad input => " << dateLine << std::endl;
 			continue ;
 		}
 
-		std::string	valueLine = line.substr(13);
+		std::string	valueLine; 
+		try
+		{
+			valueLine = line.substr(13);
+		}
+		catch(const std::exception& e)
+		{
+			std::cout << "Error: bad input => " << std::endl;
+			continue ;
+		}
 		if (!validValue(valueLine))
 			continue ;
 

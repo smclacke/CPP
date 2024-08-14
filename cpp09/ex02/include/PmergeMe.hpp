@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/12 16:47:36 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/14 13:04:07 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/14 19:31:49 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ bool	convertContain(char **args, Container &container)
 {
 	for (size_t i = 1; args[i]; i++)
 	{	
+		if (!args[i][0])
+		{
+			std::cout << "Error: invalid input" << std::endl;
+			return false;
+		}
 		for (size_t j = 0; args[i][j]; j++)
 		{
 			if (!isdigit(args[i][j]))
