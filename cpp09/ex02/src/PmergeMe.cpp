@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/12 16:47:09 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/08/14 19:29:01 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/08/15 14:38:54 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,9 @@ static void	vectorMergeSort(std::vector<int> &sortedVector, std::vector<int> &ad
 
 static void sortVec(std::vector<int> &vec)
 {
+	if (vec.size() < 2)
+		return ;
+
 	int	struggler = -1;
 
 	if (vec.size() % 2 != 0)
@@ -242,6 +245,9 @@ static void		dequeMergeSort(std::deque<int> &sortedDeque, std::deque<int> &add)
 
 static void sortDeque(std::deque<int> &deque)
 {
+	if (deque.size() < 2)
+		return ;
+	
 	int	struggler = -1;
 
 	if (deque.size() % 2 != 0)
@@ -291,7 +297,7 @@ int	sortNums(char **args, std::vector<int> &vec, std::deque<int> &deque)
 
 	printArgs(args);
 	int amount = printNums(vec);
-	// printNums(deque);
+	//int amount = printNums(deque);
 
 	std::cout << "Time to process a range of " << amount << " elements with std::vector : " << durationVec << " us" << std::endl;
 	std::cout << "Time to process a range of " << amount << " elements with std::deque : " << durationDeque << " us" << std::endl;
