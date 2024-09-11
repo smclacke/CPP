@@ -6,7 +6,7 @@
 #    By: SarahLouise <SarahLouise@student.codam.      +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/12/27 14:36:54 by SarahLouise   #+#    #+#                  #
-#    Updated: 2024/03/24 18:23:39 by smclacke      ########   odam.nl          #
+#    Updated: 2024/09/11 12:25:56 by smclacke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ fclean		: clean
 
 re			: fclean all
 
-.PHONY: all clean flcan re
+.PHONY: all clean fclean re
 
 
 

@@ -6,7 +6,7 @@
 #    By: smclacke <smclacke@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/03/07 13:12:55 by smclacke      #+#    #+#                  #
-#    Updated: 2024/04/16 21:24:34 by smclacke      ########   odam.nl          #
+#    Updated: 2024/09/11 12:26:17 by smclacke      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ fclean		: clean
 
 re			: fclean all
 
-.PHONY: all clean flcan re
+.PHONY: all clean fclean re
 
 
 
