@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/06 20:11:36 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/10/21 18:38:07 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/10/21 18:45:27 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,8 +122,8 @@ static void	convertFloat(const std::string &input)
 
 	std::cout << std::fixed << std::setprecision(1) << "float: " << f << "f" << std::endl;
 
-	if ((static_cast<double>(f) < std::numeric_limits<double>::max() && static_cast<double>(f) > std::numeric_limits<double>::min()) || isFloatNanOrInf(input))
-		std::cout << "double: " << static_cast<double>(f) << std::endl;
+	if ((static_cast<double>(f) < std::numeric_limits<double>::max() && static_cast<double>(f) > std::numeric_limits<double>::lowest()) || isFloatNanOrInf(input))
+		std::cout << std::fixed << std::setprecision(1) << "double: " << static_cast<double>(f) << std::endl;
 	else
 		impossible("double");
 }
