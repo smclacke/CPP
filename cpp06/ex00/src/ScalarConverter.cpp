@@ -6,7 +6,7 @@
 /*   By: smclacke <smclacke@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/06 20:11:36 by smclacke      #+#    #+#                 */
-/*   Updated: 2024/07/10 16:46:02 by smclacke      ########   odam.nl         */
+/*   Updated: 2024/10/21 18:06:16 by smclacke      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,7 @@ static void	convertDouble(const std::string &input)
 	else
 		impossible("int");
 	
-	if ((static_cast<float>(d) < std::numeric_limits<float>::max() && static_cast<float>(d) > std::numeric_limits<float>::min()) || isDoubleNanOrInf(input))
+	if ((static_cast<float>(d) < std::numeric_limits<float>::max() && static_cast<float>(d) > std::numeric_limits<float>::lowest()) || isDoubleNanOrInf(input))
 		std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
 	else
 		impossible("float");
